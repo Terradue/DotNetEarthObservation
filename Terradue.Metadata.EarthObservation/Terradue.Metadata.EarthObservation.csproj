@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E084B86A-8B40-414E-95FA-760F3C6BFDCB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Terradue.Metadata.EarthObservation</RootNamespace>
+    <AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
+    <UseMSBuildEngine>False</UseMSBuildEngine>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\EarthObservation.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Sar.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Sentinel1.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Schemas\" />
+    <Folder Include="Terradue\" />
+    <Folder Include="Terradue\Metadata\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
+    <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
+  </ItemGroup>
+</Project>
