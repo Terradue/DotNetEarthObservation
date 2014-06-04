@@ -1,3 +1,5 @@
 *.userprefs
 
 /Terradue.Metadata.EarthObservation/Terradue.Metadata.EarthObservation.userprefs
+
+/Terradue.Metadata.EarthObservation/bin
