@@ -37,6 +37,8 @@ namespace Terradue.Metadata.EarthObservation {
                                 var sizeElement = result.XPathSelectElement("eop:size", EONamespaces.GetXmlNamespaceManager(result));
                                 if (sizeElement != null)
                                     long.TryParse(sizeElement.Value, out size);
+                                if (size < 0)
+                                    size = 0;
                                 item.Links.Add(new SyndicationLink(new Uri(link.Attribute(XName.Get("href", "http://www.w3.org/1999/xlink")).Value), "enclosure", "Product file", "application/x-binary", size));
                             }
                         }
