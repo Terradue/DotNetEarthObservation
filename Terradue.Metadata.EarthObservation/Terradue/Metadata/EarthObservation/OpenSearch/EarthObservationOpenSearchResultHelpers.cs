@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 namespace Terradue.Metadata.EarthObservation {
     public static class EarthObservationOpenSearchResultHelpers {
 
-        public static void RestoreEnclosure(IOpenSearchResultCollection result){
+        public static void RestoreEnclosure(IOpenSearchResultCollection result) {
             foreach (var item in result.Items) {
                 RestoreEnclosure(item);
             }
@@ -22,20 +22,20 @@ namespace Terradue.Metadata.EarthObservation {
 
 
 
-        public static void RestoreEnclosure(IOpenSearchResultItem item){
+        public static void RestoreEnclosure(IOpenSearchResultItem item) {
 
             var matchLinks = item.Links.Where(l => l.RelationshipType == "enclosure").ToArray();
             if (matchLinks.Count() == 0) {
                 foreach (var eo in item.ElementExtensions) {
                     XElement eoElement = (XElement)XElement.ReadFrom(eo.GetReader());
                     if (eoElement.Name.LocalName == "EarthObservation") {
-                        var result = eoElement.XPathSelectElement(string.Format("om:result/eop20:EarthObservationResult/eop20:product/eop20:ProductInformation", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
+                        var result = eoElement.XPathSelectElement(string.Format("om:result/eop:EarthObservationResult/eop:product/eop:ProductInformation", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
                         if (result != null) {
-                            var link = result.XPathSelectElement("eop20:fileName/ows:ServiceReference", EONamespaces.GetXmlNamespaceManager(result));
+                            var link = result.XPathSelectElement("eop:fileName/ows:ServiceReference", EONamespaces.GetXmlNamespaceManager(result));
                             if (link != null && link.Attribute(XName.Get("href", "http://www.w3.org/1999/xlink")) != null) {
                                 long size = 0;
-                                var sizeElement = result.XPathSelectElement("eop20:size", EONamespaces.GetXmlNamespaceManager(result));
-                                if ( sizeElement != null )
+                                var sizeElement = result.XPathSelectElement("eop:size", EONamespaces.GetXmlNamespaceManager(result));
+                                if (sizeElement != null)
                                     long.TryParse(sizeElement.Value, out size);
                                 item.Links.Add(new SyndicationLink(new Uri(link.Attribute(XName.Get("href", "http://www.w3.org/1999/xlink")).Value), "enclosure", "Product file", "application/x-binary", size));
                             }
@@ -45,7 +45,7 @@ namespace Terradue.Metadata.EarthObservation {
             }
         }
 
-        public static void RestoreIdentifier(IOpenSearchResultCollection result){
+        public static void RestoreIdentifier(IOpenSearchResultCollection result) {
             foreach (var item in result.Items) {
                 RestoreIdentifier(item);
             }
@@ -57,7 +57,7 @@ namespace Terradue.Metadata.EarthObservation {
                 foreach (var eo in item.ElementExtensions.ToList()) {
                     XElement eoElement = (XElement)XElement.ReadFrom(eo.GetReader());
                     if (eoElement.Name.LocalName == "EarthObservation") {
-                        var result = eoElement.XPathSelectElement(string.Format("eop20:metaDataProperty/eop20:EarthObservationMetaData/eop20:identifier", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
+                        var result = eoElement.XPathSelectElement(string.Format("eop:metaDataProperty/eop:EarthObservationMetaData/eop:identifier", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
                         if (result != null) {
                             XElement identifier = new XElement(XName.Get("identifier", "http://purl.org/dc/elements/1.1/"), result.Value);
                             item.ElementExtensions.Add(identifier.CreateReader());
@@ -104,7 +104,7 @@ namespace Terradue.Metadata.EarthObservation {
             }
         }
 
-        public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId){
+        public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {
 
             string xpath;
 
@@ -116,34 +116,40 @@ namespace Terradue.Metadata.EarthObservation {
                     case "http://www.opengis.net/sar/2.0":
                         xpath = SarEarthObservationSchema()[attributeId];
                         break;
+                    case "http://www.opengis.net/opt/2.0":
+                        xpath = OptEarthObservationSchema()[attributeId];
+                        break;
+                    case "http://www.opengis.net/alt/2.0":
+                        xpath = AltEarthObservationSchema()[attributeId];
+                        break;
                     default:
                         return null;
                 }
-            }catch ( KeyNotFoundException ) {
+            } catch (KeyNotFoundException) {
                 return null;
             }
 
             XmlNamespaceManager xnsm = new XmlNamespaceManager(elem.OwnerDocument.NameTable);
-            xnsm.AddNamespace("om", "http://www.opengis.net/om/2.0");
-            xnsm.AddNamespace("eop", "http://www.opengis.net/eop/2.0");
-            xnsm.AddNamespace("alt", "http://www.opengis.net/alt/2.0");
-            xnsm.AddNamespace("sar", "http://www.opengis.net/sar/2.0");
-            xnsm.AddNamespace("opt", "http://www.opengis.net/opt/2.0");
+            var namespaces = EONamespaces.TypeNamespaces;
+            foreach (var key in namespaces.AllKeys) {
+                xnsm.AddNamespace(namespaces[key], key);
+            }
             return elem.SelectSingleNode(xpath, xnsm);
 
         }
 
-        public static string FindValueByAttributeId(XmlElement elem, string attributeId){
+        public static string FindValueByAttributeId(XmlElement elem, string attributeId) {
 
             XmlNode node = FindNodeByAttributeId(elem, attributeId);
 
-            if (node == null) return null;
+            if (node == null)
+                return null;
 
             return node.InnerText;
 
         }
 
-        public static Dictionary<string, string> EopEarthObservationSchema () {
+        public static Dictionary<string, string> EopEarthObservationSchema() {
 
             Dictionary<string, string> dic = EopEarthObservation();
             EopEarthObservationEquipmentSchema().FirstOrDefault(kvp => {
@@ -167,12 +173,12 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static Dictionary<string, string> OptEarthObservationSchema () {
+        public static Dictionary<string, string> OptEarthObservationSchema() {
 
             Dictionary<string, string> dic = EopEarthObservationSchema();
             OptEarthObservation().FirstOrDefault(kvp => {
                 dic.Remove(kvp.Key);
-                dic.Add( kvp.Key , kvp.Value);
+                dic.Add(kvp.Key, kvp.Value);
                 return false;
             });
 
@@ -180,12 +186,26 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static Dictionary<string, string> SarEarthObservationSchema () {
+        public static Dictionary<string, string> AltEarthObservationSchema() {
+
+            Dictionary<string, string> dic = EopEarthObservationSchema();
+            AltEarthObservation().FirstOrDefault(kvp => {
+                dic.Remove(kvp.Key);
+                dic.Add(kvp.Key, kvp.Value);
+                return false;
+            });
+
+            return dic;
+
+        }
+
+
+        public static Dictionary<string, string> SarEarthObservationSchema() {
 
             Dictionary<string, string> dic = EopEarthObservationSchema();
             SarEarthObservation().FirstOrDefault(kvp => {
                 dic.Remove(kvp.Key);
-                dic.Add( kvp.Key , kvp.Value);
+                dic.Add(kvp.Key, kvp.Value);
                 return false;
             });
 
@@ -199,7 +219,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static Dictionary<string, string> EopEarthObservationEquipmentSchema () {
+        public static Dictionary<string, string> EopEarthObservationEquipmentSchema() {
 
             Dictionary<string, string> dic = EopEarthObservationEquipment();
             EopAcquisition().FirstOrDefault(kvp => {
@@ -211,7 +231,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static Dictionary<string, string> EopEarthObservationResultSchema () {
+        public static Dictionary<string, string> EopEarthObservationResultSchema() {
 
             Dictionary<string, string> dic = EopEarthObservationResult();
             EopProductInformation().FirstOrDefault(kvp => {
@@ -223,7 +243,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static Dictionary<string, string> EopEarthObservationMetaDataSchema () {
+        public static Dictionary<string, string> EopEarthObservationMetaDataSchema() {
 
             Dictionary<string, string> dic = EopEarthObservationMetaData();
             EopProcessingInformation().FirstOrDefault(kvp => {
@@ -236,18 +256,18 @@ namespace Terradue.Metadata.EarthObservation {
         }
 
 
-        public static Dictionary<string, string> EopEarthObservation(){
+        public static Dictionary<string, string> EopEarthObservation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
-            dic.Add("beginAcquisition", "om:phenomenonTime/gml:TimePeriod/gml:beginPosition");
-            dic.Add("endAcquisition", "om:phenomenonTime/gml:TimePeriod/gml:endPosition");
-            dic.Add("availabilityTime", "om:resultTime/gml:TimeInstant/gml:timePosition");
+            dic.Add("beginAcquisition", "om:phenomenonTime/gml32:TimePeriod/gml32:beginPosition");
+            dic.Add("endAcquisition", "om:phenomenonTime/gml32:TimePeriod/gml32:endPosition");
+            dic.Add("availabilityTime", "om:resultTime/gml32:TimeInstant/gml32:timePosition");
 
             return dic;
         }
 
-        public static Dictionary<string, string> EopEarthObservationEquipment(){
+        public static Dictionary<string, string> EopEarthObservationEquipment() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -261,7 +281,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> EopAcquisition (){
+        public static Dictionary<string, string> EopAcquisition() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -278,7 +298,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> EopFootprint (){
+        public static Dictionary<string, string> EopFootprint() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -287,14 +307,14 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> EopEarthObservationResult  (){
+        public static Dictionary<string, string> EopEarthObservationResult() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
             return dic;
         }
 
-        public static Dictionary<string, string> EopProductInformation (){
+        public static Dictionary<string, string> EopProductInformation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -305,7 +325,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> EopEarthObservationMetaData (){
+        public static Dictionary<string, string> EopEarthObservationMetaData() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -325,7 +345,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> EopProcessingInformation (){
+        public static Dictionary<string, string> EopProcessingInformation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -335,7 +355,7 @@ namespace Terradue.Metadata.EarthObservation {
         }
 
 
-        public static Dictionary<string, string> OptEarthObservation(){
+        public static Dictionary<string, string> OptEarthObservation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -346,7 +366,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> SarEarthObservation(){
+        public static Dictionary<string, string> SarEarthObservation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -355,7 +375,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> SarAcquisition (){
+        public static Dictionary<string, string> SarAcquisition() {
 
             Dictionary<string, string> dic = EopAcquisition();
 
@@ -370,7 +390,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> AltEarthObservation(){
+        public static Dictionary<string, string> AltEarthObservation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -379,7 +399,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> AltEarthObservationEquipment(){
+        public static Dictionary<string, string> AltEarthObservationEquipment() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -388,7 +408,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> AltFootprint(){
+        public static Dictionary<string, string> AltFootprint() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -397,7 +417,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> LmbEarthObservation(){
+        public static Dictionary<string, string> LmbEarthObservation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -406,7 +426,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> LmbFootprint(){
+        public static Dictionary<string, string> LmbFootprint() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -416,7 +436,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> LmbSensor(){
+        public static Dictionary<string, string> LmbSensor() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -425,7 +445,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> AtmEarthObservation(){
+        public static Dictionary<string, string> AtmEarthObservation() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -436,7 +456,7 @@ namespace Terradue.Metadata.EarthObservation {
             return dic;
         }
 
-        public static Dictionary<string, string> AtmAcquisition (){
+        public static Dictionary<string, string> AtmAcquisition() {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
@@ -455,12 +475,15 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static string EntrySelfLinkTemplate(string identifier, OpenSearchDescription osd, string mimeType) {
 
-            if (identifier == null) return null;
-            NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd,mimeType));
+            if (identifier == null)
+                return null;
+            NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType));
             nvc.AllKeys.FirstOrDefault(k => {
-                if (nvc[k] == "{geo:uid?}") nvc[k]=identifier;
+                if (nvc[k] == "{geo:uid?}")
+                    nvc[k] = identifier;
                 Match matchParamDef = Regex.Match(nvc[k], @"^{([^?]+)\??}$");
-                if (matchParamDef.Success) nvc.Remove(k);
+                if (matchParamDef.Success)
+                    nvc.Remove(k);
                 return false;
             });
             UriBuilder template = new UriBuilder(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType).Template);

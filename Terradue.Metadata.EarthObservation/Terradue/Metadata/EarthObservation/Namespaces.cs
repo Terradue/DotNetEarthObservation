@@ -12,10 +12,10 @@ namespace Terradue.Metadata.EarthObservation {
                 nvc.Set("http://www.opengis.net/sar/2.1", "sar21");
                 nvc.Set("http://www.opengis.net/eop/2.1", "eop21");
                 nvc.Set("http://www.opengis.net/opt/2.1", "opt21");
-                nvc.Set("http://www.opengis.net/sar/2.0", "sar20");
-                nvc.Set("http://www.opengis.net/eop/2.0", "eop20");
-                nvc.Set("http://www.opengis.net/opt/2.0", "opt20");
-                nvc.Set("http://www.opengis.net/alt/2.0", "alt20");
+                nvc.Set("http://www.opengis.net/sar/2.0", "sar");
+                nvc.Set("http://www.opengis.net/eop/2.0", "eop");
+                nvc.Set("http://www.opengis.net/opt/2.0", "opt");
+                nvc.Set("http://www.opengis.net/alt/2.0", "alt");
                 nvc.Set("http://www.opengis.net/gml", "gml");
                 nvc.Set("http://www.w3.org/2001/SMIL20/", "smil20");
                 nvc.Set("http://www.w3.org/2001/SMIL20/Language", "lang");
