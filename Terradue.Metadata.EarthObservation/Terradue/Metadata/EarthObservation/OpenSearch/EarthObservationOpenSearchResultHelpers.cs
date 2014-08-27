@@ -106,6 +106,47 @@ namespace Terradue.Metadata.EarthObservation {
             }
         }
 
+        public static void RestoreValidTime(IOpenSearchResultCollection result) {
+
+            foreach (var item in result.Items) {
+                RestoreValidTime(item);
+            }
+
+        }
+
+        public static void RestoreValidTime(IOpenSearchResultItem item) {
+
+            if (item.ElementExtensions.ReadElementExtensions<XmlNode>("validTime", "http://www.opengis.net/gml/3.2").Count == 0) {
+                foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+                    XmlReader reader;
+                    try {
+                        reader = ext.GetReader();
+                    } catch {
+                        return;
+                    }
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(reader);
+                    foreach (XmlNode node in doc.ChildNodes) {
+                        if (node.LocalName == "EarthObservation") {
+                            XmlNode begin = FindNodeByAttributeId((XmlElement)node, "beginAcquisition");
+                            XmlNode end = FindNodeByAttributeId((XmlElement)node, "endAcquisition");
+                            if (end != null && begin != null) {
+                                XmlElement TimePeriod = doc.CreateElement("TimePeriod", "http://www.opengis.net/gml/3.2");
+                                XmlElement beginAcquisition = doc.CreateElement("beginAcquisition", "http://www.opengis.net/gml/3.2");
+                                beginAcquisition.InnerXml = begin.InnerXml;
+                                XmlElement endAcquisition = doc.CreateElement("endAcquisition", "http://www.opengis.net/gml/3.2");
+                                endAcquisition.InnerXml = end.InnerXml;
+                                TimePeriod.AppendChild(beginAcquisition);
+                                TimePeriod.AppendChild(endAcquisition);
+
+                                item.ElementExtensions.Add("validTime", "http://www.opengis.net/gml/3.2", TimePeriod);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {
 
             string xpath;

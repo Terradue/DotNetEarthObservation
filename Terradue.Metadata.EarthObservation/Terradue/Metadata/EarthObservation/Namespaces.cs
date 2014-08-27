@@ -28,6 +28,7 @@ namespace Terradue.Metadata.EarthObservation {
                 nvc.Set("http://www.w3.org/2002/12/cal/ical#", "ical");
                 nvc.Set("http://www.opengis.net/ows/2.0", "ows");
                 nvc.Set("http://purl.org/dc/elements/1.1/", "dc");
+                nvc.Set("http://www.georss.org/georss", "georss");
 
                 return nvc;
             }
