@@ -20,26 +20,94 @@ namespace Terradue.Metadata.EarthObservation {
             }
         }
 
+        public static string GetDefaultIdFromParamName(string id) {
+            Dictionary<string,string> osdic = new Dictionary<string, string>();
 
+            string value = OpenSearchFactory.ReverseTemplateOpenSearchParameters(OpenSearchFactory.GetBaseOpenSearchParameter())[id];
+            if (!string.IsNullOrEmpty(value)) return value;
+
+            osdic.Add("time:start", "start");
+            osdic.Add("time:end", "stop");
+            osdic.Add("geo:box", "bbox");
+            osdic.Add("geo:uid", "id");
+            osdic.Add("geo:geometry", "geom");
+            osdic.Add("geo:lat", "lat");
+            osdic.Add("geo:lon", "lon");
+            osdic.Add("geo:radius", "radius");
+            osdic.Add("geo:relation", "rel");
+            osdic.Add("geo:name", "loc");
+            osdic.Add("cseop:timePosition", "tp");
+            osdic.Add("cseop:platformShortName", "psn");
+            osdic.Add("cseop:platformSerialIdentifier", "psi");
+            osdic.Add("cseop:instrumentShortName", "isn");
+            osdic.Add("cseop:sensorType", "st");
+            osdic.Add("cseop:sensorOperationalMode", "som");
+            osdic.Add("cseop:swathIdentifier", "si");
+            osdic.Add("cseop:orbitNumber", "on");
+            osdic.Add("cseop:orbitDirection", "od");
+            osdic.Add("cseop:wrsLongitudeGrid", "wlog");
+            osdic.Add("cseop:wrsLatitudeGrid", "wlag");
+            osdic.Add("cseop:anxStart", "axsa");
+            osdic.Add("cseop:anxStop", "axso");
+            osdic.Add("cseop:anxIllZen", "ailz");
+            osdic.Add("cseop:illuminationAzimuthAngle", "iaa");
+            osdic.Add("cseop:illuminationElevationAngle", "iea");
+            osdic.Add("cseop:fileName", "fn");
+            osdic.Add("cseop:size", "size");
+            osdic.Add("cseop:timeliness", "tl");
+            osdic.Add("cseop:identifier", "id");
+            osdic.Add("cseop:acquisitionType", "at");
+            osdic.Add("cseop:productType", "pt");
+            osdic.Add("cseop:status", "status");
+            osdic.Add("cseop:asut", "asut");
+            osdic.Add("cseop:imageQualityDegradation", "iqd");
+            osdic.Add("cseop:imageQualityStatus", "iqs");
+            osdic.Add("cseop:imageQualityDegradationTag", "iqdt");
+            osdic.Add("cseop:imageQualityReportURL", "iqru");
+            osdic.Add("cseop:productGroupId", "pgrpi");
+            osdic.Add("cseop:localAttribute", "locatt");
+            osdic.Add("cseop:processingMode", "procm");
+
+            if (osdic.ContainsKey(id)) return osdic[id];
+
+            return null;
+        }
 
         public static void RestoreEnclosure(IOpenSearchResultItem item) {
 
             var matchLinks = item.Links.Where(l => l.RelationshipType == "enclosure").ToArray();
             if (matchLinks.Count() == 0) {
-                foreach (var eo in item.ElementExtensions) {
-                    XElement eoElement = (XElement)XElement.ReadFrom(eo.GetReader());
-                    if (eoElement.Name.LocalName == "EarthObservation") {
-                        var result = eoElement.XPathSelectElement(string.Format("om:result/eop:EarthObservationResult/eop:product/eop:ProductInformation", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
-                        if (result != null) {
-                            var link = result.XPathSelectElement("eop:fileName/ows:ServiceReference", EONamespaces.GetXmlNamespaceManager(result));
-                            if (link != null && link.Attribute(XName.Get("href", "http://www.w3.org/1999/xlink")) != null) {
-                                long size = 0;
-                                var sizeElement = result.XPathSelectElement("eop:size", EONamespaces.GetXmlNamespaceManager(result));
-                                if (sizeElement != null)
-                                    long.TryParse(sizeElement.Value, out size);
-                                if (size < 0)
-                                    size = 0;
-                                item.Links.Add(new SyndicationLink(new Uri(link.Attribute(XName.Get("href", "http://www.w3.org/1999/xlink")).Value), "enclosure", "Product file", "application/x-binary", size));
+                XmlElement masterEO = null;
+                foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+                    XmlDocument doc = ElementExtensionToXmlDocument(ext);
+                    if (doc == null) continue;
+                    foreach (XmlNode node in doc.ChildNodes) {
+                        if (node.LocalName == "sourceProducts") {
+                            masterEO = (XmlElement)node;
+                            foreach (XmlElement subEo in masterEO.ChildNodes) {
+                                var uri = FindValueByAttributeId(subEo, "productURI");
+                                if (uri != null) {
+                                    if (uri != null) {
+                                        long size = 0;
+                                        var sizeElement = FindValueByAttributeId(subEo, "productSize");
+                                        if (sizeElement != null) long.TryParse(sizeElement, out size);
+                                        if (size < 0) size = 0;
+                                        item.Links.Add(new SyndicationLink(new Uri(uri), "enclosure", "Product file", "application/x-binary", size));
+                                    }
+                                }
+                            }
+                        }
+                        if (node.LocalName == "EarthObservation") {
+                            masterEO = (XmlElement)node;
+                            var uri = FindValueByAttributeId(masterEO, "productURI");
+                            if (uri != null) {
+                                if (uri != null) {
+                                    long size = 0;
+                                    var sizeElement = FindValueByAttributeId(masterEO, "productSize");
+                                    if (sizeElement != null) long.TryParse(sizeElement, out size);
+                                    if (size < 0) size = 0;
+                                    item.Links.Add(new SyndicationLink(new Uri(uri), "enclosure", "Product file", "application/x-binary", size));
+                                }
                             }
                         }
                     }
@@ -219,11 +287,17 @@ namespace Terradue.Metadata.EarthObservation {
         public static Dictionary<string, string> OptEarthObservationSchema() {
 
             Dictionary<string, string> dic = EopEarthObservationSchema();
+            EopEarthObservationResultSchema().FirstOrDefault(kvp => {
+                dic.Remove(kvp.Key);
+                dic.Add(kvp.Key, "om:result/opt:EarthObservationResult/" + kvp.Value);
+                return false;
+            });
             OptEarthObservation().FirstOrDefault(kvp => {
                 dic.Remove(kvp.Key);
                 dic.Add(kvp.Key, kvp.Value);
                 return false;
             });
+
 
             return dic;
 
@@ -361,7 +435,7 @@ namespace Terradue.Metadata.EarthObservation {
 
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
-            dic.Add("productURI", "eop:filename/ows:ServiceReference/@xlink:href");
+            dic.Add("productURI", "eop:fileName/ows:ServiceReference/@xlink:href");
             dic.Add("productVersion", "eop:version");
             dic.Add("productSize", "eop:size");
 
@@ -511,22 +585,50 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static string EntrySelfLinkTemplate(IOpenSearchResultItem item, OpenSearchDescription osd, string mimeType) {
 
+            if (item == null) return null;
+
             string identifier = item.Identifier;
-            return EntrySelfLinkTemplate(identifier, osd, mimeType);
+            string productGroupId = "";
+            string start = "";
+            string stop = "";
 
-        }
 
-        public static string EntrySelfLinkTemplate(string identifier, OpenSearchDescription osd, string mimeType) {
+            XmlElement masterEO = null;
+            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+                XmlDocument doc = ElementExtensionToXmlDocument(ext);
+                if (doc == null) continue;
+                foreach (XmlNode node in doc.ChildNodes) {
+                    if (node.LocalName == "EarthObservation") {
+                        masterEO = (XmlElement)node;
+                    }
+                }
+            }
+            if (masterEO == null) throw new InvalidOperationException("No EarthObservation element found in master product to find the identifier");
 
-            if (identifier == null)
-                return null;
-            NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType));
+            productGroupId = FindValueByAttributeId(masterEO, "productGroupId");
+
+            if (!string.IsNullOrEmpty(productGroupId)) {
+                identifier = "";
+                start = FindValueByAttributeId(masterEO, "beginAcquisition");
+                stop = FindValueByAttributeId(masterEO, "endAcquisition");
+            }
+
+            NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd,mimeType));
             nvc.AllKeys.FirstOrDefault(k => {
-                if (nvc[k] == "{geo:uid?}")
-                    nvc[k] = identifier;
+                if (nvc[k] == "{geo:uid?}" && !string.IsNullOrEmpty(identifier)) {
+                    nvc[k]=item.Identifier;
+                }
+                if (nvc[k] == "{cseop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
+                    nvc[k]=productGroupId;
+                }
+                if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(productGroupId)) {
+                    nvc[k]=start;
+                }
+                if (nvc[k] == "{time:end?}" && !string.IsNullOrEmpty(productGroupId)) {
+                    nvc[k]=stop;
+                }
                 Match matchParamDef = Regex.Match(nvc[k], @"^{([^?]+)\??}$");
-                if (matchParamDef.Success)
-                    nvc.Remove(k);
+                if (matchParamDef.Success) nvc.Remove(k);
                 return false;
             });
             UriBuilder template = new UriBuilder(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType).Template);
@@ -535,6 +637,19 @@ namespace Terradue.Metadata.EarthObservation {
             return template.ToString();
 
         }
+
+        public static XmlDocument ElementExtensionToXmlDocument(SyndicationElementExtension ext){
+            XmlReader reader;
+            try {
+                reader = ext.GetReader();
+            } catch {
+                return null;
+            }
+            XmlDocument doc = new XmlDocument();
+            doc.Load(reader);
+            return doc;
+        }
+
     }
 
 }
