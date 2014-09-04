@@ -148,7 +148,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static void RestoreGeoRss(IOpenSearchResultItem item) {
 
-            if (item.ElementExtensions.ReadElementExtensions<XmlNode>("where", "http://www.georss.org/georss").Count == 0) {
+            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss").Count == 0) {
                 foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
                     XmlReader reader;
                     try {
