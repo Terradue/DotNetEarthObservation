@@ -47,8 +47,10 @@ This component implements those interfaces
 */
 using Terradue.ServiceModel.Syndication;
 using Terradue.Metadata.EarthObservation;
+using Terradue.OpenSearch.Filters;
+using Terradue.OpenSearch;
 
-namespace Terradue.OpenSearch.Filters {
+namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
     public class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter {
         public OpenSearchInterferometryFilter(OpenSearchEngine ose, IOpenSearchableFactory factory) : base(ose, factory) {
 
