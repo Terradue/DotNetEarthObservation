@@ -13,7 +13,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>bin</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -22,7 +22,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>bin</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -33,13 +33,13 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Terradue.ServiceModel.Syndication">
-      <HintPath>packages\Terradue.ServiceModel.Syndication.1.0.0.0\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
+      <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.0.0\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
     </Reference>
     <Reference Include="Terradue.OpenSearch">
-      <HintPath>packages\Terradue.OpenSearch.1.7.0.1\lib\net40\Terradue.OpenSearch.dll</HintPath>
+      <HintPath>..\packages\Terradue.OpenSearch.1.7.0.1\lib\net40\Terradue.OpenSearch.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -47,7 +47,6 @@
     <Compile Include="Terradue\Metadata\EarthObservation\Sar.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Sentinel1.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -61,5 +60,6 @@
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
     <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
     <None Include="packages.config" />
+    <None Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
   </ItemGroup>
 </Project>

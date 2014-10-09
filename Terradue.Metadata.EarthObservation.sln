@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObservation", "Terradue.Metadata.EarthObservation.csproj", "{E084B86A-8B40-414E-95FA-760F3C6BFDCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObservation", "Terradue.Metadata.EarthObservation\Terradue.Metadata.EarthObservation.csproj", "{E084B86A-8B40-414E-95FA-760F3C6BFDCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,6 @@ Global
 		{E084B86A-8B40-414E-95FA-760F3C6BFDCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Terradue.Metadata.EarthObservation.csproj
+		StartupItem = Terradue.Metadata.EarthObservation\Terradue.Metadata.EarthObservation.csproj
 	EndGlobalSection
 EndGlobal

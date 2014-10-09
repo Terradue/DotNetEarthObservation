@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Terradue.Metadata.EarthObservation</id>
+    <version>1.0.0</version>
+    <title>Terradue.Metadata.EarthObservation</title>
+    <authors>Terradue</authors>
+    <projectUrl>https://github.com/Terradue/DotNetEarthObservation</projectUrl>
+    <licenseUrl>https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Terradue.Metadata.EarthObservation is a .Net C# library implementing the Earth Observation Metadata profile of Observations and Measurements</description>
+    <summary>Earth Observation Metadata library for .Net</summary>
+    <dependencies>
+      <dependency id="Terradue.OpenSearch" version="[1.7.0,1.8)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll" target="lib/net40/Terradue.Metadata.EarthObservation.dll" />
+  </files>
+
+</package>
