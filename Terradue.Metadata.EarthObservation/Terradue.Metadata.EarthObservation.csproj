@@ -48,6 +48,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\Sentinel1.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -60,6 +61,5 @@
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
     <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
     <None Include="packages.config" />
-    <None Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
   </ItemGroup>
 </Project>
