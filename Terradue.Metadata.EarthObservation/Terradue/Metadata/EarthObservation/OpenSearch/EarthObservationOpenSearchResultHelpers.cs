@@ -68,6 +68,7 @@ namespace Terradue.Metadata.EarthObservation {
             osdic.Add("cseop:productGroupId", "pgrpi");
             osdic.Add("cseop:localAttribute", "locatt");
             osdic.Add("cseop:processingMode", "procm");
+            osdic.Add("cs:lastAssocDate", "lastAssocDate");
 
             if (osdic.ContainsKey(id))
                 return osdic[id];
