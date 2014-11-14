@@ -9,13 +9,20 @@ namespace Terradue.Metadata.EarthObservation {
         public static NameValueCollection TypeNamespaces {
             get {
                 NameValueCollection nvc = new NameValueCollection();
-                nvc.Set("http://www.opengis.net/sar/2.1", "sar21");
-                nvc.Set("http://www.opengis.net/eop/2.1", "eop21");
-                nvc.Set("http://www.opengis.net/opt/2.1", "opt21");
                 nvc.Set("http://www.opengis.net/sar/2.0", "sar");
                 nvc.Set("http://www.opengis.net/eop/2.0", "eop");
                 nvc.Set("http://www.opengis.net/opt/2.0", "opt");
+                nvc.Set("http://www.opengis.net/atm/2.0", "atm");
+                nvc.Set("http://www.opengis.net/lmb/2.0", "lmb");
                 nvc.Set("http://www.opengis.net/alt/2.0", "alt");
+                nvc.Set("http://www.opengis.net/ssp/2.0", "ssp");
+                nvc.Set("http://www.opengis.net/sar/2.1", "sar21");
+                nvc.Set("http://www.opengis.net/eop/2.1", "eop21");
+                nvc.Set("http://www.opengis.net/opt/2.1", "opt21");
+                nvc.Set("http://www.opengis.net/atm/2.1", "atm21");
+                nvc.Set("http://www.opengis.net/lmb/2.1", "lmb21");
+                nvc.Set("http://www.opengis.net/alt/2.1", "alt21");
+                nvc.Set("http://www.opengis.net/ssp/2.1", "ssp21");
                 nvc.Set("http://www.opengis.net/gml", "gml");
                 nvc.Set("http://www.w3.org/2001/SMIL20/", "smil20");
                 nvc.Set("http://www.w3.org/2001/SMIL20/Language", "lang");
@@ -29,6 +36,11 @@ namespace Terradue.Metadata.EarthObservation {
                 nvc.Set("http://www.opengis.net/ows/2.0", "ows");
                 nvc.Set("http://purl.org/dc/elements/1.1/", "dc");
                 nvc.Set("http://www.georss.org/georss", "georss");
+                nvc.Set("http://a9.com/-/opensearch/extensions/eo/1.0/", "eo");
+                nvc.Set("http://a9.com/-/opensearch/extensions/geo/1.0/", "geo");
+                nvc.Set("http://a9.com/-/opensearch/extensions/time/1.0/", "time");
+                nvc.Set("http://a9.com/-/opensearch/extensions/param/1.0/", "param");
+                nvc.Set("http://a9.com/-/spec/opensearch/1.1/", "os");
 
                 return nvc;
             }
