@@ -155,7 +155,7 @@ namespace Terradue.Metadata.EarthObservation {
                             title += " " + endAcquisition.InnerText;
                         }
                         if (!string.IsNullOrEmpty(title))
-                            item.Title = title;
+                            item.Title = new TextSyndicationContent(title);
                     }
                 }
             }
