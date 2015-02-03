@@ -693,7 +693,6 @@ namespace Terradue.Metadata.EarthObservation {
             doc.Load(reader);
             return doc;
         }
-
     }
 
 }

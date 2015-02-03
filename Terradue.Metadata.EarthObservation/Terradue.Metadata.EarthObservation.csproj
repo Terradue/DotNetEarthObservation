@@ -40,6 +40,12 @@
     <Reference Include="Terradue.OpenSearch">
       <HintPath>..\packages\Terradue.OpenSearch.1.8.4\lib\net40\Terradue.OpenSearch.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.GeoJson">
+      <HintPath>..\packages\Terradue.GeoJson.1.4.7\lib\net40\Terradue.GeoJson.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +55,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchMetadataHelpers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -40,18 +40,34 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.GeoJson">
+      <HintPath>..\packages\Terradue.GeoJson.1.4.7\lib\net40\Terradue.GeoJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.OpenSearch.RdfEO">
+      <HintPath>..\packages\Terradue.OpenSearch.RdfEO.1.1.1\lib\net40\Terradue.OpenSearch.RdfEO.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
+    <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Geometry.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Samples\search_s2.xml" />
     <None Include="Samples\S2_OSDD.xml" />
+    <None Include="Samples\rdf.xml" />
+    <None Include="Samples\atom.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
+    <Folder Include="Terradue\" />
+    <Folder Include="Terradue\Metadata\" />
+    <Folder Include="Terradue\Metadata\EartthObservation\" />
+    <Folder Include="Terradue\Metadata\EartthObservation\OpenSearch\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Terradue.Metadata.EarthObservation\Terradue.Metadata.EarthObservation.csproj">
