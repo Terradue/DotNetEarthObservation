@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Test.cs" />
     <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Geometry.cs" />
+    <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Metadata.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

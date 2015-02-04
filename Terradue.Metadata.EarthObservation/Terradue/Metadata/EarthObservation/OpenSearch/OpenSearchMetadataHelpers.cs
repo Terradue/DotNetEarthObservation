@@ -5,6 +5,8 @@ using System.Xml;
 using Terradue.ServiceModel.Syndication;
 using System.Linq;
 using Terradue.GeoJson.Feature;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class OpenSearchMetadataHelpers {
@@ -79,6 +81,26 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     }
                 }
             }
+            return null;
+
+        }
+
+        public static string FindIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item ){
+
+            var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
+            if (elements.Count > 0)
+                return elements[0];
+
+            foreach (var eo in item.ElementExtensions.ToList()) {
+                XElement eoElement = (XElement)XElement.ReadFrom(eo.GetReader());
+                if (eoElement.Name.LocalName == "EarthObservation") {
+                    var result = eoElement.XPathSelectElement(string.Format("eop:metaDataProperty/eop:EarthObservationMetaData/eop:identifier", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
+                    if (result != null) {
+                        return result.Value;
+                    }
+                }
+            }
+
             return null;
 
         }
