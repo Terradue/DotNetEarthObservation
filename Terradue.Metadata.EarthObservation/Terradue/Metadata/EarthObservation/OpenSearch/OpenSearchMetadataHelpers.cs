@@ -101,6 +101,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 }
             }
 
+            elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "");
+            if (elements.Count > 0)
+                return elements[0];
+
             return null;
 
         }
