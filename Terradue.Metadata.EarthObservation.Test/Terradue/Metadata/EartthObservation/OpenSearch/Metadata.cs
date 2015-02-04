@@ -9,6 +9,7 @@ using Terradue.OpenSearch.Schema;
 using System.Linq;
 using Terradue.Metadata.EarthObservation.OpenSearch;
 using Terradue.GeoJson.Geometry;
+using Terradue.OpenSearch.GeoJson.Result;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -53,6 +54,17 @@ namespace Terradue.Metadata.EarthObservation.Test {
             var identifier = OpenSearchMetadataHelpers.FindIdentifierFromOpenSearchResultItem(afeed.Items.First());
 
             Assert.AreEqual("S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F", identifier);
+
+        }
+
+        [Test()]
+        public void FindFromGeoJson() {
+
+            var feed = FeatureCollectionResult.DeserializeFromStream(new FileStream("../Samples/S1.json", FileMode.Open, FileAccess.Read));
+
+            var identifier = OpenSearchMetadataHelpers.FindIdentifierFromOpenSearchResultItem(feed.Items.First());
+
+            Assert.AreEqual("S1A_IW_SLC__1SDV_20150124T165611_20150124T165638_004316_005423_20AC", identifier);
 
         }
     }

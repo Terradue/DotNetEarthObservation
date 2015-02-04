@@ -49,6 +49,9 @@
     <Reference Include="Terradue.OpenSearch.RdfEO">
       <HintPath>..\packages\Terradue.OpenSearch.RdfEO.1.1.1\lib\net40\Terradue.OpenSearch.RdfEO.dll</HintPath>
     </Reference>
+    <Reference Include="Terradue.OpenSearch.GeoJson">
+      <HintPath>..\packages\Terradue.OpenSearch.GeoJson.1.1.7\lib\net40\Terradue.OpenSearch.GeoJson.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
@@ -62,6 +65,7 @@
     <None Include="Samples\S2_OSDD.xml" />
     <None Include="Samples\rdf.xml" />
     <None Include="Samples\atom.xml" />
+    <None Include="Samples\S1.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
