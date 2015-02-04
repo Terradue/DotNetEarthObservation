@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mstns:OpenSearchDescription xmlns:mstns="http://a9.com/-/spec/opensearch/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://a9.com/-/spec/opensearch/1.1/ ../templates/OpenSearch.xsd">
+  <mstns:ShortName>ngEOCatalogue</mstns:ShortName>
+  <mstns:Description>Catalogue allowing to search EO Products</mstns:Description>
+  <mstns:Url type="application/atom+xml" template="http://192.168.4.42/ngEOCatalogue/eoproduct/S2MSI0?q={searchTerm}&amp;count={count}&amp;startIndex={startIndex?}&amp;startPage={startPage?}&amp;language={language?}&amp;inputEncoding={inputEncoding?}&amp;outputEncoding={outputEncoding?}&amp;bbox={geo:box?}&amp;geom={geo:geometry?}&amp;id={geo:uid?}&amp;lat={geo:lat?}&amp;lon={geo:lon?}&amp;radius={geo:radius?}&amp;rel={geo:relation?}&amp;loc={geo:name&amp;}&amp;enableSourceproduct={enableSourceproduct?}&amp;startdate={time:start?}&amp;stopdate={time:end?}&amp;&amp;tp={cseop:timePosition?}&amp;psn={cseop:platformShortName?}&amp;psi={cseop:platformSerialIdentifier?}&amp;ot={cseop:orbitType?}&amp;isn={cseop:instrumentShortName?}&amp;st={cseop:sensorType?}&amp;som={cseop:sensorOperationalMode?}&amp;si={cseop:swathIdentifier?}&amp;on={cseop:orbitNumber?}&amp;iqs={cseop:imageQualityStatus?}&amp;od={cseop:orbitDirection?}&amp;wlog={cseop:wrsLongitudeGrid?}&amp;wlag={cseop:wrsLatitudeGrid?}&amp;axsa={cseop:anxStart?}&amp;axso={cseop:anxStop?}&amp;ailz={cseop:anxIllZen?}&amp;iaa={cseop:illuminationAzimuthAngle?}&amp;iea={cseop:illuminationElevationAngle?}&amp;fn={cseop:fileName?}&amp;size={cseop:size?}&amp;tl={cseop:timeliness?}&amp;at={cseop:acquisitionType?}&amp;pt={cseop:productType?}&amp;status={cseop:status?}&amp;asut={cseop:asut?}&amp;iqdt={cseop:imageQualityDegradationTag?}&amp;iqru={cseop:imageQualityReportURL?}&amp;pgrpi={cseop:productGroupId?}&amp;locatt={cseop:localAttribute?}&amp;procm={cseop:processingMode?}&amp;optccp={opt:cloudCoverPercentage?}"/>
+  <mstns:SyndicationRight>open</mstns:SyndicationRight>
+  <mstns:AdultContent>false</mstns:AdultContent>
+  <mstns:Language>*</mstns:Language>
+  <mstns:InputEncoding>UTF-8</mstns:InputEncoding>
+  <mstns:OutputEncoding>UTF-8</mstns:OutputEncoding>
+</mstns:OpenSearchDescription>
