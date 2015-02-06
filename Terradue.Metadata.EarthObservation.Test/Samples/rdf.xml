@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eop="http://www.genesi-dr.eu/spec/opensearch/extensions/eop/1.0/" xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:sar="http://earth.esa.int/sar" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/" xmlns:dclite4g="http://xmlns.com/2008/dclite4g#" xmlns:ical="http://www.w3.org/2002/12/cal/ical#" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ws="http://dclite4g.xmlns.com/ws.rdf#" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:sru="http://a9.com/-/opensearch/extensions/sru/2.0/"><rdf:Description rdf:about="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B/rdf"><os:totalResults>1</os:totalResults><os:startIndex>0</os:startIndex><os:itemsPerPage>20</os:itemsPerPage><dc:creator>Terradue CAS version 1.6.1</dc:creator><dc:date>2015-02-03T16:07:34Z</dc:date><dc:SizeOrDuration>0.053 sec</dc:SizeOrDuration><atom:link atom:rel="self" atom:type="application/rdf+xml" atom:href="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B/rdf" /><atom:link atom:rel="search" atom:type="application/opensearchdescription+xml" atom:href="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/description" /><os:Query os:role="request" /></rdf:Description><dclite4g:Series rdf:about="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/rdf"><dc:identifier>S1A_SM_GRDH</dc:identifier><dc:description rdf:resource="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/description/" /><atom:link atom:rel="search" atom:type="application/opensearchdescription+xml" atom:title="Search the S1A_SM_GRDH Series" atom:href="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/description/" /><dc:title>S1A_SM_GRDH</dc:title><dc:subject>SENTINEL S1</dc:subject><eop:sensor>SAR</eop:sensor><dct:spatial>POLYGON((-180 -90,-180 90,180 90,180 -90,-180 -90))</dct:spatial><dc:format>SAFE</dc:format><dct:created>2014-04-08T14:15:58.411Z</dct:created><dct:modified>2015-02-02T11:16:12.420Z</dct:modified><dct:extent>1627</dct:extent></dclite4g:Series><dclite4g:DataSet rdf:about="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B/rdf"><dc:identifier>S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B</dc:identifier><dclite4g:series rdf:resource="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/rdf" /><dclite4g:onlineResource><ws:CACHE rdf:about="https://grid-eo-engine06.eo.esa.int/S1A_SM_GRDH/2015/01/06/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B.zip" ws:preference="20" /></dclite4g:onlineResource><eop:orbitNumber>4052</eop:orbitNumber><eop:size>526000000</eop:size><eop:trackNumber>130</eop:trackNumber><ical:dtstart>2015-01-06T14:53:35.000Z</ical:dtstart><ical:dtend>2015-01-06T14:54:00.000Z</ical:dtend><dct:spatial>MULTIPOLYGON(((-129.968719 48.14193,-129.968719 48.14193,-131.056732 48.272541,-131.056732 48.272541,-130.657394 49.769352,-130.657394 49.769352,-129.536499 49.638176,-129.536499 49.638176,-129.968719 48.14193)))</dct:spatial><dct:modified>2015-02-02T11:16:12.420Z</dct:modified><dct:created>2015-02-02T11:16:12.420Z</dct:created></dclite4g:DataSet></rdf:RDF>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eop="http://www.genesi-dr.eu/spec/opensearch/extensions/eop/1.0/" xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:sar="http://earth.esa.int/sar" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/" xmlns:dclite4g="http://xmlns.com/2008/dclite4g#" xmlns:ical="http://www.w3.org/2002/12/cal/ical#" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ws="http://dclite4g.xmlns.com/ws.rdf#" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:sru="http://a9.com/-/opensearch/extensions/sru/2.0/">
+	<rdf:Description rdf:about="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B/rdf">
+		<os:totalResults>1</os:totalResults>
+		<os:startIndex>0</os:startIndex>
+		<os:itemsPerPage>20</os:itemsPerPage>
+		<dc:creator>Terradue CAS version 1.6.1</dc:creator>
+		<dc:date>2015-02-03T16:07:34Z</dc:date>
+		<dc:SizeOrDuration>0.053 sec</dc:SizeOrDuration>
+		<atom:link atom:rel="self" atom:type="application/rdf+xml" atom:href="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B/rdf" />
+		<atom:link atom:rel="search" atom:type="application/opensearchdescription+xml" atom:href="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/description" />
+		<os:Query os:role="request" />
+	</rdf:Description>
+	<dclite4g:Series rdf:about="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/rdf">
+		<dc:identifier>S1A_SM_GRDH</dc:identifier>
+		<dc:description rdf:resource="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/description/" />
+		<atom:link atom:rel="search" atom:type="application/opensearchdescription+xml" atom:title="Search the S1A_SM_GRDH Series" atom:href="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/description/" />
+		<dc:title>S1A_SM_GRDH</dc:title>
+		<dc:subject>SENTINEL S1</dc:subject>
+		<eop:sensor>SAR</eop:sensor>
+		<dct:spatial>POLYGON((-180 -90,-180 90,180 90,180 -90,-180 -90))</dct:spatial>
+		<dc:format>SAFE</dc:format>
+		<dct:created>2014-04-08T14:15:58.411Z</dct:created>
+		<dct:modified>2015-02-02T11:16:12.420Z</dct:modified>
+		<dct:extent>1627</dct:extent>
+	</dclite4g:Series>
+	<dclite4g:DataSet rdf:about="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B/rdf">
+		<dc:identifier>S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B</dc:identifier>
+		<dclite4g:series rdf:resource="http://grid-eo-catalog.esrin.esa.int/catalogue/gpod/S1A_SM_GRDH/rdf" />
+		<dclite4g:onlineResource>
+			<ws:CACHE rdf:about="https://grid-eo-engine06.eo.esa.int/S1A_SM_GRDH/2015/01/06/S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B.zip" ws:preference="20" />
+		</dclite4g:onlineResource>
+		<eop:orbitNumber>4052</eop:orbitNumber>
+		<eop:size>526000000</eop:size>
+		<eop:trackNumber>130</eop:trackNumber>
+		<ical:dtstart>2015-01-06T14:53:35.000Z</ical:dtstart>
+		<ical:dtend>2015-01-06T14:54:00.000Z</ical:dtend>
+		<dct:spatial>MULTIPOLYGON(((-129.968719 48.14193,-129.968719 48.14193,-131.056732 48.272541,-131.056732 48.272541,-130.657394 49.769352,-130.657394 49.769352,-129.536499 49.638176,-129.536499 49.638176,-129.968719 48.14193)))</dct:spatial>
+		<dct:modified>2015-02-02T11:16:12.420Z</dct:modified>
+		<dct:created>2015-02-02T11:16:12.420Z</dct:created>
+	</dclite4g:DataSet>
+</rdf:RDF>

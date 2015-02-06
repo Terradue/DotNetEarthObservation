@@ -11,7 +11,7 @@ using System.Xml.XPath;
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class OpenSearchMetadataHelpers {
 
-        public static Feature FindFeatureFromOpenSearchResultItem(IOpenSearchResultItem item ){
+        public static Feature FindFeatureFromOpenSearchResultItem(IOpenSearchResultItem item) {
 
             var georss = item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss");
             if (georss.Count > 0) {
@@ -85,18 +85,18 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item ){
+        public static string FindIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item) {
 
             var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
             if (elements.Count > 0)
                 return elements[0];
 
             foreach (var eo in item.ElementExtensions.ToList()) {
-                XElement eoElement = (XElement)XElement.ReadFrom(eo.GetReader());
-                if (eoElement.Name.LocalName == "EarthObservation") {
-                    var result = eoElement.XPathSelectElement(string.Format("eop:metaDataProperty/eop:EarthObservationMetaData/eop:identifier", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
-                    if (result != null) {
-                        return result.Value;
+                XmlElement eoElement = (XmlElement)eo.GetObject<XmlElement>();
+                if (eoElement.LocalName == "EarthObservation") {
+                    var result = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(eoElement, "productId");
+                    if (!string.IsNullOrEmpty(result)) {
+                        return result;
                     }
                 }
             }
@@ -106,6 +106,71 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 return elements[0];
 
             return null;
+
+        }
+
+        public static DateTime FindStartDateFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/')) {
+                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
+                } else
+                    return DateTime.Parse(elements[0]).ToUniversalTime();
+            }
+
+            foreach (var eo in item.ElementExtensions.ToList()) {
+                XmlElement eoElement = (XmlElement)eo.GetObject<XmlElement>();
+                if (eoElement.LocalName == "EarthObservation") {
+                    var start = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(eoElement, "beginAcquisition");
+                    if (!string.IsNullOrEmpty(start))
+                        return DateTime.Parse(start).ToUniversalTime();
+                }
+            }
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("dtstart", "http://www.w3.org/2002/12/cal/ical#");
+            if (elements.Count > 0)
+                return DateTime.Parse(elements[0]).ToUniversalTime();
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/')) {
+                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
+                } else
+                    return DateTime.Parse(elements[0]).ToUniversalTime();
+            }
+
+            return DateTime.MinValue;
+
+        }
+
+        public static DateTime FindEndDateFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/'))
+                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
+            }
+
+            foreach (var eo in item.ElementExtensions.ToList()) {
+                XmlElement eoElement = (XmlElement)eo.GetObject<XmlElement>();
+                if (eoElement.LocalName == "EarthObservation") {
+                    var stop = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(eoElement, "endAcquisition");
+                    if (!string.IsNullOrEmpty(stop))
+                        return DateTime.Parse(stop).ToUniversalTime();
+                }
+            }
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("dtend", "http://www.w3.org/2002/12/cal/ical#");
+            if (elements.Count > 0)
+                return DateTime.Parse(elements[0]).ToUniversalTime();
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/'))
+                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
+            }
+            return DateTime.MaxValue;
 
         }
 
