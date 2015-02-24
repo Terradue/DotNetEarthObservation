@@ -20,62 +20,6 @@ namespace Terradue.Metadata.EarthObservation {
             }
         }
 
-        public static string GetDefaultIdFromParamName(string id) {
-            Dictionary<string,string> osdic = new Dictionary<string, string>();
-
-            string value = OpenSearchFactory.ReverseTemplateOpenSearchParameters(OpenSearchFactory.GetBaseOpenSearchParameter())[id];
-            if (!string.IsNullOrEmpty(value))
-                return value;
-
-            osdic.Add("time:start", "start");
-            osdic.Add("time:end", "stop");
-            osdic.Add("geo:box", "bbox");
-            osdic.Add("geo:uid", "id");
-            osdic.Add("geo:geometry", "geom");
-            osdic.Add("geo:lat", "lat");
-            osdic.Add("geo:lon", "lon");
-            osdic.Add("geo:radius", "radius");
-            osdic.Add("geo:relation", "rel");
-            osdic.Add("geo:name", "loc");
-            osdic.Add("cseop:timePosition", "tp");
-            osdic.Add("cseop:platformShortName", "psn");
-            osdic.Add("cseop:platformSerialIdentifier", "psi");
-            osdic.Add("cseop:instrumentShortName", "isn");
-            osdic.Add("cseop:sensorType", "st");
-            osdic.Add("cseop:sensorOperationalMode", "som");
-            osdic.Add("cseop:swathIdentifier", "si");
-            osdic.Add("cseop:orbitNumber", "on");
-            osdic.Add("cseop:orbitDirection", "od");
-            osdic.Add("cseop:wrsLongitudeGrid", "wlog");
-            osdic.Add("cseop:wrsLatitudeGrid", "wlag");
-            osdic.Add("cseop:anxStart", "axsa");
-            osdic.Add("cseop:anxStop", "axso");
-            osdic.Add("cseop:anxIllZen", "ailz");
-            osdic.Add("cseop:illuminationAzimuthAngle", "iaa");
-            osdic.Add("cseop:illuminationElevationAngle", "iea");
-            osdic.Add("cseop:fileName", "fn");
-            osdic.Add("cseop:size", "size");
-            osdic.Add("cseop:timeliness", "tl");
-            osdic.Add("cseop:identifier", "id");
-            osdic.Add("cseop:acquisitionType", "at");
-            osdic.Add("cseop:productType", "pt");
-            osdic.Add("cseop:status", "status");
-            osdic.Add("cseop:asut", "asut");
-            osdic.Add("cseop:imageQualityDegradation", "iqd");
-            osdic.Add("cseop:imageQualityStatus", "iqs");
-            osdic.Add("cseop:imageQualityDegradationTag", "iqdt");
-            osdic.Add("cseop:imageQualityReportURL", "iqru");
-            osdic.Add("cseop:productGroupId", "pgrpi");
-            osdic.Add("cseop:localAttribute", "locatt");
-            osdic.Add("cseop:processingMode", "procm");
-            osdic.Add("cs:lastAssocDate", "lastAssocDate");
-
-            if (osdic.ContainsKey(id))
-                return osdic[id];
-
-            return null;
-        }
-
         public static void RestoreEnclosure(IOpenSearchResultItem item) {
 
             var matchLinks = item.Links.Where(l => l.RelationshipType == "enclosure").ToArray();
@@ -430,10 +374,14 @@ namespace Terradue.Metadata.EarthObservation {
 
             dic.Add("platformShortName", "eop:platform/eop:Platform/eop:shortName");
             dic.Add("platformSerialIdentifier", "eop:platform/eop:Platform/eop:serialIdentifier");
+            dic.Add("orbitType", "eop:platform/eop:Platform/eop:orbitType");
             dic.Add("instrumentShortName", "eop:instrument/eop:Instrument/eop:shortName");
+            dic.Add("instrumentDescription", "eop:instrument/eop:Instrument/eop:description");
+            dic.Add("instrumentType", "eop:instrument/eop:Instrument/eop:instrumentType");
             dic.Add("sensorType", "eop:sensor/eop:Sensor/eop:sensorType");
             dic.Add("operationalMode", "eop:sensor/eop:Sensor/eop:operationalMode");
             dic.Add("swathIdentifier", "eop:sensor/eop:Sensor/eop:swathIdentifier");
+            dic.Add("sensorResolution", "eop:sensor/eop:Sensor/eop:sensorResolution");
 
             return dic;
         }
@@ -488,6 +436,7 @@ namespace Terradue.Metadata.EarthObservation {
 
             dic.Add("productId", "eop:identifier");
             dic.Add("parentIdentifier", "eop:parentIdentifier");
+            dic.Add("productType", "eop:productType");
             dic.Add("acquisitionType", "eop:acquisitionType");
             dic.Add("acquisitionSubType", "eop:acquisitionSubType");
             dic.Add("status", "eop:status");

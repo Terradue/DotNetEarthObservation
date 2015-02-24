@@ -1,1 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Result for OpenSearch query over type gtfeature in index tepqw</title><id>http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</id><updated>0001-01-01T00:00:00Z</updated><link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" /><link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" /><entry><id>http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</id><title type="text">Sentinel-1 SAR-C SAR, 2015-01-29T18:50:06.82Z, IW, HH HV, Track: 118</title><summary type="html">&lt;table&gt; &lt;tr&gt;  &lt;td valign='top'&gt;  &lt;table&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Platform Short Name&lt;/b&gt; &lt;/td&gt; &lt;td&gt;S1A&lt;/td&gt;    &lt;/tr&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Platform Serial Identifier&lt;/b&gt; &lt;/td&gt; &lt;td&gt;0000-000A&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Instrument Short Name&lt;/b&gt; &lt;/td&gt; &lt;td&gt;SAR-C SAR&lt;/td&gt; &lt;/tr&gt;    &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Sensor Type&lt;/b&gt; &lt;/td&gt; &lt;td&gt;&lt;/td&gt;    &lt;/tr&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Sensor Operational Mode&lt;/b&gt; &lt;/td&gt; &lt;td&gt;IW&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Swath Identifier&lt;/b&gt; &lt;/td&gt; &lt;td&gt;IW1 IW2 IW3&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/td&gt;   &lt;td valign='top'&gt;   &lt;table&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Orbit Number&lt;/b&gt; &lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Orbit Direction&lt;/b&gt; &lt;/td&gt; &lt;td&gt;ASCENDING&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Start Date&lt;/b&gt; &lt;/td&gt; &lt;td&gt;2015-01-29T18:50:06.82Z&lt;/td&gt; &lt;/tr&gt; &lt;tr valign='top'&gt;    &lt;td&gt; &lt;b&gt;End Date&lt;/b&gt; &lt;/td&gt; &lt;td&gt;2015-01-29T18:50:34.085Z&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;</summary><updated>2015-02-03T16:13:07.520989Z</updated><link href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/$value" /><link rel="alternative" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/" /><link rel="icon" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/Products('Quicklook')/$value" /><link rel="enclosure" type="application/x-binary" title="File" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/$value" /><link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" /><link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" /><where xmlns="http://www.georss.org/georss"><gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>64.517059,-22.068716 64.967606,-16.853634 63.345100,-16.260002 62.907841,-21.184656 64.517059,-22.068716</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></where><date xmlns="http://purl.org/dc/elements/1.1/">2015-01-29T18:50:06.82Z/2015-01-29T18:50:34.085Z</date><eop:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml"><om:phenomenonTime><gml:TimePeriod><gml:beginPosition>2015-01-29T18:50:06.82Z</gml:beginPosition><gml:endPosition>2015-01-29T18:50:34.085Z</gml:endPosition></gml:TimePeriod></om:phenomenonTime><om:resultTime><gml:TimeInstant><gml:timePosition>2015-01-29T18:50:06.82Z</gml:timePosition></gml:TimeInstant></om:resultTime><om:procedure><eop:EarthObservationEquipment><eop:platform><eop:Platform><eop:shortName>Sentinel-1</eop:shortName><eop:serialIdentifier>0000-000A</eop:serialIdentifier></eop:Platform></eop:platform><eop:instrument><eop:Instrument><eop:shortName>SAR-C SAR</eop:shortName><eop:description>Synthetic Aperture Radar (C-band)</eop:description></eop:Instrument></eop:instrument><eop:sensor><eop:Sensor><eop:sensorType /><eop:operationalMode>IW</eop:operationalMode><eop:swathIdentifier>IW1 IW2 IW3</eop:swathIdentifier></eop:Sensor></eop:sensor><eop:acquisitionParameters><eop:Acquisition><eop:orbitNumber>4390</eop:orbitNumber><eop:lastOrbitNumber>4390</eop:lastOrbitNumber><eop:orbitDirection>ASCENDING</eop:orbitDirection><eop:wrsLongitudeGrid>118</eop:wrsLongitudeGrid></eop:Acquisition></eop:acquisitionParameters></eop:EarthObservationEquipment></om:procedure><om:observedProperty /><om:featureOfInterest><eop:Footprint><eop:multiExtentOf><gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>64.517059,-22.068716 64.967606,-16.853634 63.345100,-16.260002 62.907841,-21.184656 64.517059,-22.068716</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></eop:multiExtentOf></eop:Footprint></om:featureOfInterest><om:result><eop:EarthObservationResult><eop:browse><eop:BrowseInformation><eop:type>QUICKLOOK</eop:type><eop:filename>https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/Products('Quicklook')/$value</eop:filename></eop:BrowseInformation></eop:browse></eop:EarthObservationResult></om:result><eop:metaDataProperty><eop:EarthObservationMetaData><eop:identifier>S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</eop:identifier><eop:creationDate>2015-02-02T11:27:38.336Z</eop:creationDate><eop:parentIdentifier>S1A_IW_SLC</eop:parentIdentifier><eop:productType>SLC</eop:productType><eop:status>ARCHIVED</eop:status><eop:acquisitionType>NOMINAL</eop:acquisitionType></eop:EarthObservationMetaData></eop:metaDataProperty></eop:EarthObservation><identifier xmlns="http://purl.org/dc/elements/1.1/">S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</identifier></entry><totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults><startIndex xmlns="http://a9.com/-/spec/opensearch/1.1/">1</startIndex><itemsPerPage xmlns="http://a9.com/-/spec/opensearch/1.1/">20</itemsPerPage><Query format="atom" uid="S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" xmlns="http://a9.com/-/spec/opensearch/1.1/" /></feed>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title type="text">Result for OpenSearch query over type gtfeature in index tepqw</title>
+	<id>http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</id>
+	<updated>0001-01-01T00:00:00Z</updated>
+	<link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" />
+	<link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" />
+	<entry>
+		<id>http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</id>
+		<title type="text">Sentinel-1 SAR-C SAR, 2015-01-29T18:50:06.82Z, IW, HH HV, Track: 118</title>
+		<summary type="html">&lt;table&gt; &lt;tr&gt;  &lt;td valign='top'&gt;  &lt;table&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Platform Short Name&lt;/b&gt; &lt;/td&gt; &lt;td&gt;S1A&lt;/td&gt;    &lt;/tr&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Platform Serial Identifier&lt;/b&gt; &lt;/td&gt; &lt;td&gt;0000-000A&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Instrument Short Name&lt;/b&gt; &lt;/td&gt; &lt;td&gt;SAR-C SAR&lt;/td&gt; &lt;/tr&gt;    &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Sensor Type&lt;/b&gt; &lt;/td&gt; &lt;td&gt;&lt;/td&gt;    &lt;/tr&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Sensor Operational Mode&lt;/b&gt; &lt;/td&gt; &lt;td&gt;IW&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Swath Identifier&lt;/b&gt; &lt;/td&gt; &lt;td&gt;IW1 IW2 IW3&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/td&gt;   &lt;td valign='top'&gt;   &lt;table&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Orbit Number&lt;/b&gt; &lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Orbit Direction&lt;/b&gt; &lt;/td&gt; &lt;td&gt;ASCENDING&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Start Date&lt;/b&gt; &lt;/td&gt; &lt;td&gt;2015-01-29T18:50:06.82Z&lt;/td&gt; &lt;/tr&gt; &lt;tr valign='top'&gt;    &lt;td&gt; &lt;b&gt;End Date&lt;/b&gt; &lt;/td&gt; &lt;td&gt;2015-01-29T18:50:34.085Z&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;</summary>
+		<updated>2015-02-03T16:13:07.520989Z</updated>
+		<link href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/$value" />
+		<link rel="alternative" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/" />
+		<link rel="icon" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/Products('Quicklook')/$value" />
+		<link rel="enclosure" type="application/x-binary" title="File" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/$value" />
+		<link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" />
+		<link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" />
+		<where xmlns="http://www.georss.org/georss">
+			<gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml">
+				<gml:outerBoundaryIs>
+					<gml:LinearRing>
+						<gml:coordinates>64.517059,-22.068716 64.967606,-16.853634 63.345100,-16.260002 62.907841,-21.184656 64.517059,-22.068716</gml:coordinates>
+					</gml:LinearRing>
+				</gml:outerBoundaryIs>
+			</gml:Polygon>
+		</where>
+		<date xmlns="http://purl.org/dc/elements/1.1/">2015-01-29T18:50:06.82Z/2015-01-29T18:50:34.085Z</date>
+		<eop:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml">
+			<om:phenomenonTime>
+				<gml:TimePeriod>
+					<gml:beginPosition>2015-01-29T18:50:06.82Z</gml:beginPosition>
+					<gml:endPosition>2015-01-29T18:50:34.085Z</gml:endPosition>
+				</gml:TimePeriod>
+			</om:phenomenonTime>
+			<om:resultTime>
+				<gml:TimeInstant>
+					<gml:timePosition>2015-01-29T18:50:06.82Z</gml:timePosition>
+				</gml:TimeInstant>
+			</om:resultTime>
+			<om:procedure>
+				<eop:EarthObservationEquipment>
+					<eop:platform>
+						<eop:Platform>
+							<eop:shortName>Sentinel-1</eop:shortName>
+							<eop:serialIdentifier>0000-000A</eop:serialIdentifier>
+						</eop:Platform>
+					</eop:platform>
+					<eop:instrument>
+						<eop:Instrument>
+							<eop:shortName>SAR-C SAR</eop:shortName>
+							<eop:description>Synthetic Aperture Radar (C-band)</eop:description>
+						</eop:Instrument>
+					</eop:instrument>
+					<eop:sensor>
+						<eop:Sensor>
+							<eop:sensorType />
+							<eop:operationalMode>IW</eop:operationalMode>
+							<eop:swathIdentifier>IW1 IW2 IW3</eop:swathIdentifier>
+						</eop:Sensor>
+					</eop:sensor>
+					<eop:acquisitionParameters>
+						<eop:Acquisition>
+							<eop:orbitNumber>4390</eop:orbitNumber>
+							<eop:lastOrbitNumber>4390</eop:lastOrbitNumber>
+							<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+							<eop:wrsLongitudeGrid>118</eop:wrsLongitudeGrid>
+						</eop:Acquisition>
+					</eop:acquisitionParameters>
+				</eop:EarthObservationEquipment>
+			</om:procedure>
+			<om:observedProperty />
+			<om:featureOfInterest>
+				<eop:Footprint>
+					<eop:multiExtentOf>
+						<gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml">
+							<gml:outerBoundaryIs>
+								<gml:LinearRing>
+									<gml:coordinates>64.517059,-22.068716 64.967606,-16.853634 63.345100,-16.260002 62.907841,-21.184656 64.517059,-22.068716</gml:coordinates>
+								</gml:LinearRing>
+							</gml:outerBoundaryIs>
+						</gml:Polygon>
+					</eop:multiExtentOf>
+				</eop:Footprint>
+			</om:featureOfInterest>
+			<om:result>
+				<eop:EarthObservationResult>
+					<eop:browse>
+						<eop:BrowseInformation>
+							<eop:type>QUICKLOOK</eop:type>
+							<eop:filename>https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/Products('Quicklook')/$value</eop:filename>
+						</eop:BrowseInformation>
+					</eop:browse>
+				</eop:EarthObservationResult>
+			</om:result>
+			<eop:metaDataProperty>
+				<eop:EarthObservationMetaData>
+					<eop:identifier>S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</eop:identifier>
+					<eop:creationDate>2015-02-02T11:27:38.336Z</eop:creationDate>
+					<eop:parentIdentifier>S1A_IW_SLC</eop:parentIdentifier>
+					<eop:productType>SLC</eop:productType>
+					<eop:status>ARCHIVED</eop:status>
+					<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+				</eop:EarthObservationMetaData>
+			</eop:metaDataProperty>
+		</eop:EarthObservation>
+		<identifier xmlns="http://purl.org/dc/elements/1.1/">S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</identifier>
+	</entry>
+	<totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults>
+	<startIndex xmlns="http://a9.com/-/spec/opensearch/1.1/">1</startIndex>
+	<itemsPerPage xmlns="http://a9.com/-/spec/opensearch/1.1/">20</itemsPerPage>
+	<Query format="atom" uid="S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" xmlns="http://a9.com/-/spec/opensearch/1.1/" />
+</feed>
