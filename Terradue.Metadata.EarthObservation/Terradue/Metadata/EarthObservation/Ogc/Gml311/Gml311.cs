@@ -29,7 +29,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeClockType TimeClock
         {
             get
@@ -72,7 +72,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeCalendarPropertyType[] dateBasisField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType referenceEvent
         {
             get
@@ -85,7 +85,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "time")]
         public System.DateTime referenceTime
         {
             get
@@ -98,7 +98,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "time")]
         public System.DateTime utcReference
         {
             get
@@ -111,7 +111,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("dateBasis", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("dateBasis")]
         public TimeCalendarPropertyType[] dateBasis
         {
             get
@@ -176,7 +176,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeCalendarType TimeCalendar
         {
             get
@@ -213,7 +213,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeCalendarEraPropertyType[] referenceFrameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("referenceFrame", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("referenceFrame")]
         public TimeCalendarEraPropertyType[] referenceFrame
         {
             get
@@ -239,7 +239,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeCalendarEraType TimeCalendarEra
         {
             get
@@ -287,7 +287,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.referenceDateField = new System.DateTime(0);
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType referenceEvent
         {
             get
@@ -300,7 +300,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "date")]
         [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01")]
         public System.DateTime referenceDate
         {
@@ -314,7 +314,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public decimal julianReference
         {
             get
@@ -327,7 +327,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePeriodPropertyType epochOfUse
         {
             get
@@ -353,7 +353,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePeriodType TimePeriod
         {
             get
@@ -396,8 +396,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeIntervalLengthType timeIntervalField;
 
-        [System.Xml.Serialization.XmlElementAttribute("begin", typeof(TimeInstantPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("beginPosition", typeof(TimePositionType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("begin", typeof(TimeInstantPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("beginPosition", typeof(TimePositionType))]
         public object Item
         {
             get
@@ -410,8 +410,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("end", typeof(TimeInstantPropertyType), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("endPosition", typeof(TimePositionType), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("end", typeof(TimeInstantPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("endPosition", typeof(TimePositionType))]
         public object Item1
         {
             get
@@ -424,7 +424,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "duration", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "duration")]
         public string duration
         {
             get
@@ -437,7 +437,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeIntervalLengthType timeInterval
         {
             get
@@ -463,7 +463,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeInstantType TimeInstant
         {
             get
@@ -500,7 +500,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimePositionType timePositionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePositionType timePosition
         {
             get
@@ -671,7 +671,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private RelatedTimeType[] relatedTimeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("relatedTime", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("relatedTime")]
         public RelatedTimeType[] relatedTime
         {
             get
@@ -783,7 +783,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AbstractTimePrimitiveType _TimePrimitive
         {
             get
@@ -998,7 +998,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string idField;
 
-        [System.Xml.Serialization.XmlElementAttribute("metaDataProperty", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("metaDataProperty")]
         public MetaDataPropertyType[] metaDataProperty
         {
             get
@@ -1011,7 +1011,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType description
         {
             get
@@ -1024,16 +1024,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinateOperationName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("csName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("datumName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("ellipsoidName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("groupName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("meridianName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("methodName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("name", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("parameterName", typeof(CodeType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("srsName", typeof(CodeType), Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinateOperationName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("csName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("datumName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("ellipsoidName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("groupName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("meridianName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("methodName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("name", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("parameterName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("srsName", typeof(CodeType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public CodeType[] Items
         {
@@ -1047,7 +1047,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType[] ItemsElementName
         {
@@ -1089,7 +1089,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string aboutField;
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement Any
         {
             get
@@ -1259,7 +1259,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private setType[] setField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ScaleType spatialResolution
         {
             get
@@ -1272,7 +1272,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("styleVariation", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("styleVariation")]
         public StyleVariationType[] styleVariation
         {
             get
@@ -1285,7 +1285,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("animate", Namespace = "http://www.w3.org/2001/SMIL20/", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("animate", Namespace = "http://www.w3.org/2001/SMIL20/")]
         public animateType[] animate
         {
             get
@@ -1298,7 +1298,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("animateMotion", Namespace = "http://www.w3.org/2001/SMIL20/", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("animateMotion", Namespace = "http://www.w3.org/2001/SMIL20/")]
         public animateMotionType[] animateMotion
         {
             get
@@ -1311,7 +1311,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("animateColor", Namespace = "http://www.w3.org/2001/SMIL20/", Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute("animateColor", Namespace = "http://www.w3.org/2001/SMIL20/")]
         public animateColorType[] animateColor
         {
             get
@@ -1324,7 +1324,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("set", Namespace = "http://www.w3.org/2001/SMIL20/", Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute("set", Namespace = "http://www.w3.org/2001/SMIL20/")]
         public setType[] set
         {
             get
@@ -1553,7 +1553,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AesheticCriteriaType[] aestheticCriteriaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public bool planar
         {
             get
@@ -1579,7 +1579,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public bool directed
         {
             get
@@ -1605,7 +1605,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public bool grid
         {
             get
@@ -1631,7 +1631,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double minDistance
         {
             get
@@ -1657,7 +1657,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double minAngle
         {
             get
@@ -1683,7 +1683,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GraphTypeType graphType
         {
             get
@@ -1709,7 +1709,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DrawingTypeType drawingType
         {
             get
@@ -1735,7 +1735,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LineTypeType lineType
         {
             get
@@ -1761,7 +1761,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("aestheticCriteria", Order = 8)]
+        [System.Xml.Serialization.XmlElementAttribute("aestheticCriteria")]
         public AesheticCriteriaType[] aestheticCriteria
         {
             get
@@ -1873,8 +1873,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string topologyTypeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("style", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("symbol", typeof(SymbolType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("style", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("symbol", typeof(SymbolType))]
         public object Item
         {
             get
@@ -1887,7 +1887,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LabelStylePropertyType labelStyle
         {
             get
@@ -1945,7 +1945,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement[] Any
         {
             get
@@ -2041,7 +2041,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LabelStyleType LabelStyle
         {
             get
@@ -2093,7 +2093,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private LabelType labelField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string style
         {
             get
@@ -2106,7 +2106,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LabelType label
         {
             get
@@ -2134,7 +2134,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string transformField;
 
-        [System.Xml.Serialization.XmlElementAttribute("LabelExpression", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("LabelExpression")]
         public string[] LabelExpression
         {
             get
@@ -2190,8 +2190,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string geometryTypeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("style", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("symbol", typeof(SymbolType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("style", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("symbol", typeof(SymbolType))]
         public object Item
         {
             get
@@ -2204,7 +2204,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LabelStylePropertyType labelStyle
         {
             get
@@ -2268,7 +2268,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private bool queryGrammarFieldSpecified;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string featureConstraint
         {
             get
@@ -2281,7 +2281,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("geometryStyle", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("geometryStyle")]
         public GeometryStylePropertyType[] geometryStyle
         {
             get
@@ -2294,7 +2294,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("topologyStyle", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("topologyStyle")]
         public TopologyStylePropertyType[] topologyStyle
         {
             get
@@ -2307,7 +2307,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LabelStylePropertyType labelStyle
         {
             get
@@ -2387,7 +2387,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeometryStyleType GeometryStyle
         {
             get
@@ -2441,7 +2441,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopologyStyleType TopologyStyle
         {
             get
@@ -2519,7 +2519,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GraphStylePropertyType graphStyleField;
 
-        [System.Xml.Serialization.XmlElementAttribute("featureStyle", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("featureStyle")]
         public FeatureStylePropertyType[] featureStyle
         {
             get
@@ -2532,7 +2532,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GraphStylePropertyType graphStyle
         {
             get
@@ -2560,7 +2560,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public FeatureStyleType FeatureStyle
         {
             get
@@ -2614,7 +2614,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GraphStyleType GraphStyle
         {
             get
@@ -2698,7 +2698,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.isMaximalField = false;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoComplexMemberType maximalComplex
         {
             get
@@ -2711,7 +2711,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("superComplex", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("superComplex")]
         public TopoComplexMemberType[] superComplex
         {
             get
@@ -2724,7 +2724,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("subComplex", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("subComplex")]
         public TopoComplexMemberType[] subComplex
         {
             get
@@ -2737,7 +2737,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("topoPrimitiveMember", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("topoPrimitiveMember")]
         public TopoPrimitiveMemberType[] topoPrimitiveMember
         {
             get
@@ -2750,7 +2750,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoPrimitiveArrayAssociationType topoPrimitiveMembers
         {
             get
@@ -2790,7 +2790,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoComplexType TopoComplex
         {
             get
@@ -2829,10 +2829,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Edge", typeof(EdgeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Face", typeof(FaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Node", typeof(NodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TopoSolid", typeof(TopoSolidType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Edge", typeof(EdgeType))]
+        [System.Xml.Serialization.XmlElementAttribute("Face", typeof(FaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("Node", typeof(NodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("TopoSolid", typeof(TopoSolidType))]
         public AbstractTopoPrimitiveType Item
         {
             get
@@ -2873,7 +2873,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CurvePropertyType curvePropertyField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedNode", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedNode")]
         public DirectedNodePropertyType[] directedNode
         {
             get
@@ -2886,7 +2886,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("directedFace", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("directedFace")]
         public DirectedFacePropertyType[] directedFace
         {
             get
@@ -2899,7 +2899,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CurvePropertyType curveProperty
         {
             get
@@ -2932,7 +2932,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.orientationField = SignType.Item1;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public NodeType Node
         {
             get
@@ -2985,7 +2985,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private PointPropertyType pointPropertyField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedEdge", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedEdge")]
         public DirectedEdgePropertyType[] directedEdge
         {
             get
@@ -2998,7 +2998,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PointPropertyType pointProperty
         {
             get
@@ -3031,7 +3031,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.orientationField = SignType.Item1;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EdgeType Edge
         {
             get
@@ -3099,7 +3099,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PointType Point
         {
             get
@@ -3136,9 +3136,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType))]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
         public object Item
         {
             get
@@ -3170,7 +3170,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private bool zFieldSpecified;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public decimal X
         {
             get
@@ -3183,7 +3183,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public decimal Y
         {
             get
@@ -3209,7 +3209,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public decimal Z
         {
             get
@@ -3496,7 +3496,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string dimensionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GridLimitsType limits
         {
             get
@@ -3509,7 +3509,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("axisName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("axisName")]
         public string[] axisName
         {
             get
@@ -3546,7 +3546,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GridEnvelopeType gridEnvelopeField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GridEnvelopeType GridEnvelope
         {
             get
@@ -3572,7 +3572,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string highField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string low
         {
             get
@@ -3585,7 +3585,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string high
         {
             get
@@ -3611,7 +3611,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private VectorType[] offsetVectorField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PointPropertyType origin
         {
             get
@@ -3624,7 +3624,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("offsetVector", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("offsetVector")]
         public VectorType[] offsetVector
         {
             get
@@ -3702,7 +3702,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GeometricPrimitivePropertyType[] elementField;
 
-        [System.Xml.Serialization.XmlElementAttribute("element", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("element")]
         public GeometricPrimitivePropertyType[] element
         {
             get
@@ -3728,7 +3728,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Point", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Point")]
         public PointType Item
         {
             get
@@ -3781,7 +3781,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private PolygonPropertyType[] polygonMemberField;
 
-        [System.Xml.Serialization.XmlElementAttribute("polygonMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("polygonMember")]
         public PolygonPropertyType[] polygonMember
         {
             get
@@ -3807,7 +3807,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PolygonType Polygon
         {
             get
@@ -3850,8 +3850,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private Items1ChoiceType3[] items1ElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public AbstractRingPropertyType Item
         {
@@ -3865,7 +3865,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType5 ItemElementName
         {
@@ -3879,8 +3879,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("innerBoundaryIs", typeof(AbstractRingPropertyType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("interior", typeof(AbstractRingPropertyType), Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("innerBoundaryIs", typeof(AbstractRingPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("interior", typeof(AbstractRingPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("Items1ElementName")]
         public AbstractRingPropertyType[] Items1
         {
@@ -3894,7 +3894,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public Items1ChoiceType3[] Items1ElementName
         {
@@ -3919,8 +3919,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractRingType itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("LinearRing", typeof(LinearRingType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Ring", typeof(RingType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("LinearRing", typeof(LinearRingType))]
+        [System.Xml.Serialization.XmlElementAttribute("Ring", typeof(RingType))]
         public AbstractRingType Item
         {
             get
@@ -3946,12 +3946,12 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private Items1ChoiceType2[] items1ElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType))]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("Items1ElementName")]
         public object[] Items1
         {
@@ -3965,7 +3965,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public Items1ChoiceType2[] Items1ElementName
         {
@@ -4095,7 +4095,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CurvePropertyType[] curveMemberField;
 
-        [System.Xml.Serialization.XmlElementAttribute("curveMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("curveMember")]
         public CurvePropertyType[] curveMember
         {
             get
@@ -4121,10 +4121,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeCurve", typeof(CompositeCurveType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Curve", typeof(CurveType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("LineString", typeof(LineStringType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OrientableCurve", typeof(OrientableCurveType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeCurve", typeof(CompositeCurveType))]
+        [System.Xml.Serialization.XmlElementAttribute("Curve", typeof(CurveType))]
+        [System.Xml.Serialization.XmlElementAttribute("LineString", typeof(LineStringType))]
+        [System.Xml.Serialization.XmlElementAttribute("OrientableCurve", typeof(OrientableCurveType))]
         public AbstractCurveType Item
         {
             get
@@ -4161,7 +4161,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CurvePropertyType[] curveMemberField;
 
-        [System.Xml.Serialization.XmlElementAttribute("curveMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("curveMember")]
         public CurvePropertyType[] curveMember
         {
             get
@@ -4205,7 +4205,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.orientationField = SignType.Item1;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CurvePropertyType baseCurve
         {
             get
@@ -4243,7 +4243,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractCurveSegmentType[] segmentsField;
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_CurveSegment", IsNullable = false)]
         public AbstractCurveSegmentType[] segments
         {
@@ -4369,11 +4369,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = CurveInterpolationType.polynomialSpline;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -4387,7 +4387,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType7[] ItemsElementName
         {
@@ -4401,7 +4401,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger")]
         public string degree
         {
             get
@@ -4414,7 +4414,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("knot", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("knot")]
         public KnotPropertyType[] knot
         {
             get
@@ -4526,7 +4526,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private KnotType knotField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public KnotType Knot
         {
             get
@@ -4554,7 +4554,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private double weightField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double value
         {
             get
@@ -4567,7 +4567,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger")]
         public string multiplicity
         {
             get
@@ -4580,7 +4580,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double weight
         {
             get
@@ -4687,11 +4687,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.degreeField = "3";
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -4705,7 +4705,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType6[] ItemsElementName
         {
@@ -4719,7 +4719,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VectorType vectorAtStart
         {
             get
@@ -4732,7 +4732,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VectorType vectorAtEnd
         {
             get
@@ -4827,9 +4827,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = CurveInterpolationType.geodesic;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         public object Item
         {
             get
@@ -4894,7 +4894,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private double endParameterField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ClothoidTypeRefLocation refLocation
         {
             get
@@ -4907,7 +4907,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public decimal scaleFactor
         {
             get
@@ -4920,7 +4920,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double startParameter
         {
             get
@@ -4933,7 +4933,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double endParameter
         {
             get
@@ -4956,7 +4956,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AffinePlacementType affinePlacementField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AffinePlacementType AffinePlacement
         {
             get
@@ -4986,7 +4986,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string outDimensionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DirectPositionType location
         {
             get
@@ -4999,7 +4999,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("refDirection", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("refDirection")]
         public VectorType[] refDirection
         {
             get
@@ -5012,7 +5012,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string inDimension
         {
             get
@@ -5025,7 +5025,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string outDimension
         {
             get
@@ -5053,7 +5053,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private VectorType refDirectionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CurvePropertyType offsetBase
         {
             get
@@ -5066,7 +5066,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LengthType distance
         {
             get
@@ -5079,7 +5079,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VectorType refDirection
         {
             get
@@ -5124,11 +5124,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.numArcField = "1";
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public object Item
         {
@@ -5142,7 +5142,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType4 ItemElementName
         {
@@ -5156,7 +5156,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LengthType radius
         {
             get
@@ -5169,7 +5169,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AngleType startAngle
         {
             get
@@ -5182,7 +5182,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AngleType endAngle
         {
             get
@@ -5294,11 +5294,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = CurveInterpolationType.circularArc2PointWithBulge;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -5312,7 +5312,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType5[] ItemsElementName
         {
@@ -5326,7 +5326,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("bulge", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("bulge")]
         public double[] bulge
         {
             get
@@ -5339,7 +5339,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("normal", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("normal")]
         public VectorType[] normal
         {
             get
@@ -5448,11 +5448,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = CurveInterpolationType.circularArc3Points;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -5466,7 +5466,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType4[] ItemsElementName
         {
@@ -5582,11 +5582,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = CurveInterpolationType.linear;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -5600,7 +5600,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType3[] ItemsElementName
         {
@@ -5675,12 +5675,12 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private Items1ChoiceType1[] items1ElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType))]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pointRep", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("Items1ElementName")]
         public object[] Items1
         {
@@ -5694,7 +5694,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public Items1ChoiceType1[] Items1ElementName
         {
@@ -5786,7 +5786,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SurfacePropertyType[] surfaceMemberField;
 
-        [System.Xml.Serialization.XmlElementAttribute("surfaceMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("surfaceMember")]
         public SurfacePropertyType[] surfaceMember
         {
             get
@@ -5812,10 +5812,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeSurface", typeof(CompositeSurfaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OrientableSurface", typeof(OrientableSurfaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Polygon", typeof(PolygonType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Surface", typeof(SurfaceType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeSurface", typeof(CompositeSurfaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("OrientableSurface", typeof(OrientableSurfaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("Polygon", typeof(PolygonType))]
+        [System.Xml.Serialization.XmlElementAttribute("Surface", typeof(SurfaceType))]
         public AbstractSurfaceType Item
         {
             get
@@ -5859,7 +5859,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.orientationField = SignType.Item1;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SurfacePropertyType baseSurface
         {
             get
@@ -5900,9 +5900,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SurfacePatchArrayPropertyType itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("patches", typeof(SurfacePatchArrayPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("polygonPatches", typeof(PolygonPatchArrayPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("trianglePatches", typeof(TrianglePatchArrayPropertyType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("patches", typeof(SurfacePatchArrayPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("polygonPatches", typeof(PolygonPatchArrayPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("trianglePatches", typeof(TrianglePatchArrayPropertyType))]
         public SurfacePatchArrayPropertyType Item
         {
             get
@@ -5928,9 +5928,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractSurfacePatchType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("PolygonPatch", typeof(PolygonPatchType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Rectangle", typeof(RectangleType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Triangle", typeof(TriangleType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("PolygonPatch", typeof(PolygonPatchType))]
+        [System.Xml.Serialization.XmlElementAttribute("Rectangle", typeof(RectangleType))]
+        [System.Xml.Serialization.XmlElementAttribute("Triangle", typeof(TriangleType))]
         public AbstractSurfacePatchType[] Items
         {
             get
@@ -5969,8 +5969,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = SurfaceInterpolationType.planar;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public AbstractRingPropertyType Item
         {
@@ -5984,7 +5984,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType6 ItemElementName
         {
@@ -5998,8 +5998,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("innerBoundaryIs", typeof(AbstractRingPropertyType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("interior", typeof(AbstractRingPropertyType), Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("innerBoundaryIs", typeof(AbstractRingPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("interior", typeof(AbstractRingPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public AbstractRingPropertyType[] Items
         {
@@ -6013,7 +6013,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType8[] ItemsElementName
         {
@@ -6164,7 +6164,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string columnsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("row", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("row")]
         public AbstractGriddedSurfaceTypeRow[] row
         {
             get
@@ -6177,7 +6177,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
         public string rows
         {
             get
@@ -6190,7 +6190,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
         public string columns
         {
             get
@@ -6215,7 +6215,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DirectPositionListType posList
         {
             get
@@ -6228,8 +6228,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
         public object[] Items
         {
             get
@@ -6489,8 +6489,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = SurfaceInterpolationType.planar;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public AbstractRingPropertyType Item
         {
@@ -6504,7 +6504,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType8 ItemElementName
         {
@@ -6579,8 +6579,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.interpolationField = SurfaceInterpolationType.planar;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("exterior", typeof(AbstractRingPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("outerBoundaryIs", typeof(AbstractRingPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public AbstractRingPropertyType Item
         {
@@ -6594,7 +6594,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType7 ItemElementName
         {
@@ -6692,7 +6692,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TinTypeControlPoint controlPointField;
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("LineStringSegment", typeof(LineStringSegmentType), IsNullable = false)]
         public LineStringSegmentType[] stopLines
         {
@@ -6706,7 +6706,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("LineStringSegment", typeof(LineStringSegmentType), IsNullable = false)]
         public LineStringSegmentType[] breakLines
         {
@@ -6720,7 +6720,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LengthType maxLength
         {
             get
@@ -6733,7 +6733,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TinTypeControlPoint controlPoint
         {
             get
@@ -6756,9 +6756,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("pointProperty", typeof(PointPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("posList", typeof(DirectPositionListType))]
         public object Item
         {
             get
@@ -6791,7 +6791,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private LineStringPropertyType[] lineStringMemberField;
 
-        [System.Xml.Serialization.XmlElementAttribute("lineStringMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("lineStringMember")]
         public LineStringPropertyType[] lineStringMember
         {
             get
@@ -6817,7 +6817,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LineStringType LineString
         {
             get
@@ -6856,7 +6856,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SolidArrayPropertyType solidMembersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("solidMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("solidMember")]
         public SolidPropertyType[] solidMember
         {
             get
@@ -6869,7 +6869,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SolidArrayPropertyType solidMembers
         {
             get
@@ -6895,8 +6895,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeSolid", typeof(CompositeSolidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Solid", typeof(SolidType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeSolid", typeof(CompositeSolidType))]
+        [System.Xml.Serialization.XmlElementAttribute("Solid", typeof(SolidType))]
         public AbstractSolidType Item
         {
             get
@@ -6933,7 +6933,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SolidPropertyType[] solidMemberField;
 
-        [System.Xml.Serialization.XmlElementAttribute("solidMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("solidMember")]
         public SolidPropertyType[] solidMember
         {
             get
@@ -6970,7 +6970,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SurfacePropertyType[] interiorField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SurfacePropertyType exterior
         {
             get
@@ -6983,7 +6983,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("interior", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("interior")]
         public SurfacePropertyType[] interior
         {
             get
@@ -7007,8 +7007,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractSolidType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeSolid", typeof(CompositeSolidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Solid", typeof(SolidType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeSolid", typeof(CompositeSolidType))]
+        [System.Xml.Serialization.XmlElementAttribute("Solid", typeof(SolidType))]
         public AbstractSolidType[] Items
         {
             get
@@ -7034,7 +7034,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractSurfaceType[] surfaceMembersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("surfaceMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("surfaceMember")]
         public SurfacePropertyType[] surfaceMember
         {
             get
@@ -7047,7 +7047,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_Surface", IsNullable = false)]
         public AbstractSurfaceType[] surfaceMembers
         {
@@ -7074,7 +7074,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractCurveType[] curveMembersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("curveMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("curveMember")]
         public CurvePropertyType[] curveMember
         {
             get
@@ -7087,7 +7087,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_Curve", IsNullable = false)]
         public AbstractCurveType[] curveMembers
         {
@@ -7114,7 +7114,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private PointType[] pointMembersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("pointMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("pointMember")]
         public PointPropertyType[] pointMember
         {
             get
@@ -7127,7 +7127,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("Point", IsNullable = false)]
         public PointType[] pointMembers
         {
@@ -7154,7 +7154,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractGeometryType[] geometryMembersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("geometryMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("geometryMember")]
         public GeometryPropertyType[] geometryMember
         {
             get
@@ -7167,7 +7167,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_Geometry", IsNullable = false)]
         public AbstractGeometryType[] geometryMembers
         {
@@ -7194,7 +7194,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex")]
         public GeometricComplexType Item
         {
             get
@@ -7237,7 +7237,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ContainerPropertyType containerField;
 
-        [System.Xml.Serialization.XmlElementAttribute("isolated", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("isolated")]
         public IsolatedPropertyType[] isolated
         {
             get
@@ -7250,7 +7250,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ContainerPropertyType container
         {
             get
@@ -7276,8 +7276,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Edge", typeof(EdgeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Node", typeof(NodeType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Edge", typeof(EdgeType))]
+        [System.Xml.Serialization.XmlElementAttribute("Node", typeof(NodeType))]
         public AbstractTopoPrimitiveType Item
         {
             get
@@ -7316,8 +7316,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Face", typeof(FaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TopoSolid", typeof(TopoSolidType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Face", typeof(FaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("TopoSolid", typeof(TopoSolidType))]
         public AbstractTopoPrimitiveType Item
         {
             get
@@ -7358,7 +7358,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SurfacePropertyType surfacePropertyField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedEdge", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedEdge")]
         public DirectedEdgePropertyType[] directedEdge
         {
             get
@@ -7371,7 +7371,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("directedTopoSolid", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("directedTopoSolid")]
         public DirectedTopoSolidPropertyType[] directedTopoSolid
         {
             get
@@ -7384,7 +7384,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SurfacePropertyType surfaceProperty
         {
             get
@@ -7417,7 +7417,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.orientationField = SignType.Item1;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoSolidType TopoSolid
         {
             get
@@ -7468,7 +7468,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DirectedFacePropertyType[] directedFaceField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedFace", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedFace")]
         public DirectedFacePropertyType[] directedFace
         {
             get
@@ -7501,7 +7501,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.orientationField = SignType.Item1;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public FaceType Face
         {
             get
@@ -7552,11 +7552,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractTopoPrimitiveType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Edge", typeof(EdgeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Face", typeof(FaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Node", typeof(NodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TopoSolid", typeof(TopoSolidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_TopoPrimitive", typeof(AbstractTopoPrimitiveType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Edge", typeof(EdgeType))]
+        [System.Xml.Serialization.XmlElementAttribute("Face", typeof(FaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("Node", typeof(NodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("TopoSolid", typeof(TopoSolidType))]
+        [System.Xml.Serialization.XmlElementAttribute("_TopoPrimitive", typeof(AbstractTopoPrimitiveType))]
         public AbstractTopoPrimitiveType[] Items
         {
             get
@@ -7580,7 +7580,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DirectedTopoSolidPropertyType[] directedTopoSolidField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedTopoSolid", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedTopoSolid")]
         public DirectedTopoSolidPropertyType[] directedTopoSolid
         {
             get
@@ -7604,7 +7604,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DirectedFacePropertyType[] directedFaceField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedFace", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedFace")]
         public DirectedFacePropertyType[] directedFace
         {
             get
@@ -7628,7 +7628,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DirectedEdgePropertyType[] directedEdgeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("directedEdge", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("directedEdge")]
         public DirectedEdgePropertyType[] directedEdge
         {
             get
@@ -7652,7 +7652,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DirectedNodePropertyType directedNodeField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DirectedNodePropertyType directedNode
         {
             get
@@ -7679,7 +7679,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ValueArrayPropertyType valueComponentsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("valueComponent", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("valueComponent")]
         public ValuePropertyType[] valueComponent
         {
             get
@@ -7692,7 +7692,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ValueArrayPropertyType valueComponents
         {
             get
@@ -7749,7 +7749,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public bool Boolean
         {
             get
@@ -7762,7 +7762,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType Category
         {
             get
@@ -7775,7 +7775,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType Quantity
         {
             get
@@ -7788,7 +7788,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
         public string Count
         {
             get
@@ -7801,7 +7801,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string BooleanList
         {
             get
@@ -7814,7 +7814,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeOrNullListType CategoryList
         {
             get
@@ -7827,7 +7827,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureOrNullListType QuantityList
         {
             get
@@ -7840,7 +7840,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string CountList
         {
             get
@@ -7853,7 +7853,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CategoryExtentType CategoryExtent
         {
             get
@@ -7866,7 +7866,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public QuantityExtentType QuantityExtent
         {
             get
@@ -7879,7 +7879,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string CountExtent
         {
             get
@@ -7892,8 +7892,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeValue", typeof(CompositeValueType), Order = 11)]
-        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType), Order = 11)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeValue", typeof(CompositeValueType))]
+        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType))]
         public CompositeValueType Item
         {
             get
@@ -7906,7 +7906,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public object _Object
         {
             get
@@ -7919,7 +7919,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string Null
         {
             get
@@ -8140,21 +8140,21 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ItemsChoiceType10[] itemsElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Boolean", typeof(bool), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("BooleanList", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Category", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CategoryExtent", typeof(CategoryExtentType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CategoryList", typeof(CodeOrNullListType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CompositeValue", typeof(CompositeValueType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Count", typeof(string), DataType = "integer", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CountExtent", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CountList", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Null", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Quantity", typeof(MeasureType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("QuantityExtent", typeof(QuantityExtentType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("QuantityList", typeof(MeasureOrNullListType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_Object", typeof(object), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Boolean", typeof(bool))]
+        [System.Xml.Serialization.XmlElementAttribute("BooleanList", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("Category", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("CategoryExtent", typeof(CategoryExtentType))]
+        [System.Xml.Serialization.XmlElementAttribute("CategoryList", typeof(CodeOrNullListType))]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeValue", typeof(CompositeValueType))]
+        [System.Xml.Serialization.XmlElementAttribute("Count", typeof(string), DataType = "integer")]
+        [System.Xml.Serialization.XmlElementAttribute("CountExtent", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("CountList", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("Null", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("Quantity", typeof(MeasureType))]
+        [System.Xml.Serialization.XmlElementAttribute("QuantityExtent", typeof(QuantityExtentType))]
+        [System.Xml.Serialization.XmlElementAttribute("QuantityList", typeof(MeasureOrNullListType))]
+        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType))]
+        [System.Xml.Serialization.XmlElementAttribute("_Object", typeof(object))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -8168,7 +8168,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType10[] ItemsElementName
         {
@@ -8248,7 +8248,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private StringOrRefType dataSourceField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePrimitivePropertyType validTime
         {
             get
@@ -8261,7 +8261,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType dataSource
         {
             get
@@ -8295,8 +8295,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private StringOrRefType statusField;
 
-        [System.Xml.Serialization.XmlElementAttribute("location", typeof(LocationPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("priorityLocation", typeof(PriorityLocationPropertyType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("location", typeof(LocationPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("priorityLocation", typeof(PriorityLocationPropertyType))]
         public LocationPropertyType Item
         {
             get
@@ -8309,7 +8309,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType speed
         {
             get
@@ -8322,7 +8322,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DirectionPropertyType bearing
         {
             get
@@ -8335,7 +8335,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType acceleration
         {
             get
@@ -8348,7 +8348,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType elevation
         {
             get
@@ -8361,7 +8361,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType status
         {
             get
@@ -8388,11 +8388,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("LocationKeyWord", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("LocationString", typeof(StringOrRefType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Null", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_Geometry", typeof(AbstractGeometryType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType))]
+        [System.Xml.Serialization.XmlElementAttribute("LocationKeyWord", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("LocationString", typeof(StringOrRefType))]
+        [System.Xml.Serialization.XmlElementAttribute("Null", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("_Geometry", typeof(AbstractGeometryType))]
         public object Item
         {
             get
@@ -8455,10 +8455,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompassPoint", typeof(CompassPointEnumeration), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("DirectionKeyword", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("DirectionString", typeof(StringOrRefType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("DirectionVector", typeof(DirectionVectorType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompassPoint", typeof(CompassPointEnumeration))]
+        [System.Xml.Serialization.XmlElementAttribute("DirectionKeyword", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("DirectionString", typeof(StringOrRefType))]
+        [System.Xml.Serialization.XmlElementAttribute("DirectionVector", typeof(DirectionVectorType))]
         public object Item
         {
             get
@@ -8553,9 +8553,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ItemsChoiceType9[] itemsElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("horizontalAngle", typeof(AngleType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("vector", typeof(VectorType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("verticalAngle", typeof(AngleType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("horizontalAngle", typeof(AngleType))]
+        [System.Xml.Serialization.XmlElementAttribute("vector", typeof(VectorType))]
+        [System.Xml.Serialization.XmlElementAttribute("verticalAngle", typeof(AngleType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -8569,7 +8569,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType9[] ItemsElementName
         {
@@ -8628,7 +8628,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private LocationPropertyType itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public BoundingShapeType boundedBy
         {
             get
@@ -8641,8 +8641,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("location", typeof(LocationPropertyType), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("priorityLocation", typeof(PriorityLocationPropertyType), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("location", typeof(LocationPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("priorityLocation", typeof(PriorityLocationPropertyType))]
         public LocationPropertyType Item
         {
             get
@@ -8666,9 +8666,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Envelope", typeof(EnvelopeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("EnvelopeWithTimePeriod", typeof(EnvelopeWithTimePeriodType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Null", typeof(string), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Envelope", typeof(EnvelopeType))]
+        [System.Xml.Serialization.XmlElementAttribute("EnvelopeWithTimePeriod", typeof(EnvelopeWithTimePeriodType))]
+        [System.Xml.Serialization.XmlElementAttribute("Null", typeof(string))]
         public object Item
         {
             get
@@ -8699,11 +8699,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string srsDimensionField;
 
-        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("lowerCorner", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("upperCorner", typeof(DirectPositionType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coord", typeof(CoordType))]
+        [System.Xml.Serialization.XmlElementAttribute("coordinates", typeof(CoordinatesType))]
+        [System.Xml.Serialization.XmlElementAttribute("lowerCorner", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("pos", typeof(DirectPositionType))]
+        [System.Xml.Serialization.XmlElementAttribute("upperCorner", typeof(DirectPositionType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -8717,7 +8717,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType2[] ItemsElementName
         {
@@ -8797,7 +8797,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             this.frameField = "#ISO-8601";
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("timePosition", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("timePosition")]
         public TimePositionType[] timePosition
         {
             get
@@ -8847,13 +8847,13 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string dimensionField;
 
-        [System.Xml.Serialization.XmlElementAttribute("domainSet", typeof(DomainSetType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("gridDomain", typeof(GridDomainType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("multiCurveDomain", typeof(MultiCurveDomainType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("multiPointDomain", typeof(MultiPointDomainType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("multiSolidDomain", typeof(MultiSolidDomainType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("multiSurfaceDomain", typeof(MultiSurfaceDomainType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("rectifiedGridDomain", typeof(RectifiedGridDomainType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("domainSet", typeof(DomainSetType))]
+        [System.Xml.Serialization.XmlElementAttribute("gridDomain", typeof(GridDomainType))]
+        [System.Xml.Serialization.XmlElementAttribute("multiCurveDomain", typeof(MultiCurveDomainType))]
+        [System.Xml.Serialization.XmlElementAttribute("multiPointDomain", typeof(MultiPointDomainType))]
+        [System.Xml.Serialization.XmlElementAttribute("multiSolidDomain", typeof(MultiSolidDomainType))]
+        [System.Xml.Serialization.XmlElementAttribute("multiSurfaceDomain", typeof(MultiSurfaceDomainType))]
+        [System.Xml.Serialization.XmlElementAttribute("rectifiedGridDomain", typeof(RectifiedGridDomainType))]
         public DomainSetType Item1
         {
             get
@@ -8866,7 +8866,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public RangeSetType rangeSet
         {
             get
@@ -8911,9 +8911,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_Geometry", typeof(AbstractGeometryType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_TimeObject", typeof(AbstractTimeObjectType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType))]
+        [System.Xml.Serialization.XmlElementAttribute("_Geometry", typeof(AbstractGeometryType))]
+        [System.Xml.Serialization.XmlElementAttribute("_TimeObject", typeof(AbstractTimeObjectType))]
         public AbstractGMLType Item
         {
             get
@@ -9006,13 +9006,13 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ItemsChoiceType11[] itemsElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("BooleanList", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CategoryList", typeof(CodeOrNullListType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CountList", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("DataBlock", typeof(DataBlockType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("File", typeof(FileType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("QuantityList", typeof(MeasureOrNullListType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("BooleanList", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("CategoryList", typeof(CodeOrNullListType))]
+        [System.Xml.Serialization.XmlElementAttribute("CountList", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("DataBlock", typeof(DataBlockType))]
+        [System.Xml.Serialization.XmlElementAttribute("File", typeof(FileType))]
+        [System.Xml.Serialization.XmlElementAttribute("QuantityList", typeof(MeasureOrNullListType))]
+        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -9026,7 +9026,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType11[] ItemsElementName
         {
@@ -9053,7 +9053,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public RangeParametersType rangeParameters
         {
             get
@@ -9066,8 +9066,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("doubleOrNullTupleList", typeof(string), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("tupleList", typeof(CoordinatesType), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("doubleOrNullTupleList", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("tupleList", typeof(CoordinatesType))]
         public object Item
         {
             get
@@ -9115,7 +9115,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public bool Boolean
         {
             get
@@ -9128,7 +9128,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType Category
         {
             get
@@ -9141,7 +9141,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType Quantity
         {
             get
@@ -9154,7 +9154,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
         public string Count
         {
             get
@@ -9167,7 +9167,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string BooleanList
         {
             get
@@ -9180,7 +9180,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeOrNullListType CategoryList
         {
             get
@@ -9193,7 +9193,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureOrNullListType QuantityList
         {
             get
@@ -9206,7 +9206,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string CountList
         {
             get
@@ -9219,7 +9219,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CategoryExtentType CategoryExtent
         {
             get
@@ -9232,7 +9232,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public QuantityExtentType QuantityExtent
         {
             get
@@ -9245,7 +9245,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string CountExtent
         {
             get
@@ -9258,8 +9258,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeValue", typeof(CompositeValueType), Order = 11)]
-        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType), Order = 11)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeValue", typeof(CompositeValueType))]
+        [System.Xml.Serialization.XmlElementAttribute("ValueArray", typeof(ValueArrayType))]
         public CompositeValueType Item
         {
             get
@@ -9304,7 +9304,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string compressionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public RangeParametersType rangeParameters
         {
             get
@@ -9317,7 +9317,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
         public string fileName
         {
             get
@@ -9330,7 +9330,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public FileValueModelType fileStructure
         {
             get
@@ -9343,7 +9343,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
         public string mimeType
         {
             get
@@ -9356,7 +9356,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI", Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
         public string compression
         {
             get
@@ -9425,7 +9425,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CoverageFunctionType coverageFunctionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CoverageFunctionType coverageFunction
         {
             get
@@ -9449,9 +9449,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("GridFunction", typeof(GridFunctionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("IndexMap", typeof(IndexMapType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MappingRule", typeof(StringOrRefType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("GridFunction", typeof(GridFunctionType))]
+        [System.Xml.Serialization.XmlElementAttribute("IndexMap", typeof(IndexMapType))]
+        [System.Xml.Serialization.XmlElementAttribute("MappingRule", typeof(StringOrRefType))]
         public object Item
         {
             get
@@ -9478,7 +9478,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string startPointField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SequenceRuleType sequenceRule
         {
             get
@@ -9491,7 +9491,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string startPoint
         {
             get
@@ -9618,7 +9618,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string lookUpTableField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string lookUpTable
         {
             get
@@ -9696,7 +9696,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CoverageFunctionType coverageFunctionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CoverageFunctionType coverageFunction
         {
             get
@@ -9724,7 +9724,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private StringOrRefType dataSourceField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePrimitivePropertyType validTime
         {
             get
@@ -9737,8 +9737,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("history", typeof(HistoryPropertyType), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("track", typeof(TrackType), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("history", typeof(HistoryPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("track", typeof(TrackType))]
         public HistoryPropertyType Item1
         {
             get
@@ -9751,7 +9751,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType dataSource
         {
             get
@@ -9776,7 +9776,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private MovingObjectStatusType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("MovingObjectStatus", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("MovingObjectStatus")]
         public MovingObjectStatusType[] Items
         {
             get
@@ -9828,7 +9828,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AssociationType resultOfField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePrimitivePropertyType validTime
         {
             get
@@ -9841,7 +9841,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public FeaturePropertyType @using
         {
             get
@@ -9854,8 +9854,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("subject", typeof(TargetPropertyType), Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute("target", typeof(TargetPropertyType), Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("subject", typeof(TargetPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("target", typeof(TargetPropertyType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("Item1ElementName")]
         public TargetPropertyType Item1
         {
@@ -9869,7 +9869,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public Item1ChoiceType Item1ElementName
         {
@@ -9883,7 +9883,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AssociationType resultOf
         {
             get
@@ -9909,8 +9909,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("FeatureCollection", typeof(FeatureCollectionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Observation", typeof(ObservationType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("FeatureCollection", typeof(FeatureCollectionType))]
+        [System.Xml.Serialization.XmlElementAttribute("Observation", typeof(ObservationType))]
         public AbstractFeatureType Item
         {
             get
@@ -9959,7 +9959,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractFeatureType[] featureMembersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("featureMember", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("featureMember")]
         public FeaturePropertyType[] featureMember
         {
             get
@@ -9972,7 +9972,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_Feature", IsNullable = false)]
         public AbstractFeatureType[] featureMembers
         {
@@ -9999,11 +9999,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("FeatureCollection", typeof(FeatureCollectionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Observation", typeof(ObservationType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_Feature", typeof(AbstractFeatureType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("_Geometry", typeof(AbstractGeometryType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("FeatureCollection", typeof(FeatureCollectionType))]
+        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType))]
+        [System.Xml.Serialization.XmlElementAttribute("Observation", typeof(ObservationType))]
+        [System.Xml.Serialization.XmlElementAttribute("_Feature", typeof(AbstractFeatureType))]
+        [System.Xml.Serialization.XmlElementAttribute("_Geometry", typeof(AbstractGeometryType))]
         public AbstractGMLType Item
         {
             get
@@ -10055,7 +10055,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public object _Object
         {
             get
@@ -10093,7 +10093,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DirectionPropertyType directionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DirectionPropertyType direction
         {
             get
@@ -10117,7 +10117,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private MeasureType distanceField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType distance
         {
             get
@@ -10226,7 +10226,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ReferenceType groupField;
 
-        [System.Xml.Serialization.XmlElementAttribute("relatedTime", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("relatedTime")]
         public RelatedTimeType[] relatedTime
         {
             get
@@ -10239,7 +10239,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeNodePropertyType start
         {
             get
@@ -10252,7 +10252,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeNodePropertyType end
         {
             get
@@ -10265,7 +10265,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePeriodPropertyType extent
         {
             get
@@ -10278,7 +10278,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("member", Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute("member")]
         public TimeOrdinalEraPropertyType[] member
         {
             get
@@ -10291,7 +10291,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType group
         {
             get
@@ -10317,7 +10317,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeNodeType TimeNode
         {
             get
@@ -10358,7 +10358,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeInstantPropertyType positionField;
 
-        [System.Xml.Serialization.XmlElementAttribute("previousEdge", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("previousEdge")]
         public TimeEdgePropertyType[] previousEdge
         {
             get
@@ -10371,7 +10371,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("nextEdge", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("nextEdge")]
         public TimeEdgePropertyType[] nextEdge
         {
             get
@@ -10384,7 +10384,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeInstantPropertyType position
         {
             get
@@ -10410,7 +10410,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeEdgeType TimeEdge
         {
             get
@@ -10451,7 +10451,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimePeriodPropertyType extentField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeNodePropertyType start
         {
             get
@@ -10464,7 +10464,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeNodePropertyType end
         {
             get
@@ -10477,7 +10477,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePeriodPropertyType extent
         {
             get
@@ -10503,7 +10503,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ReferenceType complexField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType complex
         {
             get
@@ -10553,7 +10553,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeOrdinalEraType TimeOrdinalEra
         {
             get
@@ -10594,7 +10594,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string domainOfValidityField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string domainOfValidity
         {
             get
@@ -10618,7 +10618,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeOrdinalEraPropertyType[] componentField;
 
-        [System.Xml.Serialization.XmlElementAttribute("component", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("component")]
         public TimeOrdinalEraPropertyType[] component
         {
             get
@@ -10644,8 +10644,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeIntervalLengthType intervalField;
 
-        [System.Xml.Serialization.XmlElementAttribute("origin", typeof(TimeInstantPropertyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("originPosition", typeof(TimePositionType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("origin", typeof(TimeInstantPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("originPosition", typeof(TimePositionType))]
         public object Item
         {
             get
@@ -10658,7 +10658,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeIntervalLengthType interval
         {
             get
@@ -10787,7 +10787,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CRSRefType targetCRSField;
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinateOperationID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinateOperationID")]
         public IdentifierType[] coordinateOperationID
         {
             get
@@ -10800,7 +10800,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -10813,7 +10813,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string operationVersion
         {
             get
@@ -10826,7 +10826,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ExtentType validArea
         {
             get
@@ -10839,7 +10839,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string scope
         {
             get
@@ -10852,9 +10852,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("absoluteExternalPositionalAccuracy", typeof(AbsoluteExternalPositionalAccuracyType), Order = 5)]
-        [System.Xml.Serialization.XmlElementAttribute("covarianceMatrix", typeof(CovarianceMatrixType), Order = 5)]
-        [System.Xml.Serialization.XmlElementAttribute("relativeInternalPositionalAccuracy", typeof(RelativeInternalPositionalAccuracyType), Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute("absoluteExternalPositionalAccuracy", typeof(AbsoluteExternalPositionalAccuracyType))]
+        [System.Xml.Serialization.XmlElementAttribute("covarianceMatrix", typeof(CovarianceMatrixType))]
+        [System.Xml.Serialization.XmlElementAttribute("relativeInternalPositionalAccuracy", typeof(RelativeInternalPositionalAccuracyType))]
         public AbstractPositionalAccuracyType[] Items1
         {
             get
@@ -10867,7 +10867,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CRSRefType sourceCRS
         {
             get
@@ -10880,7 +10880,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CRSRefType targetCRS
         {
             get
@@ -10910,16 +10910,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private StringOrRefType remarksField;
 
-        [System.Xml.Serialization.XmlElementAttribute("coordinateOperationName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("csName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("datumName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ellipsoidName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("groupName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("meridianName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("methodName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("name", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("parameterName", typeof(CodeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("srsName", typeof(CodeType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("coordinateOperationName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("csName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("datumName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("ellipsoidName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("groupName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("meridianName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("methodName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("name", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("parameterName", typeof(CodeType))]
+        [System.Xml.Serialization.XmlElementAttribute("srsName", typeof(CodeType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public CodeType Item
         {
@@ -10933,7 +10933,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType1 ItemElementName
         {
@@ -10947,7 +10947,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string version
         {
             get
@@ -10960,7 +10960,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -11027,7 +11027,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimePeriodType[] temporalExtentField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType description
         {
             get
@@ -11040,8 +11040,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("boundingBox", typeof(EnvelopeType), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("boundingPolygon", typeof(PolygonType), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("boundingBox", typeof(EnvelopeType))]
+        [System.Xml.Serialization.XmlElementAttribute("boundingPolygon", typeof(PolygonType))]
         public object[] Items
         {
             get
@@ -11054,7 +11054,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("verticalExtent", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("verticalExtent")]
         public EnvelopeType[] verticalExtent
         {
             get
@@ -11067,7 +11067,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("temporalExtent", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("temporalExtent")]
         public TimePeriodType[] temporalExtent
         {
             get
@@ -11091,7 +11091,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private MeasureType resultField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType result
         {
             get
@@ -11118,7 +11118,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CodeType measureDescriptionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType measureDescription
         {
             get
@@ -11144,7 +11144,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CovarianceElementType[] includesElementField;
 
-        [System.Xml.Serialization.XmlElementAttribute("unitOfMeasure", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("unitOfMeasure")]
         public UnitOfMeasureType[] unitOfMeasure
         {
             get
@@ -11157,7 +11157,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("includesElement", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("includesElement")]
         public CovarianceElementType[] includesElement
         {
             get
@@ -11207,8 +11207,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("factor", typeof(double), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("formula", typeof(FormulaType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("factor", typeof(double))]
+        [System.Xml.Serialization.XmlElementAttribute("formula", typeof(FormulaType))]
         public object Item
         {
             get
@@ -11242,7 +11242,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private bool dFieldSpecified;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double a
         {
             get
@@ -11268,7 +11268,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double b
         {
             get
@@ -11281,7 +11281,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double c
         {
             get
@@ -11294,7 +11294,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double d
         {
             get
@@ -11359,7 +11359,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private double covarianceField;
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string rowIndex
         {
             get
@@ -11372,7 +11372,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string columnIndex
         {
             get
@@ -11385,7 +11385,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public double covariance
         {
             get
@@ -11409,7 +11409,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private MeasureType resultField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType result
         {
             get
@@ -11435,7 +11435,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompoundCRS", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompoundCRS")]
         public CompoundCRSType Item
         {
             get
@@ -11472,7 +11472,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CoordinateReferenceSystemRefType[] includesCRSField;
 
-        [System.Xml.Serialization.XmlElementAttribute("includesCRS", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("includesCRS")]
         public CoordinateReferenceSystemRefType[] includesCRS
         {
             get
@@ -11498,12 +11498,12 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("EngineeringCRS", typeof(EngineeringCRSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("GeocentricCRS", typeof(GeocentricCRSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("GeographicCRS", typeof(GeographicCRSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ImageCRS", typeof(ImageCRSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TemporalCRS", typeof(TemporalCRSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("VerticalCRS", typeof(VerticalCRSType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("EngineeringCRS", typeof(EngineeringCRSType))]
+        [System.Xml.Serialization.XmlElementAttribute("GeocentricCRS", typeof(GeocentricCRSType))]
+        [System.Xml.Serialization.XmlElementAttribute("GeographicCRS", typeof(GeographicCRSType))]
+        [System.Xml.Serialization.XmlElementAttribute("ImageCRS", typeof(ImageCRSType))]
+        [System.Xml.Serialization.XmlElementAttribute("TemporalCRS", typeof(TemporalCRSType))]
+        [System.Xml.Serialization.XmlElementAttribute("VerticalCRS", typeof(VerticalCRSType))]
         public AbstractReferenceSystemType Item
         {
             get
@@ -11542,7 +11542,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private EngineeringDatumRefType usesEngineeringDatumField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CoordinateSystemRefType usesCS
         {
             get
@@ -11555,7 +11555,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EngineeringDatumRefType usesEngineeringDatum
         {
             get
@@ -11581,16 +11581,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CartesianCS", typeof(CartesianCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CylindricalCS", typeof(CylindricalCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("EllipsoidalCS", typeof(EllipsoidalCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("LinearCS", typeof(LinearCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ObliqueCartesianCS", typeof(ObliqueCartesianCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("PolarCS", typeof(PolarCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("SphericalCS", typeof(SphericalCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TemporalCS", typeof(TemporalCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("UserDefinedCS", typeof(UserDefinedCSType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("VerticalCS", typeof(VerticalCSType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CartesianCS", typeof(CartesianCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("CylindricalCS", typeof(CylindricalCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("EllipsoidalCS", typeof(EllipsoidalCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("LinearCS", typeof(LinearCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("ObliqueCartesianCS", typeof(ObliqueCartesianCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("PolarCS", typeof(PolarCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("SphericalCS", typeof(SphericalCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("TemporalCS", typeof(TemporalCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("UserDefinedCS", typeof(UserDefinedCSType))]
+        [System.Xml.Serialization.XmlElementAttribute("VerticalCS", typeof(VerticalCSType))]
         public AbstractCoordinateSystemType Item
         {
             get
@@ -11650,7 +11650,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CoordinateSystemAxisRefType[] usesAxisField;
 
-        [System.Xml.Serialization.XmlElementAttribute("csID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("csID")]
         public IdentifierType[] csID
         {
             get
@@ -11663,7 +11663,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -11676,7 +11676,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("usesAxis", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("usesAxis")]
         public CoordinateSystemAxisRefType[] usesAxis
         {
             get
@@ -11702,7 +11702,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CoordinateSystemAxisType CoordinateSystemAxis
         {
             get
@@ -11747,7 +11747,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string uomField;
 
-        [System.Xml.Serialization.XmlElementAttribute("axisID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("axisID")]
         public IdentifierType[] axisID
         {
             get
@@ -11760,7 +11760,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -11773,7 +11773,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType axisAbbrev
         {
             get
@@ -11786,7 +11786,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType axisDirection
         {
             get
@@ -11936,7 +11936,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EngineeringDatumType EngineeringDatum
         {
             get
@@ -12000,7 +12000,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string scopeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("datumID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("datumID")]
         public IdentifierType[] datumID
         {
             get
@@ -12013,7 +12013,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -12026,7 +12026,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType anchorPoint
         {
             get
@@ -12039,7 +12039,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "date")]
         public System.DateTime realizationEpoch
         {
             get
@@ -12065,7 +12065,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ExtentType validArea
         {
             get
@@ -12078,7 +12078,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string scope
         {
             get
@@ -12120,7 +12120,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private EllipsoidRefType usesEllipsoidField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PrimeMeridianRefType usesPrimeMeridian
         {
             get
@@ -12133,7 +12133,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EllipsoidRefType usesEllipsoid
         {
             get
@@ -12159,7 +12159,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PrimeMeridianType PrimeMeridian
         {
             get
@@ -12200,7 +12200,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AngleChoiceType greenwichLongitudeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("meridianID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("meridianID")]
         public IdentifierType[] meridianID
         {
             get
@@ -12213,7 +12213,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -12226,7 +12226,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AngleChoiceType greenwichLongitude
         {
             get
@@ -12250,8 +12250,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("angle", typeof(MeasureType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("dmsAngle", typeof(DMSAngleType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("angle", typeof(MeasureType))]
+        [System.Xml.Serialization.XmlElementAttribute("dmsAngle", typeof(DMSAngleType))]
         public object Item
         {
             get
@@ -12279,7 +12279,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ItemsChoiceType1[] itemsElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DegreesType degrees
         {
             get
@@ -12292,9 +12292,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("decimalMinutes", typeof(decimal), Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("minutes", typeof(string), DataType = "nonNegativeInteger", Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute("seconds", typeof(decimal), Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("decimalMinutes", typeof(decimal))]
+        [System.Xml.Serialization.XmlElementAttribute("minutes", typeof(string), DataType = "nonNegativeInteger")]
+        [System.Xml.Serialization.XmlElementAttribute("seconds", typeof(decimal))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
@@ -12308,7 +12308,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemsChoiceType1[] ItemsElementName
         {
@@ -12400,7 +12400,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EllipsoidType Ellipsoid
         {
             get
@@ -12443,7 +12443,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SecondDefiningParameterType secondDefiningParameterField;
 
-        [System.Xml.Serialization.XmlElementAttribute("ellipsoidID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("ellipsoidID")]
         public IdentifierType[] ellipsoidID
         {
             get
@@ -12456,7 +12456,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -12469,7 +12469,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MeasureType semiMajorAxis
         {
             get
@@ -12482,7 +12482,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SecondDefiningParameterType secondDefiningParameter
         {
             get
@@ -12508,9 +12508,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ItemChoiceType2 itemElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("inverseFlattening", typeof(MeasureType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("isSphere", typeof(isSphere), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("semiMinorAxis", typeof(MeasureType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("inverseFlattening", typeof(MeasureType))]
+        [System.Xml.Serialization.XmlElementAttribute("isSphere", typeof(isSphere))]
+        [System.Xml.Serialization.XmlElementAttribute("semiMinorAxis", typeof(MeasureType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public object Item
         {
@@ -12524,7 +12524,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType2 ItemElementName
         {
@@ -12596,7 +12596,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private System.DateTime originField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public System.DateTime origin
         {
             get
@@ -12620,7 +12620,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private VerticalDatumTypeType verticalDatumTypeField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VerticalDatumTypeType verticalDatumType
         {
             get
@@ -12644,7 +12644,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private PixelInCellType pixelInCellField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PixelInCellType pixelInCell
         {
             get
@@ -12684,7 +12684,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string scopeField;
 
-        [System.Xml.Serialization.XmlElementAttribute("srsID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("srsID")]
         public IdentifierType[] srsID
         {
             get
@@ -12697,7 +12697,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -12710,7 +12710,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ExtentType validArea
         {
             get
@@ -12723,7 +12723,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public string scope
         {
             get
@@ -12771,7 +12771,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GeneralConversionRefType definedByConversionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CoordinateReferenceSystemRefType baseCRS
         {
             get
@@ -12784,7 +12784,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeneralConversionRefType definedByConversion
         {
             get
@@ -12810,7 +12810,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Conversion", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Conversion")]
         public ConversionType Item
         {
             get
@@ -12849,7 +12849,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ParameterValueType[] usesValueField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationMethodRefType usesMethod
         {
             get
@@ -12862,7 +12862,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("usesValue", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("usesValue")]
         public ParameterValueType[] usesValue
         {
             get
@@ -12888,7 +12888,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationMethodType OperationMethod
         {
             get
@@ -12935,7 +12935,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractGeneralOperationParameterRefType[] usesParameterField;
 
-        [System.Xml.Serialization.XmlElementAttribute("methodID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("methodID")]
         public IdentifierType[] methodID
         {
             get
@@ -12948,7 +12948,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -12961,7 +12961,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType methodFormula
         {
             get
@@ -12974,7 +12974,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string sourceDimensions
         {
             get
@@ -12987,7 +12987,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string targetDimensions
         {
             get
@@ -13000,7 +13000,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("usesParameter", Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute("usesParameter")]
         public AbstractGeneralOperationParameterRefType[] usesParameter
         {
             get
@@ -13026,8 +13026,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("OperationParameter", typeof(OperationParameterType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OperationParameterGroup", typeof(OperationParameterGroupType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("OperationParameter", typeof(OperationParameterType))]
+        [System.Xml.Serialization.XmlElementAttribute("OperationParameterGroup", typeof(OperationParameterGroupType))]
         public AbstractGeneralOperationParameterType Item
         {
             get
@@ -13066,7 +13066,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private StringOrRefType remarksField;
 
-        [System.Xml.Serialization.XmlElementAttribute("parameterID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("parameterID")]
         public IdentifierType[] parameterID
         {
             get
@@ -13079,7 +13079,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -13117,7 +13117,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string minimumOccursField;
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger")]
         public string minimumOccurs
         {
             get
@@ -13157,7 +13157,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractGeneralOperationParameterRefType[] includesParameterField;
 
-        [System.Xml.Serialization.XmlElementAttribute("groupID", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("groupID")]
         public IdentifierType[] groupID
         {
             get
@@ -13170,7 +13170,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType remarks
         {
             get
@@ -13183,7 +13183,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger")]
         public string maximumOccurs
         {
             get
@@ -13196,7 +13196,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("includesParameter", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute("includesParameter")]
         public AbstractGeneralOperationParameterRefType[] includesParameter
         {
             get
@@ -13234,14 +13234,14 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private OperationParameterRefType valueOfParameterField;
 
-        [System.Xml.Serialization.XmlElementAttribute("booleanValue", typeof(bool), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("dmsAngleValue", typeof(DMSAngleType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("integerValue", typeof(string), DataType = "positiveInteger", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("integerValueList", typeof(string), DataType = "integer", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("stringValue", typeof(string), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("value", typeof(MeasureType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("valueFile", typeof(string), DataType = "anyURI", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("valueList", typeof(MeasureListType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("booleanValue", typeof(bool))]
+        [System.Xml.Serialization.XmlElementAttribute("dmsAngleValue", typeof(DMSAngleType))]
+        [System.Xml.Serialization.XmlElementAttribute("integerValue", typeof(string), DataType = "positiveInteger")]
+        [System.Xml.Serialization.XmlElementAttribute("integerValueList", typeof(string), DataType = "integer")]
+        [System.Xml.Serialization.XmlElementAttribute("stringValue", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("value", typeof(MeasureType))]
+        [System.Xml.Serialization.XmlElementAttribute("valueFile", typeof(string), DataType = "anyURI")]
+        [System.Xml.Serialization.XmlElementAttribute("valueList", typeof(MeasureListType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public object Item
         {
@@ -13255,7 +13255,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType9 ItemElementName
         {
@@ -13269,7 +13269,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationParameterRefType valueOfParameter
         {
             get
@@ -13313,6 +13313,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
         {
             get
             {
+                if (this.textField == null)
+                    return null;
                 return Array.ConvertAll(this.textField, Convert.ToString);
             }
             set
@@ -13365,7 +13367,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationParameterType OperationParameter
         {
             get
@@ -13415,7 +13417,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private OperationParameterGroupRefType valuesOfGroupField;
 
-        [System.Xml.Serialization.XmlElementAttribute("includesValue", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("includesValue")]
         public AbstractGeneralParameterValueType[] includesValue
         {
             get
@@ -13428,7 +13430,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationParameterGroupRefType valuesOfGroup
         {
             get
@@ -13454,7 +13456,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationParameterGroupType OperationParameterGroup
         {
             get
@@ -13503,7 +13505,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CoordinateSystemRefType usesCSField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DerivedCRSTypeType derivedCRSType
         {
             get
@@ -13516,7 +13518,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CoordinateSystemRefType usesCS
         {
             get
@@ -13540,7 +13542,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CartesianCSRefType usesCartesianCSField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CartesianCSRefType usesCartesianCS
         {
             get
@@ -13566,7 +13568,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CartesianCSType CartesianCS
         {
             get
@@ -13605,7 +13607,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TemporalDatumRefType usesTemporalDatumField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TemporalCSRefType usesTemporalCS
         {
             get
@@ -13618,7 +13620,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TemporalDatumRefType usesTemporalDatum
         {
             get
@@ -13644,7 +13646,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TemporalCSType TemporalCS
         {
             get
@@ -13683,7 +13685,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TemporalDatumType TemporalDatum
         {
             get
@@ -13722,8 +13724,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ImageDatumRefType usesImageDatumField;
 
-        [System.Xml.Serialization.XmlElementAttribute("usesCartesianCS", typeof(CartesianCSRefType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("usesObliqueCartesianCS", typeof(ObliqueCartesianCSRefType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("usesCartesianCS", typeof(CartesianCSRefType))]
+        [System.Xml.Serialization.XmlElementAttribute("usesObliqueCartesianCS", typeof(ObliqueCartesianCSRefType))]
         public object Item
         {
             get
@@ -13736,7 +13738,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ImageDatumRefType usesImageDatum
         {
             get
@@ -13762,7 +13764,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ObliqueCartesianCSType ObliqueCartesianCS
         {
             get
@@ -13801,7 +13803,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ImageDatumType ImageDatum
         {
             get
@@ -13840,8 +13842,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GeodeticDatumRefType usesGeodeticDatumField;
 
-        [System.Xml.Serialization.XmlElementAttribute("usesCartesianCS", typeof(CartesianCSRefType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("usesSphericalCS", typeof(SphericalCSRefType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("usesCartesianCS", typeof(CartesianCSRefType))]
+        [System.Xml.Serialization.XmlElementAttribute("usesSphericalCS", typeof(SphericalCSRefType))]
         public object Item
         {
             get
@@ -13854,7 +13856,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeodeticDatumRefType usesGeodeticDatum
         {
             get
@@ -13880,7 +13882,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public SphericalCSType SphericalCS
         {
             get
@@ -13919,7 +13921,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeodeticDatumType GeodeticDatum
         {
             get
@@ -13958,7 +13960,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private VerticalDatumRefType usesVerticalDatumField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VerticalCSRefType usesVerticalCS
         {
             get
@@ -13971,7 +13973,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VerticalDatumRefType usesVerticalDatum
         {
             get
@@ -13997,7 +13999,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VerticalCSType VerticalCS
         {
             get
@@ -14036,7 +14038,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VerticalDatumType VerticalDatum
         {
             get
@@ -14075,7 +14077,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GeodeticDatumRefType usesGeodeticDatumField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EllipsoidalCSRefType usesEllipsoidalCS
         {
             get
@@ -14088,7 +14090,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeodeticDatumRefType usesGeodeticDatum
         {
             get
@@ -14114,7 +14116,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EllipsoidalCSType EllipsoidalCS
         {
             get
@@ -14163,7 +14165,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ParameterValueType[] usesValueField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationMethodRefType usesMethod
         {
             get
@@ -14176,7 +14178,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("usesValue", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("usesValue")]
         public ParameterValueType[] usesValue
         {
             get
@@ -14202,7 +14204,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private OperationRefType usesOperationField;
 
-        [System.Xml.Serialization.XmlElementAttribute("modifiedCoordinate", DataType = "positiveInteger", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("modifiedCoordinate", DataType = "positiveInteger")]
         public string[] modifiedCoordinate
         {
             get
@@ -14215,7 +14217,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OperationRefType usesOperation
         {
             get
@@ -14241,7 +14243,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AbstractCoordinateOperationType _Operation
         {
             get
@@ -14278,7 +14280,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private SingleOperationRefType[] usesSingleOperationField;
 
-        [System.Xml.Serialization.XmlElementAttribute("usesSingleOperation", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("usesSingleOperation")]
         public SingleOperationRefType[] usesSingleOperation
         {
             get
@@ -14304,7 +14306,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("PassThroughOperation", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("PassThroughOperation")]
         public PassThroughOperationType Item
         {
             get
@@ -14346,7 +14348,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private CodeType catalogSymbolField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public StringOrRefType quantityType
         {
             get
@@ -14359,7 +14361,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CodeType catalogSymbol
         {
             get
@@ -14387,8 +14389,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DerivationUnitTermType[] derivationUnitTermField;
 
-        [System.Xml.Serialization.XmlElementAttribute("conversionToPreferredUnit", typeof(ConversionToPreferredUnitType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("roughConversionToPreferredUnit", typeof(ConversionToPreferredUnitType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("conversionToPreferredUnit", typeof(ConversionToPreferredUnitType))]
+        [System.Xml.Serialization.XmlElementAttribute("roughConversionToPreferredUnit", typeof(ConversionToPreferredUnitType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public ConversionToPreferredUnitType Item
         {
@@ -14402,7 +14404,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType ItemElementName
         {
@@ -14416,7 +14418,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("derivationUnitTerm", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("derivationUnitTerm")]
         public DerivationUnitTermType[] derivationUnitTerm
         {
             get
@@ -14453,7 +14455,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DerivationUnitTermType[] derivationUnitTermField;
 
-        [System.Xml.Serialization.XmlElementAttribute("derivationUnitTerm", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("derivationUnitTerm")]
         public DerivationUnitTermType[] derivationUnitTerm
         {
             get
@@ -14477,7 +14479,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ReferenceType unitsSystemField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType unitsSystem
         {
             get
@@ -14501,7 +14503,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private ReferenceType definitionRefField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType definitionRef
         {
             get
@@ -14527,9 +14529,9 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private Items1ChoiceType[] items1ElementNameField;
 
-        [System.Xml.Serialization.XmlElementAttribute("definitionMember", typeof(DictionaryEntryType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("dictionaryEntry", typeof(DictionaryEntryType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("indirectEntry", typeof(IndirectEntryType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("definitionMember", typeof(DictionaryEntryType))]
+        [System.Xml.Serialization.XmlElementAttribute("dictionaryEntry", typeof(DictionaryEntryType))]
+        [System.Xml.Serialization.XmlElementAttribute("indirectEntry", typeof(IndirectEntryType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("Items1ElementName")]
         public object[] Items1
         {
@@ -14543,7 +14545,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("Items1ElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public Items1ChoiceType[] Items1ElementName
         {
@@ -14572,16 +14574,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CoordinateSystemAxis", typeof(CoordinateSystemAxisType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Definition", typeof(DefinitionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("DefinitionCollection", typeof(DictionaryType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("DefinitionProxy", typeof(DefinitionProxyType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Dictionary", typeof(DictionaryType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Ellipsoid", typeof(EllipsoidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OperationMethod", typeof(OperationMethodType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("PrimeMeridian", typeof(PrimeMeridianType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TimeCalendarEra", typeof(TimeCalendarEraType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("UnitDefinition", typeof(UnitDefinitionType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CoordinateSystemAxis", typeof(CoordinateSystemAxisType))]
+        [System.Xml.Serialization.XmlElementAttribute("Definition", typeof(DefinitionType))]
+        [System.Xml.Serialization.XmlElementAttribute("DefinitionCollection", typeof(DictionaryType))]
+        [System.Xml.Serialization.XmlElementAttribute("DefinitionProxy", typeof(DefinitionProxyType))]
+        [System.Xml.Serialization.XmlElementAttribute("Dictionary", typeof(DictionaryType))]
+        [System.Xml.Serialization.XmlElementAttribute("Ellipsoid", typeof(EllipsoidType))]
+        [System.Xml.Serialization.XmlElementAttribute("OperationMethod", typeof(OperationMethodType))]
+        [System.Xml.Serialization.XmlElementAttribute("PrimeMeridian", typeof(PrimeMeridianType))]
+        [System.Xml.Serialization.XmlElementAttribute("TimeCalendarEra", typeof(TimeCalendarEraType))]
+        [System.Xml.Serialization.XmlElementAttribute("UnitDefinition", typeof(UnitDefinitionType))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public DefinitionType Item
         {
@@ -14595,7 +14597,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public ItemChoiceType3 ItemElementName
         {
@@ -14670,7 +14672,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private DefinitionProxyType definitionProxyField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DefinitionProxyType DefinitionProxy
         {
             get
@@ -14710,7 +14712,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object[] membersField;
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_Object", IsNullable = false)]
         public object[] members
         {
@@ -14737,7 +14739,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object[] membersField;
 
-        [System.Xml.Serialization.XmlElementAttribute("member", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("member")]
         public AssociationType[] member
         {
             get
@@ -14750,7 +14752,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
         [System.Xml.Serialization.XmlArrayItemAttribute("_Object", IsNullable = false)]
         public object[] members
         {
@@ -14785,7 +14787,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TimeTopologyPrimitivePropertyType[] primitiveField;
 
-        [System.Xml.Serialization.XmlElementAttribute("primitive", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("primitive")]
         public TimeTopologyPrimitivePropertyType[] primitive
         {
             get
@@ -14811,8 +14813,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("TimeEdge", typeof(TimeEdgeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TimeNode", typeof(TimeNodeType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("TimeEdge", typeof(TimeEdgeType))]
+        [System.Xml.Serialization.XmlElementAttribute("TimeNode", typeof(TimeNodeType))]
         public AbstractTimeTopologyPrimitiveType Item
         {
             get
@@ -14851,7 +14853,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeTopologyComplexType TimeTopologyComplex
         {
             get
@@ -14892,7 +14894,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Style", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Style")]
         public StyleType Item
         {
             get
@@ -14944,7 +14946,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TemporalCRSType TemporalCRS
         {
             get
@@ -14983,7 +14985,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ImageCRSType ImageCRS
         {
             get
@@ -15022,7 +15024,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public EngineeringCRSType EngineeringCRS
         {
             get
@@ -15061,7 +15063,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public DerivedCRSType DerivedCRS
         {
             get
@@ -15100,7 +15102,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ProjectedCRSType ProjectedCRS
         {
             get
@@ -15139,7 +15141,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeocentricCRSType GeocentricCRS
         {
             get
@@ -15178,7 +15180,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public VerticalCRSType VerticalCRS
         {
             get
@@ -15217,7 +15219,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public GeographicCRSType GeographicCRS
         {
             get
@@ -15256,7 +15258,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CompoundCRSType CompoundCRS
         {
             get
@@ -15295,7 +15297,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TransformationType Transformation
         {
             get
@@ -15334,7 +15336,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Transformation", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Transformation")]
         public TransformationType Item
         {
             get
@@ -15373,7 +15375,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ConversionType Conversion
         {
             get
@@ -15412,7 +15414,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PassThroughOperationType PassThroughOperation
         {
             get
@@ -15451,7 +15453,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ConcatenatedOperationType ConcatenatedOperation
         {
             get
@@ -15490,7 +15492,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("ConcatenatedOperation", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("ConcatenatedOperation")]
         public ConcatenatedOperationType Item
         {
             get
@@ -15529,11 +15531,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("EngineeringDatum", typeof(EngineeringDatumType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("GeodeticDatum", typeof(GeodeticDatumType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ImageDatum", typeof(ImageDatumType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TemporalDatum", typeof(TemporalDatumType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("VerticalDatum", typeof(VerticalDatumType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("EngineeringDatum", typeof(EngineeringDatumType))]
+        [System.Xml.Serialization.XmlElementAttribute("GeodeticDatum", typeof(GeodeticDatumType))]
+        [System.Xml.Serialization.XmlElementAttribute("ImageDatum", typeof(ImageDatumType))]
+        [System.Xml.Serialization.XmlElementAttribute("TemporalDatum", typeof(TemporalDatumType))]
+        [System.Xml.Serialization.XmlElementAttribute("VerticalDatum", typeof(VerticalDatumType))]
         public AbstractDatumType Item
         {
             get
@@ -15572,7 +15574,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CylindricalCSType CylindricalCS
         {
             get
@@ -15611,7 +15613,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public PolarCSType PolarCS
         {
             get
@@ -15650,7 +15652,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public UserDefinedCSType UserDefinedCS
         {
             get
@@ -15689,7 +15691,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public LinearCSType LinearCS
         {
             get
@@ -15728,7 +15730,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public AbstractReferenceSystemType _ReferenceSystem
         {
             get
@@ -15765,7 +15767,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TopoVolumeType topoVolumeField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoVolumeType TopoVolume
         {
             get
@@ -15789,7 +15791,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TopoSurfaceType topoSurfaceField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoSurfaceType TopoSurface
         {
             get
@@ -15813,7 +15815,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TopoCurveType topoCurveField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoCurveType TopoCurve
         {
             get
@@ -15837,7 +15839,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private TopoPointType topoPointField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TopoPointType TopoPoint
         {
             get
@@ -15863,10 +15865,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeCurve", typeof(CompositeCurveType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CompositeSolid", typeof(CompositeSolidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CompositeSurface", typeof(CompositeSurfaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeCurve", typeof(CompositeCurveType))]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeSolid", typeof(CompositeSolidType))]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeSurface", typeof(CompositeSurfaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", typeof(GeometricComplexType))]
         public AbstractGeometryType Item
         {
             get
@@ -15905,7 +15907,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CompositeSolidType CompositeSolid
         {
             get
@@ -15944,7 +15946,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CompositeSurfaceType CompositeSurface
         {
             get
@@ -15983,7 +15985,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public CompositeCurveType CompositeCurve
         {
             get
@@ -16022,7 +16024,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MultiPolygonType MultiPolygon
         {
             get
@@ -16061,7 +16063,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MultiLineStringType MultiLineString
         {
             get
@@ -16100,7 +16102,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MultiSolidType MultiSolid
         {
             get
@@ -16139,7 +16141,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MultiSurfaceType MultiSurface
         {
             get
@@ -16178,7 +16180,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MultiCurveType MultiCurve
         {
             get
@@ -16217,7 +16219,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public MultiPointType MultiPoint
         {
             get
@@ -16256,13 +16258,13 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("MultiCurve", typeof(MultiCurveType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MultiGeometry", typeof(MultiGeometryType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MultiLineString", typeof(MultiLineStringType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MultiPoint", typeof(MultiPointType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MultiPolygon", typeof(MultiPolygonType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MultiSolid", typeof(MultiSolidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("MultiSurface", typeof(MultiSurfaceType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("MultiCurve", typeof(MultiCurveType))]
+        [System.Xml.Serialization.XmlElementAttribute("MultiGeometry", typeof(MultiGeometryType))]
+        [System.Xml.Serialization.XmlElementAttribute("MultiLineString", typeof(MultiLineStringType))]
+        [System.Xml.Serialization.XmlElementAttribute("MultiPoint", typeof(MultiPointType))]
+        [System.Xml.Serialization.XmlElementAttribute("MultiPolygon", typeof(MultiPolygonType))]
+        [System.Xml.Serialization.XmlElementAttribute("MultiSolid", typeof(MultiSolidType))]
+        [System.Xml.Serialization.XmlElementAttribute("MultiSurface", typeof(MultiSurfaceType))]
         public AbstractGeometricAggregateType Item
         {
             get
@@ -16299,7 +16301,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private RingType ringField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public RingType Ring
         {
             get
@@ -16325,8 +16327,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute("TimeInstant", typeof(TimeInstantType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("TimePeriod", typeof(TimePeriodType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("TimeInstant", typeof(TimeInstantType))]
+        [System.Xml.Serialization.XmlElementAttribute("TimePeriod", typeof(TimePeriodType))]
         public AbstractTimeGeometricPrimitiveType Item
         {
             get
@@ -16363,7 +16365,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private LinearRingType itemField;
 
-        [System.Xml.Serialization.XmlElementAttribute("LinearRing", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("LinearRing")]
         public LinearRingType Item
         {
             get
@@ -16427,7 +16429,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private System.Xml.XmlElement[] anyField;
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement[] Any
         {
             get
@@ -16451,7 +16453,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private object[] _ObjectField;
 
-        [System.Xml.Serialization.XmlElementAttribute("_Object", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("_Object")]
         public object[] _Object
         {
             get
@@ -16475,7 +16477,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private PointType[] pointField;
 
-        [System.Xml.Serialization.XmlElementAttribute("Point", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("Point")]
         public PointType[] Point
         {
             get
@@ -16499,10 +16501,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractCurveType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeCurve", typeof(CompositeCurveType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Curve", typeof(CurveType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("LineString", typeof(LineStringType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OrientableCurve", typeof(OrientableCurveType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeCurve", typeof(CompositeCurveType))]
+        [System.Xml.Serialization.XmlElementAttribute("Curve", typeof(CurveType))]
+        [System.Xml.Serialization.XmlElementAttribute("LineString", typeof(LineStringType))]
+        [System.Xml.Serialization.XmlElementAttribute("OrientableCurve", typeof(OrientableCurveType))]
         public AbstractCurveType[] Items
         {
             get
@@ -16526,10 +16528,10 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractSurfaceType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompositeSurface", typeof(CompositeSurfaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OrientableSurface", typeof(OrientableSurfaceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Polygon", typeof(PolygonType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Surface", typeof(SurfaceType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompositeSurface", typeof(CompositeSurfaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("OrientableSurface", typeof(OrientableSurfaceType))]
+        [System.Xml.Serialization.XmlElementAttribute("Polygon", typeof(PolygonType))]
+        [System.Xml.Serialization.XmlElementAttribute("Surface", typeof(SurfaceType))]
         public AbstractSurfaceType[] Items
         {
             get
@@ -16553,8 +16555,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractFeatureType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("FeatureCollection", typeof(FeatureCollectionType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Observation", typeof(ObservationType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("FeatureCollection", typeof(FeatureCollectionType))]
+        [System.Xml.Serialization.XmlElementAttribute("Observation", typeof(ObservationType))]
         public AbstractFeatureType[] Items
         {
             get
@@ -16578,15 +16580,15 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private AbstractCurveSegmentType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("ArcByCenterPoint", typeof(ArcByCenterPointType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ArcString", typeof(ArcStringType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("ArcStringByBulge", typeof(ArcStringByBulgeType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("BSpline", typeof(BSplineType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("Clothoid", typeof(ClothoidType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("CubicSpline", typeof(CubicSplineType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("GeodesicString", typeof(GeodesicStringType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("LineStringSegment", typeof(LineStringSegmentType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("OffsetCurve", typeof(OffsetCurveType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("ArcByCenterPoint", typeof(ArcByCenterPointType))]
+        [System.Xml.Serialization.XmlElementAttribute("ArcString", typeof(ArcStringType))]
+        [System.Xml.Serialization.XmlElementAttribute("ArcStringByBulge", typeof(ArcStringByBulgeType))]
+        [System.Xml.Serialization.XmlElementAttribute("BSpline", typeof(BSplineType))]
+        [System.Xml.Serialization.XmlElementAttribute("Clothoid", typeof(ClothoidType))]
+        [System.Xml.Serialization.XmlElementAttribute("CubicSpline", typeof(CubicSplineType))]
+        [System.Xml.Serialization.XmlElementAttribute("GeodesicString", typeof(GeodesicStringType))]
+        [System.Xml.Serialization.XmlElementAttribute("LineStringSegment", typeof(LineStringSegmentType))]
+        [System.Xml.Serialization.XmlElementAttribute("OffsetCurve", typeof(OffsetCurveType))]
         public AbstractCurveSegmentType[] Items
         {
             get
@@ -16610,7 +16612,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private GeometricComplexType[] itemsField;
 
-        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("GeometricComplex")]
         public GeometricComplexType[] Items
         {
             get
@@ -16673,7 +16675,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gml311
 
         private LineStringSegmentType[] lineStringSegmentField;
 
-        [System.Xml.Serialization.XmlElementAttribute("LineStringSegment", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("LineStringSegment")]
         public LineStringSegmentType[] LineStringSegment
         {
             get

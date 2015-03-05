@@ -34,7 +34,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Xlink
         }
 
         [System.Xml.Serialization.XmlTextAttribute()]
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlNode[] Any
         {
             get
@@ -123,7 +123,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Xlink
         }
 
         [System.Xml.Serialization.XmlTextAttribute()]
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlNode[] Any
         {
             get
@@ -214,7 +214,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Xlink
             this.typeField = typeType.locator;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("title", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("title")]
         public titleEltType[] title
         {
             get
@@ -326,7 +326,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Xlink
             this.typeField = typeType.arc;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("title", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("title")]
         public titleEltType[] title
         {
             get
@@ -534,7 +534,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Xlink
         }
 
         [System.Xml.Serialization.XmlTextAttribute()]
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlNode[] Any
         {
             get
@@ -699,10 +699,10 @@ namespace Terradue.Metadata.EarthObservation.W3c.Xlink
             this.typeField = typeType.extended;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("arc", typeof(arcType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("locator", typeof(locatorType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("resource", typeof(resourceType), Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute("title", typeof(titleEltType), Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("arc", typeof(arcType))]
+        [System.Xml.Serialization.XmlElementAttribute("locator", typeof(locatorType))]
+        [System.Xml.Serialization.XmlElementAttribute("resource", typeof(resourceType))]
+        [System.Xml.Serialization.XmlElementAttribute("title", typeof(titleEltType))]
         public object[] Items
         {
             get

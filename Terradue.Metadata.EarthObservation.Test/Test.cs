@@ -27,7 +27,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
             XmlReader xmlReader = XmlReader.Create(new FileStream("../Samples/S2_OSDD.xml", FileMode.Open, FileAccess.Read));
             OpenSearchDescription osd = (OpenSearchDescription)xmlSerializer.Deserialize(xmlReader);
 
-            var self = Terradue.Metadata.EarthObservation.EarthObservationOpenSearchResultHelpers.EntrySelfLinkTemplate(afeed.Items.Cast<AtomItem>().First(), osd, "application/atom+xml");
+            var self = Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.EntrySelfLinkTemplate(afeed.Items.Cast<AtomItem>().First(), osd, "application/atom+xml");
 
             Assert.That(self.Contains("pgrpi="));
 

@@ -5,7 +5,7 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 using Terradue.Metadata.EarthObservation.W3c.Xlink;
-using Terradue.Metadata.EarthObservation.Ogc.Gml321;
+using Terradue.GeoJson.Gml;
 
 
 namespace Terradue.Metadata.EarthObservation.Ogc.Gco {

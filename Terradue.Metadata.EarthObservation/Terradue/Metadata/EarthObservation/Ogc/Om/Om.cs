@@ -4,7 +4,7 @@
 //    <NameSpace>Terradue.Metadata.EarthObservation.Ogc.Observation</NameSpace><Collection>Array</Collection><codeType>CSharp</codeType><EnableDataBinding>False</EnableDataBinding><EnableLazyLoading>False</EnableLazyLoading><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><VirtualProp>False</VirtualProp><IncludeSerializeMethod>False</IncludeSerializeMethod><UseBaseClass>False</UseBaseClass><GenBaseClass>False</GenBaseClass><GenerateCloneMethod>False</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><CodeBaseTag>Net40</CodeBaseTag><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><GenerateXMLAttributes>True</GenerateXMLAttributes><EnableEncoding>False</EnableEncoding><AutomaticProperties>False</AutomaticProperties><GenerateShouldSerialize>False</GenerateShouldSerialize><DisableDebug>False</DisableDebug><PropNameSpecified>Default</PropNameSpecified><Encoder>UTF8</Encoder><CustomUsings></CustomUsings><ExcludeIncludedTypes>True</ExcludeIncludedTypes><EnableInitializeFields>False</EnableInitializeFields>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-using Terradue.Metadata.EarthObservation.Ogc.Gml321;
+using Terradue.GeoJson.Gml;
 using Terradue.EarthObservation.EarthObservation.Ogc.Gmd;
 
 
@@ -50,7 +50,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private object resultField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType type
         {
             get
@@ -63,7 +63,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public Terradue.EarthObservation.EarthObservation.Ogc.Gmd.MD_Metadata_PropertyType metadata
         {
             get
@@ -76,7 +76,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("relatedObservation", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("relatedObservation")]
         public ObservationContextPropertyType[] relatedObservation
         {
             get
@@ -89,7 +89,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeObjectPropertyType phenomenonTime
         {
             get
@@ -102,7 +102,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimeInstantPropertyType resultTime
         {
             get
@@ -115,7 +115,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public TimePeriodPropertyType validTime
         {
             get
@@ -128,8 +128,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 6)]
-        public OM_ProcessPropertyType procedure
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
+        public virtual OM_ProcessPropertyType procedure
         {
             get
             {
@@ -141,7 +141,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("parameter", Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute("parameter")]
         public NamedValuePropertyType[] parameter
         {
             get
@@ -154,7 +154,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 8)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public ReferenceType observedProperty
         {
             get
@@ -167,8 +167,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 9)]
-        public FeaturePropertyType featureOfInterest
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.opengis.net/om/2.0", IsNullable = true)]
+        public virtual FeaturePropertyType featureOfInterest
         {
             get
             {
@@ -180,7 +180,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("resultQuality", Order = 10)]
+        [System.Xml.Serialization.XmlElementAttribute("resultQuality")]
         public Terradue.EarthObservation.EarthObservation.Ogc.Gmd.DQ_Element_PropertyType[] resultQuality
         {
             get
@@ -193,8 +193,8 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
-        public object result
+        [System.Xml.Serialization.XmlElementAttribute()]
+        public virtual object result
         {
             get
             {
@@ -217,7 +217,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private ObservationContextType observationContextField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ObservationContextType ObservationContext
         {
             get
@@ -243,7 +243,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private ReferenceType relatedObservationField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType role
         {
             get
@@ -256,7 +256,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType relatedObservation
         {
             get
@@ -284,7 +284,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.opengis.net/gml/3.2", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("TimePeriod", Type=typeof(TimePeriodType), Namespace = "http://www.opengis.net/gml/3.2")]
         public AbstractTimeObjectType AbstractTimeObject
         {
             get
@@ -338,7 +338,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement Any
         {
             get
@@ -392,7 +392,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public NamedValueType NamedValue
         {
             get
@@ -444,7 +444,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private object valueField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public ReferenceType name
         {
             get
@@ -457,7 +457,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public object value
         {
             get
@@ -485,7 +485,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
 
         private string remoteSchemaField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute()]
         public OM_ObservationType OM_Observation
         {
             get
