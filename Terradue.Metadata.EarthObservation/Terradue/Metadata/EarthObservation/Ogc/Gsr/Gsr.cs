@@ -4,7 +4,7 @@
 //    <NameSpace>Terradue.Metadata.EarthObservation.Ogc.Gsr</NameSpace><Collection>Array</Collection><codeType>CSharp</codeType><EnableDataBinding>False</EnableDataBinding><EnableLazyLoading>False</EnableLazyLoading><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><VirtualProp>False</VirtualProp><IncludeSerializeMethod>False</IncludeSerializeMethod><UseBaseClass>False</UseBaseClass><GenBaseClass>False</GenBaseClass><GenerateCloneMethod>False</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><CodeBaseTag>Net40</CodeBaseTag><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><GenerateXMLAttributes>True</GenerateXMLAttributes><EnableEncoding>False</EnableEncoding><AutomaticProperties>False</AutomaticProperties><GenerateShouldSerialize>False</GenerateShouldSerialize><DisableDebug>False</DisableDebug><PropNameSpecified>Default</PropNameSpecified><Encoder>UTF8</Encoder><CustomUsings></CustomUsings><ExcludeIncludedTypes>True</ExcludeIncludedTypes><EnableInitializeFields>False</EnableInitializeFields>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-using Terradue.Metadata.EarthObservation.Ogc.Gml321;
+using Terradue.GeoJson.Gml;
 
 
 namespace Terradue.Metadata.EarthObservation.Ogc.Gsr
@@ -31,7 +31,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Gsr
 
         private string nilReasonField;
 
-        [System.Xml.Serialization.XmlElementAttribute("CompoundCRS", Namespace = "http://www.opengis.net/gml/3.2", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("CompoundCRS", Namespace = "http://www.opengis.net/gml/3.2")]
         public CompoundCRSType Item
         {
             get

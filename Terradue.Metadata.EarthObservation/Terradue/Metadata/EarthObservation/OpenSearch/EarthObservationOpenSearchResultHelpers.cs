@@ -10,9 +10,13 @@ using System.Collections.Specialized;
 using Terradue.OpenSearch.Schema;
 using Terradue.OpenSearch;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
+using Terradue.GeoJson.Geometry;
 
-namespace Terradue.Metadata.EarthObservation {
+namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public static class EarthObservationOpenSearchResultHelpers {
+
+
 
         public static void RestoreEnclosure(IOpenSearchResultCollection result) {
             foreach (var item in result.Items) {
@@ -122,40 +126,166 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static void RestoreGeoRss(IOpenSearchResultCollection result) {
+        public static void RestoreDcDate(IOpenSearchResultCollection result) {
 
             foreach (var item in result.Items) {
-                RestoreGeoRss(item);
+
+
+                RestoreDcDate(item);
+
             }
 
         }
 
-        public static void RestoreGeoRss(IOpenSearchResultItem item) {
+        public static void RestoreDcDate(IOpenSearchResultItem item) {
 
-            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss").Count == 0) {
-                foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-                    XmlReader reader;
-                    try {
-                        reader = ext.GetReader();
-                    } catch {
-                        return;
-                    }
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load(reader);
-                    foreach (XmlNode node in doc.ChildNodes) {
-                        if (node.LocalName == "EarthObservation") {
-                            XmlNode footprint = FindNodeByAttributeId((XmlElement)node, "footprint");
-                            if (footprint != null && footprint.ChildNodes[0] is XmlElement) {
-                                item.ElementExtensions.Add("where", "http://www.georss.org/georss", footprint.ChildNodes[0]);
-                            }
-                            footprint = FindNodeByAttributeId((XmlElement)node, "nominalTrack");
-                            if (footprint != null && footprint.ChildNodes[0] is XmlElement) {
-                                item.ElementExtensions.Add("where", "http://www.georss.org/georss", footprint.ChildNodes[0]);
-                            }
+            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("date", MetadataHelpers.DC).Count == 0) {
+
+                SyndicationElementExtension georrs = null;
+
+                if (item is IEarthObservationOpenSearchResultItem) {
+
+                    georrs = GetDcDateElementExtensionFromEarthObservation(((IEarthObservationOpenSearchResultItem)item).EarthObservation);
+
+                } else {
+
+                    foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+
+                        if (ext.OuterName == "EarthObservation") {
+                            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement = 
+                                (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
+
+                            georrs = GetDcDateElementExtensionFromEarthObservation(eopElement);
+                            if (ext != null)
+                                break;
+
                         }
+
                     }
                 }
+                if (georrs != null) {
+                    item.ElementExtensions.Add(georrs);
+                }
             }
+        }
+
+        public static GeometryObject FindGeometryFromEarthObservation(IOpenSearchResultItem item) {
+            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+
+                if (ext.OuterName == "EarthObservation") {
+                    Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement = 
+                        (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
+
+                    return MetadataHelpers.FindGeometryFromEarthObservation(eopElement);
+                }
+
+
+            }
+            var dctspatial = item.ElementExtensions.ReadElementExtensions<string>("spatial", "http://purl.org/dc/terms/");
+            if (dctspatial.Count > 0) {
+                return GeometryFactory.WktToGeometry(dctspatial[0]);
+            }
+            return null;
+        }
+
+        public static void RestoreGeoRss(IOpenSearchResultCollection result) {
+
+            foreach (var item in result.Items) {
+
+
+                RestoreGeoRss(item);
+
+            }
+
+        }
+
+
+        public static void RestoreGeoRss(IOpenSearchResultItem item) {
+
+            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("point", "http://www.georss.org/georss").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("line", "http://www.georss.org/georss").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("box", "http://www.georss.org/georss").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("polygon", "http://www.georss.org/georss").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss/10").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("point", "http://www.georss.org/georss/10").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("line", "http://www.georss.org/georss/10").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("box", "http://www.georss.org/georss/10").Count == 0 &&
+                item.ElementExtensions.ReadElementExtensions<XmlElement>("polygon", "http://www.georss.org/georss/10").Count == 0) {
+
+
+                SyndicationElementExtension georrs = null;
+
+                if (item is IEarthObservationOpenSearchResultItem) {
+
+                    georrs = GetGeoRssElementExtensionFromEarthObservation(((IEarthObservationOpenSearchResultItem)item).EarthObservation);
+
+                } else {
+
+                    foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+
+                        if (ext.OuterName == "EarthObservation") {
+                            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement = 
+                                (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
+
+                            georrs = GetGeoRssElementExtensionFromEarthObservation(eopElement);
+                            if (ext != null)
+                                break;
+
+                        }
+
+                    }
+                }
+                if (georrs != null) {
+                    item.ElementExtensions.Add(georrs);
+                }
+            }
+        }
+
+        public static SyndicationElementExtension GetDcDateElementExtensionFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement) {
+
+            DateTime start = new DateTime(), stop = new DateTime(), instant = new DateTime();
+
+            try {
+                if (eopElement.phenomenonTime.AbstractTimeObject is Terradue.GeoJson.Gml.TimePeriodType &&
+                    ((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item is Terradue.GeoJson.Gml.TimePositionType &&
+                    ((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1 is Terradue.GeoJson.Gml.TimePositionType)
+                    start = DateTime.Parse(
+                        ((Terradue.GeoJson.Gml.TimePositionType)((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item).Value);
+                stop = DateTime.Parse(
+                    ((Terradue.GeoJson.Gml.TimePositionType)((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1).Value);
+            } catch (Exception) {
+            }
+
+            try {
+                instant = start = DateTime.Parse(eopElement.resultTime.TimeInstant.timePosition.Value);
+            } catch (Exception) {
+            }
+
+            if (start.Ticks == 0) {
+                string date = string.Format("{0}{1}", start.ToString("yyyy-MM-ddThh:mm:ss.fffZ"), stop.Ticks == 0 ? "" : "/" + stop.ToString("yyyy-MM-ddThh:mm:ss.fffZ"));
+                return new SyndicationElementExtension("date", MetadataHelpers.DC, date);
+            }
+
+            if (instant.Ticks == 0) {
+                string date = string.Format("{0}", instant.ToString("yyyy-MM-ddThh:mm:ss.fffZ"));
+                return new SyndicationElementExtension("date", MetadataHelpers.DC, date);
+            }
+
+            return null;
+        }
+
+        public static SyndicationElementExtension GetGeoRssElementExtensionFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement) {
+
+            XmlElement gml = null;
+
+            GeometryObject geometry = MetadataHelpers.FindGeometryFromEarthObservation(eopElement);
+
+            if (geometry != null) {
+                return new SyndicationElementExtension("where", "http://www.georss.org/georss", XElement.Parse(geometry.ToGml().OuterXml).CreateReader());
+            }
+
+            return null;
         }
 
         public static void RestoreValidTime(IOpenSearchResultCollection result) {
@@ -202,20 +332,41 @@ namespace Terradue.Metadata.EarthObservation {
         public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {
 
             string xpath;
+            var namespaces = EONamespaces.TypeNamespaces;
 
             try { 
                 switch (elem.NamespaceURI) {
                     case "http://www.opengis.net/eop/2.0":
                         xpath = EopEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces;
                         break;
                     case "http://www.opengis.net/sar/2.0":
                         xpath = SarEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces;
                         break;
                     case "http://www.opengis.net/opt/2.0":
                         xpath = OptEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces;
                         break;
                     case "http://www.opengis.net/alt/2.0":
                         xpath = AltEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces;
+                        break;
+                    case "http://www.opengis.net/eop/2.1":
+                        xpath = EopEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces21;
+                        break;
+                    case "http://www.opengis.net/sar/2.1":
+                        xpath = SarEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces21;
+                        break;
+                    case "http://www.opengis.net/opt/2.1":
+                        xpath = OptEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces21;
+                        break;
+                    case "http://www.opengis.net/alt/2.1":
+                        xpath = AltEarthObservationSchema()[attributeId];
+                        namespaces = EONamespaces.TypeNamespaces21;
                         break;
                     default:
                         return null;
@@ -225,7 +376,7 @@ namespace Terradue.Metadata.EarthObservation {
             }
 
             XmlNamespaceManager xnsm = new XmlNamespaceManager(elem.OwnerDocument.NameTable);
-            var namespaces = EONamespaces.TypeNamespaces;
+
             foreach (var key in namespaces.AllKeys) {
                 xnsm.AddNamespace(namespaces[key], key);
             }

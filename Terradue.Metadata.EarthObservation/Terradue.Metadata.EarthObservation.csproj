@@ -40,11 +40,11 @@
     <Reference Include="ServiceStack.Text">
       <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
-    <Reference Include="Terradue.GeoJson">
-      <HintPath>..\packages\Terradue.GeoJson.1.4.9\lib\net40\Terradue.GeoJson.dll</HintPath>
-    </Reference>
     <Reference Include="Terradue.OpenSearch">
       <HintPath>..\packages\Terradue.OpenSearch.1.9.4\lib\net40\Terradue.OpenSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.GeoJson">
+      <HintPath>..\packages\Terradue.GeoJson.1.4.13\lib\net40\Terradue.GeoJson.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -52,10 +52,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchMetadataHelpers.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\EarthObservation.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\Gmd.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml321\Gml.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\Gml311.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\Gsr.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Xlink.cs" />
@@ -69,6 +66,14 @@
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gts\Gts.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gss\Gss.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gco\Gco.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -80,7 +85,6 @@
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Eop\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gco\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gml321\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\W3c\" />
@@ -92,6 +96,7 @@
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Opt\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gts\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />

@@ -41,7 +41,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Smil20Lang
             this.skipcontentField = true;
         }
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement[] Items
         {
             get
@@ -133,7 +133,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Smil20Lang
             this.skipcontentField = true;
         }
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement[] Items
         {
             get
@@ -225,7 +225,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Smil20Lang
             this.skipcontentField = true;
         }
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement[] Items
         {
             get
@@ -314,7 +314,7 @@ namespace Terradue.Metadata.EarthObservation.W3c.Smil20Lang
             this.skipcontentField = true;
         }
 
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
         public System.Xml.XmlElement[] Items
         {
             get
