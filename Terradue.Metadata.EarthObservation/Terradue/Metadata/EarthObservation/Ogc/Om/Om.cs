@@ -297,6 +297,18 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
+        public TimePeriodType GmlTimePeriod
+        {
+            get
+            {
+                return (TimePeriodType)this.abstractTimeObjectField;
+            }
+            set
+            {
+                this.abstractTimeObjectField = value;
+            }
+        }
+
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string nilReason
         {
