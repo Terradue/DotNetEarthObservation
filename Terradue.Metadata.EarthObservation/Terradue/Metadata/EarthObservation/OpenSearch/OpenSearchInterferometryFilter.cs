@@ -9,49 +9,13 @@ using Terradue.OpenSearch.Engine;
 using Terradue.OpenSearch.Response;
 using Terradue.OpenSearch.Result;
 using Terradue.OpenSearch.Schema;
-
-/*!
-\defgroup modules_interferometrySearch Interferometry Search Module
-@{
-This module implements a search engine to perform the interferometry search. Since it uses similar paradigm of correlation in the algorithm, it relies on the \ref modules_correlationSearch for its implementation.
-In addition, the module also stores and loads dataset’s valid combinations for interferometry in the database.
-
-\image latex "graphics/component/interferometry.eps" "Interferometry search module component" width=17cm
-
-\ingroup modules_correlationSearch
-
-\section sec_modules_interferometrySearchPurpose Purpose
-
-| Requirements  | Abstract | Purpose |
-| ------------- | -------- | ------- |
-| \req{ngEO-SUB-136-WEBS-FUN} | Grouping of Search Results | The Web server groups the results by master with a link to the slaves results |
-| \req{ngEO-SUB-152-WEBS-FUN} | Dataset’s interferometry | The Web server stores datasets’ valid combinations for interferometry. |
-| \req{ngEO-SUB-154-WEBS-FUN} \req{ngEO-SUB-160-WEBS-FUN} | Interferometry Search Support | The ngEO Web Server supports Interferometry Searches as defined in \docref{ngEO-14-SRD-ELC-006} |
-| \req{ngEO-SUB-156-WEBS-FUN} | Interferometry Search Response - Grouping | ngEO Web Server answers to an Interferometry Search with a set of results groups, each one identified uniquely. |
-
-\section sec_modules_interferometrySearchDependencies Dependencies
-
-- \ref modules_openSearchEngine, used as the main engine for searching
-- \ref modules_correlationSearch, used to exploit grouping algorithmic.
-
-\section sec_modules_interferometrySearchInterfaces Interfaces 
-
-This component implements those interfaces
-
-\ref IOpenSearchEngineExtension
-
-@}
-
-
-
-*/
 using Terradue.ServiceModel.Syndication;
 using Terradue.Metadata.EarthObservation;
 using Terradue.OpenSearch.Filters;
 using Terradue.OpenSearch;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
-    public class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter {
+    public abstract class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter {
         public OpenSearchInterferometryFilter(OpenSearchEngine ose, IOpenSearchableFactory factory) : base(ose, factory) {
 
         }
@@ -75,7 +39,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         }
 
-        void PerformInterferometryFunction(ref IOpenSearchResultCollection osr, NameValueCollection parameters, IOpenSearchable entity) {
+        protected virtual void PerformInterferometryFunction(ref IOpenSearchResultCollection osr, NameValueCollection parameters, IOpenSearchable entity) {
 
             AtomFeed feed;
 
@@ -110,7 +74,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             feed.Items = newitems;
         }
 
-        OpenSearchUrl GetFocusedSearchUrl(IOpenSearchResultCollection osr, AtomItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity) {
+        protected virtual OpenSearchUrl GetFocusedSearchUrl(IOpenSearchResultCollection osr, AtomItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity) {
 
             UriBuilder url = new UriBuilder(GetCorrelatedUrl(searchParameters));
 
@@ -128,29 +92,57 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         }
 
-        public NameValueCollection GetMasterParametersForSlaveFocusedSearch(IOpenSearchResultCollection osr, SyndicationItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity) {
+        protected virtual NameValueCollection GetMasterParametersForSlaveFocusedSearch(IOpenSearchResultCollection osr, AtomItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity) {
 
-            var element = item.ElementExtensions.ReadElementExtensions<XmlElement>("EarthObservation", "http://www.opengis.net/sar/2.0");
-            if (element.Count == 0) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce focus search for slaves");
+            var element = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+            if ( element == null ) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce focus search for slaves");
 
-            string platformShortName = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(element[0], "platformShortName");
-            string track = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(element[0], "wrsLongitudeGrid");
-            string swath = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(element[0], "swathIdentifier");
+            string platformShortName = "";
+            string track = "";
+            string swath = "";
+
+            if (element is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+                try { 
+                    Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType sarEquip = 
+                        (Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType)
+                        ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentPropertyType)
+                            ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)element).procedure).EarthObservationEquipment;
+                    platformShortName = sarEquip.platform.Platform.shortName;
+                    track = sarEquip.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text[0];
+                } catch (Exception e) {
+                    throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
+                }
+
+            } else if (element is Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType) {
+                try { 
+                    Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType sarEquip = 
+                        (Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType)
+                        ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentPropertyType)
+                            ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType)element).procedure).EarthObservationEquipment;
+                    platformShortName = sarEquip.platform.Platform.shortName;
+                    track = sarEquip.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text[0];
+                } catch (Exception e) {
+                    throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
+                }
+
+            } else throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
 
             if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath)) throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
 
             NameValueCollection nvc = new NameValueCollection();
             NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(masterEntity.GetOpenSearchParameters(osr.ContentType));
 
-            nvc.Add(revOsParams["cseop:platformShortName"], platformShortName);
-            nvc.Add(revOsParams["cseop:wrsLongitudeGrid"], track);
-            nvc.Add(revOsParams["cseop:swathIdentifier"], swath);
+            nvc.Add(revOsParams["eop:platformShortName"], platformShortName);
+            nvc.Add(revOsParams["eop:wrsLongitudeGrid"], track);
+            nvc.Add(revOsParams["eop:swathIdentifier"], swath);
 
             return nvc;
 
         }
 
-        public void PerformSlaveInterferometryFunction(ref IOpenSearchResultCollection osr, NameValueCollection parameters, IOpenSearchable slaveEntity) {
+        protected virtual void PerformSlaveInterferometryFunction(ref IOpenSearchResultCollection osr, NameValueCollection parameters, IOpenSearchable slaveEntity) {
 
             AtomFeed feed;
 
@@ -181,23 +173,72 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 AtomItem masterItem = (AtomItem)masterFeed.Items.ElementAt(0);
 
                 // - The ANX time period of the master product (i.e. the eop:startTimeFromAscendingNode 
-                //   and eop:completionTimeFromAscendingNode attributes from the EO Product model presented
-                //   in [ngEO-MGICD]) that must be overlapped
-                var masterEO = masterItem.ElementExtensions.ReadElementExtensions<XmlElement>("EarthObservation", "http://www.opengis.net/sar/2.0");
-                if (masterEO.Count == 0) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce focus search for slaves");
+                //   and eop:completionTimeFromAscendingNode attributes from the EO Product model 
+                //   that must be overlapped
+                var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(masterItem.ElementExtensions);
+                if ( om == null ) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
 
-                string masterAnxStart = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(masterEO[0], "startTimeFromAscendingNode");
-                string masterAnxStop = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(masterEO[0], "completionTimeFromAscendingNode");
+                double masterAnxStart;
+                double masterAnxStop;
 
-                if (string.IsNullOrEmpty(masterAnxStart) || string.IsNullOrEmpty(masterAnxStart)) throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have ANX time attributes to perform interferometry", masterItem.Id));
+                if (om is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+                    try { 
+                        Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType sarEquip = 
+                            (Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType)
+                            ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentPropertyType)
+                                ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)om).procedure).EarthObservationEquipment;
+                        masterAnxStart = sarEquip.acquisitionParameters.Acquisition.startTimeFromAscendingNode.Value;
+                        masterAnxStop = sarEquip.acquisitionParameters.Acquisition.completionTimeFromAscendingNode.Value;
+                    } catch (Exception e) {
+                        throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                    }
 
-                var slaveEO = slaveItem.ElementExtensions.ReadElementExtensions<XmlElement>("EarthObservation", "http://www.opengis.net/sar/2.0");
-                if (slaveEO.Count == 0) throw new InvalidOperationException("No EarthObservation SAR element found in slave product to produce focus search");
+                } else if (om is Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType) {
+                    try { 
+                        Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType sarEquip = 
+                            (Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType)
+                            ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentPropertyType)
+                                ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType)om).procedure).EarthObservationEquipment;
+                        masterAnxStart = sarEquip.acquisitionParameters.Acquisition.startTimeFromAscendingNode.Value;
+                        masterAnxStop = sarEquip.acquisitionParameters.Acquisition.completionTimeFromAscendingNode.Value;
+                    } catch (Exception e) {
+                        throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                    }
 
-                string slaveAnxStart = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(slaveEO[0], "startTimeFromAscendingNode");
-                string slaveAnxStop = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(slaveEO[0], "completionTimeFromAscendingNode");
+                } else throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
+                    
+                om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(slaveItem.ElementExtensions);
+                if ( om == null ) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
 
-                if (string.IsNullOrEmpty(slaveAnxStart) || string.IsNullOrEmpty(slaveAnxStop)) throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have ANX time attributes to perform interferometry", slaveItem.Id));
+                double slaveAnxStart;
+                double slaveAnxStop;
+
+                if (om is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+                    try { 
+                        Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType sarEquip = 
+                            (Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType)
+                            ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentPropertyType)
+                                ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)om).procedure).EarthObservationEquipment;
+                        slaveAnxStart = sarEquip.acquisitionParameters.Acquisition.startTimeFromAscendingNode.Value;
+                        slaveAnxStop = sarEquip.acquisitionParameters.Acquisition.completionTimeFromAscendingNode.Value;
+                    } catch (Exception e) {
+                        throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                    }
+
+                } else if (om is Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType) {
+                    try { 
+                        Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType sarEquip = 
+                            (Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType)
+                            ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentPropertyType)
+                                ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType)om).procedure).EarthObservationEquipment;
+                        slaveAnxStart = sarEquip.acquisitionParameters.Acquisition.startTimeFromAscendingNode.Value;
+                        slaveAnxStop = sarEquip.acquisitionParameters.Acquisition.completionTimeFromAscendingNode.Value;
+                    } catch (Exception e) {
+                        throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                    }
+
+                } else throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
+
 
 
                 //if (slaveAnxStart > masterAnxStop) continue;
@@ -215,7 +256,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             feed.Items = newitems;
         }
 
-        public new static UniqueValueDictionary<string,string> GetCorrelationOpenSearchParameters() {
+        protected static UniqueValueDictionary<string,string> GetCorrelationOpenSearchParameters() {
             UniqueValueDictionary<string,string> osdic = OpenSearchCorrelationFilter.GetCorrelationOpenSearchParameters();
 
             osdic.Add("cor:normalBaseline", "baseline");

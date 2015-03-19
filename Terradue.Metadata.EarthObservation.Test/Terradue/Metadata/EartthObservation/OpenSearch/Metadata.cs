@@ -25,37 +25,20 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             AtomFeed afeed = new AtomFeed(feed);
 
-            var identifier = MetadataHelpers.FindIdentifierFromOpenSearchResultItem(afeed.Items.First());
+            var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(afeed.Items.First().ElementExtensions);
+
+            var identifier = MetadataHelpers.FindIdentifier(om);
 
             Assert.AreEqual("S2A_OPER_REP_METARC_EPA__20150620T060607_20150620T010607_20150620T010607_L0_43_2", identifier);
 
-            var start = MetadataHelpers.FindStartDateFromOpenSearchResultItem(afeed.Items.First());
+            var start = MetadataHelpers.FindStart(om);
 
-            Assert.AreEqual("2015-06-20T01:06:07Z", start.ToString("u").Replace(" ", "T"));
+            Assert.AreEqual("2015-06-20T01:06:07Z", start.Replace(" ", "T"));
 
-            var stop = MetadataHelpers.FindEndDateFromOpenSearchResultItem(afeed.Items.First());
+            var stop = MetadataHelpers.FindStop(om);
 
-            Assert.AreEqual("2015-06-20T01:06:07Z", stop.ToString("u").Replace(" ", "T"));
+            Assert.AreEqual("2015-06-20T01:06:07Z", stop.Replace(" ", "T"));
 
-        }
-
-        [Test()]
-        public void FindFromRDF() {
-
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/rdf.xml", FileMode.Open, FileAccess.Read));
-            RdfXmlDocument rdf = RdfXmlDocument.Load(responseReader);
-
-            var identifier = MetadataHelpers.FindIdentifierFromOpenSearchResultItem(rdf.Items.First());
-
-            Assert.AreEqual("S1A_S4_GRDH_1SDH_20150106T145335_20150106T145400_004052_004E3B_E02B", identifier);
-
-            var start = MetadataHelpers.FindStartDateFromOpenSearchResultItem(rdf.Items.First());
-
-            Assert.AreEqual("2015-01-06T14:53:35Z", start.ToString("u").Replace(" ", "T"));
-
-            var stop = MetadataHelpers.FindEndDateFromOpenSearchResultItem(rdf.Items.First());
-
-            Assert.AreEqual("2015-01-06T14:54:00Z", stop.ToString("u").Replace(" ", "T"));
         }
 
         [Test()]
@@ -66,36 +49,19 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             AtomFeed afeed = new AtomFeed(feed);
 
-            var identifier = MetadataHelpers.FindIdentifierFromOpenSearchResultItem(afeed.Items.First());
+            var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(afeed.Items.First().ElementExtensions);
+
+            var identifier = MetadataHelpers.FindIdentifier(om);
 
             Assert.AreEqual("S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F", identifier);
 
-            var start = MetadataHelpers.FindStartDateFromOpenSearchResultItem(afeed.Items.First());
+            var start = MetadataHelpers.FindStart(om);
 
-            Assert.AreEqual("2015-01-29T18:50:06Z", start.ToString("u").Replace(" ", "T"));
+            Assert.AreEqual("2015-01-29T18:50:06.82Z", start.Replace(" ", "T"));
 
-            var stop = MetadataHelpers.FindEndDateFromOpenSearchResultItem(afeed.Items.First());
+            var stop = MetadataHelpers.FindStop(om);
 
-            Assert.AreEqual("2015-01-29T18:50:34Z", stop.ToString("u").Replace(" ", "T"));
-
-        }
-
-        [Test()]
-        public void FindFromGeoJson() {
-
-            var feed = FeatureCollectionResult.DeserializeFromStream(new FileStream("../Samples/S1.json", FileMode.Open, FileAccess.Read));
-
-            var identifier = MetadataHelpers.FindIdentifierFromOpenSearchResultItem(feed.Items.First());
-
-            Assert.AreEqual("S1A_IW_SLC__1SDV_20150124T165611_20150124T165638_004316_005423_20AC", identifier);
-
-            var start = MetadataHelpers.FindStartDateFromOpenSearchResultItem(feed.Items.First());
-
-            Assert.AreEqual("2015-01-24T16:56:11Z", start.ToString("u").Replace(" ", "T"));
-
-            var stop = MetadataHelpers.FindEndDateFromOpenSearchResultItem(feed.Items.First());
-
-            Assert.AreEqual("2015-01-24T16:56:38Z", stop.ToString("u").Replace(" ", "T"));
+            Assert.AreEqual("2015-01-29T18:50:34.085Z", stop.Replace(" ", "T"));
 
         }
     }

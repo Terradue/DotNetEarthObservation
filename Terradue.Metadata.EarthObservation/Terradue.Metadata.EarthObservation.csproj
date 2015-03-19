@@ -51,7 +51,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\Gmd.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\Gml311.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\Gsr.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

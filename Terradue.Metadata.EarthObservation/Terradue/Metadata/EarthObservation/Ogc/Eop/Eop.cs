@@ -32,7 +32,11 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
 
         private object resultField;
 
+        private OM_ProcessPropertyType procedureField;
+
         private FeaturePropertyType featureOfInterestField;
+
+        private Terradue.Metadata.EarthObservation.Ogc.Om.TimeObjectPropertyType phenomenonTimeField;
 
         [System.Xml.Serialization.XmlElementAttribute("metaDataProperty")]
         public virtual EarthObservationMetaDataPropertyType metaDataProperty1 {
@@ -77,6 +81,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
             set
             {
                 this.featureOfInterestField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.opengis.net/om/2.0", Type = typeof(EarthObservationEquipmentPropertyType))]
+        public override OM_ProcessPropertyType procedure {
+            get {
+                return this.procedureField;
+            }
+            set {
+                this.procedureField = value;
             }
         }
     }
@@ -2214,7 +2228,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
         }
 
         [System.Xml.Serialization.XmlElementAttribute()]
-        public EarthObservationResultType EarthObservationResult {
+        public virtual EarthObservationResultType EarthObservationResult {
             get {
                 return this.earthObservationResultField;
             }

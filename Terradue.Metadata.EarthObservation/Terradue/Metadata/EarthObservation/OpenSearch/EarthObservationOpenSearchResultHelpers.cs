@@ -28,84 +28,47 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             var matchLinks = item.Links.Where(l => l.RelationshipType == "enclosure").ToArray();
             if (matchLinks.Count() == 0) {
-                XmlElement masterEO = null;
-                foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-                    XmlDocument doc = ElementExtensionToXmlDocument(ext);
-                    if (doc == null)
-                        continue;
-                    foreach (XmlNode node in doc.ChildNodes) {
-                        if (node.LocalName == "sourceProducts") {
-                            masterEO = (XmlElement)node;
-                            foreach (XmlElement subEo in masterEO.ChildNodes) {
-                                var uri = FindValueByAttributeId(subEo, "productURI");
-                                if (uri != null) {
-                                    if (uri != null) {
-                                        long size = 0;
-                                        var sizeElement = FindValueByAttributeId(subEo, "productSize");
-                                        if (sizeElement != null)
-                                            long.TryParse(sizeElement, out size);
-                                        if (size < 0)
-                                            size = 0;
-                                        item.Links.Add(new SyndicationLink(new Uri(uri), "enclosure", "Product file", "application/x-binary", size));
-                                    }
-                                }
-                            }
-                        }
-                        if (node.LocalName == "EarthObservation") {
-                            masterEO = (XmlElement)node;
-                            var uri = FindValueByAttributeId(masterEO, "productURI");
-                            if (uri != null) {
-                                if (uri != null) {
-                                    long size = 0;
-                                    var sizeElement = FindValueByAttributeId(masterEO, "productSize");
-                                    if (sizeElement != null)
-                                        long.TryParse(sizeElement, out size);
-                                    if (size < 0)
-                                        size = 0;
-                                    item.Links.Add(new SyndicationLink(new Uri(uri), "enclosure", "Product file", "application/x-binary", size));
-                                }
-                            }
-                        }
-                    }
+                var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+                foreach (var link in GetEnclosuresFromEarthObservation(om)) {
+                    item.Links.Add(link);
                 }
             }
+        }
+
+        public static SyndicationLink[] GetEnclosuresFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType om) {
+            List<SyndicationLink> uris = new List<SyndicationLink>();
+            if (om is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                var eo = (Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)om;
+                try {
+                    Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationResultType result = ((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationResultPropertyType)eo.result).EarthObservationResult;
+                    foreach (var pi in result.product) {
+                        long size = 0;
+                        long.TryParse(pi.ProductInformation.size.Text[0], out size);
+                        if (size < 0) size = 0;
+                        uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.metaDataProperty1.EarthObservationMetaData.identifier, "application/x-binary", size));
+                    }
+                } catch (Exception) {
+                }
+            }
+            if (om is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                var eo = (Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)om;
+                try {
+                    Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationResultType result = ((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationResultPropertyType)eo.result).EarthObservationResult;
+                    foreach (var pi in result.product) {
+                        long size = 0;
+                        long.TryParse(pi.ProductInformation.size.Text[0], out size);
+                        if (size < 0) size = 0;
+                        uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.metaDataProperty1.EarthObservationMetaData.identifier, "application/x-binary", size));
+                    }
+                } catch (Exception) {
+                }
+            }
+            return uris.ToArray();
         }
 
         public static void RestoreIdentifier(IOpenSearchResultCollection result) {
             foreach (var item in result.Items) {
                 RestoreIdentifier(item);
-            }
-        }
-
-        public static void RestoreTitle(IOpenSearchResultItem item) {
-            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-                XmlReader reader;
-                try {
-                    reader = ext.GetReader();
-                } catch {
-                    return;
-                }
-                XmlDocument doc = new XmlDocument();
-                doc.Load(reader);
-                foreach (XmlNode node in doc.ChildNodes) {
-                    if (node.LocalName == "EarthObservation") {
-                        string title = "";
-                        XmlNode platformShortName = FindNodeByAttributeId((XmlElement)node, "platformShortName");
-                        if (platformShortName != null) {
-                            title += platformShortName.InnerText;
-                        }
-                        XmlNode instrumentShortName = FindNodeByAttributeId((XmlElement)node, "instrumentShortName");
-                        if (instrumentShortName != null) {
-                            title += " " + instrumentShortName.InnerText;
-                        }
-                        XmlNode endAcquisition = FindNodeByAttributeId((XmlElement)node, "endAcquisition");
-                        if (endAcquisition != null) {
-                            title += " " + endAcquisition.InnerText;
-                        }
-                        if (!string.IsNullOrEmpty(title))
-                            item.Title = new TextSyndicationContent(title);
-                    }
-                }
             }
         }
 
@@ -156,8 +119,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                                 (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
 
                             georrs = GetDcDateElementExtensionFromEarthObservation(eopElement);
-                            if (ext != null)
-                                break;
+                            if (ext != null) break;
 
                         }
 
@@ -229,8 +191,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                                 (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
 
                             georrs = GetGeoRssElementExtensionFromEarthObservation(eopElement);
-                            if (ext != null)
-                                break;
+                            if (ext != null) break;
 
                         }
 
@@ -249,8 +210,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             try {
                 if (eopElement.phenomenonTime.AbstractTimeObject is Terradue.GeoJson.Gml.TimePeriodType &&
                     ((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item is Terradue.GeoJson.Gml.TimePositionType &&
-                    ((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1 is Terradue.GeoJson.Gml.TimePositionType)
-                    start = DateTime.Parse(
+                    ((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1 is Terradue.GeoJson.Gml.TimePositionType) start = DateTime.Parse(
                         ((Terradue.GeoJson.Gml.TimePositionType)((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item).Value);
                 stop = DateTime.Parse(
                     ((Terradue.GeoJson.Gml.TimePositionType)((Terradue.GeoJson.Gml.TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1).Value);
@@ -299,37 +259,20 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static void RestoreValidTime(IOpenSearchResultItem item) {
 
             if (item.ElementExtensions.ReadElementExtensions<XmlNode>("validTime", "http://www.opengis.net/gml/3.2").Count == 0) {
-                foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-                    XmlReader reader;
-                    try {
-                        reader = ext.GetReader();
-                    } catch {
-                        return;
+                var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+                try {
+                    if (om.phenomenonTime.AbstractTimeObject is Terradue.GeoJson.Gml.TimePeriodType) {
+                        XmlSerializer ser = new XmlSerializer(typeof(Terradue.GeoJson.Gml.TimePrimitivePropertyType));
+                        Terradue.GeoJson.Gml.TimePrimitivePropertyType validTime = new Terradue.GeoJson.Gml.TimePrimitivePropertyType();
+                        validTime.AbstractTimePrimitive = (Terradue.GeoJson.Gml.TimePeriodType)om.phenomenonTime.AbstractTimeObject;
+                        item.ElementExtensions.Add(validTime, ser);
                     }
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load(reader);
-                    foreach (XmlNode node in doc.ChildNodes) {
-                        if (node.LocalName == "EarthObservation") {
-                            XmlNode begin = FindNodeByAttributeId((XmlElement)node, "beginAcquisition");
-                            XmlNode end = FindNodeByAttributeId((XmlElement)node, "endAcquisition");
-                            if (end != null && begin != null) {
-                                XmlElement TimePeriod = doc.CreateElement("TimePeriod", "http://www.opengis.net/gml/3.2");
-                                XmlElement beginAcquisition = doc.CreateElement("beginAcquisition", "http://www.opengis.net/gml/3.2");
-                                beginAcquisition.InnerXml = begin.InnerXml;
-                                XmlElement endAcquisition = doc.CreateElement("endAcquisition", "http://www.opengis.net/gml/3.2");
-                                endAcquisition.InnerXml = end.InnerXml;
-                                TimePeriod.AppendChild(beginAcquisition);
-                                TimePeriod.AppendChild(endAcquisition);
-
-                                item.ElementExtensions.Add("validTime", "http://www.opengis.net/gml/3.2", TimePeriod);
-                            }
-                        }
-                    }
+                } catch (Exception) {
                 }
             }
         }
 
-        public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {
+        /*public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {
 
             string xpath;
             var namespaces = EONamespaces.TypeNamespaces;
@@ -721,7 +664,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             dic.Add("centreViewAngles", "atm:centreViewAngles");
 
             return dic;
-        }
+        }*/
 
         public static string EntrySelfLinkTemplate(IOpenSearchResultItem item, OpenSearchDescription osd, string mimeType) {
 
@@ -733,41 +676,34 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             string start = "";
             string stop = "";
 
-
-            XmlElement masterEO = null;
-            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-                XmlDocument doc = ElementExtensionToXmlDocument(ext);
-                if (doc == null)
-                    continue;
-                foreach (XmlNode node in doc.ChildNodes) {
-                    if (node.LocalName == "EarthObservation") {
-                        masterEO = (XmlElement)node;
-                    }
-                }
-            }
+            var masterEO = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
             if (masterEO == null)
                 throw new InvalidOperationException("No EarthObservation element found in master product to find the identifier");
 
-            productGroupId = FindValueByAttributeId(masterEO, "productGroupId");
+            productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
 
             if (!string.IsNullOrEmpty(productGroupId)) {
                 identifier = "";
-                start = FindValueByAttributeId(masterEO, "beginAcquisition");
-                stop = FindValueByAttributeId(masterEO, "endAcquisition");
+                try {
+                    start = MetadataHelpers.FindStart(masterEO);
+                    stop = MetadataHelpers.FindStop(masterEO);
+                } catch (Exception e){
+                    identifier = item.Identifier;
+                }
             }
 
             NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType));
             nvc.AllKeys.FirstOrDefault(k => {
                 if (nvc[k] == "{geo:uid?}" && !string.IsNullOrEmpty(identifier)) {
-                    nvc[k] = item.Identifier;
+                    nvc[k] = identifier;
                 }
-                if (nvc[k] == "{cseop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
+                if (nvc[k] == "{eop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
                     nvc[k] = productGroupId;
                 }
-                if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(productGroupId)) {
+                if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(start)) {
                     nvc[k] = start;
                 }
-                if (nvc[k] == "{time:end?}" && !string.IsNullOrEmpty(productGroupId)) {
+                if (nvc[k] == "{time:end?}" && !string.IsNullOrEmpty(stop)) {
                     nvc[k] = stop;
                 }
                 Match matchParamDef = Regex.Match(nvc[k], @"^{([^?]+)\??}$");
@@ -780,18 +716,6 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             template.Query = string.Join("&", queryString);
             return template.ToString();
 
-        }
-
-        public static XmlDocument ElementExtensionToXmlDocument(SyndicationElementExtension ext) {
-            XmlReader reader;
-            try {
-                reader = ext.GetReader();
-            } catch {
-                return null;
-            }
-            XmlDocument doc = new XmlDocument();
-            doc.Load(reader);
-            return doc;
         }
     }
 
