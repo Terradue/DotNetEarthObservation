@@ -17,7 +17,7 @@
 		<link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" />
 		<link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" />
 		<where xmlns="http://www.georss.org/georss">
-			<gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml">
+			<gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml/3.2">
 				<gml:outerBoundaryIs>
 					<gml:LinearRing>
 						<gml:coordinates>64.517059,-22.068716 64.967606,-16.853634 63.345100,-16.260002 62.907841,-21.184656 64.517059,-22.068716</gml:coordinates>
@@ -26,7 +26,7 @@
 			</gml:Polygon>
 		</where>
 		<date xmlns="http://purl.org/dc/elements/1.1/">2015-01-29T18:50:06.82Z/2015-01-29T18:50:34.085Z</date>
-		<eop:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml">
+		<eop:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2">
 			<om:phenomenonTime>
 				<gml:TimePeriod>
 					<gml:beginPosition>2015-01-29T18:50:06.82Z</gml:beginPosition>
@@ -73,7 +73,7 @@
 			<om:featureOfInterest>
 				<eop:Footprint>
 					<eop:multiExtentOf>
-						<gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml">
+						<gml:Polygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" xmlns:gml="http://www.opengis.net/gml/3.2">
 							<gml:outerBoundaryIs>
 								<gml:LinearRing>
 									<gml:coordinates>64.517059,-22.068716 64.967606,-16.853634 63.345100,-16.260002 62.907841,-21.184656 64.517059,-22.068716</gml:coordinates>

@@ -697,7 +697,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 if (nvc[k] == "{geo:uid?}" && !string.IsNullOrEmpty(identifier)) {
                     nvc[k] = identifier;
                 }
-                if (nvc[k] == "{cseop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
+                if (nvc[k] == "{eop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
                     nvc[k] = productGroupId;
                 }
                 if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(start)) {
