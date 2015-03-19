@@ -36,6 +36,33 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
 
         private FeaturePropertyType featureOfInterestField;
 
+        private Terradue.Metadata.EarthObservation.Ogc.Om.TimeObjectPropertyType phenomenonTimeField;
+
+        [System.Xml.Serialization.XmlElementAttribute(typeof(TimePeriodPropertyType))]
+        public override Terradue.Metadata.EarthObservation.Ogc.Om.TimeObjectPropertyType phenomenonTime
+        {
+            get
+            {
+                return this.phenomenonTimeField;
+            }
+            set
+            {
+                this.phenomenonTimeField = value;
+            }
+        }
+
+        public TimePeriodPropertyType EopphenomenonTime
+        {
+            get
+            {
+                return (TimePeriodPropertyType)this.phenomenonTimeField;
+            }
+            set
+            {
+                this.phenomenonTimeField = value;
+            }
+        }
+
         [System.Xml.Serialization.XmlElementAttribute("metaDataProperty")]
         public virtual EarthObservationMetaDataPropertyType metaDataProperty1 {
             get {

@@ -73,6 +73,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

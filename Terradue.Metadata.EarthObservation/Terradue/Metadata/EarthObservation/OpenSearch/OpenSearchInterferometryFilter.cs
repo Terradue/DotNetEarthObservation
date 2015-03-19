@@ -134,9 +134,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             NameValueCollection nvc = new NameValueCollection();
             NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(masterEntity.GetOpenSearchParameters(osr.ContentType));
 
-            nvc.Add(revOsParams["cseop:platformShortName"], platformShortName);
-            nvc.Add(revOsParams["cseop:wrsLongitudeGrid"], track);
-            nvc.Add(revOsParams["cseop:swathIdentifier"], swath);
+            nvc.Add(revOsParams["eop:platformShortName"], platformShortName);
+            nvc.Add(revOsParams["eop:wrsLongitudeGrid"], track);
+            nvc.Add(revOsParams["eop:swathIdentifier"], swath);
 
             return nvc;
 

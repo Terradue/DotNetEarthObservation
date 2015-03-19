@@ -41,6 +41,18 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Opt
                 this.resultField = value;
             }
         }
+
+        public OptEarthObservationResultPropertyType Optresult
+        {
+            get
+            {
+                return (OptEarthObservationResultPropertyType)this.resultField;
+            }
+            set
+            {
+                this.resultField = value;
+            }
+        }
     }
 
 
@@ -159,6 +171,18 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Opt
             get
             {
                 return this.earthObservationResultField;
+            }
+            set
+            {
+                this.earthObservationResultField = value;
+            }
+        }
+
+        public OptEarthObservationResultType OptEarthObservationResult
+        {
+            get
+            {
+                return (OptEarthObservationResultType)this.earthObservationResultField;
             }
             set
             {
