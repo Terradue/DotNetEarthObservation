@@ -56,7 +56,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationResultType result = ((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationResultPropertyType)eo.result).EarthObservationResult;
                     foreach (var pi in result.product) {
                         long size = 0;
-                        long.TryParse(pi.ProductInformation.size.Text[0], out size);
+                        long.TryParse(pi.ProductInformation.size.Text, out size);
                         if (size < 0) size = 0;
                         uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.metaDataProperty1.EarthObservationMetaData.identifier, "application/x-binary", size));
                     }
@@ -270,6 +270,126 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 } catch (Exception) {
                 }
             }
+        }
+
+        public static string FindIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
+            if (elements.Count > 0)
+                return elements[0];
+
+            var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    try {
+                        return ((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo).metaDataProperty1.EarthObservationMetaData.identifier;
+                    }
+                    catch (Exception){
+                        return null;
+                    }
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    try {
+                        return ((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo).metaDataProperty1.EarthObservationMetaData.identifier;
+                    }
+                    catch (Exception){
+                        return null;
+                    }
+                }
+            }
+
+            return null;
+
+        }
+
+        public static DateTime FindStartDateFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/')) {
+                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
+                } else
+                    return DateTime.Parse(elements[0]).ToUniversalTime();
+            }
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/')) {
+                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
+                } else
+                    return DateTime.Parse(elements[0]).ToUniversalTime();
+            }
+
+            var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    try {
+                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.beginPosition.Value);
+                    }
+                    catch (Exception){
+                        return DateTime.MinValue;
+                    }
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    try {
+                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.beginPosition.Value);
+                    }
+                    catch (Exception){
+                        return DateTime.MinValue;
+                    }
+                }
+            }
+
+            return DateTime.MinValue;
+
+        }
+
+        public static DateTime FindEndDateFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/'))
+                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
+            }
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("dtend", "http://www.w3.org/2002/12/cal/ical#");
+            if (elements.Count > 0)
+                return DateTime.Parse(elements[0]).ToUniversalTime();
+
+            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
+            if (elements.Count > 0) {
+                if (elements[0].Contains('/'))
+                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
+            }
+
+            var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    try {
+                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.endPosition.Value);
+                    }
+                    catch (Exception){
+                        return DateTime.MaxValue;
+                    }
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    try {
+                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.endPosition.Value);
+                    }
+                    catch (Exception){
+                        return DateTime.MaxValue;
+                    }
+                }
+            }
+
+            return DateTime.MaxValue;
+
         }
 
         /*public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {

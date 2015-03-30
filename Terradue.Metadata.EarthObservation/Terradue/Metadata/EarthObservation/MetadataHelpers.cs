@@ -258,7 +258,15 @@ namespace Terradue.Metadata.EarthObservation {
                     break;
             }
 
-            return ser.Deserialize(reader);
+            object eo = null;
+
+            try {
+                eo = ser.Deserialize(reader);
+            } catch (Exception e){
+                throw e;
+            }
+
+            return eo;
         }
 
 
@@ -416,95 +424,6 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-
-        /*public static string FindIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item) {
-
-            var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
-            if (elements.Count > 0)
-                return elements[0];
-
-            foreach (var eo in item.ElementExtensions.ToList()) {
-                XmlElement eoElement = (XmlElement)eo.GetObject<XmlElement>();
-                if (eoElement.LocalName == "EarthObservation") {
-                    var result = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(eoElement, "productId");
-                    if (!string.IsNullOrEmpty(result)) {
-                        return result;
-                    }
-                }
-            }
-
-            elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "");
-            if (elements.Count > 0)
-                return elements[0];
-
-            return null;
-
-        }
-
-        public static DateTime FindStartDateFromOpenSearchResultItem(IOpenSearchResultItem item) {
-
-            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/')) {
-                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
-                } else
-                    return DateTime.Parse(elements[0]).ToUniversalTime();
-            }
-
-            foreach (var eo in item.ElementExtensions.ToList()) {
-                XmlElement eoElement = (XmlElement)eo.GetObject<XmlElement>();
-                if (eoElement.LocalName == "EarthObservation") {
-                    var start = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(eoElement, "beginAcquisition");
-                    if (!string.IsNullOrEmpty(start))
-                        return DateTime.Parse(start).ToUniversalTime();
-                }
-            }
-
-            elements = item.ElementExtensions.ReadElementExtensions<string>("dtstart", "http://www.w3.org/2002/12/cal/ical#");
-            if (elements.Count > 0)
-                return DateTime.Parse(elements[0]).ToUniversalTime();
-
-            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/')) {
-                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
-                } else
-                    return DateTime.Parse(elements[0]).ToUniversalTime();
-            }
-
-            return DateTime.MinValue;
-
-        }
-
-        public static DateTime FindEndDateFromOpenSearchResultItem(IOpenSearchResultItem item) {
-
-            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/'))
-                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
-            }
-
-            foreach (var eo in item.ElementExtensions.ToList()) {
-                XmlElement eoElement = (XmlElement)eo.GetObject<XmlElement>();
-                if (eoElement.LocalName == "EarthObservation") {
-                    var stop = EarthObservationOpenSearchResultHelpers.FindValueByAttributeId(eoElement, "endAcquisition");
-                    if (!string.IsNullOrEmpty(stop))
-                        return DateTime.Parse(stop).ToUniversalTime();
-                }
-            }
-
-            elements = item.ElementExtensions.ReadElementExtensions<string>("dtend", "http://www.w3.org/2002/12/cal/ical#");
-            if (elements.Count > 0)
-                return DateTime.Parse(elements[0]).ToUniversalTime();
-
-            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/'))
-                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
-            }
-            return DateTime.MaxValue;
-
-        }*/
 
     }
 }
