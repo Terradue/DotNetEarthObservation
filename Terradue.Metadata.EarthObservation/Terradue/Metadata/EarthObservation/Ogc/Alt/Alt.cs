@@ -348,7 +348,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Alt
             }
         }
     }
-
+/*
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -422,7 +422,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Alt
             }
         }
     }
-
+*/
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
