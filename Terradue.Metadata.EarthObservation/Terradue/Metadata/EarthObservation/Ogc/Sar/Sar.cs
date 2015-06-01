@@ -139,7 +139,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Sar
 
         private AcquisitionType acquisitionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(typeof(SarAcquisitionType))]
+        [System.Xml.Serialization.XmlElementAttribute(typeof(SarAcquisitionType), Namespace = "http://www.opengis.net/sar/2.1")]
         public override AcquisitionType Acquisition
         {
             get
