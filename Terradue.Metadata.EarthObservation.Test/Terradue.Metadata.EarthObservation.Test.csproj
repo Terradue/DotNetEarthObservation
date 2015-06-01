@@ -60,6 +60,7 @@
     <Compile Include="Test.cs" />
     <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Geometry.cs" />
     <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Metadata.cs" />
+    <Compile Include="Terradue\Metadata\EartthObservation\SerializerTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -69,6 +70,7 @@
     <None Include="Samples\rdf.xml" />
     <None Include="Samples\atom.xml" />
     <None Include="Samples\S1.json" />
+    <None Include="Samples\S1-20120407T205500910-20120407T211433040_A_T-XG0B.atom" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />

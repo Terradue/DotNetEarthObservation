@@ -71,6 +71,19 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
             }
         }
 
+        [XmlIgnore]
+        public EarthObservationResultPropertyType EopResult
+        {
+            get
+            {
+                return (EarthObservationResultPropertyType)this.resultField;
+            }
+            set
+            {
+                this.resultField = value;
+            }
+        }
+
         [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.opengis.net/om/2.0", Type=typeof(FootprintPropertyType), IsNullable = true)]
         public override FeaturePropertyType featureOfInterest
         {
@@ -88,6 +101,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
         public override OM_ProcessPropertyType procedure {
             get {
                 return this.procedureField;
+            }
+            set {
+                this.procedureField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.opengis.net/om/2.0", Type = typeof(EarthObservationEquipmentPropertyType))]
+        public EarthObservationEquipmentPropertyType EopProcedure {
+            get {
+                return (EarthObservationEquipmentPropertyType)this.procedureField;
             }
             set {
                 this.procedureField = value;

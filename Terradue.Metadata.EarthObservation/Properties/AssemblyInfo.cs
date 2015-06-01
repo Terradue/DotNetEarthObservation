@@ -1,13 +1,30 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 
+/*!
+
+\namespace Terradue.Metadata.EarthObservation
+@{
+    DotNetEarthObservation Software Package
+
+    \xrefitem sw_version "Versions" "Software Package Version" 1.2.2
+
+    \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
+
+    \xrefitem sw_license "License" "Software License" [GPLv3](https://github.com/Terradue/Terradue.Metadata.EarthObservation/blob/master/LICENSE.txt)
+
+    \ingroup Data
+@}
+
+*/
+
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 [assembly: AssemblyTitle("Terradue.Metadata.EarthObservation")]
 [assembly: AssemblyDescription(".Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Terradue")]
-[assembly: AssemblyProduct("")]
+[assembly: AssemblyProduct("Terradue.Metadata.EarthObservation")]
 [assembly: AssemblyCopyright("Terradue")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
