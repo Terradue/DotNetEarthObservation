@@ -797,10 +797,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             string stop = "";
 
             var masterEO = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
-            if (masterEO == null)
-                throw new InvalidOperationException("No EarthObservation element found in master product to find the identifier");
 
-            productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
+            if ( masterEO != null )
+                productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
 
             if (!string.IsNullOrEmpty(productGroupId)) {
                 identifier = "";
