@@ -43,6 +43,9 @@
     <Reference Include="Terradue.GeoJson">
       <HintPath>..\packages\Terradue.GeoJson.1.4.15\lib\net40\Terradue.GeoJson.dll</HintPath>
     </Reference>
+    <Reference Include="Terradue.OpenSearch">
+      <HintPath>..\packages\Terradue.OpenSearch.1.9.13\lib\net40\Terradue.OpenSearch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,11 +106,5 @@
     <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
     <None Include="packages.config" />
     <None Include="Terradue.Metadata.EarthObservation.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DotNetOpenSearch\Terradue.OpenSearch\Terradue.OpenSearch.csproj">
-      <Project>{997A44FD-EE4A-490A-855B-88305E0CD269}</Project>
-      <Name>Terradue.OpenSearch</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>
