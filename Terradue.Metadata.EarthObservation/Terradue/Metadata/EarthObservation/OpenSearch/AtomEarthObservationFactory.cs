@@ -55,6 +55,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
                 item.ElementExtensions.Add("date", MetadataHelpers.DC, string.Format("{0}/{1}", sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
 
+                item.ElementExtensions.Add("identifier", MetadataHelpers.DC, sarEo.metaDataProperty1.EarthObservationMetaData.identifier);
+
                                                                                  
             } catch (NullReferenceException e) {
 
