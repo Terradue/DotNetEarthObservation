@@ -41,7 +41,7 @@
       <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="Terradue.GeoJson">
-      <HintPath>..\..\..\..\system\t2-geosquare\packages\Terradue.GeoJson.1.4.15\lib\net40\Terradue.GeoJson.dll</HintPath>
+      <HintPath>..\packages\Terradue.GeoJson.1.4.15\lib\net40\Terradue.GeoJson.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +71,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\AtomEarthObservationFactory.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Extra\Orbit.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -95,6 +96,7 @@
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gts\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
