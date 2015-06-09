@@ -41,6 +41,19 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Sar
                 this.procedureField = value;
             }
         }
+
+        [XmlIgnore]
+        public SarEarthObservationEquipmentPropertyType SarEarthObservationEquipment
+        {
+            get
+            {
+                return (SarEarthObservationEquipmentPropertyType)this.procedureField;
+            }
+            set
+            {
+                this.procedureField = value;
+            }
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
@@ -50,7 +63,6 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Sar
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.opengis.net/eop/2.1", IsNullable = true)]
     public partial class SarEarthObservationEquipmentPropertyType : EarthObservationEquipmentPropertyType
     {
-
         private EarthObservationEquipmentType earthObservationEquipmentField;
 
         [System.Xml.Serialization.XmlElementAttribute(Type = typeof(SarEarthObservationEquipmentType))]
@@ -59,6 +71,19 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Sar
             get
             {
                 return this.earthObservationEquipmentField;
+            }
+            set
+            {
+                this.earthObservationEquipmentField = value;
+            }
+        }
+
+        [XmlIgnore]
+        public SarEarthObservationEquipmentType SarEarthObservationEquipment
+        {
+            get
+            {
+                return (SarEarthObservationEquipmentType)this.earthObservationEquipmentField;
             }
             set
             {
@@ -90,6 +115,19 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Sar
                 this.acquisitionParametersField = value;
             }
         }
+
+        [XmlIgnore]
+        public SarAcquisitionPropertyType SarAcquisitionParameters
+        {
+            get
+            {
+                return (SarAcquisitionPropertyType)this.acquisitionParametersField;
+            }
+            set
+            {
+                this.acquisitionParametersField = value;
+            }
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
@@ -107,6 +145,19 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Sar
             get
             {
                 return this.acquisitionField;
+            }
+            set
+            {
+                this.acquisitionField = value;
+            }
+        }
+
+        [XmlIgnore]
+        public SarAcquisitionType SarAcquisition
+        {
+            get
+            {
+                return (SarAcquisitionType)this.acquisitionField;
             }
             set
             {

@@ -297,6 +297,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Om
             }
         }
 
+        [XmlIgnore]
         public TimePeriodType GmlTimePeriod
         {
             get
