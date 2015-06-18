@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E084B86A-8B40-414E-95FA-760F3C6BFDCB}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Terradue.Metadata.EarthObservation</RootNamespace>
-    <AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
-    <UseMSBuildEngine>False</UseMSBuildEngine>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="Terradue.ServiceModel.Syndication">
-      <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.0.0\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text">
-    </Reference>
-    <HintPath Include="">..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
-    <Reference Include="Terradue.GeoJson">
-      <HintPath>..\packages\Terradue.GeoJson.1.4.15\lib\net40\Terradue.GeoJson.dll</HintPath>
-    </Reference>
-    <Reference Include="Terradue.OpenSearch">
-      <HintPath>..\packages\Terradue.OpenSearch.1.10.4\lib\net40\Terradue.OpenSearch.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\Gmd.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\Gml311.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\Gsr.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Xlink.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20Lang.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Swe\Swe.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Om\Om.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Ows\Ows.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gts\Gts.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gss\Gss.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gco\Gco.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\AtomEarthObservationFactory.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Extra\Orbit.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Extra\Geolocation.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Schemas\" />
-    <Folder Include="Terradue\" />
-    <Folder Include="Terradue\Metadata\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Eop\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gco\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\W3c\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Sar\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\New Folder\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Om\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Ows\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Opt\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gts\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
-    <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
-    <None Include="packages.config" />
-    <None Include="Terradue.Metadata.EarthObservation.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{E084B86A-8B40-414E-95FA-760F3C6BFDCB}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<RootNamespace>Terradue.Metadata.EarthObservation</RootNamespace>
+		<AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
+		<UseMSBuildEngine>False</UseMSBuildEngine>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin</OutputPath>
+		<DefineConstants>DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>full</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin</OutputPath>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Runtime.Serialization" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="Terradue.ServiceModel.Syndication">
+			<HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.0.0\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
+		</Reference>
+		<Reference Include="ServiceStack.Text">
+			<HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
+		</Reference>
+		<Reference Include="Terradue.GeoJson">
+			<HintPath>..\packages\Terradue.GeoJson.1.4.15\lib\net40\Terradue.GeoJson.dll</HintPath>
+		</Reference>
+		<Reference Include="Terradue.OpenSearch">
+			<HintPath>..\packages\Terradue.OpenSearch.1.10.4\lib\net40\Terradue.OpenSearch.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\Gmd.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\Gml311.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\Gsr.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Xlink.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20Lang.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Swe\Swe.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Om\Om.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Ows\Ows.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gts\Gts.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gss\Gss.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gco\Gco.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop20.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar20.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt20.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt20.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\AtomEarthObservationFactory.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Extra\Orbit.cs" />
+		<Compile Include="Terradue\Metadata\EarthObservation\Extra\Geolocation.cs" />
+	</ItemGroup>
+	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+	<ItemGroup>
+		<Folder Include="Schemas\" />
+		<Folder Include="Terradue\" />
+		<Folder Include="Terradue\Metadata\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Eop\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gco\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\W3c\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Sar\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\New Folder\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Om\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Ows\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Opt\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gts\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
+		<Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
+		<None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
+		<None Include="packages.config" />
+		<None Include="Terradue.Metadata.EarthObservation.csproj" />
+	</ItemGroup>
 </Project>
