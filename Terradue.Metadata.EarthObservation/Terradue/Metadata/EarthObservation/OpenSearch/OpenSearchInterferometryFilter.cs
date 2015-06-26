@@ -206,7 +206,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
         }
 
 
-        protected virtual TimeSpan[] GetStartAndStopTimeSpanFromAscendingNode(IOpenSearchResultItem item) {
+        protected override TimeSpan[] GetStartAndStopTimeSpanFromAscendingNode(IOpenSearchResultItem item) {
 
             // - The ANX time period of the master product (i.e. the eop:startTimeFromAscendingNode 
             //   and eop:completionTimeFromAscendingNode attributes from the EO Product model 
