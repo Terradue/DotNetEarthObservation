@@ -132,21 +132,36 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         }
 
         public static GeometryObject FindGeometryFromEarthObservation(IOpenSearchResultItem item) {
-            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
 
-                if (ext.OuterName == "EarthObservation") {
-                    Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement = 
-                        (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
-
-                    return MetadataHelpers.FindGeometryFromEarthObservation(eopElement);
-                }
-
-
-            }
             var dctspatial = item.ElementExtensions.ReadElementExtensions<string>("spatial", "http://purl.org/dc/terms/");
             if (dctspatial.Count > 0) {
                 return GeometryFactory.WktToGeometry(dctspatial[0]);
             }
+
+            SyndicationElementExtension georss = null;
+            SyndicationElementExtension eo = null;
+            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
+
+                if (ext.OuterNamespace == "http://www.georss.org/georss/10" || ext.OuterNamespace == "http://www.georss.org/georss")
+                    georss = ext;
+
+                if (ext.OuterName == "EarthObservation") {
+                    eo = ext;
+                }
+
+
+            }
+
+            if ( georss != null )
+                return GeometryFactory.GeoRSSToGeometry(georss.GetObject<XmlElement>());
+
+            if ( eo != null ){
+                Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement = 
+                    (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(eo.GetReader(), eo.OuterNamespace);
+
+                return MetadataHelpers.FindGeometryFromEarthObservation(eopElement);
+            }
+
             return null;
         }
 

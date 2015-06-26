@@ -43,6 +43,30 @@ namespace Terradue.Metadata.EarthObservation.Test {
                             geometry.ToWkt());
 
         }
+
+        [Test()]
+        public void FindFromRDF2() {
+
+            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/rdf2.xml", FileMode.Open, FileAccess.Read));
+            RdfXmlDocument rdf = RdfXmlDocument.Load(responseReader);
+
+            var geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(rdf.Items.First());
+
+            Assert.That(geometry is Polygon);
+
+        }
+
+        [Test()]
+        public void FindFromRDF3() {
+
+            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/rdf3.xml", FileMode.Open, FileAccess.Read));
+            RdfXmlDocument rdf = RdfXmlDocument.Load(responseReader);
+
+            var geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(rdf.Items.First());
+
+            Assert.That(geometry is MultiPolygon);
+
+        }
     }
 }
 
