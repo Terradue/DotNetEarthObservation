@@ -20,6 +20,38 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         }
 
+        public override void AddSearchLink(ref IOpenSearchResultCollection osr, NameValueCollection originalParameters, IOpenSearchable entity, string with, string finalContentType) {
+            foreach (IOpenSearchResultItem item in osr.Items) {
+
+                var link = item.Links.FirstOrDefault(l => l.RelationshipType == "self");
+
+                if (link == null)
+                    continue;
+
+                // Get the url with self parameters
+                UriBuilder url = new UriBuilder(link.Uri);
+
+                // Keep the url parameters if any
+                NameValueCollection nvc = HttpUtility.ParseQueryString(url.Query);
+                // Get the opensearch parameters
+                NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(entity.GetOpenSearchParameters(osr.ContentType));
+
+                // Add the master self link as the correlation pair
+                nvc.Set(revOsParams["cor:with"], with);
+                // Add the correlation function to the inverse function
+                nvc.Set(revOsParams["cor:function"], "interferometry");
+
+                if (!string.IsNullOrEmpty(originalParameters["format"])) {
+                    nvc.Set("format", originalParameters["format"]);
+                }
+
+                url.Query = nvc.ToString();
+                item.Links.Add(new SyndicationLink(url.Uri, "search", "interferometry", finalContentType, 0));
+                 
+
+            }
+        }
+
         public override void ApplyResultFilters(ref IOpenSearchResultCollection osr, NameValueCollection parameters, IOpenSearchable entity) {
 
             OpenSearchUrl corUrl = GetCorrelatedUrl(parameters);
@@ -28,13 +60,24 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             if (function == "interferometry" && corUrl != null) {
 
                 PerformInterferometryFunction(ref osr, parameters, entity);
-
+                var count = OpenSearchFactory.GetCount(parameters);
+                if (osr.TotalResults >= count && count != 0 && osr.TotalResults <= osr.Count)
+                    osr.TotalResults = count + 1;
+                else
+                    osr.TotalResults = osr.Count;
 
             }
 
             if (function == "interfMaster" && corUrl != null) {
 
                 PerformSlaveInterferometryFunction(ref osr, parameters, entity);
+                osr.Title = new TextSyndicationContent("slaves " + GetSlavesInfo(osr));
+                var count = OpenSearchFactory.GetCount(parameters);
+                if (osr.TotalResults >= count && count != 0 && osr.TotalResults <= osr.Count)
+                    osr.TotalResults = count + 1;
+                else
+                    osr.TotalResults = osr.Count;
+                osr.Items = osr.Items.OrderBy(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0]));
 
             }
 
@@ -53,28 +96,27 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 // make the OpenSearch over the slave url
                 NameValueCollection nvc = new NameValueCollection();
-                nvc.Add("count", "0");
 
                 // create the opensearchable
                 IOpenSearchable slaveEntity = factory.Create(slaveFeedUrl);
 
                 // Query the slave url
-                IOpenSearchResultCollection slavesFeedResult0 = ose.Query(slaveEntity, nvc, "atom");
+                IOpenSearchResultCollection slavesFeedResult0 = ose.Query(slaveEntity, nvc);
 
                 // Remove the master from the results if any
                 slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => i.Identifier != item.Identifier);
 
 
                 // if there a minimum of slaves, keep the master
-                if (((AtomFeed)slavesFeedResult0).TotalResults >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
+                if (slavesFeedResult0.TotalResults >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
                     newitems.Add(item);
-                    item.Links.Add(new SyndicationLink(slaveFeedUrl, "via", "interferometry", "application/atom+xml", 0));
+                    item.Links.Add(new SyndicationLink(slaveFeedUrl, "related", "interferometry", osr.ContentType, 0));
                 } 
 
             }
 
             osr.Items = newitems;
-            osr.TotalResults = osr.Count + 1;
+
         }
 
 
@@ -100,9 +142,13 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             nvc.Add(GetMasterParametersForSlaveFocusedSearch(osr, item, searchParameters, masterEntity));
 
             // Add the master self link as the correlation pair
-            nvc.Add(revOsParams["cor:with"], HttpUtility.UrlEncode(item.Links.FirstOrDefault(l => l.RelationshipType == "self").Uri.ToString()));
+            nvc.Set(revOsParams["cor:with"], item.Links.FirstOrDefault(l => l.RelationshipType == "self").Uri.ToString());
             // Add the correlation function to the inverse function
-            nvc.Add(revOsParams["cor:function"], "interfMaster");
+            nvc.Set(revOsParams["cor:function"], "interfMaster");
+
+            if (!string.IsNullOrEmpty(searchParameters["format"])) {
+                nvc.Set("format", searchParameters["format"]);
+            }
 
             url.Query = nvc.ToString();
 
@@ -121,7 +167,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
         protected virtual NameValueCollection GetMasterParametersForSlaveFocusedSearch(IOpenSearchResultCollection osr, IOpenSearchResultItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity) {
 
             var element = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
-            if (element == null) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce focus search for slaves");
+            if (element == null)
+                throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce focus search for slaves");
 
             string platformShortName = "";
             string track = "";
@@ -153,9 +200,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                     throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
                 }
 
-            } else throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
+            } else
+                throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
 
-            if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath)) throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
+            if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath))
+                throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
 
             NameValueCollection nvc = new NameValueCollection();
             NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(masterEntity.GetOpenSearchParameters(osr.ContentType));
@@ -163,6 +212,13 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             nvc.Add(revOsParams["eop:platformShortName"], platformShortName);
             nvc.Add(revOsParams["eop:wrsLongitudeGrid"], track);
             nvc.Add(revOsParams["eop:swathIdentifier"], swath);
+
+            TimeSpan[] masterAnxTimes = GetStartAndStopTimeSpanFromAscendingNode(item);
+            var timeCoverage = GetTimeCoverage(searchParameters, item);
+
+
+            nvc.Add(revOsParams["eop:startTimeFromAscendingNode"], string.Format("[{0},{1}]", masterAnxTimes[0].Subtract(TimeSpan.FromSeconds(timeCoverage[0])).TotalMilliseconds, masterAnxTimes[1].TotalMilliseconds));
+            nvc.Add(revOsParams["eop:completionTimeFromAscendingNode"], string.Format("[{0},{1}]", masterAnxTimes[0].TotalMilliseconds, masterAnxTimes[1].Add(TimeSpan.FromSeconds(timeCoverage[1])).TotalMilliseconds));
 
             return nvc;
 
@@ -178,9 +234,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 IOpenSearchable masterEntity = factory.Create(masterFeedUrl);
 
-                IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, new NameValueCollection(), typeof(AtomFeed));
+                IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, new NameValueCollection());
 
-                int count = int.Parse(masterFeed.ElementExtensions.ReadElementExtensions<string>("totalResults", "http://a9.com/-/spec/opensearch/1.1/")[0]);
+                long count = masterFeed.TotalResults;
 
                 if (count > 1) {
                     throw new InvalidOperationException("There are multiples references to the master dataset. For this operation, a unique reference is mandatory");
@@ -188,21 +244,27 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 IOpenSearchResultItem masterItem = (IOpenSearchResultItem)masterFeed.Items.ElementAt(0);
 
-                TimeSpan[] masterAnxTimes = GetStartAndStopTimeSpanFromAscendingNode(masterItem);
-                TimeSpan[] slaveAnxTimes = GetStartAndStopTimeSpanFromAscendingNode(slaveItem);
+                if (slaveItem.Identifier == masterItem.Identifier)
+                    continue;
 
-                //if (slaveAnxStart > masterAnxStop) continue;
-                //if (slaveAnxStop > masterAnxStart) continue;
+                // Calculate perpendicular baseline
+                double perpendicularBaseline = 0;
+                try {
+                    perpendicularBaseline = GetPerpendicularBaseline(masterItem, slaveItem);
+                } catch (Exception e) {
+                    continue;
+                }
 
-                // - the time period of the master product adapted according to the date difference min and 
-                //   max offsets (taking respectively the beginning/end of mission dates whenever min and max offsets are absent)
-                // ??
-
+                slaveItem.ElementExtensions.Add("baseline", MetadataHelpers.EOP, Math.Round(perpendicularBaseline, 2));
+                slaveItem.Title = new TextSyndicationContent("[" + Math.Round(perpendicularBaseline, 2) + "] " + slaveItem.Title.Text);
 
                 newitems.Add(slaveItem);
+
+
             }
 
             osr.Items = newitems;
+
         }
 
 
@@ -212,7 +274,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             //   and eop:completionTimeFromAscendingNode attributes from the EO Product model 
             //   that must be overlapped
             var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
-            if (om == null) throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
+            if (om == null)
+                throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
 
             TimeSpan timeSpanAnxStart;
             TimeSpan timeSpanAnxStop;
@@ -241,7 +304,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                     throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
                 }
 
-            } else throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
+            } else
+                throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
                     
             return new TimeSpan[]{ timeSpanAnxStart, timeSpanAnxStop };
         }
@@ -254,6 +318,118 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             return osdic;
         }
+
+        protected virtual DateTime GetAcquisitionStartTime(IOpenSearchResultItem item) {
+
+            // - The ANX time period of the master product (i.e. the eop:startTimeFromAscendingNode 
+            //   and eop:completionTimeFromAscendingNode attributes from the EO Product model 
+            //   that must be overlapped
+            var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+            if (om == null)
+                throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
+
+            if (om is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+                try { 
+                    return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)om).phenomenonTime.GmlTimePeriod.beginPosition.Value);
+                } catch (Exception e) {
+                    throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                }
+
+            } else if (om is Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType) {
+                try { 
+                    return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType)om).phenomenonTime.GmlTimePeriod.beginPosition.Value);
+                } catch (Exception e) {
+                    throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                }
+
+            } else
+                throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
+
+        }
+
+        protected virtual DateTime GetAscendingNodeDateTime(IOpenSearchResultItem item) {
+
+            // - The ANX time period of the master product (i.e. the eop:startTimeFromAscendingNode 
+            //   and eop:completionTimeFromAscendingNode attributes from the EO Product model 
+            //   that must be overlapped
+            var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+            if (om == null)
+                throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
+
+            if (om is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+                try { 
+                    return ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)om).SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.Acquisition.ascendingNodeDate;
+                } catch (Exception e) {
+                    throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
+                }
+            } else
+                throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
+
+        }
+
+        public string GetReadableTimeSpan(TimeSpan value) {
+            string duration;
+
+            if (value.TotalMinutes < 1)
+                duration = value.Seconds + " Seconds";
+            else if (value.TotalHours < 1)
+                duration = value.Minutes + " Minutes, " + value.Seconds + " Seconds";
+            else if (value.TotalDays < 1)
+                duration = value.Hours + " Hours, " + value.Minutes + " Minutes";
+            else
+                duration = value.Days + " Days, " + value.Hours + " Hours";
+
+            if (duration.StartsWith("1 Seconds") || duration.EndsWith(" 1 Seconds"))
+                duration = duration.Replace("1 Seconds", "1 Second");
+
+            if (duration.StartsWith("1 Minutes") || duration.EndsWith(" 1 Minutes"))
+                duration = duration.Replace("1 Minutes", "1 Minute");
+
+            if (duration.StartsWith("1 Hours") || duration.EndsWith(" 1 Hours"))
+                duration = duration.Replace("1 Hours", "1 Hour");
+
+            if (duration.StartsWith("1 Days"))
+                duration = duration.Replace("1 Days", "1 Day");
+
+            return duration;
+        }
+
+        public TimeSpan GetMaxTimeGap(IOpenSearchResultCollection osr) {
+
+            TimeSpan maxTimeGap = new TimeSpan(0);
+            IOpenSearchResultItem prev = null;
+
+            foreach (IOpenSearchResultItem item in osr.Items.ToArray()) {
+
+                if (prev != null && GetAcquisitionStartTime(prev).Subtract(GetAcquisitionStartTime(item)) > maxTimeGap)
+                    maxTimeGap = GetAcquisitionStartTime(prev).Subtract(GetAcquisitionStartTime(item));
+
+
+                prev = item;
+            }
+
+            return maxTimeGap;
+                
+        }
+
+        public TimeSpan GetTimeSpan(IOpenSearchResultCollection osr) {
+
+            if (osr.Count > 0)
+                return GetAcquisitionStartTime(osr.Items.First()).Subtract(GetAcquisitionStartTime(osr.Items.Last()));
+
+            return new TimeSpan(0);
+
+        }
+
+        public string GetSlavesInfo(IOpenSearchResultCollection osr) {
+
+            if (osr.Count <= 0)
+                return "";
+            return string.Format("{0} | {1} | {2} | {3}", osr.Items.Min(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), osr.Items.Max(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), GetReadableTimeSpan(GetMaxTimeGap(osr)), GetReadableTimeSpan(GetTimeSpan(osr)));
+        }
+
+        public abstract double GetPerpendicularBaseline(IOpenSearchResultItem master, IOpenSearchResultItem slave);
+
     }
 }
 

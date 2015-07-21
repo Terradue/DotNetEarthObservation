@@ -1299,8 +1299,6 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
 
         private System.DateTime ascendingNodeDateField;
 
-        private bool ascendingNodeDateFieldSpecified;
-
         private MeasureType ascendingNodeLongitudeField;
 
         private MeasureType startTimeFromAscendingNodeField;
@@ -1402,16 +1400,6 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
             }
             set {
                 this.ascendingNodeDateField = value;
-            }
-        }
-
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ascendingNodeDateSpecified {
-            get {
-                return this.ascendingNodeDateFieldSpecified;
-            }
-            set {
-                this.ascendingNodeDateFieldSpecified = value;
             }
         }
 
