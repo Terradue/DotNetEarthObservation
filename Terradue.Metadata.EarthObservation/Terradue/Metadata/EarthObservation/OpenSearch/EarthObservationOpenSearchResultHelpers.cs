@@ -12,6 +12,7 @@ using Terradue.OpenSearch;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using Terradue.GeoJson.Geometry;
+using Terradue.OpenSearch.Result;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public static class EarthObservationOpenSearchResultHelpers {
@@ -407,400 +408,6 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        /*public static XmlNode FindNodeByAttributeId(XmlElement elem, string attributeId) {
-
-            string xpath;
-            var namespaces = EONamespaces.TypeNamespaces;
-
-            try { 
-                switch (elem.NamespaceURI) {
-                    case "http://www.opengis.net/eop/2.0":
-                        xpath = EopEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces;
-                        break;
-                    case "http://www.opengis.net/sar/2.0":
-                        xpath = SarEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces;
-                        break;
-                    case "http://www.opengis.net/opt/2.0":
-                        xpath = OptEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces;
-                        break;
-                    case "http://www.opengis.net/alt/2.0":
-                        xpath = AltEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces;
-                        break;
-                    case "http://www.opengis.net/eop/2.1":
-                        xpath = EopEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces21;
-                        break;
-                    case "http://www.opengis.net/sar/2.1":
-                        xpath = SarEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces21;
-                        break;
-                    case "http://www.opengis.net/opt/2.1":
-                        xpath = OptEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces21;
-                        break;
-                    case "http://www.opengis.net/alt/2.1":
-                        xpath = AltEarthObservationSchema()[attributeId];
-                        namespaces = EONamespaces.TypeNamespaces21;
-                        break;
-                    default:
-                        return null;
-                }
-            } catch (KeyNotFoundException) {
-                return null;
-            }
-
-            XmlNamespaceManager xnsm = new XmlNamespaceManager(elem.OwnerDocument.NameTable);
-
-            foreach (var key in namespaces.AllKeys) {
-                xnsm.AddNamespace(namespaces[key], key);
-            }
-            return elem.SelectSingleNode(xpath, xnsm);
-
-        }
-
-        public static string FindValueByAttributeId(XmlElement elem, string attributeId) {
-
-            XmlNode node = FindNodeByAttributeId(elem, attributeId);
-
-            if (node == null)
-                return null;
-
-            return node.InnerText;
-
-        }
-
-        public static Dictionary<string, string> EopEarthObservationSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservation();
-            EopEarthObservationEquipmentSchema().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "om:procedure/eop:EarthObservationEquipment/" + kvp.Value);
-                return false;
-            });
-            EopFootprint().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "om:featureOfInterest/eop:Footprint/" + kvp.Value);
-                return false;
-            });
-            EopEarthObservationResultSchema().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "om:result/eop:EarthObservationResult/" + kvp.Value);
-                return false;
-            });
-            EopEarthObservationMetaDataSchema().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "eop:metaDataProperty/eop:EarthObservationMetaData/" + kvp.Value);
-                return false;
-            });
-
-            return dic;
-
-        }
-
-        public static Dictionary<string, string> OptEarthObservationSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservationSchema();
-            EopEarthObservationResultSchema().FirstOrDefault(kvp => {
-                dic.Remove(kvp.Key);
-                dic.Add(kvp.Key, "om:result/opt:EarthObservationResult/" + kvp.Value);
-                return false;
-            });
-            OptEarthObservation().FirstOrDefault(kvp => {
-                dic.Remove(kvp.Key);
-                dic.Add(kvp.Key, kvp.Value);
-                return false;
-            });
-
-
-            return dic;
-
-        }
-
-        public static Dictionary<string, string> AltEarthObservationSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservationSchema();
-            AltEarthObservation().FirstOrDefault(kvp => {
-                dic.Remove(kvp.Key);
-                dic.Add(kvp.Key, kvp.Value);
-                return false;
-            });
-
-            return dic;
-
-        }
-
-
-        public static Dictionary<string, string> SarEarthObservationSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservationSchema();
-            SarEarthObservation().FirstOrDefault(kvp => {
-                dic.Remove(kvp.Key);
-                dic.Add(kvp.Key, kvp.Value);
-                return false;
-            });
-
-            SarAcquisition().FirstOrDefault(kvp => {
-                dic.Remove(kvp.Key);
-                dic.Add(kvp.Key, "om:procedure/eop:EarthObservationEquipment/eop:acquisitionParameters/sar:Acquisition/" + kvp.Value);
-                return false;
-            });
-
-            return dic;
-
-        }
-
-        public static Dictionary<string, string> EopEarthObservationEquipmentSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservationEquipment();
-            EopAcquisition().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "eop:acquisitionParameters/eop:Acquisition/" + kvp.Value);
-                return false;
-            });
-
-            return dic;
-
-        }
-
-        public static Dictionary<string, string> EopEarthObservationResultSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservationResult();
-            EopProductInformation().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "eop:product/eop:ProductInformation/" + kvp.Value);
-                return false;
-            });
-
-            return dic;
-
-        }
-
-        public static Dictionary<string, string> EopEarthObservationMetaDataSchema() {
-
-            Dictionary<string, string> dic = EopEarthObservationMetaData();
-            EopProcessingInformation().FirstOrDefault(kvp => {
-                dic.Add(kvp.Key, "eop:processing/eop:ProcessingInformation/" + kvp.Value);
-                return false;
-            });
-
-            return dic;
-
-        }
-
-
-        public static Dictionary<string, string> EopEarthObservation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("beginAcquisition", "om:phenomenonTime/gml32:TimePeriod/gml32:beginPosition");
-            dic.Add("endAcquisition", "om:phenomenonTime/gml32:TimePeriod/gml32:endPosition");
-            dic.Add("availabilityTime", "om:resultTime/gml32:TimeInstant/gml32:timePosition");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopEarthObservationEquipment() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("platformShortName", "eop:platform/eop:Platform/eop:shortName");
-            dic.Add("platformSerialIdentifier", "eop:platform/eop:Platform/eop:serialIdentifier");
-            dic.Add("orbitType", "eop:platform/eop:Platform/eop:orbitType");
-            dic.Add("instrumentShortName", "eop:instrument/eop:Instrument/eop:shortName");
-            dic.Add("instrumentDescription", "eop:instrument/eop:Instrument/eop:description");
-            dic.Add("instrumentType", "eop:instrument/eop:Instrument/eop:instrumentType");
-            dic.Add("sensorType", "eop:sensor/eop:Sensor/eop:sensorType");
-            dic.Add("operationalMode", "eop:sensor/eop:Sensor/eop:operationalMode");
-            dic.Add("swathIdentifier", "eop:sensor/eop:Sensor/eop:swathIdentifier");
-            dic.Add("sensorResolution", "eop:sensor/eop:Sensor/eop:sensorResolution");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopAcquisition() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("orbitNumber", "eop:orbitNumber");
-            dic.Add("orbitDirection", "eop:orbitDirection");
-            dic.Add("wrsLongitudeGrid", "eop:wrsLongitudeGrid");
-            dic.Add("wrsLatitudeGrid", "eop:wrsLatitudeGrid");
-            dic.Add("startTimeFromAscendingNode", "eop:startTimeFromAscendingNode");
-            dic.Add("completionTimeFromAscendingNode", "eop:completionTimeFromAscendingNode");
-            dic.Add("illuminationAzimuthAngle", "eop:illuminationAzimuthAngle");
-            dic.Add("illuminationZenithAngle", "eop:illuminationZenithAngle");
-            dic.Add("illuminationElevationAngle", "eop:illuminationElevationAngle");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopFootprint() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("footprint", "eop:multiExtentOf");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopEarthObservationResult() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopProductInformation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("productURI", "eop:fileName/ows:ServiceReference/@xlink:href");
-            dic.Add("productVersion", "eop:version");
-            dic.Add("productSize", "eop:size");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopEarthObservationMetaData() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("productId", "eop:identifier");
-            dic.Add("parentIdentifier", "eop:parentIdentifier");
-            dic.Add("productType", "eop:productType");
-            dic.Add("acquisitionType", "eop:acquisitionType");
-            dic.Add("acquisitionSubType", "eop:acquisitionSubType");
-            dic.Add("status", "eop:status");
-            dic.Add("imageQualityDegradation", "eop:imageQualityDegradation");
-            dic.Add("imageQualityStatus", "eop:imageQualityStatus");
-            dic.Add("imageQualityDegradationTag", "eop:imageQualityDegradationTag");
-            dic.Add("imageQualityReportURL", "eop:imageQualityReportURL");
-            dic.Add("productGroupId", "eop:productGroupId");
-
-            //TODO here system for additional attributes
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> EopProcessingInformation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("processingMode", "eop:processingMode");
-
-            return dic;
-        }
-
-
-        public static Dictionary<string, string> OptEarthObservation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "om:procedure/eop:EarthObservationEquipment/eop:sensor/eop:Sensor/eop:sensorType");
-            dic.Add("cloudCoverPercentage", "om:result/eop:EarthObservationResult/opt:cloudCoverPercentage");
-            dic.Add("snowCoverPercentage", "om:result/eop:EarthObservationResult/opt:snowCoverPercentage");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> SarEarthObservation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "om:procedure/eop:EarthObservationEquipment/eop:sensor/eop:Sensor/eop:sensorType");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> SarAcquisition() {
-
-            Dictionary<string, string> dic = EopAcquisition();
-
-            dic.Add("polarisationMode", "sar:polarisationMode");
-            dic.Add("polarisationChannels", "sar:polarisationChannels");
-            dic.Add("antennaLookDirection", "sar:antennaLookDirection");
-            dic.Add("minimumIncidenceAngle", "sar:minimumIncidenceAngle");
-            dic.Add("maximumIncidenceAngle", "sar:maximumIncidenceAngle");
-            dic.Add("incidenceAngleVariation", "sar:incidenceAngleVariation");
-            dic.Add("dopplerFrequency", "sar:dopplerFrequency");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> AltEarthObservation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "om:procedure/eop:EarthObservationEquipment/eop:sensor/eop:Sensor/eop:sensorType");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> AltEarthObservationEquipment() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "eop:sensor/eop:Sensor/eop:sensorType");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> AltFootprint() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("nominalTrack", "alt:nominalTrack");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> LmbEarthObservation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "om:procedure/eop:EarthObservationEquipment/eop:sensor/eop:Sensor/eop:sensorType");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> LmbFootprint() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("nominalTrack", "lmb:nominalTrack");
-            dic.Add("occultationPoints", "lmb:occultationPoints");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> LmbSensor() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "eop:sensorType");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> AtmEarthObservation() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("sensorType", "om:procedure/eop:EarthObservationEquipment/eop:sensor/eop:Sensor/eop:sensorType");
-            dic.Add("cloudCoverPercentage", "atm:cloudCoverPercentage");
-            dic.Add("snowCoverPercentage", "atm:snowCoverPercentage");
-
-            return dic;
-        }
-
-        public static Dictionary<string, string> AtmAcquisition() {
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-
-            dic.Add("multiViewAngles", "atm:multiViewAngles");
-            dic.Add("centreViewAngles", "atm:centreViewAngles");
-
-            return dic;
-        }*/
-
         public static string EntrySelfLinkTemplate(IOpenSearchResultItem item, OpenSearchDescription osd, string mimeType) {
 
             if (item == null)
@@ -850,6 +457,265 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             template.Query = string.Join("&", queryString);
             return template.ToString();
 
+        }
+
+        public static string FindProductTypeFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindProductTypeFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindProductTypeFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindProductTypeFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return eo.metaDataProperty1.EarthObservationMetaData.productType;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindProductTypeFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return eo.metaDataProperty1.EarthObservationMetaData.productType;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindParentIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindParentIdentifierFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindParentIdentifierFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindParentIdentifierFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return eo.metaDataProperty1.EarthObservationMetaData.parentIdentifier;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindParentIdentifierFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return eo.metaDataProperty1.EarthObservationMetaData.parentIdentifier;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindOrbitNumberFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindOrbitNumberFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindOrbitNumberFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindOrbitNumberFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindOrbitNumberFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindOrbitDirectionFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindOrbitDirectionFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindOrbitDirectionFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindOrbitDirectionFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString();
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindOrbitDirectionFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString();
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindTrackFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindTrackFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindTrackFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindTrackFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindTrackFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindFrameFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindFrameFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindFrameFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindFrameFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindFrameFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindSwathIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item) {
+
+            Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+            if (eo != null) {
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                    return FindSwathIdentifierFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                }
+
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                    return FindSwathIdentifierFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                }
+            }
+
+            return null;
+
+        }
+
+        public static string FindSwathIdentifierFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+            try {
+                return string.Join(" ", eo.EopProcedure.EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text);
+            }
+            catch (Exception){
+                return null;
+            }
+        }
+
+        public static string FindSwathIdentifierFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+            try {
+                return string.Join(" ", eo.EopProcedure.EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text);
+            }
+            catch (Exception){
+                return null;
+            }
         }
     }
 

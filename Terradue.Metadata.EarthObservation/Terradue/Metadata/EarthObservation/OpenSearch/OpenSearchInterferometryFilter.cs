@@ -71,7 +71,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             if (function == "interfMaster" && corUrl != null) {
 
                 PerformSlaveInterferometryFunction(ref osr, parameters, entity);
-                osr.Title = new TextSyndicationContent("slaves " + GetSlavesInfo(osr));
+                osr.Title = new TextSyndicationContent(GetSlavesInfo(osr));
                 var count = OpenSearchFactory.GetCount(parameters);
                 if (osr.TotalResults >= count && count != 0 && osr.TotalResults <= osr.Count)
                     osr.TotalResults = count + 1;
@@ -425,7 +425,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             if (osr.Count <= 0)
                 return "";
-            return string.Format("{0} | {1} | {2} | {3}", osr.Items.Min(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), osr.Items.Max(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), GetReadableTimeSpan(GetMaxTimeGap(osr)), GetReadableTimeSpan(GetTimeSpan(osr)));
+            return string.Format("Stack image: {0} | Baseline Min.: {1}, Max.: {2} | Time gap max.: {3} | Time span: {4}", osr.Count, osr.Items.Min(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), osr.Items.Max(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), GetReadableTimeSpan(GetMaxTimeGap(osr)), GetReadableTimeSpan(GetTimeSpan(osr)));
         }
 
         public abstract double GetPerpendicularBaseline(IOpenSearchResultItem master, IOpenSearchResultItem slave);
