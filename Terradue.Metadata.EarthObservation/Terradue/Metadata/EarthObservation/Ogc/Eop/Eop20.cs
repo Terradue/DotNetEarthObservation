@@ -73,6 +73,16 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop20 {
                 this.featureOfInterestField = value;
             }
         }
+
+        [System.Xml.Serialization.XmlIgnore()]
+        public EarthObservationEquipmentPropertyType EopProcedure {
+            get {
+                return (EarthObservationEquipmentPropertyType)this.procedureField;
+            }
+            set {
+                this.procedureField = value;
+            }
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
