@@ -6,6 +6,8 @@ using Terradue.Metadata.EarthObservation.Ogc.Sar;
 using System.Linq;
 using System.IO;
 using System.Web.UI;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class AtomEarthObservationFactory {
@@ -51,7 +53,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     GetHtmlSummaryFromSarEarthObservationType(sarEo),
                     Terradue.ServiceModel.Syndication.TextSyndicationContentKind.Html);
 
-                item.ElementExtensions.Add(sarEo, MetadataHelpers.SarSerializer);
+                MemoryStream stream = new MemoryStream();
+                MetadataHelpers.SarSerializer.Serialize(stream, sarEo);
+                stream.Seek(0, SeekOrigin.Begin);
+
+                item.ElementExtensions.Add(XmlReader.Create(stream));
 
                 item.ElementExtensions.Add("date", MetadataHelpers.DC, string.Format("{0}/{1}", sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
 

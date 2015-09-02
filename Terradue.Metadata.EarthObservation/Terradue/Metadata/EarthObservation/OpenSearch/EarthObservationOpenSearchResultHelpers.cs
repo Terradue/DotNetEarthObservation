@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using Terradue.GeoJson.Geometry;
 using Terradue.OpenSearch.Result;
+using System.IO;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public static class EarthObservationOpenSearchResultHelpers {
@@ -281,7 +282,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                         XmlSerializer ser = new XmlSerializer(typeof(Terradue.GeoJson.Gml.TimePrimitivePropertyType));
                         Terradue.GeoJson.Gml.TimePrimitivePropertyType validTime = new Terradue.GeoJson.Gml.TimePrimitivePropertyType();
                         validTime.AbstractTimePrimitive = (Terradue.GeoJson.Gml.TimePeriodType)om.phenomenonTime.AbstractTimeObject;
-                        item.ElementExtensions.Add(validTime, ser);
+                        MemoryStream stream = new MemoryStream();
+                        ser.Serialize(stream, validTime);
+                        stream.Seek(0, SeekOrigin.Begin);
+                        item.ElementExtensions.Add(XmlReader.Create(stream));
                     }
                 } catch (Exception) {
                 }
