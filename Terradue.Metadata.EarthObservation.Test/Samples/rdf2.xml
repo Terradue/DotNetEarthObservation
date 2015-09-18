@@ -71,9 +71,6 @@
           <eop:identifier>ER01_SAR_IM__0P_19930919T094144_19930919T094201_IPA_11389_0000</eop:identifier>
           <eop:creationDate>2014-02-11T10:28:58Z</eop:creationDate>
           <eop:parentIdentifier>ER01_SAR_IM__0P</eop:parentIdentifier>
-          <eop:productType />
-          <eop:status />
-          <eop:acquisitionType />
         </eop:EarthObservationMetaData>
       </eop:metaDataProperty>
     </eop:EarthObservation>

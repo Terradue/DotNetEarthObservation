@@ -9,6 +9,7 @@ using Terradue.OpenSearch.Schema;
 using System.Linq;
 using Terradue.Metadata.EarthObservation.OpenSearch;
 using Terradue.GeoJson.Geometry;
+using Terradue.OpenSearch.RdfEO.Result;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -53,18 +54,6 @@ namespace Terradue.Metadata.EarthObservation.Test {
             var geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(rdf.Items.First());
 
             Assert.That(geometry is Polygon);
-
-        }
-
-        [Test()]
-        public void FindFromRDF3() {
-
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/rdf3.xml", FileMode.Open, FileAccess.Read));
-            RdfXmlDocument rdf = RdfXmlDocument.Load(responseReader);
-
-            var geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(rdf.Items.First());
-
-            Assert.That(geometry is MultiPolygon);
 
         }
     }

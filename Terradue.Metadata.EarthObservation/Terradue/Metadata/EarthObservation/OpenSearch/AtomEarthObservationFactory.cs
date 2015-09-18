@@ -32,14 +32,15 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             try {
 
-                item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {5}-{6}",
+                item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {7} {5}-{6}",
                                                   sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform.shortName,
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.instrument.Instrument.shortName,
+                                                  sarEo.metaDataProperty1.EarthObservationMetaData.productType,
                                                   string.Join("/", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode.Text),
                                                   sarEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
                                                   sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels,
                                                   DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToString("yyMMddThhmmss"),
-                                                  DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToString("yyMMddThhmmss")
+                                                  DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToString("yyMMddThhmmss"),
+                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value
                 ),
                                     "",
                                     null,
@@ -85,6 +86,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderBeginTag(HtmlTextWriterTag.Tbody);
                 writer.RenderBeginTag(HtmlTextWriterTag.Table);
 
+                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.RenderBeginTag(HtmlTextWriterTag.Strong);
+                writer.Write("Product Type");
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.Write(sarEo.metaDataProperty1.EarthObservationMetaData.productType);
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+
                 if (sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier != null && sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier.Text != null) {
                     writer.RenderBeginTag(HtmlTextWriterTag.Tr);
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
@@ -119,6 +131,28 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value);
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+
+                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.RenderBeginTag(HtmlTextWriterTag.Strong);
+                writer.Write("Start");
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.Write(DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("O"));
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+
+                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.RenderBeginTag(HtmlTextWriterTag.Strong);
+                writer.Write("End");
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.Write(DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("O"));
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
