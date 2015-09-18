@@ -86,6 +86,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderBeginTag(HtmlTextWriterTag.Tbody);
                 writer.RenderBeginTag(HtmlTextWriterTag.Table);
 
+                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.RenderBeginTag(HtmlTextWriterTag.Strong);
+                writer.Write("Product Type");
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.Write(sarEo.metaDataProperty1.EarthObservationMetaData.productType);
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+
                 if (sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier != null && sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier.Text != null) {
                     writer.RenderBeginTag(HtmlTextWriterTag.Tr);
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
