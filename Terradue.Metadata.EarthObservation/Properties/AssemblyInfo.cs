@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 @{
     DotNetEarthObservation Software Package
 
-    \xrefitem sw_version "Versions" "Software Package Version" 1.3.1
+    \xrefitem sw_version "Versions" "Software Package Version" 1.3.3
 
     \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
 
@@ -31,8 +31,8 @@ using System.Runtime.CompilerServices;
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
-[assembly: AssemblyVersion("1.3.2.*")]
-[assembly: AssemblyInformationalVersion("1.3.2")]
+[assembly: AssemblyVersion("1.3.3.*")]
+[assembly: AssemblyInformationalVersion("1.3.3")]
 // The following attributes are used to specify the signing key for the assembly,
 // if desired. See the Mono documentation for more information about signing.
 //[assembly: AssemblyDelaySign(false)]
