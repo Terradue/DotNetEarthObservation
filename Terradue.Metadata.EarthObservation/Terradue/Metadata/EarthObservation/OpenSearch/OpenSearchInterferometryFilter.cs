@@ -13,6 +13,7 @@ using Terradue.ServiceModel.Syndication;
 using Terradue.Metadata.EarthObservation;
 using Terradue.OpenSearch.Filters;
 using Terradue.OpenSearch;
+using Terradue.GeoJson.Geometry;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
     public abstract class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter {
@@ -103,13 +104,18 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 // Query the slave url
                 IOpenSearchResultCollection slavesFeedResult0 = ose.Query(slaveEntity, nvc);
 
+                if ( !string.IsNullOrEmpty(parameters["spatialCover"]) ){
+                    int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
+                    slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => CalculateSpatialOverlap(item, i, parameters["geom"]) > spatialCover);
+                }
+
                 // Remove the master from the results if any
                 slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => i.Identifier != item.Identifier);
-
 
                 // if there a minimum of slaves, keep the master
                 if (slavesFeedResult0.TotalResults >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
                     newitems.Add(item);
+                    item.Links = new System.Collections.ObjectModel.Collection<SyndicationLink>(item.Links.Where(l => !(l.RelationshipType == "related" && l.Title == "interferometry")).ToList());
                     item.Links.Add(new SyndicationLink(slaveFeedUrl, "related", "interferometry", osr.ContentType, 0));
                 } 
 
@@ -203,7 +209,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             } else
                 throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
 
-            if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath))
+            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(item);
+
+            if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath) || geometry == null )
                 throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
 
             NameValueCollection nvc = new NameValueCollection();
@@ -212,12 +220,14 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             nvc.Add(revOsParams["eop:platformShortName"], platformShortName);
             nvc.Add(revOsParams["eop:wrsLongitudeGrid"], track);
             nvc.Add(revOsParams["eop:swathIdentifier"], swath);
+            nvc.Add(revOsParams["geo:geometry"], geometry.ToWkt());
 
             var timeCoverage = GetTimeCoverage(searchParameters, item);
 
-
-            nvc.Add(revOsParams["time:start"], timeCoverage[0].ToUniversalTime().ToString("O"));
-            nvc.Add(revOsParams["time:end"], timeCoverage[1].ToUniversalTime().ToString("O"));
+            if (timeCoverage != null) {
+                nvc.Add(revOsParams["time:start"], timeCoverage[0].ToUniversalTime().ToString("O"));
+                nvc.Add(revOsParams["time:end"], timeCoverage[1].ToUniversalTime().ToString("O"));
+            }
 
             return nvc;
 
@@ -231,15 +241,15 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             IOpenSearchable masterEntity = factory.Create(masterFeedUrl);
 
+            IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, new NameValueCollection());
+
+            long count = masterFeed.TotalResults;
+
+            if (count > 1) {
+                throw new InvalidOperationException("There are multiples references to the master dataset. For this operation, a unique reference is mandatory");
+            } 
+
             foreach (IOpenSearchResultItem slaveItem in osr.Items.ToArray()) {
-
-                IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, new NameValueCollection());
-
-                long count = masterFeed.TotalResults;
-
-                if (count > 1) {
-                    throw new InvalidOperationException("There are multiples references to the master dataset. For this operation, a unique reference is mandatory");
-                } 
 
                 IOpenSearchResultItem masterItem = (IOpenSearchResultItem)masterFeed.Items.ElementAt(0);
 
@@ -364,6 +374,33 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
         }
 
         public abstract double GetPerpendicularBaseline(IOpenSearchResultItem master, IOpenSearchResultItem slave);
+
+        public double CalculateSpatialOverlap (IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null) {
+
+            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(master);
+            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(slave);
+
+            NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
+            var masterGeometry = wktReader.Read(masterGeom.ToWkt());
+            var slaveGeometry = wktReader.Read(slaveGeom.ToWkt());
+
+            if (masterGeometry.Area <= 0)
+                return 0;
+
+            if (!string.IsNullOrEmpty(bbox)) {
+                var bboxGeometry = wktReader.Read(bbox);
+                masterGeometry = bboxGeometry.Intersection(masterGeometry);
+                slaveGeometry = slaveGeometry.Intersection(masterGeometry);
+            }
+
+            if (masterGeometry.Area <= 0)
+                return 0;
+
+            var intersectionGeometry = masterGeometry.Intersection(slaveGeometry);
+
+            return (intersectionGeometry.Area/masterGeometry.Area)*100;
+
+        }
 
     }
 }
