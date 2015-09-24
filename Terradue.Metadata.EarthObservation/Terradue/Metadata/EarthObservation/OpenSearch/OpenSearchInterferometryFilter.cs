@@ -87,7 +87,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 // make the OpenSearch over the slave url
                 NameValueCollection nvc = new NameValueCollection();
-                nvc.Add("count", OpenSearchCorrelationFilter.GetMinimum(parameters));
+                nvc.Add("count", OpenSearchCorrelationFilter.GetMinimum(parameters).ToString());
 
                 // create the opensearchable
                 IOpenSearchable slaveEntity = factory.Create(slaveFeedUrl);
