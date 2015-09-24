@@ -61,11 +61,6 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             if (function == "interferometry" && corUrl != null) {
 
                 PerformInterferometryFunction(ref osr, parameters, entity);
-                var count = OpenSearchFactory.GetCount(parameters);
-                if (osr.TotalResults >= count && count != 0 && osr.TotalResults <= osr.Count)
-                    osr.TotalResults = count + 1;
-                else
-                    osr.TotalResults = osr.Count;
 
             }
 
@@ -73,11 +68,6 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 PerformSlaveInterferometryFunction(ref osr, parameters, entity);
                 osr.Title = new TextSyndicationContent(GetSlavesInfo(osr));
-                var count = OpenSearchFactory.GetCount(parameters);
-                if (osr.TotalResults >= count && count != 0 && osr.TotalResults <= osr.Count)
-                    osr.TotalResults = count + 1;
-                else
-                    osr.TotalResults = osr.Count;
                 osr.Items = osr.Items.OrderBy(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0]));
 
             }
@@ -97,6 +87,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 // make the OpenSearch over the slave url
                 NameValueCollection nvc = new NameValueCollection();
+                nvc.Add("count", OpenSearchCorrelationFilter.GetMinimum(parameters).ToString());
 
                 // create the opensearchable
                 IOpenSearchable slaveEntity = factory.Create(slaveFeedUrl);
@@ -104,16 +95,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 // Query the slave url
                 IOpenSearchResultCollection slavesFeedResult0 = ose.Query(slaveEntity, nvc);
 
-                if ( !string.IsNullOrEmpty(parameters["spatialCover"]) ){
-                    int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
-                    slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => CalculateSpatialOverlap(item, i, parameters["geom"]) > spatialCover);
-                }
-
                 // Remove the master from the results if any
                 slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => i.Identifier != item.Identifier);
 
                 // if there a minimum of slaves, keep the master
-                if (slavesFeedResult0.TotalResults >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
+                if (slavesFeedResult0.Count >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
                     newitems.Add(item);
                     item.Links = new System.Collections.ObjectModel.Collection<SyndicationLink>(item.Links.Where(l => !(l.RelationshipType == "related" && l.Title == "interferometry")).ToList());
                     item.Links.Add(new SyndicationLink(slaveFeedUrl, "related", "interferometry", osr.ContentType, 0));
@@ -229,6 +215,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 nvc.Add(revOsParams["time:end"], timeCoverage[1].ToUniversalTime().ToString("O"));
             }
 
+            if (!string.IsNullOrEmpty(searchParameters["spatialCover"]))
+                nvc.Add("spatialCover", searchParameters["spatialCover"]);
+
             return nvc;
 
         }
@@ -241,7 +230,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             IOpenSearchable masterEntity = factory.Create(masterFeedUrl);
 
-            IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, new NameValueCollection());
+            var nvcMaster = new NameValueCollection();
+            nvcMaster.Set("count", "1");
+
+            IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, nvcMaster);
 
             long count = masterFeed.TotalResults;
 
@@ -252,6 +244,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             foreach (IOpenSearchResultItem slaveItem in osr.Items.ToArray()) {
 
                 IOpenSearchResultItem masterItem = (IOpenSearchResultItem)masterFeed.Items.ElementAt(0);
+
+                if ( !string.IsNullOrEmpty(parameters["spatialCover"]) ){
+                    int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
+                    if (CalculateSpatialOverlap(masterItem, slaveItem, parameters["geom"]) < spatialCover)
+                        continue;
+                }
 
                 if (slaveItem.Identifier == masterItem.Identifier)
                     continue;
