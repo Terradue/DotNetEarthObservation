@@ -14,11 +14,19 @@ using Terradue.Metadata.EarthObservation;
 using Terradue.OpenSearch.Filters;
 using Terradue.OpenSearch;
 using Terradue.GeoJson.Geometry;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
     public abstract class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter {
-        public OpenSearchInterferometryFilter(OpenSearchEngine ose, IOpenSearchableFactory factory) : base(ose, factory) {
 
+        private log4net.ILog log = log4net.LogManager.GetLogger
+            (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        protected IOpenSearchable correlatedEntity;
+
+        public OpenSearchInterferometryFilter(OpenSearchEngine ose, IOpenSearchableFactory factory, IOpenSearchable correlatedEntity) : base(ose, factory) {
+            this.correlatedEntity = correlatedEntity;
         }
 
         public override void AddSearchLink(ref IOpenSearchResultCollection osr, NameValueCollection originalParameters, IOpenSearchable entity, string with, string finalContentType) {
@@ -68,7 +76,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
                 PerformSlaveInterferometryFunction(ref osr, parameters, entity);
                 osr.Title = new TextSyndicationContent(GetSlavesInfo(osr));
-                osr.Items = osr.Items.OrderBy(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0]));
+
 
             }
 
@@ -79,35 +87,70 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             // prpepare the contianer for the new list of slaves
             List<IOpenSearchResultItem> newitems = new List<IOpenSearchResultItem>();
 
-            // Test each item to see if it fits the filters
-            foreach (IOpenSearchResultItem item in osr.Items) {
+            //List<Task> tasks = new List<Task>();
 
-                // Get Focused Search Url
-                OpenSearchUrl slaveFeedUrl = GetFocusedSearchUrl(osr, item, parameters, entity);
+            int workerThreads, completionPortThreads;
+            ThreadPool.GetMaxThreads(out workerThreads, out completionPortThreads);
 
-                // make the OpenSearch over the slave url
-                NameValueCollection nvc = new NameValueCollection();
-                nvc.Add("count", OpenSearchCorrelationFilter.GetMinimum(parameters).ToString());
+            log.DebugFormat("Evaluate slaves for each master...");
 
-                // create the opensearchable
-                IOpenSearchable slaveEntity = factory.Create(slaveFeedUrl);
+            IOpenSearchResultCollection osr2 = osr;
 
-                // Query the slave url
-                IOpenSearchResultCollection slavesFeedResult0 = ose.Query(slaveEntity, nvc);
 
-                // Remove the master from the results if any
-                slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => i.Identifier != item.Identifier);
+            try {
+                Parallel.ForEach(osr.Items, item => PerformInterferometryFunctionBySlave(newitems, item, osr2, parameters, entity));
+            } catch (AggregateException e) {
+                foreach (var e1 in e.InnerExceptions) {
+                    Console.WriteLine(e1.Message);
+                    Console.WriteLine(e1.StackTrace);
+                    Console.WriteLine("----------");
 
-                // if there a minimum of slaves, keep the master
-                if (slavesFeedResult0.Count >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
-                    newitems.Add(item);
-                    item.Links = new System.Collections.ObjectModel.Collection<SyndicationLink>(item.Links.Where(l => !(l.RelationshipType == "related" && l.Title == "interferometry")).ToList());
-                    item.Links.Add(new SyndicationLink(slaveFeedUrl, "related", "interferometry", osr.ContentType, 0));
-                } 
-
+                }
             }
 
-            osr.Items = newitems;
+
+            // Test each item to see if it fits the filters
+            /*foreach (IOpenSearchResultItem item in osr.Items) {
+
+                //IOpenSearchResultCollection osr2 = osr;
+                //tasks.Add(Task.Factory.StartNew(() => PerformInterferometryFunctionBySlave(newitems, item, osr2, parameters, entity)));
+
+                PerformInterferometryFunctionBySlave(newitems, item, osr2, parameters, entity);
+
+            }*/
+
+            //Task.WaitAll(tasks.ToArray());
+
+            osr.Items = newitems.OrderByDescending(i => i.SortKey );
+
+        }
+
+        void PerformInterferometryFunctionBySlave(List<IOpenSearchResultItem> newitems, IOpenSearchResultItem item, IOpenSearchResultCollection osr, NameValueCollection parameters, IOpenSearchable entity) {
+
+            log.DebugFormat("Evaluate slave for {0} ...", item.Identifier);
+
+            // Get Focused Search Url
+            OpenSearchUrl slaveFeedUrl = GetFocusedSearchUrl(osr, item, parameters, entity);
+
+            // make the OpenSearch over the slave url
+            NameValueCollection nvc = new NameValueCollection(HttpUtility.ParseQueryString(slaveFeedUrl.Query));
+            nvc.Set("count", OpenSearchCorrelationFilter.GetMinimum(parameters).ToString());
+
+
+            // Query the slave url
+            IOpenSearchResultCollection slavesFeedResult0 = ose.Query(correlatedEntity, nvc);
+
+
+            // Remove the master from the results if any
+            slavesFeedResult0.Items = slavesFeedResult0.Items.Where(i => i.Identifier != item.Identifier);
+
+            // if there a minimum of slaves, keep the master
+            if (slavesFeedResult0.Count >= OpenSearchCorrelationFilter.GetMinimum(parameters)) {
+                newitems.Add(item);
+                item.Links = new System.Collections.ObjectModel.Collection<SyndicationLink>(item.Links.Where(l => !(l.RelationshipType == "related" && l.Title == "interferometry")).ToList());
+                item.Links.Add(new SyndicationLink(slaveFeedUrl, "related", "interferometry", osr.ContentType, 0));
+            } 
+           
 
         }
 
@@ -137,10 +180,6 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             nvc.Set(revOsParams["cor:with"], item.Links.FirstOrDefault(l => l.RelationshipType == "self").Uri.ToString());
             // Add the correlation function to the inverse function
             nvc.Set(revOsParams["cor:function"], "interfMaster");
-
-            if (!string.IsNullOrEmpty(searchParameters["format"])) {
-                nvc.Set("format", searchParameters["format"]);
-            }
 
             url.Query = nvc.ToString();
 
@@ -197,7 +236,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(item);
 
-            if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath) || geometry == null )
+            if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath) || geometry == null)
                 throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
 
             NameValueCollection nvc = new NameValueCollection();
@@ -228,12 +267,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             OpenSearchUrl masterFeedUrl = GetCorrelatedUrl(parameters);
 
-            IOpenSearchable masterEntity = factory.Create(masterFeedUrl);
-
-            var nvcMaster = new NameValueCollection();
+            var nvcMaster = new NameValueCollection(HttpUtility.ParseQueryString(masterFeedUrl.Query));
             nvcMaster.Set("count", "1");
 
-            IOpenSearchResultCollection masterFeed = ose.Query(masterEntity, nvcMaster);
+            IOpenSearchResultCollection masterFeed = ose.Query(correlatedEntity, nvcMaster);
 
             long count = masterFeed.TotalResults;
 
@@ -241,44 +278,73 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 throw new InvalidOperationException("There are multiples references to the master dataset. For this operation, a unique reference is mandatory");
             } 
 
-            foreach (IOpenSearchResultItem slaveItem in osr.Items.ToArray()) {
 
-                IOpenSearchResultItem masterItem = (IOpenSearchResultItem)masterFeed.Items.ElementAt(0);
+            try {
+                Parallel.ForEach(osr.Items.ToArray(), slaveItem => PerformSlaveInterferometryFunctionBySlave(slaveItem, masterFeed, parameters, newitems));
+            } catch (AggregateException e) {
+                foreach (var e1 in e.InnerExceptions) {
+                    Console.WriteLine(e1.Message);
+                    Console.WriteLine(e1.StackTrace);
+                    Console.WriteLine("----------");
 
-                if ( !string.IsNullOrEmpty(parameters["spatialCover"]) ){
-                    int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
-                    if (CalculateSpatialOverlap(masterItem, slaveItem, parameters["geom"]) < spatialCover)
-                        continue;
                 }
-
-                if (slaveItem.Identifier == masterItem.Identifier)
-                    continue;
-
-                // Calculate perpendicular baseline
-                double perpendicularBaseline = 0;
-                try {
-                    perpendicularBaseline = GetPerpendicularBaseline(masterItem, slaveItem);
-                } catch (Exception e) {
-                    continue;
-                }
-
-                slaveItem.ElementExtensions.Add("baseline", MetadataHelpers.EOP, Math.Round(perpendicularBaseline, 2));
-                slaveItem.Title = new TextSyndicationContent("[" + Math.Round(perpendicularBaseline, 2) + "] " + slaveItem.Title.Text);
-
-                newitems.Add(slaveItem);
-
-
             }
 
-            osr.Items = newitems;
+            /*
+            foreach (IOpenSearchResultItem slaveItem in osr.Items.ToArray()) {
+
+                PerformSlaveInterferometryFunctionBySlave(slaveItem, masterFeed, parameters, newitems);
+
+
+            }*/
+
+            osr.Items = newitems.OrderByDescending(i => i.SortKey );
+
+        }
+
+        void PerformSlaveInterferometryFunctionBySlave(IOpenSearchResultItem slaveItem, IOpenSearchResultCollection masterFeed, NameValueCollection parameters, List<IOpenSearchResultItem> newitems) {
+
+            log.DebugFormat("evaluating slave {0}...", slaveItem.Identifier);
+
+            IOpenSearchResultItem masterItem = (IOpenSearchResultItem)masterFeed.Items.ElementAt(0);
+
+            if (slaveItem.Identifier == masterItem.Identifier) {
+                log.DebugFormat("Master is slave evicted");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(parameters["spatialCover"])) {
+                int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
+                var spatialOverlap = CalculateSpatialOverlap(masterItem, slaveItem, parameters["geom"]);
+                if (spatialOverlap < spatialCover) {
+                    log.DebugFormat("not enough spatial overlap : {0}/{1} {2} evicted", spatialOverlap, spatialCover, slaveItem.Identifier);
+                    return;
+                }
+            }
+
+            // Calculate perpendicular baseline
+            double perpendicularBaseline = 0;
+            try {
+                perpendicularBaseline = GetPerpendicularBaseline(masterItem, slaveItem);
+            } catch (Exception e) {
+                log.DebugFormat("Error calculating baseline : {0}", e.Message);
+                return;
+            }
+
+            slaveItem.ElementExtensions.Add("baseline", MetadataHelpers.EOP, Math.Round(perpendicularBaseline, 2));
+            slaveItem.Title = new TextSyndicationContent("[" + Math.Round(perpendicularBaseline, 2) + "] " + slaveItem.Title.Text);
+
+            newitems.Add(slaveItem);
 
         }
 
 
         protected override DateTime[] GetStartAndStopTime(IOpenSearchResultItem item) {
 
-            return new DateTime[]{ Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(item),
-                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindEndDateFromOpenSearchResultItem(item) };
+            return new DateTime[] {
+                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(item),
+                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindEndDateFromOpenSearchResultItem(item)
+            };
         }
 
         protected static UniqueValueDictionary<string,string> GetCorrelationOpenSearchParameters() {
@@ -373,7 +439,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         public abstract double GetPerpendicularBaseline(IOpenSearchResultItem master, IOpenSearchResultItem slave);
 
-        public double CalculateSpatialOverlap (IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null) {
+        public double CalculateSpatialOverlap(IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null) {
 
             var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(master);
             var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(slave);
@@ -396,7 +462,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             var intersectionGeometry = masterGeometry.Intersection(slaveGeometry);
 
-            return (intersectionGeometry.Area/masterGeometry.Area)*100;
+            return (intersectionGeometry.Area / masterGeometry.Area) * 100;
 
         }
 
