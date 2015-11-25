@@ -65,9 +65,19 @@
       <HintPath>..\packages\MathNet.Numerics.3.7.1\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="Terradue.OpenSearch">
-      <HintPath>..\packages\Terradue.OpenSearch.1.11.6\lib\net40\Terradue.OpenSearch.dll</HintPath>
+    <Reference Include="NetTopologySuite.IO.ShapeFile">
+      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
     </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools">
+      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial">
+      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis">
+      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +117,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Point3D.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Utils.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Vector3D.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Spatial\SpatialHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -131,11 +142,18 @@
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Spatial\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
     <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
     <None Include="packages.config" />
     <None Include="Terradue.Metadata.EarthObservation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DotNetOpenSearch\Terradue.OpenSearch\Terradue.OpenSearch.csproj">
+      <Project>{997A44FD-EE4A-490A-855B-88305E0CD269}</Project>
+      <Name>Terradue.OpenSearch</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -23,6 +23,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
         private log4net.ILog log = log4net.LogManager.GetLogger
             (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+
+
         protected IOpenSearchable correlatedEntity;
 
         public OpenSearchInterferometryFilter(OpenSearchEngine ose, IOpenSearchableFactory factory, IOpenSearchable correlatedEntity) : base(ose, factory) {
@@ -302,7 +304,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         }
 
-        void PerformSlaveInterferometryFunctionBySlave(IOpenSearchResultItem slaveItem, IOpenSearchResultCollection masterFeed, NameValueCollection parameters, List<IOpenSearchResultItem> newitems) {
+        public virtual void PerformSlaveInterferometryFunctionBySlave(IOpenSearchResultItem slaveItem, IOpenSearchResultCollection masterFeed, NameValueCollection parameters, List<IOpenSearchResultItem> newitems) {
 
             log.DebugFormat("evaluating slave {0}...", slaveItem.Identifier);
 
@@ -465,6 +467,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             return (intersectionGeometry.Area / masterGeometry.Area) * 100;
 
         }
+
+
 
     }
 }

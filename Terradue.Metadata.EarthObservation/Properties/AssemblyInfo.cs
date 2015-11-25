@@ -5,13 +5,19 @@ using System.Runtime.CompilerServices;
 
 \namespace Terradue.Metadata.EarthObservation
 @{
-    DotNetEarthObservation Software Package
+    Terradue .Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements
 
     \xrefitem sw_version "Versions" "Software Package Version" 1.3.4
 
     \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
 
     \xrefitem sw_license "License" "Software License" [GPLv3](https://github.com/Terradue/Terradue.Metadata.EarthObservation/blob/master/LICENSE.txt)
+
+    \xrefitem sw_req "Require" "Software Dependencies" \ref Terradue.OpenSearch
+
+    \xrefitem sw_req "Require" "Software Dependencies" \ref Terradue.GeoJson
+
+    \xrefitem sw_req "Require" "Software Dependencies" \ref NetTopologySuite
 
     \ingroup Data
 @}
