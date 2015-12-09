@@ -86,20 +86,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\Gmd.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\Gml311.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\Gsr.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Xlink.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20Lang.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Swe\Swe.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Om\Om.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Ows\Ows.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gts\Gts.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gss\Gss.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gco\Gco.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop20.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar20.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt20.cs" />
@@ -130,19 +118,8 @@
     <Folder Include="Terradue\Metadata\EarthObservation\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Eop\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gco\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\W3c\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Sar\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\New Folder\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Om\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Ows\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Opt\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gts\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Spatial\" />
@@ -152,5 +129,11 @@
     <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
     <None Include="packages.config" />
     <None Include="Terradue.Metadata.EarthObservation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc.csproj">
+      <Project>{4A78C588-01FE-439F-8961-AE083A5EE6CA}</Project>
+      <Name>Terradue.ServiceModel.Ogc</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObservation.Test", "Terradue.Metadata.EarthObservation.Test\Terradue.Metadata.EarthObservation.Test.csproj", "{A6315FCD-A2D5-4D8C-8854-C480D3F31C9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.ServiceModel.Ogc", "..\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc.csproj", "{4A78C588-01FE-439F-8961-AE083A5EE6CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6315FCD-A2D5-4D8C-8854-C480D3F31C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6315FCD-A2D5-4D8C-8854-C480D3F31C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6315FCD-A2D5-4D8C-8854-C480D3F31C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU

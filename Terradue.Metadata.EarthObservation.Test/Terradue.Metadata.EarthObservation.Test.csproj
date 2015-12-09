@@ -104,5 +104,9 @@
       <Project>{E084B86A-8B40-414E-95FA-760F3C6BFDCB}</Project>
       <Name>Terradue.Metadata.EarthObservation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc.csproj">
+      <Project>{4A78C588-01FE-439F-8961-AE083A5EE6CA}</Project>
+      <Name>Terradue.ServiceModel.Ogc</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

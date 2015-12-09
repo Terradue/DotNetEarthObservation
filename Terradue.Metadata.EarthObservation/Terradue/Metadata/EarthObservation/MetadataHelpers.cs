@@ -10,6 +10,8 @@ using System.Xml.XPath;
 using System.Collections.Specialized;
 using System.Xml.Serialization;
 using Terradue.Metadata.EarthObservation.OpenSearch;
+using Terradue.ServiceModel.Ogc.Om;
+using Terradue.ServiceModel.Ogc.Gml321;
 
 namespace Terradue.Metadata.EarthObservation {
     public class MetadataHelpers {
@@ -270,12 +272,12 @@ namespace Terradue.Metadata.EarthObservation {
         }
 
 
-        public static Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType GetEarthObservationFromSyndicationElementExtensionCollection(SyndicationElementExtensionCollection extensions) {
+        public static OM_ObservationType GetEarthObservationFromSyndicationElementExtensionCollection(SyndicationElementExtensionCollection extensions) {
 
             foreach (var ext in extensions) {
 
                 if (ext.OuterName == "EarthObservation") {
-                    return (Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
+                    return (OM_ObservationType)DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
                 }
 
             }
@@ -287,12 +289,12 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static GeometryObject FindGeometryFromEarthObservation(IEarthObservationOpenSearchResultItem item) {
 
-            if (item.EarthObservation != null) return FindGeometryFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType)item.EarthObservation);
+            if (item.EarthObservation != null) return FindGeometryFromEarthObservation((OM_ObservationType)item.EarthObservation);
 
             return null;
         }
 
-        public static GeometryObject FindGeometryFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType earthObservation) {
+        public static GeometryObject FindGeometryFromEarthObservation(OM_ObservationType earthObservation) {
 
             if (earthObservation != null && earthObservation is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
 
@@ -353,7 +355,7 @@ namespace Terradue.Metadata.EarthObservation {
             return null;
         }
 
-        public static string FindIdentifier(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType om) {
+        public static string FindIdentifier(OM_ObservationType om) {
 
             if (om is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
                 var eo = (Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)om;
@@ -376,7 +378,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static string FindProductGroupId(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType om) {
+        public static string FindProductGroupId(OM_ObservationType om) {
 
             if (om is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
                 var eo = (Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)om;
@@ -394,12 +396,12 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static string FindStart(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType om) {
+        public static string FindStart(OM_ObservationType om) {
 
-            if (om.phenomenonTime != null && om.phenomenonTime.AbstractTimeObject is Terradue.GeoJson.Gml.TimePeriodType) {
+            if (om.phenomenonTime != null && om.phenomenonTime.AbstractTimeObject is TimePeriodType) {
                 try {
-                    var timePeriod = (Terradue.GeoJson.Gml.TimePeriodType)om.phenomenonTime.AbstractTimeObject;
-                    return ((Terradue.GeoJson.Gml.TimePositionType)timePeriod.Item).Value;
+                    var timePeriod = (TimePeriodType)om.phenomenonTime.AbstractTimeObject;
+                    return ((TimePositionType)timePeriod.Item).Value;
                 } catch (Exception) {
                     return null;
                 }
@@ -409,12 +411,12 @@ namespace Terradue.Metadata.EarthObservation {
 
         }
 
-        public static string FindStop(Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType om) {
+        public static string FindStop(OM_ObservationType om) {
 
-            if (om.phenomenonTime != null && om.phenomenonTime.AbstractTimeObject is Terradue.GeoJson.Gml.TimePeriodType) {
+            if (om.phenomenonTime != null && om.phenomenonTime.AbstractTimeObject is TimePeriodType) {
                 try {
-                    var timePeriod = (Terradue.GeoJson.Gml.TimePeriodType)om.phenomenonTime.AbstractTimeObject;
-                    return ((Terradue.GeoJson.Gml.TimePositionType)timePeriod.Item1).Value;
+                    var timePeriod = (TimePeriodType)om.phenomenonTime.AbstractTimeObject;
+                    return ((TimePositionType)timePeriod.Item1).Value;
                     } catch (Exception) {
                     return null;
                 }

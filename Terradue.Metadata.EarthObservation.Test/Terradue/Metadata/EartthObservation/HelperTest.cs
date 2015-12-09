@@ -4,6 +4,8 @@ using Terradue.Metadata.EarthObservation.OpenSearch;
 using System.Linq;
 using System.IO;
 using Terradue.ServiceModel.Syndication;
+using Terradue.ServiceModel.Ogc.Gml321;
+using Terradue.ServiceModel.Ogc.Om;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -25,7 +27,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.instrument.Instrument.shortName = "test";
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor = new Terradue.Metadata.EarthObservation.Ogc.Eop.SensorPropertyType();
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor = new Terradue.Metadata.EarthObservation.Ogc.Eop.SensorType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode = new Terradue.GeoJson.Gml.CodeListType();
+            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode = new CodeListType();
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode.Text = new string[]{"test"};
             sarEo.metaDataProperty1 = new Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationMetaDataPropertyType();
             sarEo.metaDataProperty1.EarthObservationMetaData = new Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationMetaDataType();
@@ -37,12 +39,12 @@ namespace Terradue.Metadata.EarthObservation.Test {
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarAcquisitionPropertyType();
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarAcquisitionType();
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels = "test";
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid = new Terradue.GeoJson.Gml.CodeWithAuthorityType();
+            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid = new CodeWithAuthorityType();
             sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value = "test";
-            sarEo.phenomenonTime = new Terradue.Metadata.EarthObservation.Ogc.Om.TimeObjectPropertyType();
-            sarEo.phenomenonTime.GmlTimePeriod = new Terradue.GeoJson.Gml.TimePeriodType();
-            sarEo.phenomenonTime.GmlTimePeriod.beginPosition = new Terradue.GeoJson.Gml.TimePositionType();
-            sarEo.phenomenonTime.GmlTimePeriod.endPosition = new Terradue.GeoJson.Gml.TimePositionType();
+            sarEo.phenomenonTime = new TimeObjectPropertyType();
+            sarEo.phenomenonTime.GmlTimePeriod = new TimePeriodType();
+            sarEo.phenomenonTime.GmlTimePeriod.beginPosition = new TimePositionType();
+            sarEo.phenomenonTime.GmlTimePeriod.endPosition = new TimePositionType();
             sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value = "2015-07-18";
             sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value = "2015-07-18";
 

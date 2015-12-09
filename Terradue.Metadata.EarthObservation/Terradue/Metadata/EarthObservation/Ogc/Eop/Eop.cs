@@ -5,10 +5,10 @@
 //    <NameSpace>Terradue.Metadata.EarthObservation.Ogc.Eop</NameSpace><Collection>Array</Collection><codeType>CSharp</codeType><EnableDataBinding>False</EnableDataBinding><EnableLazyLoading>False</EnableLazyLoading><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><VirtualProp>False</VirtualProp><IncludeSerializeMethod>False</IncludeSerializeMethod><UseBaseClass>False</UseBaseClass><GenBaseClass>False</GenBaseClass><GenerateCloneMethod>False</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><CodeBaseTag>Net40</CodeBaseTag><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><GenerateXMLAttributes>True</GenerateXMLAttributes><EnableEncoding>False</EnableEncoding><AutomaticProperties>False</AutomaticProperties><GenerateShouldSerialize>False</GenerateShouldSerialize><DisableDebug>False</DisableDebug><PropNameSpecified>Default</PropNameSpecified><Encoder>UTF8</Encoder><CustomUsings></CustomUsings><ExcludeIncludedTypes>True</ExcludeIncludedTypes><EnableInitializeFields>False</EnableInitializeFields>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-using Terradue.Metadata.EarthObservation.Ogc.Om;
-using Terradue.GeoJson.Gml;
-using Terradue.Metadata.EarthObservation.Ogc.Ows;
-using Terradue.Metadata.EarthObservation.Ogc.Swe;
+using Terradue.ServiceModel.Ogc.Om;
+using Terradue.ServiceModel.Ogc.Gml321;
+using Terradue.ServiceModel.Ogc.Ows;
+using Terradue.ServiceModel.Ogc.Swe;
 
 
 namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
@@ -37,7 +37,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
 
         private FeaturePropertyType featureOfInterestField;
 
-        private Terradue.Metadata.EarthObservation.Ogc.Om.TimeObjectPropertyType phenomenonTimeField;
+        private Terradue.ServiceModel.Ogc.Om.TimeObjectPropertyType phenomenonTimeField;
 
         [System.Xml.Serialization.XmlElementAttribute("metaDataProperty")]
         public virtual EarthObservationMetaDataPropertyType metaDataProperty1 {
@@ -664,7 +664,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
 
         private CodeWithAuthorityType maskTypeField;
 
-        private Terradue.Metadata.EarthObservation.Ogc.Gml311.SurfacePropertyType extentOfField;
+        private Terradue.ServiceModel.Ogc.Gml311.SurfacePropertyType extentOfField;
 
         [System.Xml.Serialization.XmlElementAttribute()]
         public CodeWithAuthorityType maskType {
@@ -677,7 +677,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
         }
 
         [System.Xml.Serialization.XmlElementAttribute()]
-        public Terradue.Metadata.EarthObservation.Ogc.Gml311.SurfacePropertyType extentOf {
+        public Terradue.ServiceModel.Ogc.Gml311.SurfacePropertyType extentOf {
             get {
                 return this.extentOfField;
             }
@@ -1181,7 +1181,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
     [System.Xml.Serialization.XmlRootAttribute("WavelengthInformation", Namespace = "http://www.opengis.net/eop/2.1", IsNullable = false)]
     public partial class WavelengthInformationType {
 
-        private Terradue.Metadata.EarthObservation.Ogc.Gml311.MeasureListType discreteWavelengthsField;
+        private Terradue.ServiceModel.Ogc.Gml311.MeasureListType discreteWavelengthsField;
 
         private MeasureType endWavelengthField;
 
@@ -1192,7 +1192,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
         private MeasureType wavelengthResolutionField;
 
         [System.Xml.Serialization.XmlElementAttribute()]
-        public Terradue.Metadata.EarthObservation.Ogc.Gml311.MeasureListType discreteWavelengths {
+        public Terradue.ServiceModel.Ogc.Gml311.MeasureListType discreteWavelengths {
             get {
                 return this.discreteWavelengthsField;
             }
@@ -1829,7 +1829,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
 
         private string versionField;
 
-        private Terradue.Metadata.EarthObservation.Ogc.Gml311.MeasureListType sizeField;
+        private Terradue.ServiceModel.Ogc.Gml311.MeasureListType sizeField;
 
         private CodeListType timelinessField;
 
@@ -1864,7 +1864,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
         }
 
         [System.Xml.Serialization.XmlElementAttribute()]
-        public Terradue.Metadata.EarthObservation.Ogc.Gml311.MeasureListType size {
+        public Terradue.ServiceModel.Ogc.Gml311.MeasureListType size {
             get {
                 return this.sizeField;
             }
