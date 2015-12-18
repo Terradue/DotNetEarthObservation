@@ -789,12 +789,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindPolarisationChannelsFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+                    return FindPolarisationChannelsFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindPolarisationChannelsFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType) {
+                    return FindPolarisationChannelsFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType)eo);
                 }
             }
 
@@ -802,27 +802,25 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindPolarisationChannelsFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindPolarisationChannelsFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType eo){
             try {
-                throw new NotImplementedException();
-                //                return string.Join(" ", eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.polarisationChannels.Text);
+                return eo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels;
             }
             catch (Exception){
                 return null;
             }
         }
 
-        public static string FindPolarisationChannelsFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindPolarisationChannelsFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType eo){
             try {
                 throw new NotImplementedException();
-                //                return string.Join(" ", eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.polarisationChannels.Text);
             }
             catch (Exception){
                 return null;
             }
         }
 
-        public static string FindWrsLongitudeGridMetadataExtractorFromOpenSearchResultItem(IOpenSearchResultItem item) {
+        public static string FindWrsLongitudeGridFromOpenSearchResultItem(IOpenSearchResultItem item) {
 
             Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
@@ -859,7 +857,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             }
         }
 
-        public static string FindProcessingLevelMetadataExtractorFromOpenSearchResultItem(IOpenSearchResultItem item) {
+        public static string FindProcessingLevelFromOpenSearchResultItem(IOpenSearchResultItem item) {
 
             Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
@@ -880,8 +878,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         public static string FindProcessingLevelFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
             try {
-                throw new NotImplementedException();
-                //                return eo.metaDataProperty1.EarthObservationMetaData.processing[0].ProcessingInformation.processingLevel;
+                return eo.metaDataProperty1.EarthObservationMetaData.processing[0].ProcessingInformation.processingLevel;
             }
             catch (Exception){
                 return null;
@@ -890,8 +887,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         public static string FindProcessingLevelFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
             try {
-                throw new NotImplementedException();
-                //                return eo.metaDataProperty1.EarthObservationMetaData.processing[0].ProcessingInformation.processingLevel;
+                return eo.metaDataProperty1.EarthObservationMetaData.processing[0].ProcessingInformation.processingLevel;
             }
             catch (Exception){
                 return null;
