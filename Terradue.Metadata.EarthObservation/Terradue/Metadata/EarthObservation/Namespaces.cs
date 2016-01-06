@@ -3,6 +3,29 @@ using System.Collections.Specialized;
 using System.Xml;
 using System.Xml.Linq;
 
+
+/*! 
+\defgroup EOProfile Earth Observation Metadata profile
+@{
+
+The Earth Observation (EO) Metadata profile of Observations and Measurements is intended to provide a standard schema 
+for encoding Earth Observation product metadata to support the description and cataloguing of products acquired by sensors aboard EO satellites.
+
+EO products are differentiated by parameters such as the date of acquisition and the image footprint as well as characteristics pertaining to the type of sensor,
+the type of platform, the applied processing chain, and more. This candidate standard identifies the metadata elements that enable the robust description 
+of general EO products and defines specialisations for specific thematic classes of EO products, such as optical, radar, atmospheric, altimetry, 
+limb-looking and systematic/synthesized EO products. In addition, this document describes the mechanism used to extend these thematic schemas for specific EO missions.
+
+\xrefitem norm "Normative References" "Normative References" [OGC Earth Observation Metadata profile of Observations & Measurements (10-157r4)](https://portal.opengeospatial.org/files/61098)
+
+\xrefitem cptype_sm "ServiceModel" "Service Models"
+
+\ingroup Model
+
+@}
+
+*/
+
 namespace Terradue.Metadata.EarthObservation {
     public class EONamespaces {
 

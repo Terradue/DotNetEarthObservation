@@ -52,9 +52,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Terradue.GeoJson">
-      <HintPath>..\packages\Terradue.GeoJson.1.5.5\lib\net40\Terradue.GeoJson.dll</HintPath>
-    </Reference>
     <Reference Include="NetTopologySuite">
       <HintPath>..\packages\NetTopologySuite.1.13.3.2\lib\net40-client\NetTopologySuite.dll</HintPath>
     </Reference>
@@ -65,8 +62,24 @@
       <HintPath>..\packages\MathNet.Numerics.3.7.1\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
+    <Reference Include="NetTopologySuite.IO.ShapeFile">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis">
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="Terradue.OpenSearch">
-      <HintPath>..\packages\Terradue.OpenSearch.1.11.6\lib\net40\Terradue.OpenSearch.dll</HintPath>
+      <HintPath>..\packages\Terradue.OpenSearch.1.11.14\lib\net40\Terradue.OpenSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.GeoJson">
+      <HintPath>..\packages\Terradue.GeoJson.1.5.6\lib\net40\Terradue.GeoJson.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +120,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Point3D.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Utils.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Vector3D.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Spatial\SpatialHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -131,6 +145,7 @@
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Spatial\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
