@@ -159,8 +159,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             }
 
-            if (georss != null)
-                return GeometryFactory.GeoRSSToGeometry(georss.GetObject<XmlElement>());
+            if (georss != null) {
+                XmlDocument xdoc = new XmlDocument();
+                xdoc.Load(georss.GetReader());
+                return GeometryFactory.GeoRSSToGeometry(xdoc.DocumentElement);
+            }
 
             if (eo != null) {
                 Terradue.Metadata.EarthObservation.Ogc.Om.OM_ObservationType eopElement = 
