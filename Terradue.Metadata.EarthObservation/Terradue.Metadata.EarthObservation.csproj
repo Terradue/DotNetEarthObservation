@@ -63,16 +63,16 @@
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="NetTopologySuite.IO.ShapeFile">
-      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite.IO.GeoTools">
-      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite.IO.MsSqlSpatial">
-      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite.IO.PostGis">
-      <HintPath>..\..\..\..\system\GeoSquare\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="Terradue.OpenSearch">
