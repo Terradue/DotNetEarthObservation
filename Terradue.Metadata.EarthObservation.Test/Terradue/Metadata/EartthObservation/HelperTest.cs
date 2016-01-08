@@ -15,32 +15,31 @@ namespace Terradue.Metadata.EarthObservation.Test {
         [TestCase()]
         public void CreateEOext(){
 
-            Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType sarEo = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType();
-
-            sarEo.SarEarthObservationEquipment = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentPropertyType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform = new Terradue.Metadata.EarthObservation.Ogc.Eop.PlatformPropertyType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform = new Terradue.Metadata.EarthObservation.Ogc.Eop.PlatformType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform.shortName = "Test";
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.instrument = new Terradue.Metadata.EarthObservation.Ogc.Eop.InstrumentPropertyType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.instrument.Instrument = new Terradue.Metadata.EarthObservation.Ogc.Eop.InstrumentType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.instrument.Instrument.shortName = "test";
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor = new Terradue.Metadata.EarthObservation.Ogc.Eop.SensorPropertyType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor = new Terradue.Metadata.EarthObservation.Ogc.Eop.SensorType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode = new CodeListType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode.Text = new string[]{"test"};
-            sarEo.metaDataProperty1 = new Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationMetaDataPropertyType();
-            sarEo.metaDataProperty1.EarthObservationMetaData = new Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationMetaDataType();
-            sarEo.metaDataProperty1.EarthObservationMetaData.processing = new Terradue.Metadata.EarthObservation.Ogc.Eop.ProcessingInformationPropertyType[1];
-            sarEo.metaDataProperty1.EarthObservationMetaData.processing[0] = new Terradue.Metadata.EarthObservation.Ogc.Eop.ProcessingInformationPropertyType();
-            sarEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation = new Terradue.Metadata.EarthObservation.Ogc.Eop.ProcessingInformationType();
-            sarEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel = "test";
-            sarEo.metaDataProperty1.EarthObservationMetaData.identifier = "test";
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarAcquisitionPropertyType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition = new Terradue.Metadata.EarthObservation.Ogc.Sar.SarAcquisitionType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels = "test";
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid = new CodeWithAuthorityType();
-            sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value = "test";
+            Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = new Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType();
+            sarEo.procedure = new OM_ProcessPropertyType();
+            sarEo.procedure.Eop21EarthObservationEquipment = new Terradue.ServiceModel.Ogc.Eop21.EarthObservationEquipmentType();
+            sarEo.procedure.Eop21EarthObservationEquipment.platform = new Terradue.ServiceModel.Ogc.Eop21.PlatformPropertyType();
+            sarEo.procedure.Eop21EarthObservationEquipment.platform.Platform = new Terradue.ServiceModel.Ogc.Eop21.PlatformType();
+            sarEo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName = "Test";
+            sarEo.procedure.Eop21EarthObservationEquipment.instrument = new Terradue.ServiceModel.Ogc.Eop21.InstrumentPropertyType();
+            sarEo.procedure.Eop21EarthObservationEquipment.instrument.Instrument = new Terradue.ServiceModel.Ogc.Eop21.InstrumentType();
+            sarEo.procedure.Eop21EarthObservationEquipment.instrument.Instrument.shortName = "test";
+            sarEo.procedure.Eop21EarthObservationEquipment.sensor = new Terradue.ServiceModel.Ogc.Eop21.SensorPropertyType();
+            sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor = new Terradue.ServiceModel.Ogc.Eop21.SensorType();
+            sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.operationalMode = new CodeListType();
+            sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.operationalMode.Text = "test";
+            sarEo.EopMetaDataProperty = new Terradue.ServiceModel.Ogc.Eop21.EarthObservationMetaDataPropertyType();
+            sarEo.EopMetaDataProperty.EarthObservationMetaData = new Terradue.ServiceModel.Ogc.Eop21.EarthObservationMetaDataType();
+            sarEo.EopMetaDataProperty.EarthObservationMetaData.processing = new Terradue.ServiceModel.Ogc.Eop21.ProcessingInformationPropertyType[1];
+            sarEo.EopMetaDataProperty.EarthObservationMetaData.processing[0] = new Terradue.ServiceModel.Ogc.Eop21.ProcessingInformationPropertyType();
+            sarEo.EopMetaDataProperty.EarthObservationMetaData.processing.First().ProcessingInformation = new Terradue.ServiceModel.Ogc.Eop21.ProcessingInformationType();
+            sarEo.EopMetaDataProperty.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel = "test";
+            sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier = "test";
+            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters = new Terradue.ServiceModel.Ogc.Eop21.AcquisitionPropertyType();
+            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition = new Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType();
+            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.polarisationChannels = "test";
+            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid = new CodeWithAuthorityType();
+            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value = "test";
             sarEo.phenomenonTime = new TimeObjectPropertyType();
             sarEo.phenomenonTime.GmlTimePeriod = new TimePeriodType();
             sarEo.phenomenonTime.GmlTimePeriod.beginPosition = new TimePositionType();
@@ -50,7 +49,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             var test = AtomEarthObservationFactory.CreateAtomItemFromEarthObservationType(sarEo);
 
-            Assert.That(test.ElementExtensions.ReadElementExtensions<Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType>("EarthObservation", MetadataHelpers.SAR, MetadataHelpers.SarSerializer).Count > 0);
+            Assert.That(test.ElementExtensions.ReadElementExtensions<Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType>("EarthObservation", MetadataHelpers.SAR, MetadataHelpers.SarSerializer).Count > 0);
 
         }
     }

@@ -207,28 +207,28 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             string track = "";
             string swath = "";
 
-            if (element is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+            if (element is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType) {
                 try { 
-                    Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType sarEquip = 
-                        (Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentType)
-                        ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationEquipmentPropertyType)
-                            ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)element).procedure).EarthObservationEquipment;
+                    Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationEquipmentType sarEquip = 
+                        (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationEquipmentType)
+                        ((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationEquipmentPropertyType)
+                            ((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)element).procedure).EarthObservationEquipment;
                     platformShortName = sarEquip.platform.Platform.shortName;
                     track = sarEquip.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text[0];
+                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text;
                 } catch (Exception e) {
                     throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
                 }
 
-            } else if (element is Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType) {
+            } else if (element is Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType) {
                 try { 
-                    Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType sarEquip = 
-                        (Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentType)
-                        ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationEquipmentPropertyType)
-                            ((Terradue.Metadata.EarthObservation.Ogc.Sar20.SarEarthObservationType)element).procedure).EarthObservationEquipment;
+                    Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationEquipmentType sarEquip = 
+                        (Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationEquipmentType)
+                        ((Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationEquipmentPropertyType)
+                            ((Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType)element).procedure).EarthObservationEquipment;
                     platformShortName = sarEquip.platform.Platform.shortName;
                     track = sarEquip.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text[0];
+                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text;
                 } catch (Exception e) {
                     throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
                 }
@@ -367,9 +367,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             if (om == null)
                 throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
 
-            if (om is Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType) {
+            if (om is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType) {
                 try { 
-                    return ((Terradue.Metadata.EarthObservation.Ogc.Sar.SarEarthObservationType)om).SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.Acquisition.ascendingNodeDate;
+                    return ((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)om).procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.ascendingNodeDate;
                 } catch (Exception e) {
                     throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
                 }

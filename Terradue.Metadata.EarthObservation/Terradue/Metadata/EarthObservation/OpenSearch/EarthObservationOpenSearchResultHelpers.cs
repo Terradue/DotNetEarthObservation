@@ -18,6 +18,8 @@ using System.Linq.Expressions;
 using Terradue.Metadata.EarthObservation.Spatial;
 using Terradue.ServiceModel.Ogc.Om;
 using Terradue.ServiceModel.Ogc.Gml321;
+using Terradue.GeoJson.GeoRss;
+using Terradue.GeoJson.Gml321;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public static class EarthObservationOpenSearchResultHelpers {
@@ -43,30 +45,30 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         public static SyndicationLink[] GetEnclosuresFromEarthObservation(OM_ObservationType om) {
             List<SyndicationLink> uris = new List<SyndicationLink>();
-            if (om is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                var eo = (Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)om;
+            if (om is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                var eo = (Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)om;
                 try {
-                    Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationResultType result = ((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationResultPropertyType)eo.result).EarthObservationResult;
+                    Terradue.ServiceModel.Ogc.Eop21.EarthObservationResultType result = eo.result.Eop21EarthObservationResult;
                     foreach (var pi in result.product) {
                         long size = 0;
                         long.TryParse(pi.ProductInformation.size.Text[0], out size);
                         if (size < 0)
                             size = 0;
-                        uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.metaDataProperty1.EarthObservationMetaData.identifier, "application/x-binary", size));
+                        uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.EopMetaDataProperty.EarthObservationMetaData.identifier, "application/x-binary", size));
                     }
                 } catch (Exception) {
                 }
             }
-            if (om is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                var eo = (Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)om;
+            if (om is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                var eo = (Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)om;
                 try {
-                    Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationResultType result = ((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationResultPropertyType)eo.result).EarthObservationResult;
+                    Terradue.ServiceModel.Ogc.Eop20.EarthObservationResultType result = eo.result.Eop20EarthObservationResult;
                     foreach (var pi in result.product) {
                         long size = 0;
-                        long.TryParse(pi.ProductInformation.size.Text[0], out size);
+                        long.TryParse(pi.ProductInformation.size.Text, out size);
                         if (size < 0)
                             size = 0;
-                        uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.metaDataProperty1.EarthObservationMetaData.identifier, "application/x-binary", size));
+                        uris.Add(new SyndicationLink(new Uri(pi.ProductInformation.fileName.ServiceReference.href), "enclosure", eo.EopMetaDataProperty.EarthObservationMetaData.identifier, "application/x-binary", size));
                     }
                 } catch (Exception) {
                 }
@@ -144,7 +146,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             var dctspatial = item.ElementExtensions.ReadElementExtensions<string>("spatial", "http://purl.org/dc/terms/");
             if (dctspatial.Count > 0) {
-                return GeometryFactory.WktToGeometry(dctspatial[0]);
+                return WktExtensions.WktToGeometry(dctspatial[0]);
             }
 
             SyndicationElementExtension georss = null;
@@ -161,8 +163,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             }
 
-            if (georss != null)
-                return GeometryFactory.GeoRSSToGeometry(georss.GetObject<XmlElement>());
+            if (georss != null){
+                var georssobj = GeoRssHelper.Deserialize(georss.GetReader());
+                return georssobj.ToGeometry();
+            }
 
             if (eo != null) {
                 OM_ObservationType eopElement = 
@@ -268,7 +272,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             GeometryObject geometry = MetadataHelpers.FindGeometryFromEarthObservation(eopElement);
 
             if (geometry != null) {
-                return new SyndicationElementExtension("where", "http://www.georss.org/georss", XElement.Parse(geometry.ToGml().OuterXml).CreateReader());
+                
+                return new SyndicationElementExtension(geometry.ToGeoRss().CreateReader());
             }
 
             return null;
@@ -310,17 +315,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
             if (eo != null) {
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
                     try {
-                        return ((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo).metaDataProperty1.EarthObservationMetaData.identifier;
+                        return ((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo).EopMetaDataProperty.EarthObservationMetaData.identifier;
                     } catch (Exception) {
                         return null;
                     }
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
                     try {
-                        return ((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo).metaDataProperty1.EarthObservationMetaData.identifier;
+                        return ((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo).EopMetaDataProperty.EarthObservationMetaData.identifier;
                     } catch (Exception) {
                         return null;
                     }
@@ -352,17 +357,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
             if (eo != null) {
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
                     try {
-                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.beginPosition.Value);
+                        return DateTime.Parse(((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.beginPosition.Value);
                     } catch (Exception) {
                         return DateTime.MinValue;
                     }
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
                     try {
-                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.beginPosition.Value);
+                        return DateTime.Parse(((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.beginPosition.Value);
                     } catch (Exception) {
                         return DateTime.MinValue;
                     }
@@ -394,17 +399,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
             if (eo != null) {
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
                     try {
-                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.endPosition.Value);
+                        return DateTime.Parse(((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.endPosition.Value);
                     } catch (Exception) {
                         return DateTime.MaxValue;
                     }
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
                     try {
-                        return DateTime.Parse(((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.endPosition.Value);
+                        return DateTime.Parse(((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo).phenomenonTime.GmlTimePeriod.endPosition.Value);
                     } catch (Exception) {
                         return DateTime.MaxValue;
                     }
@@ -472,12 +477,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindProductTypeFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindProductTypeFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindProductTypeFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindProductTypeFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -485,17 +490,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindProductTypeFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindProductTypeFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return eo.metaDataProperty1.EarthObservationMetaData.productType;
+                return eo.EopMetaDataProperty.EarthObservationMetaData.productType;
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindProductTypeFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindProductTypeFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.metaDataProperty1.EarthObservationMetaData.productType;
+                return eo.EopMetaDataProperty.EarthObservationMetaData.productType;
             } catch (Exception) {
                 return null;
             }
@@ -507,12 +512,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindParentIdentifierFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindParentIdentifierFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindParentIdentifierFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindParentIdentifierFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -520,17 +525,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindParentIdentifierFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindParentIdentifierFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return eo.metaDataProperty1.EarthObservationMetaData.parentIdentifier;
+                return eo.EopMetaDataProperty.EarthObservationMetaData.parentIdentifier;
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindParentIdentifierFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindParentIdentifierFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.metaDataProperty1.EarthObservationMetaData.parentIdentifier;
+                return eo.EopMetaDataProperty.EarthObservationMetaData.parentIdentifier;
             } catch (Exception) {
                 return null;
             }
@@ -542,12 +547,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindOrbitNumberFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindOrbitNumberFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindOrbitNumberFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindOrbitNumberFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -555,17 +560,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindOrbitNumberFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindOrbitNumberFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
+                return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindOrbitNumberFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindOrbitNumberFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
+                return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
             } catch (Exception) {
                 return null;
             }
@@ -577,12 +582,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindOrbitDirectionFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindOrbitDirectionFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindOrbitDirectionFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindOrbitDirectionFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -590,17 +595,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindOrbitDirectionFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindOrbitDirectionFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString();
+                return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString();
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindOrbitDirectionFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindOrbitDirectionFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString();
+                return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString();
             } catch (Exception) {
                 return null;
             }
@@ -612,12 +617,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindTrackFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindTrackFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindTrackFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindTrackFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -625,17 +630,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindTrackFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindTrackFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindTrackFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindTrackFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
             } catch (Exception) {
                 return null;
             }
@@ -647,12 +652,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindFrameFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindFrameFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindFrameFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindFrameFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -660,17 +665,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindFrameFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindFrameFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
+                return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindFrameFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindFrameFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
+                return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
             } catch (Exception) {
                 return null;
             }
@@ -682,12 +687,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType) {
-                    return FindSwathIdentifierFromEarthObservation((Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                    return FindSwathIdentifierFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
-                if (eo is Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType) {
-                    return FindSwathIdentifierFromEarthObservation20((Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType)eo);
+                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                    return FindSwathIdentifierFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
@@ -695,17 +700,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindSwathIdentifierFromEarthObservation(Terradue.Metadata.EarthObservation.Ogc.Eop.EarthObservationType eo) {
+        public static string FindSwathIdentifierFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
-                return string.Join(" ", eo.EopProcedure.EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text);
+                return string.Join(" ", eo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text);
             } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindSwathIdentifierFromEarthObservation20(Terradue.Metadata.EarthObservation.Ogc.Eop20.EarthObservationType eo) {
+        public static string FindSwathIdentifierFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return string.Join(" ", eo.EopProcedure.EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text);
+                return string.Join(" ", eo.procedure.Eop20EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text);
             } catch (Exception) {
                 return null;
             }

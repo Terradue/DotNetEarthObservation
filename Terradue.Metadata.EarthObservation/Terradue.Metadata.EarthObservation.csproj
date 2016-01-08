@@ -78,24 +78,13 @@
     <Reference Include="Terradue.OpenSearch">
       <HintPath>..\packages\Terradue.OpenSearch.1.11.14\lib\net40\Terradue.OpenSearch.dll</HintPath>
     </Reference>
-    <Reference Include="Terradue.GeoJson">
-      <HintPath>..\packages\Terradue.GeoJson.1.5.6\lib\net40\Terradue.GeoJson.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt20.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt20.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\AtomEarthObservationFactory.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Extra\Orbit.cs" />
@@ -117,10 +106,6 @@
     <Folder Include="Terradue\Metadata\" />
     <Folder Include="Terradue\Metadata\EarthObservation\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Ogc\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Eop\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Sar\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Opt\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Spatial\" />
   </ItemGroup>
@@ -134,6 +119,10 @@
     <ProjectReference Include="..\..\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc.csproj">
       <Project>{4A78C588-01FE-439F-8961-AE083A5EE6CA}</Project>
       <Name>Terradue.ServiceModel.Ogc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DotNetGeoJson\Terradue.GeoJson\Terradue.GeoJson.csproj">
+      <Project>{26AD29FF-862F-46D9-9F25-473E2977A7C3}</Project>
+      <Name>Terradue.GeoJson</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

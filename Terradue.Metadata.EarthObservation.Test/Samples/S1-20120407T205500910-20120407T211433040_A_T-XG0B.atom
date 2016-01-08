@@ -31,10 +31,11 @@
 		         </eop:Sensor>
 		       </eop:sensor>
 		       <eop:acquisitionParameters>
-		         <eop:Acquisition>
+		         <sar:Acquisition>
 		           <eop:orbitNumber>52858</eop:orbitNumber>
 		           <eop:orbitDirection>DESCENDING</eop:orbitDirection>
-		         </eop:Acquisition>
+		           <sar:polarisationMode>S</sar:polarisationMode>
+		         </sar:Acquisition>
 		       </eop:acquisitionParameters>
 		     </eop:EarthObservationEquipment>
 		   </om:procedure>

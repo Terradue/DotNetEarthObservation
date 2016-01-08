@@ -7,12 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.ServiceModel.Ogc", "..\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc.csproj", "{4A78C588-01FE-439F-8961-AE083A5EE6CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.GeoJson", "..\DotNetGeoJson\Terradue.GeoJson\Terradue.GeoJson.csproj", "{26AD29FF-862F-46D9-9F25-473E2977A7C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26AD29FF-862F-46D9-9F25-473E2977A7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AD29FF-862F-46D9-9F25-473E2977A7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AD29FF-862F-46D9-9F25-473E2977A7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AD29FF-862F-46D9-9F25-473E2977A7C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A78C588-01FE-439F-8961-AE083A5EE6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -27,7 +27,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             var geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(afeed.Items.First());
 
-            Assert.That(geometry is MultiPolygon);
+            Assert.That(geometry is Polygon);
 
         }
 

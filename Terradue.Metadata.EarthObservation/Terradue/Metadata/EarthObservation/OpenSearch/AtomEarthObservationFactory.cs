@@ -1,8 +1,8 @@
 ﻿using System;
 using Terradue.OpenSearch.Result;
 using Terradue.Metadata.EarthObservation;
-using Terradue.Metadata.EarthObservation.Ogc.Eop;
-using Terradue.Metadata.EarthObservation.Ogc.Sar;
+using Terradue.ServiceModel.Ogc.Eop21;
+using Terradue.ServiceModel.Ogc.Sar21;
 using System.Linq;
 using System.IO;
 using System.Web.UI;
@@ -33,18 +33,18 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             try {
 
                 item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {7} {5}-{6}",
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform.shortName,
-                                                  sarEo.metaDataProperty1.EarthObservationMetaData.productType,
-                                                  string.Join("/", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode.Text),
-                                                  sarEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels,
+                                                  sarEo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName,
+                                                  sarEo.EopMetaDataProperty.EarthObservationMetaData.productType,
+                                                  string.Join("/", sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.operationalMode.Text),
+                                                  sarEo.EopMetaDataProperty.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
+                                                  sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.polarisationChannels,
                                                   DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToString("yyMMddThhmmss"),
                                                   DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToString("yyMMddThhmmss"),
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value
+                                                  sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value
                 ),
                                     "",
                                     null,
-                                    sarEo.metaDataProperty1.EarthObservationMetaData.identifier,
+                                    sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier,
                                     DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value)
                 );
 
@@ -62,7 +62,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
                 item.ElementExtensions.Add("date", MetadataHelpers.DC, string.Format("{0}/{1}", sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
 
-                item.ElementExtensions.Add("identifier", MetadataHelpers.DC, sarEo.metaDataProperty1.EarthObservationMetaData.identifier);
+                item.ElementExtensions.Add("identifier", MetadataHelpers.DC, sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier);
 
                                                                                  
             } catch (NullReferenceException e) {
@@ -93,11 +93,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.metaDataProperty1.EarthObservationMetaData.productType);
+                writer.Write(sarEo.EopMetaDataProperty.EarthObservationMetaData.productType);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
-                if (sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier != null && sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier.Text != null) {
+                if (sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier != null && sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text != null) {
                     writer.RenderBeginTag(HtmlTextWriterTag.Tr);
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
@@ -105,7 +105,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     writer.RenderEndTag();
                     writer.RenderEndTag();
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                    writer.Write(string.Join(" ", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier.Text));
+                    writer.Write(string.Join(" ", sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text));
                     writer.RenderEndTag();
                     writer.RenderEndTag();
                 }
@@ -117,9 +117,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.orbitNumber);
+                writer.Write(sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.orbitNumber);
                 writer.Write(" ");
-                writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.orbitDirection);
+                writer.Write(sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.orbitDirection);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -130,7 +130,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value);
+                writer.Write(sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 

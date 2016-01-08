@@ -1,7 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
 using System.IO;
-using Terradue.Metadata.EarthObservation.Ogc.Sar;
+using Terradue.ServiceModel.Ogc.Sar21;
+using Terradue.ServiceModel.Ogc.Eop21;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -15,9 +16,11 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             SarEarthObservationType sarEo = (SarEarthObservationType)Terradue.Metadata.EarthObservation.MetadataHelpers.SarSerializer.Deserialize(s1.OpenRead());
 
-            Assert.AreEqual("S1A", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform.shortName);
+            Assert.AreEqual("S1A", sarEo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName);
 
+            Assert.AreEqual(OrbitDirectionValueType.DESCENDING, sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.orbitDirection);
 
+            Assert.AreEqual("S", sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.polarisationMode);
 
         }
 
