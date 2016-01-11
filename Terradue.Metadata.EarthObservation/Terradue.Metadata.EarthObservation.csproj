@@ -85,19 +85,19 @@
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\AtomEarthObservationFactory.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Extra\Orbit.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Extra\Geolocation.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\BaselineCalculation.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\BaselineVector.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\EarthAxesVector.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\LinearAlgebra.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\OrbitStateVector.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Point3D.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Utils.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Vector3D.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Spatial\SpatialHelper.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\OpenSearchInterferometryFilter.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\BaselineCalculation.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\BaselineVector.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\EarthAxesVector.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\LinearAlgebra.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\OrbitStateVector.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Point3D.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Utils.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Vector3D.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -105,9 +105,10 @@
     <Folder Include="Terradue\" />
     <Folder Include="Terradue\Metadata\" />
     <Folder Include="Terradue\Metadata\EarthObservation\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Spatial\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />

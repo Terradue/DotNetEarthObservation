@@ -6,6 +6,7 @@ using System.IO;
 using Terradue.ServiceModel.Syndication;
 using Terradue.ServiceModel.Ogc.Gml321;
 using Terradue.ServiceModel.Ogc.Om;
+using Terradue.ServiceModel.Ogc;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -36,10 +37,11 @@ namespace Terradue.Metadata.EarthObservation.Test {
             sarEo.EopMetaDataProperty.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel = "test";
             sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier = "test";
             sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters = new Terradue.ServiceModel.Ogc.Eop21.AcquisitionPropertyType();
-            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition = new Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType();
-            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.polarisationChannels = "test";
-            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid = new CodeWithAuthorityType();
-            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value = "test";
+            var sarAcquisition = new Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType();
+            sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition = sarAcquisition;
+            sarAcquisition.polarisationChannels = "test";
+            sarAcquisition.wrsLongitudeGrid = new CodeWithAuthorityType();
+            sarAcquisition.wrsLongitudeGrid.Value = "test";
             sarEo.phenomenonTime = new TimeObjectPropertyType();
             sarEo.phenomenonTime.GmlTimePeriod = new TimePeriodType();
             sarEo.phenomenonTime.GmlTimePeriod.beginPosition = new TimePositionType();
@@ -49,7 +51,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             var test = AtomEarthObservationFactory.CreateAtomItemFromEarthObservationType(sarEo);
 
-            Assert.That(test.ElementExtensions.ReadElementExtensions<Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType>("EarthObservation", MetadataHelpers.SAR, MetadataHelpers.SarSerializer).Count > 0);
+            Assert.That(test.ElementExtensions.ReadElementExtensions<Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType>("EarthObservation", OgcHelpers.SAR21, OgcHelpers.Sar21Serializer).Count > 0);
 
         }
     }

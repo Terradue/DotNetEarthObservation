@@ -16,6 +16,7 @@ using Terradue.OpenSearch;
 using Terradue.GeoJson.Geometry;
 using System.Threading.Tasks;
 using System.Threading;
+using Terradue.ServiceModel.Ogc;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
     public abstract class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter {
@@ -236,7 +237,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             } else
                 throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
 
-            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(item);
+            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(item);
 
             if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath) || geometry == null)
                 throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
@@ -333,7 +334,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 return;
             }
 
-            slaveItem.ElementExtensions.Add("baseline", MetadataHelpers.EOP, Math.Round(perpendicularBaseline, 2));
+            slaveItem.ElementExtensions.Add("baseline", OgcHelpers.EOP21, Math.Round(perpendicularBaseline, 2));
             slaveItem.Title = new TextSyndicationContent("[" + Math.Round(perpendicularBaseline, 2) + "] " + slaveItem.Title.Text);
 
             newitems.Add(slaveItem);
@@ -369,7 +370,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             if (om is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType) {
                 try { 
-                    return ((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)om).procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.ascendingNodeDate;
+                    return DateTime.Parse(((Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType)((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)om).procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition).ascendingNodeDate);
                 } catch (Exception e) {
                     throw new InvalidOperationException("missing information in master product to produce slave interferometry : " + e.Message);
                 }
@@ -436,15 +437,15 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             if (osr.Count <= 0)
                 return "";
-            return string.Format("Stack image: {0} | Baseline Min.: {1}, Max.: {2} | Time gap max.: {3} | Time span: {4}", osr.Count, osr.Items.Min(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), osr.Items.Max(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", MetadataHelpers.EOP)[0])), GetReadableTimeSpan(GetMaxTimeGap(osr)), GetReadableTimeSpan(GetTimeSpan(osr)));
+            return string.Format("Stack image: {0} | Baseline Min.: {1}, Max.: {2} | Time gap max.: {3} | Time span: {4}", osr.Count, osr.Items.Min(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", OgcHelpers.EOP21)[0])), osr.Items.Max(i => Math.Abs(i.ElementExtensions.ReadElementExtensions<double>("baseline", OgcHelpers.EOP21)[0])), GetReadableTimeSpan(GetMaxTimeGap(osr)), GetReadableTimeSpan(GetTimeSpan(osr)));
         }
 
         public abstract double GetPerpendicularBaseline(IOpenSearchResultItem master, IOpenSearchResultItem slave);
 
         public double CalculateSpatialOverlap(IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null) {
 
-            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(master);
-            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(slave);
+            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(master);
+            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(slave);
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var masterGeometry = wktReader.Read(masterGeom.ToWkt());

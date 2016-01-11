@@ -20,30 +20,33 @@ using Terradue.ServiceModel.Ogc.Om;
 using Terradue.ServiceModel.Ogc.Gml321;
 using Terradue.GeoJson.GeoRss;
 using Terradue.GeoJson.Gml321;
+using Terradue.ServiceModel.Ogc;
+using Terradue.GeoJson.GeoRss10;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
+    
     public static class EarthObservationOpenSearchResultHelpers {
 
         static SpatialHelper spatialHelper = new SpatialHelper();
 
-        public static void RestoreEnclosure(IOpenSearchResultCollection result) {
+        public static void RestoreEnclosureFromEopResult(IOpenSearchResultCollection result) {
             foreach (var item in result.Items) {
-                RestoreEnclosure(item);
+                RestoreEnclosureFromEopResult(item);
             }
         }
 
-        public static void RestoreEnclosure(IOpenSearchResultItem item) {
+        public static void RestoreEnclosureFromEopResult(IOpenSearchResultItem item) {
 
             var matchLinks = item.Links.Where(l => l.RelationshipType == "enclosure").ToArray();
             if (matchLinks.Count() == 0) {
-                var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
-                foreach (var link in GetEnclosuresFromEarthObservation(om)) {
+                var om = MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(item);
+                foreach (var link in GetEnclosuresFromEopResult(om)) {
                     item.Links.Add(link);
                 }
             }
         }
 
-        public static SyndicationLink[] GetEnclosuresFromEarthObservation(OM_ObservationType om) {
+        public static SyndicationLink[] GetEnclosuresFromEopResult(OM_ObservationType om) {
             List<SyndicationLink> uris = new List<SyndicationLink>();
             if (om is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
                 var eo = (Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)om;
@@ -76,176 +79,135 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             return uris.ToArray();
         }
 
-        public static void RestoreIdentifier(IOpenSearchResultCollection result) {
+        public static void RestoreIdentifierFromEopMetadata(IOpenSearchResultCollection result) {
             foreach (var item in result.Items) {
-                RestoreIdentifier(item);
+                RestoreIdentifierFromEopMetadata(item);
             }
         }
 
-        public static void RestoreIdentifier(IOpenSearchResultItem item) {
+        public static void RestoreIdentifierFromEopMetadata(IOpenSearchResultItem item) {
             var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
             if (elements.Count == 0) {
-                foreach (var eo in item.ElementExtensions.ToList()) {
-                    XElement eoElement = (XElement)XElement.ReadFrom(eo.GetReader());
-                    if (eoElement.Name.LocalName == "EarthObservation") {
-                        var result = eoElement.XPathSelectElement(string.Format("eop:metaDataProperty/eop:EarthObservationMetaData/eop:identifier", EONamespaces.TypeNamespaces[eo.OuterNamespace]), EONamespaces.GetXmlNamespaceManager(eoElement));
-                        if (result != null) {
-                            XElement identifier = new XElement(XName.Get("identifier", "http://purl.org/dc/elements/1.1/"), result.Value);
-                            item.ElementExtensions.Add(identifier.CreateReader());
-                        }
+                var om = MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(item);
+                string identifier = "";
+                try {
+                    if (om is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+                        var eo = (Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)om;
+                        identifier = eo.EopMetaDataProperty.EarthObservationMetaData.identifier;
+                    }
+                    if (om is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+                        var eo = (Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)om;
+                        identifier = eo.EopMetaDataProperty.EarthObservationMetaData.identifier;
                     }
                 }
+                catch(Exception) {
+                }
+                if (!string.IsNullOrEmpty(identifier)) {
+                    item.Identifier = identifier;
+                }
             }
-
         }
 
-        public static void RestoreDcDate(IOpenSearchResultCollection result) {
+        public static void RestoreDcDateFromOmPhenomenon(IOpenSearchResultCollection result) {
 
             foreach (var item in result.Items) {
-
-
-                RestoreDcDate(item);
-
+                RestoreDcDateFromOmPhenomenon(item);
             }
 
         }
 
-        public static void RestoreDcDate(IOpenSearchResultItem item) {
+        public static void RestoreDcDateFromOmPhenomenon(IOpenSearchResultItem item) {
 
-            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("date", MetadataHelpers.DC).Count == 0) {
+            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("date", OgcHelpers.DC).Count == 0) {
 
-                SyndicationElementExtension georrs = null;
+                var om = MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(item);
 
-                if (item is IEarthObservationOpenSearchResultItem) {
+                var dcdate = GetDcDateElementExtensionFromOmPhenomenon(om);
 
-                    georrs = GetDcDateElementExtensionFromEarthObservation(((IEarthObservationOpenSearchResultItem)item).EarthObservation);
-
-                } else {
-
-                    foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-
-                        if (ext.OuterName == "EarthObservation") {
-                            OM_ObservationType eopElement = 
-                                (OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
-
-                            georrs = GetDcDateElementExtensionFromEarthObservation(eopElement);
-                            if (ext != null)
-                                break;
-
-                        }
-
-                    }
-                }
-                if (georrs != null) {
-                    item.ElementExtensions.Add(georrs);
+                if (dcdate != null) {
+                    item.ElementExtensions.Add(dcdate);
                 }
             }
         }
 
-        public static GeometryObject FindGeometryFromEarthObservation(IOpenSearchResultItem item) {
+        public static GeometryObject FindGeometryFromEarthObservation(IEarthObservationOpenSearchResultItem item) {
+
+            if (item.EarthObservation != null) return MetadataHelpers.FindGeometryFromEarthObservation((OM_ObservationType)item.EarthObservation);
+
+            return null;
+        }
+
+        public static GeometryObject FindGeometryFromIOpenSearchResultItem(IOpenSearchResultItem item) {
 
             var dctspatial = item.ElementExtensions.ReadElementExtensions<string>("spatial", "http://purl.org/dc/terms/");
             if (dctspatial.Count > 0) {
                 return WktExtensions.WktToGeometry(dctspatial[0]);
             }
 
-            SyndicationElementExtension georss = null;
-            SyndicationElementExtension eo = null;
             foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
 
-                if (ext.OuterNamespace == "http://www.georss.org/georss/10" || ext.OuterNamespace == "http://www.georss.org/georss")
-                    georss = ext;
-
-                if (ext.OuterName == "EarthObservation") {
-                    eo = ext;
+                if (ext.OuterNamespace == "http://www.georss.org/georss/10") {
+                    var georss10obj = GeoRss10Helper.Deserialize(ext.GetReader());
+                    return georss10obj.ToGeometry();
                 }
 
 
+                if (ext.OuterNamespace == "http://www.georss.org/georss") {
+                    var georssobj = GeoRssHelper.Deserialize(ext.GetReader());
+                    return georssobj.ToGeometry();
+                }
+                
             }
 
-            if (georss != null){
-                var georssobj = GeoRssHelper.Deserialize(georss.GetReader());
-                return georssobj.ToGeometry();
-            }
-
-            if (eo != null) {
-                OM_ObservationType eopElement = 
-                    (OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(eo.GetReader(), eo.OuterNamespace);
-
-                return MetadataHelpers.FindGeometryFromEarthObservation(eopElement);
-            }
+            var om = MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(item);
+            if ( om != null )
+                MetadataHelpers.FindGeometryFromEarthObservation(om);
 
             return null;
         }
 
-        public static void RestoreGeoRss(IOpenSearchResultCollection result) {
+
+        public static void RestoreGeoRssFromEopFeature(IOpenSearchResultCollection result) {
 
             foreach (var item in result.Items) {
 
+                RestoreGeoRssFromEopFeature(item);
 
-                RestoreGeoRss(item);
-
-            }
-
-        }
-
-
-        public static void RestoreGeoRss(IOpenSearchResultItem item) {
-
-            if (item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("point", "http://www.georss.org/georss").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("line", "http://www.georss.org/georss").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("box", "http://www.georss.org/georss").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("polygon", "http://www.georss.org/georss").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("where", "http://www.georss.org/georss/10").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("point", "http://www.georss.org/georss/10").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("line", "http://www.georss.org/georss/10").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("box", "http://www.georss.org/georss/10").Count == 0 &&
-                item.ElementExtensions.ReadElementExtensions<XmlElement>("polygon", "http://www.georss.org/georss/10").Count == 0) {
-
-
-                SyndicationElementExtension georrs = null;
-
-                if (item is IEarthObservationOpenSearchResultItem) {
-
-                    georrs = GetGeoRssElementExtensionFromEarthObservation(((IEarthObservationOpenSearchResultItem)item).EarthObservation);
-
-                } else {
-
-                    foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
-
-                        if (ext.OuterName == "EarthObservation") {
-                            OM_ObservationType eopElement = 
-                                (OM_ObservationType)MetadataHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
-
-                            georrs = GetGeoRssElementExtensionFromEarthObservation(eopElement);
-                            if (ext != null)
-                                break;
-
-                        }
-
-                    }
-                }
-                if (georrs != null) {
-                    item.ElementExtensions.Add(georrs);
-                }
             }
         }
 
-        public static SyndicationElementExtension GetDcDateElementExtensionFromEarthObservation(OM_ObservationType eopElement) {
+        public static void RestoreGeoRssFromEopFeature(IOpenSearchResultItem item) {
 
-            DateTime start = new DateTime(), stop = new DateTime(), instant = new DateTime();
+            Terradue.GeoJson.GeoRss.IGeoRSS georss = null;
+            foreach (SyndicationElementExtension ext in item.ElementExtensions.ToArray()) {
 
-            try {
-                if (eopElement.phenomenonTime.AbstractTimeObject is TimePeriodType &&
-                    ((TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item is TimePositionType &&
-                    ((TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1 is TimePositionType)
-                    start = DateTime.Parse(
-                        ((TimePositionType)((TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item).Value);
-                stop = DateTime.Parse(
-                    ((TimePositionType)((TimePeriodType)eopElement.phenomenonTime.AbstractTimeObject).Item1).Value);
-            } catch (Exception) {
+                if (ext.OuterNamespace == "http://www.georss.org/georss") {
+                    georss = GeoRssHelper.Deserialize(ext.GetReader());
+                }
+
             }
+
+            if (georss == null) {
+
+                var geom = FindGeometryFromIOpenSearchResultItem(item);
+
+                if (geom != null) {
+                    var georssobj = geom.ToGeoRss();
+                    if (georssobj != null)
+                        item.ElementExtensions.Add(georssobj.CreateReader());
+                }
+
+            }
+                
+        }
+
+        public static SyndicationElementExtension GetDcDateElementExtensionFromOmPhenomenon(OM_ObservationType eopElement) {
+
+            DateTime start, stop, instant;
+
+            start = MetadataHelpers.FindStartDateFromPhenomenonTime(eopElement);
+            stop = MetadataHelpers.FindEndDateFromPhenomenonTime(eopElement);
+            instant = MetadataHelpers.FindInstantFromResultTime(eopElement);
 
             try {
                 instant = start = DateTime.Parse(eopElement.resultTime.TimeInstant.timePosition.Value);
@@ -254,12 +216,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (start.Ticks == 0) {
                 string date = string.Format("{0}{1}", start.ToString("yyyy-MM-ddThh:mm:ss.fffZ"), stop.Ticks == 0 ? "" : "/" + stop.ToString("yyyy-MM-ddThh:mm:ss.fffZ"));
-                return new SyndicationElementExtension("date", MetadataHelpers.DC, date);
+                return new SyndicationElementExtension("date", OgcHelpers.DC, date);
             }
 
             if (instant.Ticks == 0) {
                 string date = string.Format("{0}", instant.ToString("yyyy-MM-ddThh:mm:ss.fffZ"));
-                return new SyndicationElementExtension("date", MetadataHelpers.DC, date);
+                return new SyndicationElementExtension("date", OgcHelpers.DC, date);
             }
 
             return null;
@@ -279,18 +241,18 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             return null;
         }
 
-        public static void RestoreValidTime(IOpenSearchResultCollection result) {
+        public static void RestoreValidTimeFromOmPhenomenon(IOpenSearchResultCollection result) {
 
             foreach (var item in result.Items) {
-                RestoreValidTime(item);
+                RestoreValidTimeFromOmPhenomenon(item);
             }
 
         }
 
-        public static void RestoreValidTime(IOpenSearchResultItem item) {
+        public static void RestoreValidTimeFromOmPhenomenon(IOpenSearchResultItem item) {
 
             if (item.ElementExtensions.ReadElementExtensions<XmlNode>("validTime", "http://www.opengis.net/gml/3.2").Count == 0) {
-                var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+                var om = MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(item);
                 try {
                     if (om.phenomenonTime.AbstractTimeObject is TimePeriodType) {
                         XmlSerializer ser = new XmlSerializer(typeof(TimePrimitivePropertyType));
@@ -312,25 +274,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             if (elements.Count > 0)
                 return elements[0];
 
-            var eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+            var eo = MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(item);
 
-            if (eo != null) {
-                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
-                    try {
-                        return ((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo).EopMetaDataProperty.EarthObservationMetaData.identifier;
-                    } catch (Exception) {
-                        return null;
-                    }
-                }
-
-                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
-                    try {
-                        return ((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo).EopMetaDataProperty.EarthObservationMetaData.identifier;
-                    } catch (Exception) {
-                        return null;
-                    }
-                }
-            }
+            return MetadataHelpers.FindIdentifierFromEopMetadata(eo);
 
             return null;
 
@@ -427,19 +373,19 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             string identifier = item.Identifier;
             string productGroupId = "";
-            string start = "";
-            string stop = "";
+            DateTime start = new DateTime();
+            DateTime stop = new DateTime();
 
             var masterEO = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
             if (masterEO != null)
-                productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
+                productGroupId = MetadataHelpers.FindProductGroupIdFromEopMetadata(masterEO);
 
             if (!string.IsNullOrEmpty(productGroupId)) {
                 identifier = "";
                 try {
-                    start = MetadataHelpers.FindStart(masterEO);
-                    stop = MetadataHelpers.FindStop(masterEO);
+                    start = MetadataHelpers.FindStartDateFromPhenomenonTime(masterEO);
+                    stop = MetadataHelpers.FindEndDateFromPhenomenonTime(masterEO);
                 } catch (Exception e) {
                     identifier = item.Identifier;
                 }
@@ -453,11 +399,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 if (nvc[k] == "{eop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
                     nvc[k] = productGroupId;
                 }
-                if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(start)) {
-                    nvc[k] = start;
+                if (nvc[k] == "{time:start?}" && start.Ticks != 0) {
+                    nvc[k] = start.ToUniversalTime().ToString("O");
                 }
-                if (nvc[k] == "{time:end?}" && !string.IsNullOrEmpty(stop)) {
-                    nvc[k] = stop;
+                if (nvc[k] == "{time:end?}" && stop.Ticks != 0) {
+                    nvc[k] = stop.ToUniversalTime().ToString("O");
                 }
                 Match matchParamDef = Regex.Match(nvc[k], @"^{([^?]+)\??}$");
                 if (matchParamDef.Success)
@@ -478,67 +424,16 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             if (eo != null) {
 
                 if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
-                    return FindProductTypeFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
+                    return MetadataHelpers.FindProductTypeFromEopMetadata((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
                 }
 
                 if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
-                    return FindProductTypeFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
+                    return MetadataHelpers.FindProductTypeFromEopMetadata((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
                 }
             }
 
             return null;
 
-        }
-
-        public static string FindProductTypeFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
-            try {
-                return eo.EopMetaDataProperty.EarthObservationMetaData.productType;
-            } catch (Exception) {
-                return null;
-            }
-        }
-
-        public static string FindProductTypeFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
-            try {
-                return eo.EopMetaDataProperty.EarthObservationMetaData.productType;
-            } catch (Exception) {
-                return null;
-            }
-        }
-
-        public static string FindParentIdentifierFromOpenSearchResultItem(IOpenSearchResultItem item) {
-
-            OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
-
-            if (eo != null) {
-
-                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
-                    return FindParentIdentifierFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
-                }
-
-                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
-                    return FindParentIdentifierFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
-                }
-            }
-
-            return null;
-
-        }
-
-        public static string FindParentIdentifierFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
-            try {
-                return eo.EopMetaDataProperty.EarthObservationMetaData.parentIdentifier;
-            } catch (Exception) {
-                return null;
-            }
-        }
-
-        public static string FindParentIdentifierFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
-            try {
-                return eo.EopMetaDataProperty.EarthObservationMetaData.parentIdentifier;
-            } catch (Exception) {
-                return null;
-            }
         }
 
         public static string FindOrbitNumberFromOpenSearchResultItem(IOpenSearchResultItem item) {
@@ -547,33 +442,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             if (eo != null) {
 
-                if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
-                    return FindOrbitNumberFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
-                }
-
-                if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
-                    return FindOrbitNumberFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
-                }
-            }
+                return MetadataHelpers.FindOrbitNumberFromEopMetadata(eo);
+            }  
 
             return null;
 
-        }
-
-        public static string FindOrbitNumberFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
-            try {
-                return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
-            } catch (Exception) {
-                return null;
-            }
-        }
-
-        public static string FindOrbitNumberFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
-            try {
-                return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber;
-            } catch (Exception) {
-                return null;
-            }
         }
 
         public static string FindOrbitDirectionFromOpenSearchResultItem(IOpenSearchResultItem item) {
@@ -738,8 +611,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindPlatformNameFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
                 return eo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName;
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -747,8 +619,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindPlatformNameFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
                 return eo.procedure.Eop20EarthObservationEquipment.platform.Platform.shortName;
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -775,8 +646,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindOperationalModeFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
                 return string.Join(" ", eo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.operationalMode.Text);
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -784,8 +654,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindOperationalModeFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
                 return string.Join(" ", eo.procedure.Eop20EarthObservationEquipment.sensor.Sensor.operationalMode.Text);
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -809,20 +678,18 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string FindPolarisationChannelsFromEarthObservation(Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType eo){
+        public static string FindPolarisationChannelsFromEarthObservation(Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType eo) {
             try {
-                return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.polarisationChannels;
-            }
-            catch (Exception){
+                return ((Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType)eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition).polarisationChannels;
+            } catch (Exception) {
                 return null;
             }
         }
 
-        public static string FindPolarisationChannelsFromEarthObservation20(Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType eo){
+        public static string FindPolarisationChannelsFromEarthObservation20(Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType eo) {
             try {
-                throw new NotImplementedException();
-            }
-            catch (Exception){
+                return ((Terradue.ServiceModel.Ogc.Sar20.SarAcquisitionType)eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition).polarisationChannels;
+            } catch (Exception) {
                 return null;
             }
         }
@@ -849,8 +716,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindWrsLongitudeGridFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
                 return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -858,8 +724,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindWrsLongitudeGridFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
                 return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -886,8 +751,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindProcessingLevelFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
             try {
                 return eo.EopMetaDataProperty.EarthObservationMetaData.processing[0].ProcessingInformation.processingLevel;
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -895,8 +759,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
         public static string FindProcessingLevelFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
                 return eo.EopMetaDataProperty.EarthObservationMetaData.processing[0].ProcessingInformation.processingLevel;
-            }
-            catch (Exception){
+            } catch (Exception) {
                 return null;
             }
         }
@@ -915,8 +778,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                         response &= value >= double.Parse(limits[0].Trim('['));
                     } else if (limits[0].StartsWith("]")) {
                         response &= value > double.Parse(limits[0].Trim(']'));
-                    //} else if (limits.Length > 1) {
-                    //    throw new FormatException(string.Format("Wrong set format for param {0}={1} : {2}", param.Key, param.Value, GetRangeSetIntervalNotation())); 
+                        //} else if (limits.Length > 1) {
+                        //    throw new FormatException(string.Format("Wrong set format for param {0}={1} : {2}", param.Key, param.Value, GetRangeSetIntervalNotation())); 
                     } else if (limits[0].EndsWith("[")) {
                         response &= value < double.Parse(limits[0].Trim('['));
                     } else if (limits[0].EndsWith("]")) {
@@ -977,7 +840,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             "'n2[' equals to field < n2.";
         }
 
-        public static bool CoverLandMaskLimit(KeyValuePair<string, string> param, IOpenSearchResultItem item){
+        public static bool CoverLandMaskLimit(KeyValuePair<string, string> param, IOpenSearchResultItem item) {
 
             return FilterOnValue(param, spatialHelper.CalculateLandCover(item));
 

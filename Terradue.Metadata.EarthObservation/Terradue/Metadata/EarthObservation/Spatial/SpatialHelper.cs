@@ -28,7 +28,7 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
 
         public double CalculateLandCover(IOpenSearchResultItem item) {
 
-            var itemGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(item);
+            var itemGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(item);
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var itemGeometry = wktReader.Read(itemGeom.ToWkt());
