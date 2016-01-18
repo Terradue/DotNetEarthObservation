@@ -88,6 +88,7 @@
     <None Include="Resources\ne_110m_land\ne_110m_land.shp" />
     <None Include="Resources\ne_110m_land\ne_110m_land.shx" />
     <None Include="Resources\.DS_Store" />
+    <None Include="Samples\fa4fae6f-a856-5520-8b33-5c65f1e37b23.atom" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
