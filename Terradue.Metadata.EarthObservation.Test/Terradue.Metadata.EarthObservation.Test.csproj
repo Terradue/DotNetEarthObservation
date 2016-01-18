@@ -20,7 +20,7 @@
     <ConsolePause>false</ConsolePause>
     <CustomCommands>
       <CustomCommands>
-        <Command type="BeforeExecute" command="cp -r Resources bin/" workingdir="${ProjectDir}" />
+        <Command type="BeforeExecute" command="cp -r Resources/ne_110m_land /usr/local/lib/" workingdir="${ProjectDir}" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>

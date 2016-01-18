@@ -15,7 +15,7 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
         public SpatialHelper (){
 
             NetTopologySuite.Geometries.GeometryFactory gfactory = new NetTopologySuite.Geometries.GeometryFactory();
-            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader("Resources/ne_110m_land/ne_110m_land.shp", gfactory);
+            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader("/usr/local/lib/ne_110m_land/ne_110m_land.shp", gfactory);
 
             List<GeoAPI.Geometries.IGeometry> geoms = new List<GeoAPI.Geometries.IGeometry>();
 
