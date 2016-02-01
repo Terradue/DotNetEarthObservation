@@ -29,7 +29,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Opt
 
         private object resultField;
 
-        [System.Xml.Serialization.XmlElementAttribute("result", Namespace = "http://www.opengis.net/om/2.1", Type=typeof(OptEarthObservationResultPropertyType))]
+        [System.Xml.Serialization.XmlElementAttribute("result", Namespace = "http://www.opengis.net/om/2.0", Type=typeof(OptEarthObservationResultPropertyType))]
         public override object result
         {
             get
