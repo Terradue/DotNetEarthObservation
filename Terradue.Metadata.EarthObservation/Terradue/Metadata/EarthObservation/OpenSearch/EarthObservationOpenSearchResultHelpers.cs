@@ -12,7 +12,6 @@ using Terradue.OpenSearch;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using Terradue.GeoJson.Geometry;
-using Terradue.OpenSearch.Result;
 using System.IO;
 using System.Linq.Expressions;
 using Terradue.Metadata.EarthObservation.Spatial;
