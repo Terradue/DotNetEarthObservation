@@ -19,7 +19,7 @@ namespace Terradue.Metadata.EarthObservation {
             var ggwgs84 = GeographicCoordinateSystem.WGS84;
             var gcwgs84 = ProjNet.CoordinateSystems.GeocentricCoordinateSystem.WGS84;
             var ctfac = new CoordinateTransformationFactory();
-            ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(ggwgs84, gcwgs84);
+            ProjNet.CoordinateSystems.Transformations.ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(ggwgs84, gcwgs84);
 
             var gccoords = trans.MathTransform.Transform(new double[]{ lon, lat, alt });
 

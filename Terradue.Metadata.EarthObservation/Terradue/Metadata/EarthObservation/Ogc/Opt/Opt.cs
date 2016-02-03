@@ -179,6 +179,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Opt
             }
         }
 
+        [XmlIgnore]
         public OptEarthObservationResultType OptEarthObservationResult
         {
             get
