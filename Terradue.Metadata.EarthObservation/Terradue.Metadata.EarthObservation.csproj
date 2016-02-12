@@ -63,9 +63,6 @@
     <Reference Include="PowerCollections">
       <HintPath>..\packages\NetTopologySuite.1.13.3.2\lib\net40-client\PowerCollections.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite.IO">
-      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.dll</HintPath>
-    </Reference>
     <Reference Include="NetTopologySuite.IO.GeoTools">
       <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
     </Reference>
@@ -78,14 +75,14 @@
     <Reference Include="NetTopologySuite.IO.ShapeFile">
       <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended">
-      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
-    </Reference>
     <Reference Include="ProjNet">
       <HintPath>..\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
     </Reference>
     <Reference Include="Terradue.GeoJson">
       <HintPath>..\packages\Terradue.GeoJson.1.5.8\lib\net40\Terradue.GeoJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.ServiceModel.Ogc.OwsContext">
+      <HintPath>..\packages\Terradue.ServiceModel.Ogc.OwsContext.1.0.6\lib\net40\Terradue.ServiceModel.Ogc.OwsContext.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

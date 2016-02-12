@@ -39,6 +39,11 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             Assert.AreEqual("2015-06-20T01:06:07Z", stop.Replace(" ", "T"));
 
+            OpenSearchDescription osd = new OpenSearchDescription();
+            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search")};
+
+            string template = EarthObservationOpenSearchResultHelpers.EntrySelfLinkTemplate(afeed.Items.First(), osd, "application/atom+xml");
+
         }
 
         [Test()]
