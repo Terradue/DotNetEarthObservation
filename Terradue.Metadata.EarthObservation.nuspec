@@ -12,6 +12,7 @@
     <summary>Earth Observation Metadata library for .Net</summary>
     <dependencies>
       <dependency id="Terradue.OpenSearch" version="[1.11.4,1.12)" />
+      <dependency id="Terradue.ServiceModel.Ogc.OwsContext" version="[1.0,1.1)" />
       <dependency id="Terradue.GeoJson" version="[1.5.8,1.6)" />
       <dependency id="NetTopologySuite" version="[1.13,1.14)" />
       <dependency id="NetTopologySuite.IO" version="[1.13,1.14)" />
