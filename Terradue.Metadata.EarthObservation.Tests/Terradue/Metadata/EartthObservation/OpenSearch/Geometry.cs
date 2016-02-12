@@ -29,6 +29,11 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             Assert.That(geometry is MultiPolygon);
 
+            OpenSearchDescription osd = new OpenSearchDescription();
+            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms}", "search")};
+
+            string template = EarthObservationOpenSearchResultHelpers.EntrySelfLinkTemplate(afeed.Items.First(), osd, "application/atom+xml");
+
         }
 
         [Test()]

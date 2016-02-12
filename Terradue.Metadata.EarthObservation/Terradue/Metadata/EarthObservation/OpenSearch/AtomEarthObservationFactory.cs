@@ -9,6 +9,10 @@ using System.Web.UI;
 using System.Xml;
 using System.Xml.Linq;
 using Terradue.Metadata.EarthObservation.Ogc.Opt;
+using Terradue.ServiceModel.Syndication;
+using Terradue.ServiceModel.Ogc.OwsContext;
+using System.Xml.Serialization;
+using Terradue.GeoJson.Geometry;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class AtomEarthObservationFactory {
@@ -18,11 +22,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             if (eo is SarEarthObservationType) {
 
                 SarEarthObservationType sarEo = (SarEarthObservationType)eo;
-                return CreateAtomItemFromSarEarthObservationType(sarEo);
+                var item = CreateAtomItemFromSarEarthObservationType(sarEo);
+                ApplyLinks(sarEo, item);
+                return item;
             } else if (eo is OptEarthObservationType) {
 
                 OptEarthObservationType optEo = (OptEarthObservationType)eo;
-                return CreateAtomItemFromOptEarthObservationType(optEo);
+                var item = CreateAtomItemFromOptEarthObservationType(optEo);
+                ApplyLinks(optEo, item);
+                AddWMSOffering(optEo, item);
+                AddBox(optEo, item);
+                return item;
 
             } else {
                 throw new NotImplementedException(string.Format("EO type {0} not implemented", eo.GetType().ToString()));
@@ -316,6 +326,69 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             // Return the result.
             return stringWriter.ToString();
+        }
+
+        private static void ApplyLinks(EarthObservationType eo, AtomItem item){
+            if (eo.EopResult != null && eo.EopResult.EarthObservationResult.product != null) {
+                foreach (var pr in eo.EopResult.EarthObservationResult.product) {
+                    var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
+                    link.Title = pr.ProductInformation.fileName.ServiceReference.title;
+                    item.Links.Add(link);
+                }
+            }
+            if (eo is OptEarthObservationType){
+                OptEarthObservationType optEO = (OptEarthObservationType)eo;
+                if (optEO.Optresult != null && optEO.Optresult.OptEarthObservationResult.product != null) {
+                    foreach (var pr in optEO.Optresult.OptEarthObservationResult.product) {
+                        var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
+                        link.Title = pr.ProductInformation.fileName.ServiceReference.title;
+                        item.Links.Add(link);
+                    }
+                }
+            }
+        }
+
+        private static void AddWMSOffering(EarthObservationType eo, AtomItem item){
+            BrowseInformationPropertyType[] bi = null;
+            if (eo.EopResult != null && eo.EopResult.EarthObservationResult.browse != null) {
+                bi = eo.EopResult.EarthObservationResult.browse;
+            }
+            if (eo is OptEarthObservationType){
+                OptEarthObservationType optEO = (OptEarthObservationType)eo;
+                if ( optEO.Optresult.OptEarthObservationResult.browse != null )
+                    bi = optEO.Optresult.OptEarthObservationResult.browse;
+            }
+            if (bi != null) {
+                foreach (var browse in bi) {
+
+                    if (browse.BrowseInformation.type != "WMS")
+                        continue;
+
+                    OwcOffering offering = new OwcOffering();
+                    offering.Code = "http://www.opengis.net/spec/owc-atom/1.0/req/wms";
+                    offering.Operations = new OwcOperation[1];
+                    offering.Operations[0] = new OwcOperation();
+                    offering.Operations[0].Code = "GetMap";
+                    offering.Operations[0].Method = "GET";
+                    offering.Operations[0].Href = new Uri(browse.BrowseInformation.fileName.ServiceReference.href);
+
+                    item.ElementExtensions.Add(offering, new XmlSerializer(typeof(OwcOffering)));
+
+                }
+            }
+        }
+
+        private static void AddBox(EarthObservationType eo, AtomItem item){
+
+            var geom = MetadataHelpers.FindGeometryFromEarthObservation(eo);
+            if (geom != null) {
+
+                NetTopologySuite.IO.WKTReader wktreader = new NetTopologySuite.IO.WKTReader();
+                var igeom = wktreader.Read(geom.ToWkt());
+                item.ElementExtensions.Add("box", "http://www.georss.org/georss", string.Format("{0} {1} {2} {3}", igeom.EnvelopeInternal.MinY, igeom.EnvelopeInternal.MinX, igeom.EnvelopeInternal.MaxY, igeom.EnvelopeInternal.MaxX));
+
+            }
+
         }
 
     }

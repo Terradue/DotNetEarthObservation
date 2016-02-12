@@ -1354,13 +1354,23 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute()]
+        [XmlIgnore]
         public OrbitDirectionValueType orbitDirection {
             get {
                 return this.orbitDirectionField;
             }
             set {
                 this.orbitDirectionField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("orbitDirection")]
+        public string orbitDirectionString {
+            get {
+                return this.orbitDirectionField.ToString();
+            }
+            set {
+                this.orbitDirectionField = (OrbitDirectionValueType)Enum.Parse(typeof(OrbitDirectionValueType), value);
             }
         }
 

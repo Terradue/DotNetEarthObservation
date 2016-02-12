@@ -8,6 +8,8 @@
     <RootNamespace>Terradue.Metadata.EarthObservation</RootNamespace>
     <AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
     <UseMSBuildEngine>False</UseMSBuildEngine>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,9 +65,6 @@
     <Reference Include="PowerCollections">
       <HintPath>..\packages\NetTopologySuite.1.13.3.2\lib\net40-client\PowerCollections.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite.IO">
-      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.dll</HintPath>
-    </Reference>
     <Reference Include="NetTopologySuite.IO.GeoTools">
       <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
     </Reference>
@@ -77,9 +76,6 @@
     </Reference>
     <Reference Include="NetTopologySuite.IO.ShapeFile">
       <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
-    </Reference>
-    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended">
-      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
     </Reference>
     <Reference Include="ProjNet">
       <HintPath>..\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
