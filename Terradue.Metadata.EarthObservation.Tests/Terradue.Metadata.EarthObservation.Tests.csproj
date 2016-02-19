@@ -114,6 +114,7 @@
     <None Include="Resources\ne_110m_land\ne_110m_land.shx" />
     <None Include="Resources\.DS_Store" />
     <None Include="Samples\opt21.xml" />
+    <None Include="Samples\eos2.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />

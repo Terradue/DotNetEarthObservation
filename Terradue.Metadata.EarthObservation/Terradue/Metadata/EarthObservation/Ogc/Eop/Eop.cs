@@ -2114,7 +2114,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.opengis.net/eop/2.1", IsNullable = true)]
     public partial class FootprintPropertyType : FeaturePropertyType {
 
-        private FootprintType footprintField;
+        protected FootprintType footprintField;
 
         private string nilReasonField;
 
@@ -2127,7 +2127,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Eop {
         }
 
         [System.Xml.Serialization.XmlElementAttribute()]
-        public FootprintType Footprint {
+        public virtual FootprintType Footprint {
             get {
                 return this.footprintField;
             }

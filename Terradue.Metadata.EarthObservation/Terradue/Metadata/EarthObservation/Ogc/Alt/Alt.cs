@@ -172,7 +172,20 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Alt
 
         private AcquisitionType acquisitionField;
 
-        [System.Xml.Serialization.XmlElementAttribute(Type=typeof(AltAcquisitionType))]
+        [XmlIgnore]
+        public AltAcquisitionType AltAcquisition
+        {
+            get
+            {
+                return (AltAcquisitionType)this.acquisitionField;
+            }
+            set
+            {
+                this.acquisitionField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Type=typeof(AltAcquisitionType), Namespace = "http://www.opengis.net/alt/2.1")]
         public AcquisitionType Acquisition
         {
             get

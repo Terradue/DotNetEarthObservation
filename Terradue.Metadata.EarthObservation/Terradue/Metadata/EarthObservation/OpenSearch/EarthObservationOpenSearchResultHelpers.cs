@@ -415,10 +415,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             if (masterEO != null) productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
 
             if (!string.IsNullOrEmpty(productGroupId)) {
-                identifier = "";
                 try {
                     start = MetadataHelpers.FindStart(masterEO);
                     stop = MetadataHelpers.FindStop(masterEO);
+                    identifier = item.Identifier;
                 } catch (Exception e) {
                     identifier = item.Identifier;
                 }
