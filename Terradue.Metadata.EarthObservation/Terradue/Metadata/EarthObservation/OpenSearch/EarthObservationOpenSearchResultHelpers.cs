@@ -15,6 +15,7 @@ using Terradue.GeoJson.Geometry;
 using System.IO;
 using System.Linq.Expressions;
 using Terradue.Metadata.EarthObservation.Spatial;
+using System.Web;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public static class EarthObservationOpenSearchResultHelpers {
@@ -413,6 +414,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             var masterEO = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
             if (masterEO != null) productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
+            productGroupId = null;
 
             if (!string.IsNullOrEmpty(productGroupId)) {
                 try {
@@ -427,10 +429,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType));
             nvc.AllKeys.FirstOrDefault(k => {
                 if (nvc[k] == "{geo:uid?}" && !string.IsNullOrEmpty(identifier)) {
-                    nvc[k] = identifier;
+                    nvc[k] = HttpUtility.UrlEncode(identifier);
                 }
                 if (nvc[k] == "{eop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
-                    nvc[k] = productGroupId;
+                    nvc[k] = HttpUtility.UrlEncode(productGroupId);
                 }
                 if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(start)) {
                     nvc[k] = start;
@@ -445,7 +447,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             UriBuilder template = new UriBuilder(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType).Template);
             string[] queryString = Array.ConvertAll(nvc.AllKeys, key => string.Format("{0}={1}", key, nvc[key]));
             template.Query = string.Join("&", queryString);
-            return template.ToString();
+            return template.Uri.AbsoluteUri;
 
         }
 
