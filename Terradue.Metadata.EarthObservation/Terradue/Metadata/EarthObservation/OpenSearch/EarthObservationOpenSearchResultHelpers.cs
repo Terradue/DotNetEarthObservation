@@ -407,39 +407,40 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             if (item == null) return null;
 
             string identifier = item.Identifier;
-            string productGroupId = "";
-            string start = "";
-            string stop = "";
+//            string productGroupId = "";
+//            string start = "";
+//            string stop = "";
 
             var masterEO = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
 
-            if (masterEO != null) productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
-            productGroupId = null;
+//            if (masterEO != null) productGroupId = MetadataHelpers.FindProductGroupId(masterEO);
 
-            if (!string.IsNullOrEmpty(productGroupId)) {
-                try {
-                    start = MetadataHelpers.FindStart(masterEO);
-                    stop = MetadataHelpers.FindStop(masterEO);
-                    identifier = item.Identifier;
-                } catch (Exception e) {
-                    identifier = item.Identifier;
-                }
-            }
+            // removed because ngeo does not need it anymore
+//            if (!string.IsNullOrEmpty(productGroupId)) {
+//                try {
+//                    start = MetadataHelpers.FindStart(masterEO);
+//                    stop = MetadataHelpers.FindStop(masterEO);
+//                    identifier = item.Identifier;
+//                } catch (Exception e) {
+//                    identifier = item.Identifier;
+//                }
+//            }
 
             NameValueCollection nvc = OpenSearchFactory.GetOpenSearchParameters(OpenSearchFactory.GetOpenSearchUrlByType(osd, mimeType));
             nvc.AllKeys.FirstOrDefault(k => {
                 if (nvc[k] == "{geo:uid?}" && !string.IsNullOrEmpty(identifier)) {
                     nvc[k] = HttpUtility.UrlEncode(identifier);
                 }
-                if (nvc[k] == "{eop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
-                    nvc[k] = HttpUtility.UrlEncode(productGroupId);
-                }
-                if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(start)) {
-                    nvc[k] = start;
-                }
-                if (nvc[k] == "{time:end?}" && !string.IsNullOrEmpty(stop)) {
-                    nvc[k] = stop;
-                }
+                // removed because ngeo does not need it anymore
+//                if (nvc[k] == "{eop:productGroupId?}" && !string.IsNullOrEmpty(productGroupId)) {
+//                    nvc[k] = HttpUtility.UrlEncode(productGroupId);
+//                }
+//                if (nvc[k] == "{time:start?}" && !string.IsNullOrEmpty(start)) {
+//                    nvc[k] = start;
+//                }
+//                if (nvc[k] == "{time:end?}" && !string.IsNullOrEmpty(stop)) {
+//                    nvc[k] = stop;
+//                }
                 Match matchParamDef = Regex.Match(nvc[k], @"^{([^?]+)\??}$");
                 if (matchParamDef.Success) nvc.Remove(k);
                 return false;

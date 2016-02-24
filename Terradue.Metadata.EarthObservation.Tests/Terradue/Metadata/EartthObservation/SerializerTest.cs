@@ -48,6 +48,19 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
         }
 
+        [TestCase]
+        public void DeserializeEOS2T(){
+
+            FileInfo s2 = new FileInfo("../Samples/S2MSI1CT.xml");
+
+            OptEarthObservationType optEo = (OptEarthObservationType)Terradue.Metadata.EarthObservation.MetadataHelpers.OptSerializer.Deserialize(s2.OpenRead());
+
+            Assert.AreEqual("ID-24599", optEo.Optresult.OptEarthObservationResult.id);
+
+
+
+        }
+
     }
 }
 

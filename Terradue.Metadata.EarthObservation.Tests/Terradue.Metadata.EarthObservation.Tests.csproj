@@ -115,6 +115,7 @@
     <None Include="Resources\.DS_Store" />
     <None Include="Samples\opt21.xml" />
     <None Include="Samples\eos2.xml" />
+    <None Include="Samples\S2MSI1CT.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />

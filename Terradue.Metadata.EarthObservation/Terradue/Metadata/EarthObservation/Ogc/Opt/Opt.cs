@@ -159,7 +159,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Opt
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/opt/2.1")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.opengis.net/opt/2.1", TypeName="EarthObservationResultPropertyType")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.opengis.net/opt/2.1", IsNullable = true)]
     public partial class OptEarthObservationResultPropertyType : EarthObservationResultPropertyType
     {
