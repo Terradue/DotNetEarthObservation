@@ -35,6 +35,32 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
         }
 
+        [TestCase]
+        public void DeserializeEOS2(){
+
+            FileInfo s2 = new FileInfo("../Samples/eos2.xml");
+
+            OptEarthObservationType optEo = (OptEarthObservationType)Terradue.Metadata.EarthObservation.MetadataHelpers.OptSerializer.Deserialize(s2.OpenRead());
+
+            Assert.AreEqual("S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_7", optEo.Optresult.OptEarthObservationResult.id);
+
+
+
+        }
+
+        [TestCase]
+        public void DeserializeEOS2T(){
+
+            FileInfo s2 = new FileInfo("../Samples/S2MSI1CT.xml");
+
+            OptEarthObservationType optEo = (OptEarthObservationType)Terradue.Metadata.EarthObservation.MetadataHelpers.OptSerializer.Deserialize(s2.OpenRead());
+
+            Assert.AreEqual("ID-24599", optEo.Optresult.OptEarthObservationResult.id);
+
+
+
+        }
+
     }
 }
 

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns4:EarthObservation ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ" xmlns:ns1="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns3="http://www.opengis.net/ows/2.0" xmlns:ns4="http://www.opengis.net/opt/2.1" xmlns:ns5="http://www.opengis.net/om/2.0" xmlns:ns6="http://www.opengis.net/gml/3.2" xmlns:ns7="http://www.opengis.net/eop/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ns5:phenomenonTime>
+		<ns6:TimePeriod ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_1">
+			<ns6:beginPosition>2021-02-04T12:00:00Z</ns6:beginPosition>
+			<ns6:endPosition>2021-02-04T13:00:00Z</ns6:endPosition>
+		</ns6:TimePeriod>
+	</ns5:phenomenonTime>
+	<ns5:resultTime>
+		<ns6:TimeInstant ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_2">
+			<ns6:timePosition>2021-02-04T12:00:00Z</ns6:timePosition>
+		</ns6:TimeInstant>
+	</ns5:resultTime>
+	<ns5:procedure>
+		<ns7:EarthObservationEquipment ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_3">
+			<ns7:platform>
+				<ns7:Platform>
+					<ns7:shortName>Sentinel-2</ns7:shortName>
+					<ns7:serialIdentifier>A</ns7:serialIdentifier>
+				</ns7:Platform>
+			</ns7:platform>
+			<ns7:instrument>
+				<ns7:Instrument>
+					<ns7:shortName>MSI</ns7:shortName>
+				</ns7:Instrument>
+			</ns7:instrument>
+			<ns7:sensor>
+				<ns7:Sensor>
+					<ns7:sensorType>OPTICAL</ns7:sensorType>
+					<ns7:operationalMode>IM</ns7:operationalMode>
+				</ns7:Sensor>
+			</ns7:sensor>
+			<ns7:acquisitionParameters>
+				<ns7:Acquisition>
+					<ns7:orbitNumber>1425</ns7:orbitNumber>
+					<ns7:orbitDirection>DESCENDING</ns7:orbitDirection>
+					<ns7:illuminationAzimuthAngle uom="deg">0</ns7:illuminationAzimuthAngle>
+					<ns7:illuminationZenithAngle uom="deg">0</ns7:illuminationZenithAngle>
+					<ns7:illuminationElevationAngle uom="deg">0</ns7:illuminationElevationAngle>
+				</ns7:Acquisition>
+			</ns7:acquisitionParameters>
+		</ns7:EarthObservationEquipment>
+	</ns5:procedure>
+	<ns5:observedProperty nilReason="inapplicable"/>
+	<ns5:featureOfInterest>
+		<ns7:Footprint ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_4">
+			<ns7:multiExtentOf>
+				<ns6:MultiSurface ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_5" srsName="EPSG:4326">
+					<ns6:surfaceMembers>
+						<ns6:Polygon ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_6">
+							<ns6:exterior>
+								<ns6:LinearRing>
+									<ns6:posList>44.2465509345 -31.7475191278 44.2232097399 -30.3733540263 43.2356009597 -30.4161917204 43.2581553186 -31.7679673 44.2465509345 -31.7475191278</ns6:posList>
+								</ns6:LinearRing>
+							</ns6:exterior>
+						</ns6:Polygon>
+					</ns6:surfaceMembers>
+				</ns6:MultiSurface>
+			</ns7:multiExtentOf>
+		</ns7:Footprint>
+	</ns5:featureOfInterest>
+	<ns5:result>
+		<ns4:EarthObservationResult ns6:id="S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ_7">
+			<ns7:product>
+				<ns7:ProductInformation>
+					<ns7:fileName>
+						<ns3:ServiceReference ns2:href="http://ngeo.eo.esa.int/Sentinel-2/L1C/S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000_25TFJ.zip">
+							<ns3:RequestMessage/>
+						</ns3:ServiceReference>
+					</ns7:fileName>
+					<ns7:version>1</ns7:version>
+					<ns7:size uom="Bytes">400568</ns7:size>
+				</ns7:ProductInformation>
+			</ns7:product>
+			<ns4:cloudCoverPercentage uom="%">0.256360576152389</ns4:cloudCoverPercentage>
+		</ns4:EarthObservationResult>
+	</ns5:result>
+	<ns7:metaDataProperty>
+		<ns7:EarthObservationMetaData>
+			<ns7:identifier>https://ngeopro.magellium.fr/acs/eoproduct/S2MSI1C?q=%2Bgrp_s%3A%22S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000%22</ns7:identifier>
+			<ns7:parentIdentifier>S2MSI1C</ns7:parentIdentifier>
+			<ns7:acquisitionType>NOMINAL</ns7:acquisitionType>
+			<ns7:acquisitionSubType>INS-NOBS</ns7:acquisitionSubType>
+			<ns7:productType>S2MSI1C</ns7:productType>
+			<ns7:status>ARCHIVED</ns7:status>
+			<ns7:statusSubType>ON-LINE</ns7:statusSubType>
+			<ns7:productGroupId>S2A_OPER_REP_METARC_EPA__20210204T120000_20210204T120000_20210204T130000</ns7:productGroupId>
+			<ns7:vendorSpecific>
+				<ns7:SpecificInformation>
+					<ns7:localAttribute>tileID</ns7:localAttribute>
+					<ns7:localValue>25TFJ</ns7:localValue>
+				</ns7:SpecificInformation>
+			</ns7:vendorSpecific>
+		</ns7:EarthObservationMetaData>
+	</ns7:metaDataProperty>
+</ns4:EarthObservation>
