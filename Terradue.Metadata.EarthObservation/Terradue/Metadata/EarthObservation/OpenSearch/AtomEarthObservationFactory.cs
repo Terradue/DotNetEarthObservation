@@ -23,13 +23,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
                 SarEarthObservationType sarEo = (SarEarthObservationType)eo;
                 var item = CreateAtomItemFromSarEarthObservationType(sarEo);
-                ApplyLinks(sarEo, item);
                 return item;
             } else if (eo is OptEarthObservationType) {
 
                 OptEarthObservationType optEo = (OptEarthObservationType)eo;
                 var item = CreateAtomItemFromOptEarthObservationType(optEo);
-                ApplyLinks(optEo, item);
                 AddWMSOffering(optEo, item);
                 AddBox(optEo, item);
                 return item;
@@ -52,8 +50,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                                                   string.Join("/", optEo.EopProcedure.EarthObservationEquipment.sensor.Sensor.operationalMode.Text),
                                                   optEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
                                                   optEo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value,
-                                                  DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("yyMMddThhmmss"),
-                                                  DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("yyMMddThhmmss")
+                                                  DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("yyMMddTHHmmss"),
+                                                  DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("yyMMddTHHmmss")
                                                  ),
                                     "",
                                     null,
@@ -94,14 +92,14 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
             try {
 
-                item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {7} {5}-{6}",
+                item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {7} {5}/{6}",
                                                   sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform.shortName,
                                                   sarEo.metaDataProperty1.EarthObservationMetaData.productType,
                                                   string.Join("/", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode.Text),
                                                   sarEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
                                                   sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels,
-                                                  DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("yyMMddThhmmss"),
-                                                  DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("yyMMddThhmmss"),
+                                                  DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("O"),
+                                                  DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("O"),
                                                   sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value
                 ),
                                     "",
@@ -191,6 +189,17 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 writer.Write(optEo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value);
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+
+                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.RenderBeginTag(HtmlTextWriterTag.Strong);
+                writer.Write("Cloud Cover");
+                writer.RenderEndTag();
+                writer.RenderEndTag();
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.Write(optEo.Optresult.OptEarthObservationResult.cloudCoverPercentage.Value);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
