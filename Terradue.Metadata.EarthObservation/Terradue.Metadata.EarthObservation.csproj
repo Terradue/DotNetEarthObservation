@@ -8,8 +8,6 @@
     <RootNamespace>Terradue.Metadata.EarthObservation</RootNamespace>
     <AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
     <UseMSBuildEngine>False</UseMSBuildEngine>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,9 +37,6 @@
     <Reference Include="Terradue.ServiceModel.Syndication">
       <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.0.0\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Addins">
       <HintPath>..\packages\Mono.Addins.1.2\lib\net40\Mono.Addins.dll</HintPath>
     </Reference>
@@ -53,9 +48,6 @@
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Data" />
-    <Reference Include="Terradue.OpenSearch">
-      <HintPath>..\packages\Terradue.OpenSearch.1.11.14\lib\net40\Terradue.OpenSearch.dll</HintPath>
-    </Reference>
     <Reference Include="GeoAPI">
       <HintPath>..\packages\GeoAPI.1.7.3\lib\net40-client\GeoAPI.dll</HintPath>
     </Reference>
@@ -85,6 +77,15 @@
     </Reference>
     <Reference Include="Terradue.ServiceModel.Ogc.OwsContext">
       <HintPath>..\packages\Terradue.ServiceModel.Ogc.OwsContext.1.0.6\lib\net40\Terradue.ServiceModel.Ogc.OwsContext.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet4Mono.Extensions">
+      <HintPath>..\packages\NuGet4Mono.Extensions.0.3.0\lib\net40\NuGet4Mono.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.OpenSearch">
+      <HintPath>..\packages\Terradue.OpenSearch.1.11.15\lib\net40\Terradue.OpenSearch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
