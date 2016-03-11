@@ -32,7 +32,7 @@ namespace Terradue.Metadata.EarthObservation {
 
             foreach (var ext in extensions) {
                 if (ext.OuterName == "EarthObservation") {
-                    return (OM_ObservationType)OgcHelpers.DeserializeEarthObservation(ext.GetReader(), ext.OuterNamespace);
+                    return (OM_ObservationType)OgcHelpers.DeserializeEarthObservation(ext.GetReader());
                 }
             }
 
@@ -59,17 +59,27 @@ namespace Terradue.Metadata.EarthObservation {
 
             if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType) {
 
-                try {
-                    ((Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType)eo.featureOfInterest).Footprint.multiExtentOf.MultiSurface.ToGeometry();
-                } catch (Exception) {
+                Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType eoFootprint = (Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType)eo;
+
+                if (eoFootprint.Footprint != null) {
+                    try {
+                        return eoFootprint.Footprint.multiExtentOf.MultiSurface.ToGeometry();
+                    } catch (Exception) {
+                    }
                 }
-            }
 
-            if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.ServiceModel.Ogc.Alt21.AltFootprintPropertyType) {
+                if (eoFootprint.AltFootprint != null) {
+                    try {
+                        return eoFootprint.AltFootprint.multiExtentOf.MultiSurface.ToGeometry();
+                    } catch (Exception) {
+                    }
+                }
 
-                try {
-                    ((Terradue.ServiceModel.Ogc.Alt21.AltFootprintPropertyType)eo.featureOfInterest).Footprint.nominalTrack.MultiCurve.ToGeometry();
-                } catch (Exception) {
+                if (eoFootprint.AltFootprint != null) {
+                    try {
+                        return eoFootprint.AltFootprint.multiExtentOf.MultiSurface.ToGeometry();
+                    } catch (Exception) {
+                    }
                 }
             }
 
