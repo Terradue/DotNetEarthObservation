@@ -104,25 +104,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 Parallel.ForEach(osr.Items, item => PerformInterferometryFunctionBySlave(newitems, item, osr2, parameters, entity));
             } catch (AggregateException e) {
                 foreach (var e1 in e.InnerExceptions) {
-                    Console.WriteLine(e1.Message);
-                    Console.WriteLine(e1.StackTrace);
-                    Console.WriteLine("----------");
-
+                    log.Error(e1.Message);
                 }
             }
-
-
-            // Test each item to see if it fits the filters
-            /*foreach (IOpenSearchResultItem item in osr.Items) {
-
-                //IOpenSearchResultCollection osr2 = osr;
-                //tasks.Add(Task.Factory.StartNew(() => PerformInterferometryFunctionBySlave(newitems, item, osr2, parameters, entity)));
-
-                PerformInterferometryFunctionBySlave(newitems, item, osr2, parameters, entity);
-
-            }*/
-
-            //Task.WaitAll(tasks.ToArray());
 
             osr.Items = newitems.OrderByDescending(i => i.SortKey );
 
@@ -245,20 +229,29 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             NameValueCollection nvc = new NameValueCollection();
             NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(masterEntity.GetOpenSearchParameters(osr.ContentType));
 
-            nvc.Add(revOsParams["eop:platformShortName"], platformShortName);
-            nvc.Add(revOsParams["eop:wrsLongitudeGrid"], track);
-            nvc.Add(revOsParams["eop:swathIdentifier"], swath);
-            nvc.Add(revOsParams["geo:geometry"], geometry.ToWkt());
+            if (!string.IsNullOrEmpty(revOsParams["eop:platformShortName"]))
+                nvc.Set(revOsParams["eop:platformShortName"], platformShortName);
+            
+            if (string.IsNullOrEmpty(revOsParams["eop:wrsLongitudeGrid"])) throw new ImpossibleSearchException("Interferometry search requires that slave sries can be searched by track (missing eop:wrsLongitudeGrid in OSDD)");
+            nvc.Set(revOsParams["eop:wrsLongitudeGrid"], track);
+
+            if (string.IsNullOrEmpty(revOsParams["eop:swathIdentifier"])) throw new ImpossibleSearchException("Interferometry search requires that slave sries can be searched by swath id (missing eop:swathIdentifier in OSDD)");
+            nvc.Set(revOsParams["eop:swathIdentifier"], swath);
+
+            if (!string.IsNullOrEmpty(revOsParams["geo:geometry"]))
+                nvc.Set(revOsParams["geo:geometry"], geometry.ToWkt());
 
             var timeCoverage = GetTimeCoverage(searchParameters, item);
 
             if (timeCoverage != null) {
-                nvc.Add(revOsParams["time:start"], timeCoverage[0].ToUniversalTime().ToString("O"));
-                nvc.Add(revOsParams["time:end"], timeCoverage[1].ToUniversalTime().ToString("O"));
+                if (!string.IsNullOrEmpty(revOsParams["time:start"]) || !string.IsNullOrEmpty(revOsParams["time:end"])) throw new ImpossibleSearchException("Interferometry search with time parameter requires that slave sries can be searched by time (missing time:start and/or time:end in OSDD)");
+                nvc.Set(revOsParams["time:start"], timeCoverage[0].ToUniversalTime().ToString("O"));
+                nvc.Set(revOsParams["time:end"], timeCoverage[1].ToUniversalTime().ToString("O"));
             }
 
-            if (!string.IsNullOrEmpty(searchParameters["spatialCover"]))
-                nvc.Add("spatialCover", searchParameters["spatialCover"]);
+            if (!string.IsNullOrEmpty(searchParameters["spatialCover"])) {
+                nvc.Set("spatialCover", searchParameters["spatialCover"]);
+            }
 
             return nvc;
 
@@ -277,8 +270,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             long count = masterFeed.TotalResults;
 
+            if (count < 1) throw new ImpossibleSearchException("There is no reference to the master dataset. For this operation, one reference is mandatory");
+
             if (count > 1) {
-                throw new InvalidOperationException("There are multiples references to the master dataset. For this operation, a unique reference is mandatory");
+                throw new ImpossibleSearchException("There are multiples references to the master dataset. For this operation, a unique reference is mandatory");
             } 
 
 
@@ -286,9 +281,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
                 Parallel.ForEach(osr.Items.ToArray(), slaveItem => PerformSlaveInterferometryFunctionBySlave(slaveItem, masterFeed, parameters, newitems));
             } catch (AggregateException e) {
                 foreach (var e1 in e.InnerExceptions) {
-                    Console.WriteLine(e1.Message);
-                    Console.WriteLine(e1.StackTrace);
-                    Console.WriteLine("----------");
+                    log.Error(e1.Message);
 
                 }
             }
@@ -307,12 +300,14 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         public virtual void PerformSlaveInterferometryFunctionBySlave(IOpenSearchResultItem slaveItem, IOpenSearchResultCollection masterFeed, NameValueCollection parameters, List<IOpenSearchResultItem> newitems) {
 
+            if (masterFeed.Items.Count() < 1) throw new ImpossibleSearchException("Impossible to perform interferometry function by slave. There is no master associated");
+
             log.DebugFormat("evaluating slave {0}...", slaveItem.Identifier);
 
             IOpenSearchResultItem masterItem = (IOpenSearchResultItem)masterFeed.Items.ElementAt(0);
 
             if (slaveItem.Identifier == masterItem.Identifier) {
-                log.DebugFormat("Master is slave evicted");
+                log.DebugFormat("Master is slave: evicted");
                 return;
             }
 
@@ -330,7 +325,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             try {
                 perpendicularBaseline = GetPerpendicularBaseline(masterItem, slaveItem);
             } catch (Exception e) {
-                log.DebugFormat("Error calculating baseline : {0}", e.Message);
+                log.ErrorFormat("Error calculating baseline : {0}", e.Message);
+                log.Debug(e.StackTrace);
                 return;
             }
 

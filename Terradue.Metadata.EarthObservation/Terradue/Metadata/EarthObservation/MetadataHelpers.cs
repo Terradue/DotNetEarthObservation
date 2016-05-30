@@ -456,6 +456,15 @@ namespace Terradue.Metadata.EarthObservation {
                 }
             }
 
+            if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.Metadata.EarthObservation.Ogc.Lmb.LmbFootprintPropertyType) {
+
+                try {
+                    return GeometryFactory.GmlToGeometry((XmlElement)SerializeToXmlElement(
+                        ((Terradue.Metadata.EarthObservation.Ogc.Alt.AltFootprintPropertyType)eo.featureOfInterest).Footprint.nominalTrack.MultiCurve));
+                } catch (Exception) {
+                }
+            }
+
             return null;
 
         }

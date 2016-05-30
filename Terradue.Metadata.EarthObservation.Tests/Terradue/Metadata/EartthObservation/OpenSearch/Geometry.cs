@@ -29,6 +29,11 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             Assert.That(geometry is Polygon);
 
+            OpenSearchDescription osd = new OpenSearchDescription();
+            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms}", "search")};
+
+            string template = EarthObservationOpenSearchResultHelpers.EntrySelfLinkTemplate(afeed.Items.First(), osd, "application/atom+xml");
+
         }
 
         [Test()]
@@ -40,7 +45,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
             var geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(rdf.Items.First());
 
             Assert.That(geometry is MultiPolygon);
-            Assert.AreEqual("MULTIPOLYGON(((-129.968719 48.14193,-129.968719 48.14193,-131.056732 48.272541,-131.056732 48.272541,-130.657394 49.769352,-130.657394 49.769352,-129.536499 49.638176,-129.536499 49.638176,-129.968719 48.14193)))",
+            Assert.AreEqual("MULTIPOLYGON(((-129.968719 48.14193,-131.056732 48.272541,-130.657394 49.769352,-129.536499 49.638176,-129.968719 48.14193)))",
                             geometry.ToWkt());
 
         }

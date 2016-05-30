@@ -37,28 +37,25 @@
     <Reference Include="Terradue.ServiceModel.Syndication">
       <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.0.0\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
     </Reference>
-    <Reference Include="ProjNet">
-      <HintPath>..\packages\Proj.NET.1.2\lib\net20\ProjNet.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Addins">
       <HintPath>..\packages\Mono.Addins.1.2\lib\net40\Mono.Addins.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\packages\MathNet.Numerics.3.7.1\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Data" />
-    <Reference Include="Terradue.OpenSearch">
-      <HintPath>..\packages\Terradue.OpenSearch.1.11.14\lib\net40\Terradue.OpenSearch.dll</HintPath>
-    </Reference>
     <Reference Include="GeoAPI">
-      <HintPath>..\packages\GeoAPI.1.7.4\lib\net40-client\GeoAPI.dll</HintPath>
+      <HintPath>..\packages\GeoAPI.1.7.3\lib\net40-client\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite">
       <HintPath>..\packages\NetTopologySuite.1.13.3.2\lib\net40-client\NetTopologySuite.dll</HintPath>
     </Reference>
     <Reference Include="PowerCollections">
       <HintPath>..\packages\NetTopologySuite.1.13.3.2\lib\net40-client\PowerCollections.dll</HintPath>
-    </Reference>
-    <Reference Include="NetTopologySuite.IO">
-      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2lib\net40-client\NetTopologySuite.IO.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite.IO.GeoTools">
       <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
@@ -72,59 +69,94 @@
     <Reference Include="NetTopologySuite.IO.ShapeFile">
       <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
     </Reference>
-    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended">
-      <HintPath>..\packages\NetTopologySuite.IO.1.13.3.2\lib\net40-client\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
+    <Reference Include="ProjNet">
+      <HintPath>..\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
     </Reference>
-    <Reference Include="MathNet.Numerics">
-      <HintPath>..\packages\MathNet.Numerics.3.10.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    <Reference Include="Terradue.ServiceModel.Ogc.OwsContext">
+      <HintPath>..\packages\Terradue.ServiceModel.Ogc.OwsContext.1.0.6\lib\net40\Terradue.ServiceModel.Ogc.OwsContext.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="NuGet4Mono.Extensions">
-      <HintPath>..\packages\NuGet4Mono.Extensions.0.2.1\lib\net40\NuGet4Mono.Extensions.dll</HintPath>
+      <HintPath>..\packages\NuGet4Mono.Extensions.0.3.0\lib\net40\NuGet4Mono.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.OpenSearch">
+      <HintPath>..\packages\Terradue.OpenSearch.1.11.15\lib\net40\Terradue.OpenSearch.dll</HintPath>
     </Reference>
     <Reference Include="Terradue.GeoJson">
-      <HintPath>..\packages\Terradue.GeoJson.1.7.0-ftm420160309T151021\lib\net40\Terradue.GeoJson.dll</HintPath>
-    </Reference>
-    <Reference Include="Terradue.ServiceModel.Ogc">
-      <HintPath>..\packages\Terradue.ServiceModel.Ogc.1.1.0-build20160304T093006\lib\net40\Terradue.ServiceModel.Ogc.dll</HintPath>
+      <HintPath>..\packages\Terradue.GeoJson.1.5.9\lib\net40\Terradue.GeoJson.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\EarthObservationOpenSearchResultHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Namespaces.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\Gmd.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\Gml311.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\Gsr.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Xlink.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\W3c\Smil20Lang.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Swe\Swe.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Om\Om.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Ows\Ows.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gts\Gts.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gss\Gss.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Gco\Gco.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Sar\Sar20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Opt\Opt20.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Alt\Alt20.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\MetadataHelpers.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\IEarthObservationOpenSearchResultItem.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Eop\Eop.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\OpenSearchInterferometryFilter.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\AtomEarthObservationFactory.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Extra\Orbit.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Extra\Geolocation.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\BaselineCalculation.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\BaselineVector.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\EarthAxesVector.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\LinearAlgebra.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\OrbitStateVector.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Point3D.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Utils.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Interferometry\Vector3D.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\Spatial\SpatialHelper.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\OpenSearchInterferometryFilter.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\BaselineCalculation.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\BaselineVector.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\EarthAxesVector.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\LinearAlgebra.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\OrbitStateVector.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Point3D.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Utils.cs" />
-    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Vector3D.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\Ogc\Lmb\Lmb.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Folder Include="Schemas\" />
     <Folder Include="Terradue\" />
     <Folder Include="Terradue\Metadata\" />
     <Folder Include="Terradue\Metadata\EarthObservation\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Eop\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gco\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gmd\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gml311\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gsr\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\W3c\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Sar\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Swe\New Folder\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Om\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Ows\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Opt\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gts\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Gss\" />
+    <Folder Include="Terradue\Metadata\EarthObservation\Ogc\Alt\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Extra\" />
     <Folder Include="Terradue\Metadata\EarthObservation\Spatial\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\" />
-    <Folder Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Schemas\omeo\1.0.0\flatten\observation.xsd" />
+    <None Include="Schemas\omeo\1.0.0\flatten\gml_8.xsd" />
     <None Include="packages.config" />
     <None Include="Terradue.Metadata.EarthObservation.csproj" />
   </ItemGroup>

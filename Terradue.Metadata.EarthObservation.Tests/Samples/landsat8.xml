@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<EarthObservation xmlns="http://www.opengis.net/opt/2.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<boundedBy xmlns="http://www.opengis.net/gml/3.2" xsi:nil="true" />
+	<phenomenonTime xmlns="http://www.opengis.net/om/2.0">
+		<TimePeriod xmlns="http://www.opengis.net/gml/3.2">
+			<beginPosition>2016-03-18T09:28:36.3310000Z</beginPosition>
+			<endPosition>2016-03-18T09:29:08.1010000Z</endPosition>
+		</TimePeriod>
+	</phenomenonTime>
+	<observedProperty xmlns="http://www.opengis.net/om/2.0" xsi:nil="true" />
+	<metaDataProperty xmlns="http://www.opengis.net/eop/2.1">
+		<EarthObservationMetaData>
+			<identifier>LC81870322016077LGN00</identifier>
+			<acquisitionType>NOMINAL</acquisitionType>
+			<imageQualityDegradation>9</imageQualityDegradation>
+			<processing>
+				<ProcessingInformation>
+					<processingLevel>L1GT</processingLevel>
+					<auxiliaryDataSetFileName>LO8BPF20160317072727_20160317105359.01</auxiliaryDataSetFileName>
+					<auxiliaryDataSetFileName>LT8BPF20160309074854_20160309080230.01</auxiliaryDataSetFileName>
+					<auxiliaryDataSetFileName>L8CPF20160101_20160331.02</auxiliaryDataSetFileName>
+					<auxiliaryDataSetFileName>L8RLUT20150303_20431231v11.h5</auxiliaryDataSetFileName>
+				</ProcessingInformation>
+			</processing>
+		</EarthObservationMetaData>
+	</metaDataProperty>
+	<featureOfInterest xmlns="http://www.opengis.net/om/2.0" xsi:nil="true" />
+	<procedure xmlns="http://www.opengis.net/om/2.0">
+		<EarthObservationEquipment xmlns="http://www.opengis.net/eop/2.1">
+			<boundedBy xmlns="http://www.opengis.net/gml/3.2" xsi:nil="true" />
+			<platform>
+				<Platform>
+					<shortName>Landsat-8</shortName>
+				</Platform>
+			</platform>
+			<instrument>
+				<Instrument>
+					<shortName>OLI_TIRS</shortName>
+					<description>Operational Land Imager &amp; Thermal Infrared Sensor</description>
+				</Instrument>
+			</instrument>
+			<acquisitionParameters>
+				<Acquisition>
+					<orbitDirection>DESCENDING</orbitDirection>
+					<wrsLongitudeGrid>187</wrsLongitudeGrid>
+					<wrsLatitudeGrid>032</wrsLatitudeGrid>
+					<ascendingNodeDate>0001-01-01T00:00:00</ascendingNodeDate>
+					<illuminationAzimuthAngle>148.60349886</illuminationAzimuthAngle>
+					<illuminationElevationAngle>43.94768136</illuminationElevationAngle>
+				</Acquisition>
+			</acquisitionParameters>
+		</EarthObservationEquipment>
+	</procedure>
+	<result xmlns="http://www.opengis.net/om/2.0">
+		<EarthObservationResult xmlns="http://www.opengis.net/opt/2.1">
+			<boundedBy xmlns="http://www.opengis.net/gml/3.2" xsi:nil="true" />
+			<browse xmlns="http://www.opengis.net/eop/2.1">
+				<BrowseInformation>
+					<type>img</type>
+					<referenceSystemIdentifier>EPSG:3857</referenceSystemIdentifier>
+					<fileName>
+						<ServiceReference d7p1:type="image/png" d7p2:href="http://earthexplorer.usgs.gov/cgi-bin/landsat_8?sceneid=lc81870322016077lgn00&amp;srs=EPSG:3857&amp;bbox=1832240.8948137,4759191.5362992,2136297.8387716,5069898.4081789" d7p2:title="LandsatLook &quot;Natural Color&quot; Preview Image" xmlns="http://www.opengis.net/ows/2.0" xmlns:d7p1="http://www.opengis.net/ows/2.0" xmlns:d7p2="http://www.w3.org/1999/xlink" />
+					</fileName>
+				</BrowseInformation>
+			</browse>
+			<cloudCoverPercentage>71.55</cloudCoverPercentage>
+		</EarthObservationResult>
+	</result>
+</EarthObservation>

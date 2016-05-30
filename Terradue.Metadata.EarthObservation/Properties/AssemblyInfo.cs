@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 @{
     Terradue .Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements
 
-    \xrefitem sw_version "Versions" "Software Package Version" 1.4.0
+    \xrefitem sw_version "Versions" "Software Package Version" 1.3.15
 
     \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
 
@@ -26,9 +26,6 @@ using System.Runtime.CompilerServices;
 
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
-using NuGet4Mono.Extensions;
-
-
 [assembly: AssemblyTitle("Terradue.Metadata.EarthObservation")]
 [assembly: AssemblyDescription(".Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements")]
 [assembly: AssemblyConfiguration("")]
@@ -37,11 +34,11 @@ using NuGet4Mono.Extensions;
 [assembly: AssemblyCopyright("Terradue")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyAuthors("Emmanuel Mathot")]
-[assembly: AssemblyProjectUrl("https://github.com/Terradue/DotNetGeoJson")]
-[assembly: AssemblyLicenseUrl("https://github.com/Terradue/DotNetGeoJson/blob/master/LICENSE")]
-[assembly: AssemblyVersion("1.4.0.*")]
-[assembly: AssemblyInformationalVersion("1.4.0")]
+// The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
+// The form "{Major}.{Minor}.*" will automatically update the build and revision,
+// and "{Major}.{Minor}.{Build}.*" will update just the revision.
+[assembly: AssemblyVersion("1.3.15.*")]
+[assembly: AssemblyInformationalVersion("1.3.15")]
 // The following attributes are used to specify the signing key for the assembly,
 // if desired. See the Mono documentation for more information about signing.
 //[assembly: AssemblyDelaySign(false)]
