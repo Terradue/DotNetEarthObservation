@@ -324,7 +324,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             try {
                 perpendicularBaseline = GetPerpendicularBaseline(masterItem, slaveItem);
             } catch (Exception e) {
-                log.DebugFormat("Error calculating baseline : {0}", e.Message);
+                log.ErrorFormat("Error calculating baseline : {0}", e.Message);
+                log.Debug(e.StackTrace);
                 return;
             }
 
