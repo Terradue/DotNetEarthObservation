@@ -2,16 +2,10 @@
 
 /Terradue.Metadata.EarthObservation/Terradue.Metadata.EarthObservation.userprefs
 
-/Terradue.Metadata.EarthObservation/bin
+/Terradue.Metadata.EarthObservation/bin/
 
 /Terradue.Metadata.EarthObservation/obj/
 
 /packages/
-Terradue.Metadata.EarthObservation.Test/obj
-Terradue.Metadata.EarthObservation.Tests/obj/Debug/Terradue.Metadata.EarthObservation.Tests.dll.mdb
-Terradue.Metadata.EarthObservation.Tests/obj/Debug/Terradue.Metadata.EarthObservation.Tests.dll
-Terradue.Metadata.EarthObservation.Tests/bin/Terradue.Metadata.EarthObservation.Tests.dll.mdb
-Terradue.Metadata.EarthObservation.Tests/bin/Terradue.Metadata.EarthObservation.Tests.dll
-Terradue.Metadata.EarthObservation.Tests/bin/Terradue.Metadata.EarthObservation.dll.mdb
-Terradue.Metadata.EarthObservation.Tests/bin/Terradue.Metadata.EarthObservation.dll
-Terradue.Metadata.EarthObservation.Tests/bin/log4net.dll
+Terradue.Metadata.EarthObservation.Tests/obj/
+Terradue.Metadata.EarthObservation.Tests/bin/
