@@ -27,17 +27,17 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(afeed.Items.First().ElementExtensions);
 
-            var identifier = MetadataHelpers.FindIdentifier(om);
+            var identifier = MetadataHelpers.FindIdentifierFromEopMetadata(om);
 
             Assert.AreEqual("S2A_OPER_REP_METARC_EPA__20150620T060607_20150620T010607_20150620T010607_L0_43_2", identifier);
 
-            var start = MetadataHelpers.FindStart(om);
+            var start = MetadataHelpers.FindStartDateFromPhenomenonTime(om);
 
-            Assert.AreEqual("2015-06-20T01:06:07Z", start.Replace(" ", "T"));
+            Assert.AreEqual(DateTime.Parse("2015-06-20T01:06:07Z"), start);
 
-            var stop = MetadataHelpers.FindStop(om);
+            var stop = MetadataHelpers.FindEndDateFromPhenomenonTime(om);
 
-            Assert.AreEqual("2015-06-20T01:06:07Z", stop.Replace(" ", "T"));
+            Assert.AreEqual(DateTime.Parse("2015-06-20T01:06:07Z"), stop);
 
             OpenSearchDescription osd = new OpenSearchDescription();
             osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search")};
@@ -56,17 +56,17 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(afeed.Items.First().ElementExtensions);
 
-            var identifier = MetadataHelpers.FindIdentifier(om);
+            var identifier = MetadataHelpers.FindIdentifierFromEopMetadata(om);
 
             Assert.AreEqual("S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F", identifier);
 
-            var start = MetadataHelpers.FindStart(om);
+            var start = MetadataHelpers.FindStartDateFromPhenomenonTime(om);
 
-            Assert.AreEqual("2015-01-29T18:50:06.82Z", start.Replace(" ", "T"));
+            Assert.AreEqual(DateTime.Parse("2015-01-29T18:50:06.82Z"), start);
 
-            var stop = MetadataHelpers.FindStop(om);
+            var stop = MetadataHelpers.FindEndDateFromPhenomenonTime(om);
 
-            Assert.AreEqual("2015-01-29T18:50:34.085Z", stop.Replace(" ", "T"));
+            Assert.AreEqual(DateTime.Parse("2015-01-29T18:50:34.085Z"), stop);
 
         }
     }

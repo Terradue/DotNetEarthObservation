@@ -5,6 +5,7 @@ using Terradue.Metadata.EarthObservation.OpenSearch;
 using System.Collections;
 using System.Collections.Generic;
 using Terradue.GeoJson.Geometry;
+using System.Configuration;
 
 namespace Terradue.Metadata.EarthObservation.Spatial {
     public class SpatialHelper {
@@ -15,7 +16,11 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
         public SpatialHelper (){
 
             NetTopologySuite.Geometries.GeometryFactory gfactory = new NetTopologySuite.Geometries.GeometryFactory();
-            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader("/usr/local/lib/ne_110m_land/ne_110m_land.shp", gfactory);
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var landMaskPath = config.AppSettings.Settings["eo.landMask"].Value; 
+            if (string.IsNullOrEmpty(landMaskPath))
+                landMaskPath = "/usr/local/lib/ne_110m_land/ne_110m_land.shp";
+            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader(landMaskPath, gfactory);
 
             List<GeoAPI.Geometries.IGeometry> geoms = new List<GeoAPI.Geometries.IGeometry>();
 
@@ -28,7 +33,7 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
 
         public double CalculateLandCover(IOpenSearchResultItem item) {
 
-            var itemGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromEarthObservation(item);
+            var itemGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(item);
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var itemGeometry = wktReader.Read(itemGeom.ToWkt());
