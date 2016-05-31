@@ -57,27 +57,11 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static GeometryObject FindGeometryFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
 
-            if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType) {
+            if (eo.featureOfInterest != null) {
 
-                Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType eoFootprint = (Terradue.ServiceModel.Ogc.Eop21.FootprintPropertyType)eo;
-
-                if (eoFootprint.Footprint != null) {
+                if (eo.featureOfInterest.Eop21Footprint != null) {
                     try {
-                        return eoFootprint.Footprint.multiExtentOf.MultiSurface.ToGeometry();
-                    } catch (Exception) {
-                    }
-                }
-
-                if (eoFootprint.AltFootprint != null) {
-                    try {
-                        return eoFootprint.AltFootprint.multiExtentOf.MultiSurface.ToGeometry();
-                    } catch (Exception) {
-                    }
-                }
-
-                if (eoFootprint.AltFootprint != null) {
-                    try {
-                        return eoFootprint.AltFootprint.multiExtentOf.MultiSurface.ToGeometry();
+                        return eo.featureOfInterest.Eop21Footprint.multiExtentOf.MultiSurface.ToGeometry();
                     } catch (Exception) {
                     }
                 }
@@ -88,19 +72,13 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static GeometryObject FindGeometryFromEarthObservation(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
 
-            if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.ServiceModel.Ogc.Eop20.FootprintPropertyType) {
+            if (eo.featureOfInterest != null) {
 
-                try {
-                    ((Terradue.ServiceModel.Ogc.Eop20.FootprintPropertyType)eo.featureOfInterest).Footprint.multiExtentOf.MultiSurface.ToGeometry();
-                } catch (Exception) {
-                }
-            }
-
-            if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.ServiceModel.Ogc.Alt20.AltFootprintPropertyType) {
-
-                try {
-                    ((Terradue.ServiceModel.Ogc.Alt20.AltFootprintPropertyType)eo.featureOfInterest).Footprint.nominalTrack.MultiCurve.ToGeometry();
-                } catch (Exception) {
+                if (eo.featureOfInterest.Eop20Footprint != null) {
+                    try {
+                        return eo.featureOfInterest.Eop20Footprint.multiExtentOf.MultiSurface.ToGeometry();
+                    } catch (Exception) {
+                    }
                 }
             }
 
@@ -437,7 +415,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static string FindPlatformNameFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.procedure.Eop20EarthObservationEquipment.platform.Platform.shortName;
+                return eo.procedure.Eop20EarthObservationEquipment.platform[0].Platform.shortName;
             } catch (Exception) {
                 return null;
             }
@@ -456,15 +434,6 @@ namespace Terradue.Metadata.EarthObservation {
                 }
             }
 
-            if (eo.featureOfInterest != null && eo.featureOfInterest is Terradue.Metadata.EarthObservation.Ogc.Lmb.LmbFootprintPropertyType) {
-
-                try {
-                    return GeometryFactory.GmlToGeometry((XmlElement)SerializeToXmlElement(
-                        ((Terradue.Metadata.EarthObservation.Ogc.Alt.AltFootprintPropertyType)eo.featureOfInterest).Footprint.nominalTrack.MultiCurve));
-                } catch (Exception) {
-                }
-            }
-
             return null;
 
         }
@@ -479,7 +448,7 @@ namespace Terradue.Metadata.EarthObservation {
 
         public static string FindInstrumentNameFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo) {
             try {
-                return eo.procedure.Eop20EarthObservationEquipment.instrument.Instrument.shortName;
+                return eo.procedure.Eop20EarthObservationEquipment.instrument[0].Instrument.shortName;
             } catch (Exception) {
                 return null;
             }

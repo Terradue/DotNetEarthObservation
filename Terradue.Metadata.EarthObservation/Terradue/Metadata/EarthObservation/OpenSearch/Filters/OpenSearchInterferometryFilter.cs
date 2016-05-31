@@ -194,26 +194,18 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
             if (element is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType) {
                 try { 
-                    Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationEquipmentType sarEquip = 
-                        (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationEquipmentType)
-                        ((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationEquipmentPropertyType)
-                            ((Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)element).procedure).EarthObservationEquipment;
-                    platformShortName = sarEquip.platform.Platform.shortName;
-                    track = sarEquip.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text;
+                    platformShortName = element.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName;
+                    track = element.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                    swath = element.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text;
                 } catch (Exception e) {
                     throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
                 }
 
             } else if (element is Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType) {
                 try { 
-                    Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationEquipmentType sarEquip = 
-                        (Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationEquipmentType)
-                        ((Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationEquipmentPropertyType)
-                            ((Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType)element).procedure).EarthObservationEquipment;
-                    platformShortName = sarEquip.platform.Platform.shortName;
-                    track = sarEquip.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-                    swath = sarEquip.sensor.Sensor.swathIdentifier.Text;
+                    platformShortName = element.procedure.Eop20EarthObservationEquipment.platform[0].Platform.shortName;
+                    track = element.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                    swath = element.procedure.Eop20EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text;
                 } catch (Exception e) {
                     throw new InvalidOperationException("missing information in master product to produce focus search for slaves : " + e.Message);
                 }
@@ -221,7 +213,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             } else
                 throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
 
-            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(item);
+            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometry(item);
 
             if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath) || geometry == null)
                 throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
@@ -440,8 +432,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
         public double CalculateSpatialOverlap(IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null) {
 
-            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(master);
-            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometryFromIOpenSearchResultItem(slave);
+            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(master);
+            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(slave);
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var masterGeometry = wktReader.Read(masterGeom.ToWkt());
