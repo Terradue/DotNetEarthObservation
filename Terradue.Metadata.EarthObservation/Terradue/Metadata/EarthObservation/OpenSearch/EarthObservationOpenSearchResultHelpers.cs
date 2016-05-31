@@ -175,8 +175,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                             break;
                     // 3) search for dct:spatial
                         case "http://purl.org/dc/terms/":
-                            if (xr.LocalName == "spatial")
-                                savegeom = WktExtensions.WktToGeometry(xr.Value);
+                            if (xr.LocalName == "spatial") {
+                                savegeom = WktExtensions.WktToGeometry(xr.ReadElementContentAsString());
+                            }
                             if (!(savegeom is Point)) {
                                 return savegeom;
                             }
