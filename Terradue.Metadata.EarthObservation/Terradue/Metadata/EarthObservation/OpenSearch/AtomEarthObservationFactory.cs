@@ -1,32 +1,30 @@
 ﻿using System;
 using Terradue.OpenSearch.Result;
 using Terradue.Metadata.EarthObservation;
-using Terradue.Metadata.EarthObservation.Ogc.Eop;
-using Terradue.Metadata.EarthObservation.Ogc.Sar;
 using System.Linq;
 using System.IO;
 using System.Web.UI;
 using System.Xml;
 using System.Xml.Linq;
-using Terradue.Metadata.EarthObservation.Ogc.Opt;
 using Terradue.ServiceModel.Syndication;
 using Terradue.ServiceModel.Ogc.OwsContext;
 using System.Xml.Serialization;
 using Terradue.GeoJson.Geometry;
+using Terradue.ServiceModel.Ogc;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class AtomEarthObservationFactory {
         
-        public static AtomItem CreateAtomItemFromEarthObservationType(EarthObservationType eo) {
+        public static AtomItem CreateAtomItemFromEarthObservationType(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo) {
 
-            if (eo is SarEarthObservationType) {
+            if (eo is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType) {
 
-                SarEarthObservationType sarEo = (SarEarthObservationType)eo;
+                Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)eo;
                 var item = CreateAtomItemFromSarEarthObservationType(sarEo);
                 return item;
-            } else if (eo is OptEarthObservationType) {
+            } else if (eo is Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType) {
 
-                OptEarthObservationType optEo = (OptEarthObservationType)eo;
+                Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType optEo = (Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType)eo;
                 var item = CreateAtomItemFromOptEarthObservationType(optEo);
                 AddWMSOffering(optEo, item);
                 AddBox(optEo, item);
@@ -38,24 +36,24 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static AtomItem CreateAtomItemFromOptEarthObservationType(OptEarthObservationType optEo) {
+        public static AtomItem CreateAtomItemFromOptEarthObservationType(Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType optEo) {
 
             AtomItem item = null;
 
             try {
 
                 item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {5}-{6}",
-                                                  optEo.EopProcedure.EarthObservationEquipment.platform.Platform.shortName,
-                                                  optEo.metaDataProperty1.EarthObservationMetaData.productType,
-                                                  string.Join("/", optEo.EopProcedure.EarthObservationEquipment.sensor.Sensor.operationalMode.Text),
-                                                  optEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
-                                                  optEo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value,
+                                                  optEo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName,
+                                                  optEo.EopMetaDataProperty.EarthObservationMetaData.productType,
+                                                  string.Join("/", optEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.operationalMode.Text),
+                                                  optEo.EopMetaDataProperty.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
+                                                  optEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value,
                                                   DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("yyMMddTHHmmss"),
                                                   DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("yyMMddTHHmmss")
                                                  ),
                                     "",
                                     null,
-                                    optEo.metaDataProperty1.EarthObservationMetaData.identifier,
+                                    optEo.EopMetaDataProperty.EarthObservationMetaData.identifier,
                                     DateTime.Parse(optEo.phenomenonTime.GmlTimePeriod.endPosition.Value)
                                    );
 
@@ -66,14 +64,14 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     Terradue.ServiceModel.Syndication.TextSyndicationContentKind.Html);
 
                 MemoryStream stream = new MemoryStream();
-                MetadataHelpers.OptSerializer.Serialize(stream, optEo);
+                OgcHelpers.Opt21Serializer.Serialize(stream, optEo);
                 stream.Seek(0, SeekOrigin.Begin);
 
                 item.ElementExtensions.Add(XmlReader.Create(stream));
 
-                item.ElementExtensions.Add("date", MetadataHelpers.DC, string.Format("{0}/{1}", optEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, optEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
+                item.ElementExtensions.Add("date", OgcHelpers.DC, string.Format("{0}/{1}", optEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, optEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
 
-                item.ElementExtensions.Add("identifier", MetadataHelpers.DC, optEo.metaDataProperty1.EarthObservationMetaData.identifier);
+                item.ElementExtensions.Add("identifier", OgcHelpers.DC, optEo.EopMetaDataProperty.EarthObservationMetaData.identifier);
 
 
             } catch (NullReferenceException e) {
@@ -86,25 +84,25 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static AtomItem CreateAtomItemFromSarEarthObservationType(SarEarthObservationType sarEo) {
+        public static AtomItem CreateAtomItemFromSarEarthObservationType(Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo) {
 
             AtomItem item = null;
 
             try {
 
                 item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {7} {5}/{6}",
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.platform.Platform.shortName,
-                                                  sarEo.metaDataProperty1.EarthObservationMetaData.productType,
-                                                  string.Join("/", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.operationalMode.Text),
-                                                  sarEo.metaDataProperty1.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.polarisationChannels,
+                                                  sarEo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName,
+                                                  sarEo.EopMetaDataProperty.EarthObservationMetaData.productType,
+                                                  string.Join("/", sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.operationalMode.Text),
+                                                  sarEo.EopMetaDataProperty.EarthObservationMetaData.processing.First().ProcessingInformation.processingLevel,
+                                                  sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.polarisationChannels,
                                                   DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value).ToUniversalTime().ToString("O"),
                                                   DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value).ToUniversalTime().ToString("O"),
-                                                  sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value
+                                                  sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value
                 ),
                                     "",
                                     null,
-                                    sarEo.metaDataProperty1.EarthObservationMetaData.identifier,
+                                    sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier,
                                     DateTime.Parse(sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value)
                 );
 
@@ -115,14 +113,14 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     Terradue.ServiceModel.Syndication.TextSyndicationContentKind.Html);
 
                 MemoryStream stream = new MemoryStream();
-                MetadataHelpers.SarSerializer.Serialize(stream, sarEo);
+                OgcHelpers.Sar21Serializer.Serialize(stream, sarEo);
                 stream.Seek(0, SeekOrigin.Begin);
 
                 item.ElementExtensions.Add(XmlReader.Create(stream));
 
-                item.ElementExtensions.Add("date", MetadataHelpers.DC, string.Format("{0}/{1}", sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
+                item.ElementExtensions.Add("date", OgcHelpers.DC, string.Format("{0}/{1}", sarEo.phenomenonTime.GmlTimePeriod.beginPosition.Value, sarEo.phenomenonTime.GmlTimePeriod.endPosition.Value));
 
-                item.ElementExtensions.Add("identifier", MetadataHelpers.DC, sarEo.metaDataProperty1.EarthObservationMetaData.identifier);
+                item.ElementExtensions.Add("identifier", OgcHelpers.DC, sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier);
 
                                                                                  
             } catch (NullReferenceException e) {
@@ -135,7 +133,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
 
         }
 
-        public static string GetHtmlSummaryFromOptEarthObservationType(OptEarthObservationType optEo) {
+        public static string GetHtmlSummaryFromOptEarthObservationType(Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType optEo) {
             // Initialize StringWriter instance.
             StringWriter stringWriter = new StringWriter();
 
@@ -153,7 +151,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(optEo.metaDataProperty1.EarthObservationMetaData.identifier);
+                writer.Write(optEo.EopMetaDataProperty.EarthObservationMetaData.identifier);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -164,7 +162,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(optEo.metaDataProperty1.EarthObservationMetaData.productType);
+                writer.Write(optEo.EopMetaDataProperty.EarthObservationMetaData.productType);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -175,9 +173,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(optEo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber);
+                writer.Write(optEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.orbitNumber);
                 writer.Write(" ");
-                writer.Write(optEo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString());
+                writer.Write(optEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.orbitDirection.ToString());
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -188,7 +186,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(optEo.EopProcedure.EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value);
+                writer.Write(optEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -199,7 +197,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(optEo.Optresult.OptEarthObservationResult.cloudCoverPercentage.Value);
+                writer.Write(optEo.result.Opt21EarthObservationResult.cloudCoverPercentage.Value);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -235,7 +233,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             return stringWriter.ToString();
         }
 
-        public static string GetHtmlSummaryFromSarEarthObservationType(SarEarthObservationType sarEo) {
+        public static string GetHtmlSummaryFromSarEarthObservationType(Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo) {
             // Initialize StringWriter instance.
             StringWriter stringWriter = new StringWriter();
 
@@ -253,7 +251,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.metaDataProperty1.EarthObservationMetaData.identifier);
+                writer.Write(sarEo.EopMetaDataProperty.EarthObservationMetaData.identifier);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -264,11 +262,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.metaDataProperty1.EarthObservationMetaData.productType);
+                writer.Write(sarEo.EopMetaDataProperty.EarthObservationMetaData.productType);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
-                if (sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier != null && sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier.Text != null) {
+                if (sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier != null && sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text != null) {
                     writer.RenderBeginTag(HtmlTextWriterTag.Tr);
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
@@ -276,7 +274,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     writer.RenderEndTag();
                     writer.RenderEndTag();
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                    writer.Write(string.Join(" ", sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.sensor.Sensor.swathIdentifier.Text));
+                    writer.Write(string.Join(" ", sarEo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text));
                     writer.RenderEndTag();
                     writer.RenderEndTag();
                 }
@@ -288,9 +286,9 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.orbitNumber);
+                writer.Write(sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.orbitNumber);
                 writer.Write(" ");
-                writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.orbitDirection);
+                writer.Write(sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.orbitDirection);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -301,7 +299,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 writer.RenderEndTag();
                 writer.RenderEndTag();
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.Write(sarEo.SarEarthObservationEquipment.SarEarthObservationEquipment.SarAcquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value);
+                writer.Write(sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.SarAcquisition.wrsLongitudeGrid.Value);
                 writer.RenderEndTag();
                 writer.RenderEndTag();
 
@@ -337,35 +335,20 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             return stringWriter.ToString();
         }
 
-        private static void ApplyLinks(EarthObservationType eo, AtomItem item){
-            if (eo.EopResult != null && eo.EopResult.EarthObservationResult.product != null) {
-                foreach (var pr in eo.EopResult.EarthObservationResult.product) {
+        private static void ApplyLinks(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo, AtomItem item){
+            if (eo.result != null && eo.result.Eop21EarthObservationResult.product != null) {
+                foreach (var pr in eo.result.Eop21EarthObservationResult.product) {
                     var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
                     link.Title = pr.ProductInformation.fileName.ServiceReference.title;
                     item.Links.Add(link);
                 }
             }
-            if (eo is OptEarthObservationType){
-                OptEarthObservationType optEO = (OptEarthObservationType)eo;
-                if (optEO.Optresult != null && optEO.Optresult.OptEarthObservationResult.product != null) {
-                    foreach (var pr in optEO.Optresult.OptEarthObservationResult.product) {
-                        var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
-                        link.Title = pr.ProductInformation.fileName.ServiceReference.title;
-                        item.Links.Add(link);
-                    }
-                }
-            }
         }
 
-        private static void AddWMSOffering(EarthObservationType eo, AtomItem item){
-            BrowseInformationPropertyType[] bi = null;
-            if (eo.EopResult != null && eo.EopResult.EarthObservationResult.browse != null) {
-                bi = eo.EopResult.EarthObservationResult.browse;
-            }
-            if (eo is OptEarthObservationType){
-                OptEarthObservationType optEO = (OptEarthObservationType)eo;
-                if ( optEO.Optresult.OptEarthObservationResult.browse != null )
-                    bi = optEO.Optresult.OptEarthObservationResult.browse;
+        private static void AddWMSOffering(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo, AtomItem item){
+            Terradue.ServiceModel.Ogc.Eop21.BrowseInformationPropertyType[] bi = null;
+            if (eo.result != null && eo.result.Eop21EarthObservationResult.browse != null) {
+                bi = eo.result.Eop21EarthObservationResult.browse;
             }
             if (bi != null) {
                 foreach (var browse in bi) {
@@ -387,7 +370,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             }
         }
 
-        private static void AddBox(EarthObservationType eo, AtomItem item){
+        private static void AddBox(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo, AtomItem item){
 
             var geom = MetadataHelpers.FindGeometryFromEarthObservation(eo);
             if (geom != null) {

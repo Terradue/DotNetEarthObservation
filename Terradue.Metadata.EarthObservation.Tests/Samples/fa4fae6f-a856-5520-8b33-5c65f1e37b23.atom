@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en" xmlns="http://www.w3.org/2005/Atom" xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:eo="http://a9.com/-/opensearch/extensions/eo/1.0/" xmlns:metalink="urn:ietf:params:xml:ns:metalink" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:media="http://search.yahoo.com/mrss/">
+ <title></title>
+ <subtitle type="html">resto feature</subtitle>
+ <generator uri="http://github.com/jjrom/resto2" version="2.0">resto</generator>
+ <updated>2016-01-18CET17:34:55+0100</updated>
+ <id>fa4fae6f-a856-5520-8b33-5c65f1e37b23</id>
+ <entry>
+  <id>fa4fae6f-a856-5520-8b33-5c65f1e37b23</id>
+  <dc:identifier>fa4fae6f-a856-5520-8b33-5c65f1e37b23</dc:identifier>
+  <title>S1A_EW_GRDM_1SDH_20160118T131236_20160118T131337_009549_00DE0C_8781</title>
+  <published>2016-01-18T16:01:29Z</published>
+  <updated>2016-01-18T16:01:29Z</updated>
+  <dc:date>2016-01-18T13:12:36Z/2016-01-18T13:13:37Z</dc:date>
+  <gml:validTime>
+   <gml:TimePeriod>
+    <gml:beginPosition>2016-01-18T13:12:36Z</gml:beginPosition>
+    <gml:endPosition>2016-01-18T13:13:37Z</gml:endPosition>
+   </gml:TimePeriod>
+  </gml:validTime>
+  <georss:where>
+   <gml:Polygon>
+    <gml:exterior>
+     <gml:LinearRing>
+      <gml:posList srsDimensions="2">83.462318 -36.737206 86.799332 -58.498756 83.767929 -85.752228 81.535675 -61.68018 83.462318 -36.737206</gml:posList>
+     </gml:LinearRing>
+    </gml:exterior>
+   </gml:Polygon>
+  </georss:where>
+  <link rel="alternate" type="application/json" title="GeoJSON link for fa4fae6f-a856-5520-8b33-5c65f1e37b23" href="https://peps.cnes.fr/resto/collections/S1/fa4fae6f-a856-5520-8b33-5c65f1e37b23.json?&amp;lang=en"/>
+  <link rel="alternate" type="application/atom+xml" title="ATOM link for fa4fae6f-a856-5520-8b33-5c65f1e37b23" href="https://peps.cnes.fr/resto/collections/S1/fa4fae6f-a856-5520-8b33-5c65f1e37b23.atom?&amp;lang=en"/>
+  <link rel="enclosure" type="application/zip" length="438459739" title="File for fa4fae6f-a856-5520-8b33-5c65f1e37b23 product" metalink:priority="50" href="https://peps.cnes.fr/resto/collections/S1/fa4fae6f-a856-5520-8b33-5c65f1e37b23/download"/>
+  <link rel="icon" title="Browse image URL for fa4fae6f-a856-5520-8b33-5c65f1e37b23 product" href="https://peps.cnes.fr/quicklook/2016/01/18/S1A/S1A_EW_GRDM_1SDH_20160118T131236_20160118T131337_009549_00DE0C_8781_quicklook.gif"/>
+  <media:group>
+   <media:content url="https://peps.cnes.fr/quicklook/2016/01/18/S1A/S1A_EW_GRDM_1SDH_20160118T131236_20160118T131337_009549_00DE0C_8781_quicklook.gif" medium="image">
+    <media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+   </media:content>
+  </media:group>
+  <summary type="text">S1A/SAR-C SAR acquired on 2016-01-18T13:12:36Z</summary>
+ </entry>
+</feed>
