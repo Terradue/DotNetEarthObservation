@@ -17,9 +17,12 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
 
             NetTopologySuite.Geometries.GeometryFactory gfactory = new NetTopologySuite.Geometries.GeometryFactory();
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var landMaskPath = config.AppSettings.Settings["eo.landMask"].Value; 
-            if (string.IsNullOrEmpty(landMaskPath))
+            var landMaskConfig = config.AppSettings.Settings["eo.landMask"];
+            string landMaskPath = null;
+            if (landMaskConfig == null)
                 landMaskPath = "/usr/local/lib/ne_110m_land/ne_110m_land.shp";
+            else
+                landMaskPath = landMaskConfig.Value;
             NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader(landMaskPath, gfactory);
 
             List<GeoAPI.Geometries.IGeometry> geoms = new List<GeoAPI.Geometries.IGeometry>();
