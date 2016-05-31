@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
+using NuGet4Mono.Extensions;
 
 /*!
 
@@ -39,6 +40,9 @@ using System.Runtime.CompilerServices;
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 [assembly: AssemblyVersion("1.3.15.*")]
 [assembly: AssemblyInformationalVersion("1.3.15")]
+[assembly: AssemblyAuthors("Emmanuel Mathot")]
+[assembly: AssemblyProjectUrl("https://github.com/Terradue/DotNetEarthObservation")]
+[assembly: AssemblyLicenseUrl("https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE")]
 // The following attributes are used to specify the signing key for the assembly,
 // if desired. See the Mono documentation for more information about signing.
 //[assembly: AssemblyDelaySign(false)]
