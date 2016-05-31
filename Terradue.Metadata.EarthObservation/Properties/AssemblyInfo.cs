@@ -28,7 +28,7 @@ using NuGet4Mono.Extensions;
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 [assembly: AssemblyTitle("Terradue.Metadata.EarthObservation")]
-[assembly: AssemblyDescription(".Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements")]
+[assembly: AssemblyDescription(".Net C# library implementing the Earth Observation Metadata profile of Observations and Measurements")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Terradue")]
 [assembly: AssemblyProduct("Terradue.Metadata.EarthObservation")]
