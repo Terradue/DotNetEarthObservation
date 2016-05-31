@@ -35,6 +35,20 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
         }
 
+        [Test()]
+        public void FindFromSpatial() {
+
+            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/spatial.xml", FileMode.Open, FileAccess.Read));
+            SyndicationFeed feed = SyndicationFeed.Load(responseReader);
+
+            AtomFeed afeed = new AtomFeed(feed);
+
+            var geometry = EarthObservationOpenSearchResultHelpers.FindGeometry(afeed.Items.First());
+
+            Assert.That(geometry is MultiPolygon);
+
+        }
+
 //        [Test()]
 //        public void FindFromRDF() {
 //

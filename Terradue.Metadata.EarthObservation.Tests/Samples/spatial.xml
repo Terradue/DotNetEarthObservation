@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title type="text">Result for OpenSearch query over type gtfeature in index tepqw</title>
+	<id>http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</id>
+	<updated>0001-01-01T00:00:00Z</updated>
+	<link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" />
+	<link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" />
+	<entry>
+		<id>http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</id>
+		<title type="text">Sentinel-1 SAR-C SAR, 2015-01-29T18:50:06.82Z, IW, HH HV, Track: 118</title>
+		<summary type="html">&lt;table&gt; &lt;tr&gt;  &lt;td valign='top'&gt;  &lt;table&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Platform Short Name&lt;/b&gt; &lt;/td&gt; &lt;td&gt;S1A&lt;/td&gt;    &lt;/tr&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Platform Serial Identifier&lt;/b&gt; &lt;/td&gt; &lt;td&gt;0000-000A&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Instrument Short Name&lt;/b&gt; &lt;/td&gt; &lt;td&gt;SAR-C SAR&lt;/td&gt; &lt;/tr&gt;    &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Sensor Type&lt;/b&gt; &lt;/td&gt; &lt;td&gt;&lt;/td&gt;    &lt;/tr&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Sensor Operational Mode&lt;/b&gt; &lt;/td&gt; &lt;td&gt;IW&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Swath Identifier&lt;/b&gt; &lt;/td&gt; &lt;td&gt;IW1 IW2 IW3&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/td&gt;   &lt;td valign='top'&gt;   &lt;table&gt; &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Orbit Number&lt;/b&gt; &lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Orbit Direction&lt;/b&gt; &lt;/td&gt; &lt;td&gt;ASCENDING&lt;/td&gt; &lt;/tr&gt;   &lt;tr valign='top'&gt; &lt;td&gt; &lt;b&gt;Start Date&lt;/b&gt; &lt;/td&gt; &lt;td&gt;2015-01-29T18:50:06.82Z&lt;/td&gt; &lt;/tr&gt; &lt;tr valign='top'&gt;    &lt;td&gt; &lt;b&gt;End Date&lt;/b&gt; &lt;/td&gt; &lt;td&gt;2015-01-29T18:50:34.085Z&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;</summary>
+		<updated>2015-02-03T16:13:07.520989Z</updated>
+		<link href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/$value" />
+		<link rel="alternative" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/" />
+		<link rel="icon" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/Products('Quicklook')/$value" />
+		<link rel="enclosure" type="application/x-binary" title="File" href="https://scihub.esa.int/dhus/odata/v1/Products('260ec041-0a7b-433f-ab80-6f88360f15a7')/$value" />
+		<link rel="self" type="application/atom+xml" title="Reference link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/search?format=atom&amp;uid=S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" />
+		<link rel="search" type="application/opensearchdescription+xml" title="OpenSearch Description link" href="http://data.terradue.com/gs/catalogue/tepqw/gtfeature/description" />
+		<date xmlns="http://purl.org/dc/elements/1.1/">2015-01-29T18:50:06.82Z/2015-01-29T18:50:34.085Z</date>
+		<spatial xmlns="http://purl.org/dc/terms/">MULTIPOLYGON(((-129.968719 48.14193,-129.968719 48.14193,-131.056732 48.272541,-131.056732 48.272541,-130.657394 49.769352,-130.657394 49.769352,-129.536499 49.638176,-129.536499 49.638176,-129.968719 48.14193)))</spatial>
+		<identifier xmlns="http://purl.org/dc/elements/1.1/">S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F</identifier>
+	</entry>
+	<totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults>
+	<startIndex xmlns="http://a9.com/-/spec/opensearch/1.1/">1</startIndex>
+	<itemsPerPage xmlns="http://a9.com/-/spec/opensearch/1.1/">20</itemsPerPage>
+	<Query format="atom" uid="S1A_IW_SLC__1SDH_20150129T185006_20150129T185034_004390_0055BD_FF5F" xmlns="http://a9.com/-/spec/opensearch/1.1/" />
+</feed>

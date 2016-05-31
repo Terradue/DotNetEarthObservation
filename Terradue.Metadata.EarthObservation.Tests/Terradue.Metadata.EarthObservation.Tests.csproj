@@ -121,6 +121,7 @@
     <None Include="Samples\landsat8.xml" />
     <None Include="Samples\fa4fae6f-a856-5520-8b33-5c65f1e37b23.atom" />
     <None Include="app.config" />
+    <None Include="Samples\spatial.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
