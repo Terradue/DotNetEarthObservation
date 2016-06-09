@@ -12,7 +12,7 @@ using NuGet4Mono.Extensions;
 
     \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
 
-    \xrefitem sw_license "License" "Software License" [GPLv3](https://github.com/Terradue/Terradue.Metadata.EarthObservation/blob/master/LICENSE.txt)
+    \xrefitem sw_license "License" "Software License" [AGPL](https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE)
 
     \xrefitem sw_req "Require" "Software Dependencies" \ref Terradue.OpenSearch
 
