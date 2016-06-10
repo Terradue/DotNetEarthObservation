@@ -125,6 +125,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
 
 
             // Query the slave url
+            log.DebugFormat ("Query slave : {0}", slaveFeedUrl);
             IOpenSearchResultCollection slavesFeedResult0 = ose.Query(correlatedEntity, nvc);
 
 
@@ -161,7 +162,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(masterEntity.GetOpenSearchParameters(osr.ContentType));
 
             // Add the track number, the sensor mode and the swath identifier of the master product
-            nvc.Add(GetMasterParametersForSlaveFocusedSearch(osr, item, searchParameters, masterEntity));
+            var slaveParameters = GetMasterParametersForSlaveFocusedSearch(osr, item, searchParameters, masterEntity);
+            foreach (var key in slaveParameters.AllKeys) {
+                nvc.Set (key, slaveParameters [key]);
+            }
 
             // Add the master self link as the correlation pair
             nvc.Set(revOsParams["cor:with"], item.Links.FirstOrDefault(l => l.RelationshipType == "self").Uri.ToString());
@@ -236,7 +240,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters {
             var timeCoverage = GetTimeCoverage(searchParameters, item);
 
             if (timeCoverage != null) {
-                if (!string.IsNullOrEmpty(revOsParams["time:start"]) || !string.IsNullOrEmpty(revOsParams["time:end"])) throw new ImpossibleSearchException("Interferometry search with time parameter requires that slave sries can be searched by time (missing time:start and/or time:end in OSDD)");
+                if (string.IsNullOrEmpty(revOsParams["time:start"]) || string.IsNullOrEmpty(revOsParams["time:end"])) throw new ImpossibleSearchException("Interferometry search with time parameter requires that slave sries can be searched by time (missing time:start and/or time:end in OSDD)");
                 nvc.Set(revOsParams["time:start"], timeCoverage[0].ToUniversalTime().ToString("O"));
                 nvc.Set(revOsParams["time:end"], timeCoverage[1].ToUniversalTime().ToString("O"));
             }

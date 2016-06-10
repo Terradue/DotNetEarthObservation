@@ -8,6 +8,8 @@
     <RootNamespace>Terradue.Metadata.EarthObservation</RootNamespace>
     <AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
     <UseMSBuildEngine>False</UseMSBuildEngine>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,9 +83,6 @@
     <Reference Include="NuGet4Mono.Extensions">
       <HintPath>..\packages\NuGet4Mono.Extensions.0.3.0\lib\net40\NuGet4Mono.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Terradue.OpenSearch">
-      <HintPath>..\packages\Terradue.OpenSearch.1.12.1\lib\net40\Terradue.OpenSearch.dll</HintPath>
-    </Reference>
     <Reference Include="Terradue.GeoJson">
       <HintPath>..\packages\Terradue.GeoJson.1.7.2\lib\net40\Terradue.GeoJson.dll</HintPath>
     </Reference>
@@ -123,5 +122,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Terradue.Metadata.EarthObservation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DotNetOpenSearch\Terradue.OpenSearch\Terradue.OpenSearch.csproj">
+      <Project>{997A44FD-EE4A-490A-855B-88305E0CD269}</Project>
+      <Name>Terradue.OpenSearch</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
