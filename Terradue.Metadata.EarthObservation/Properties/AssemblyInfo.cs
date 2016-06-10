@@ -8,11 +8,11 @@ using NuGet4Mono.Extensions;
 @{
     Terradue .Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements
 
-    \xrefitem sw_version "Versions" "Software Package Version" 1.4.3
+    \xrefitem sw_version "Versions" "Software Package Version" 1.4.4
 
     \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
 
-    \xrefitem sw_license "License" "Software License" [GPLv3](https://github.com/Terradue/Terradue.Metadata.EarthObservation/blob/master/LICENSE.txt)
+    \xrefitem sw_license "License" "Software License" [AGPL](https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE)
 
     \xrefitem sw_req "Require" "Software Dependencies" \ref Terradue.OpenSearch
 
@@ -38,8 +38,8 @@ using NuGet4Mono.Extensions;
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
-[assembly: AssemblyVersion("1.4.3.*")]
-[assembly: AssemblyInformationalVersion("1.4.3")]
+[assembly: AssemblyVersion("1.4.4.*")]
+[assembly: AssemblyInformationalVersion("1.4.4")]
 [assembly: AssemblyAuthors("Emmanuel Mathot")]
 [assembly: AssemblyProjectUrl("https://github.com/Terradue/DotNetEarthObservation")]
 [assembly: AssemblyLicenseUrl("https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE")]
