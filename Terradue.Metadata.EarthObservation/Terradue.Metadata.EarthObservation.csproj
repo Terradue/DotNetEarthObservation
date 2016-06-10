@@ -90,6 +90,9 @@
       <HintPath>..\packages\Terradue.ServiceModel.Ogc.1.1.3\lib\net40\Terradue.ServiceModel.Ogc.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
+    <Reference Include="Terradue.OpenSearch">
+      <HintPath>..\packages\Terradue.OpenSearch.1.12.1\lib\net40\Terradue.OpenSearch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,11 +125,5 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Terradue.Metadata.EarthObservation.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DotNetOpenSearch\Terradue.OpenSearch\Terradue.OpenSearch.csproj">
-      <Project>{997A44FD-EE4A-490A-855B-88305E0CD269}</Project>
-      <Name>Terradue.OpenSearch</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>
