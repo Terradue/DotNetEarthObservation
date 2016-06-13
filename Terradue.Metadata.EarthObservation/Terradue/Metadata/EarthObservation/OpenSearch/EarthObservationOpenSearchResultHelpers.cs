@@ -847,6 +847,44 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             }
         }
 
+		public static string FindWrsLatitudeGridFromOpenSearchResultItem(IOpenSearchResultItem item)
+		{
+
+			Terradue.ServiceModel.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+
+			if (eo != null) {
+
+				if (eo is Terradue.ServiceModel.Ogc.Eop21.EarthObservationType) {
+					return FindWrsLatitudeGridFromEarthObservation((Terradue.ServiceModel.Ogc.Eop21.EarthObservationType)eo);
+				}
+
+				if (eo is Terradue.ServiceModel.Ogc.Eop20.EarthObservationType) {
+					return FindWrsLatitudeGridFromEarthObservation20((Terradue.ServiceModel.Ogc.Eop20.EarthObservationType)eo);
+				}
+			}
+
+			return null;
+
+		}
+
+		public static string FindWrsLatitudeGridFromEarthObservation(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo)
+		{
+			try {
+				return eo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
+			} catch (Exception) {
+				return null;
+			}
+		}
+
+		public static string FindWrsLatitudeGridFromEarthObservation20(Terradue.ServiceModel.Ogc.Eop20.EarthObservationType eo)
+		{
+			try {
+				return eo.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLatitudeGrid.Value;
+			} catch (Exception) {
+				return null;
+			}
+		}
+
         public static string FindProcessingLevelFromOpenSearchResultItem(IOpenSearchResultItem item) {
 
             Terradue.ServiceModel.Ogc.Om.OM_ObservationType eo = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
