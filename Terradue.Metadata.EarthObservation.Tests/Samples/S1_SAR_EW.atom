@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:feed xmlns:cs="http://ngeo.eo.esa.int/schema/catalogue" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ./atom.xsd http://ngeo.eo.esa.int/schema/catalogue ./ngEOCatalogueSearchService.xsd http://a9.com/-/spec/opensearch/1.1/ ./OpenSearch.xsd">
+<opensearch:totalResults>3493</opensearch:totalResults>
+<!-- query time : 5 -->
+<opensearch:startIndex>0</opensearch:startIndex>
+<opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+<opensearch:Query role="request" searchTerms="" startPage="0"/>
+<atom:author><atom:name>ngEO Catalogue Server</atom:name></atom:author>
+<atom:generator>ngEO Catalogue Server</atom:generator>
+<atom:id>https://ngeopro.magellium.fr/acs/eoproduct/S1_SAR_EW?count=20</atom:id>
+<atom:title>Atom 1.0 Feed</atom:title>
+<atom:updated>2016-06-21T14:44:01.540Z</atom:updated>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T185521_20160331T185556_010617_00FCD9</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T185521_20160331T185556_010617_00FCD9" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T185521_20160331T185556_010617_00FCD9"/>
+<atom:published>2016-05-05T01:56:55.901Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T185521_20160331T185556_010617_00FCD9 (DPA)</atom:title>
+<atom:updated>2016-05-05T01:56:55.901Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="ID-4169">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="ID-4170">
+<gml:beginPosition>2016-03-31T18:55:25.41Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:55:56.51Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="ID-4171">
+<gml:timePosition>2016-03-31T20:54:38.54Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="ID-4172">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1840506</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1871607</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="ID-4173">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="ID-4174" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="ID-4175">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>68.287720 171.204941 66.438118 170.470917 65.602242 179.436798 67.412254 -179.155029 68.287720 171.204941</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="ID-4176">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T185521_20160331T185556_010617_00FCD9">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">220849199</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T185521_20160331T185556_010617_00FCD9</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T185421_20160331T185529_010617_00FCD9</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T185421_20160331T185529_010617_00FCD9" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T185421_20160331T185529_010617_00FCD9"/>
+<atom:published>2016-05-04T23:43:39.869Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T185421_20160331T185529_010617_00FCD9 (DPA)</atom:title>
+<atom:updated>2016-05-04T23:43:39.869Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<gml:beginPosition>2016-03-31T18:54:25.41Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:55:25.41Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<gml:timePosition>2016-03-31T20:53:40.94Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1780505</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1840500</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>71.841591 173.023804 68.288132 171.204147 67.412598 -179.154724 70.853500 -175.695633 71.841591 173.023804</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T185425_20160331T185525_010617_00FCD9_032F.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T185421_20160331T185529_010617_00FCD9">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">425344336</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T185421_20160331T185529_010617_00FCD9</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T185321_20160331T185429_010617_00FCD9</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T185321_20160331T185429_010617_00FCD9" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T185321_20160331T185429_010617_00FCD9"/>
+<atom:published>2016-05-04T15:58:18.845Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T185321_20160331T185429_010617_00FCD9 (DPA)</atom:title>
+<atom:updated>2016-05-04T15:58:18.845Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<gml:beginPosition>2016-03-31T18:53:25.41Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:54:25.41Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<gml:timePosition>2016-03-31T20:53:41.21Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1720505</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1780499</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>75.382042 175.434372 71.842010 173.022873 70.853844 -175.695236 74.223160 -170.983932 75.382042 175.434372</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T185325_20160331T185425_010617_00FCD9_8E8C.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T185321_20160331T185429_010617_00FCD9">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">425111795</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T185321_20160331T185429_010617_00FCD9</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T185221_20160331T185329_010617_00FCD9</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T185221_20160331T185329_010617_00FCD9" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T185221_20160331T185329_010617_00FCD9"/>
+<atom:published>2016-05-04T21:09:18.876Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T185221_20160331T185329_010617_00FCD9 (DPA)</atom:title>
+<atom:updated>2016-05-04T21:09:18.876Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<gml:beginPosition>2016-03-31T18:52:21.10Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:53:25.41Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<gml:timePosition>2016-03-31T20:54:39.39Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1656194</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1720499</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>79.146164 179.374344 75.382469 175.433273 74.223495 -170.983368 77.685013 -163.415558 79.146164 179.374344</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T185221_20160331T185325_010617_00FCD9_7D90.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T185221_20160331T185329_010617_00FCD9">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">455703571</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T185221_20160331T185329_010617_00FCD9</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T184550_20160331T184652_010617_00FCD8</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T184550_20160331T184652_010617_00FCD8" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T184550_20160331T184652_010617_00FCD8"/>
+<atom:published>2016-05-04T20:51:12.873Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T184550_20160331T184652_010617_00FCD8 (DPA)</atom:title>
+<atom:updated>2016-05-04T20:51:12.873Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<gml:beginPosition>2016-03-31T18:45:54.23Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:46:52.65Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<gml:timePosition>2016-03-31T20:53:47.03Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1269316</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1327736</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>77.268951 -21.331907 80.666489 -25.903004 79.043121 -45.042259 75.998024 -36.506790 77.268951 -21.331907</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T184554_20160331T184652_010617_00FCD8_0747.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T184550_20160331T184652_010617_00FCD8">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">412359923</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T184550_20160331T184652_010617_00FCD8</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T184450_20160331T184558_010617_00FCD8</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T184450_20160331T184558_010617_00FCD8" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T184450_20160331T184558_010617_00FCD8"/>
+<atom:published>2016-05-04T21:05:11.868Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T184450_20160331T184558_010617_00FCD8 (DPA)</atom:title>
+<atom:updated>2016-05-04T21:05:11.868Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<gml:beginPosition>2016-03-31T18:44:54.22Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:45:54.22Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<gml:timePosition>2016-03-31T20:54:47.84Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1209313</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1269310</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>73.736862 -18.474468 77.268448 -21.334723 75.997696 -36.506088 72.679459 -30.842190 73.736862 -18.474468</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T184454_20160331T184554_010617_00FCD8_22C5.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T184450_20160331T184558_010617_00FCD8">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">423651670</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T184450_20160331T184558_010617_00FCD8</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T184350_20160331T184458_010617_00FCD8</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T184350_20160331T184458_010617_00FCD8" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T184350_20160331T184458_010617_00FCD8"/>
+<atom:published>2016-05-05T03:50:04.861Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T184350_20160331T184458_010617_00FCD8 (DPA)</atom:title>
+<atom:updated>2016-05-05T03:50:04.861Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<gml:beginPosition>2016-03-31T18:43:54.23Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:44:54.22Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<gml:timePosition>2016-03-31T20:54:47.81Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1149315</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1209307</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>70.183327 -16.502316 73.736511 -18.474205 72.679123 -30.841713 69.257805 -26.911644 70.183327 -16.502316</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T184354_20160331T184454_010617_00FCD8_8DA3.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T184350_20160331T184458_010617_00FCD8">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">424308106</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T184350_20160331T184458_010617_00FCD8</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T184250_20160331T184358_010617_00FCD8</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T184250_20160331T184358_010617_00FCD8" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T184250_20160331T184358_010617_00FCD8"/>
+<atom:published>2016-05-04T20:45:26.863Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T184250_20160331T184358_010617_00FCD8 (DPA)</atom:title>
+<atom:updated>2016-05-04T20:45:26.863Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<gml:beginPosition>2016-03-31T18:42:49.93Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T18:43:54.22Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<gml:timePosition>2016-03-31T20:53:46.77Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10617</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">45</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1085014</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1149309</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>66.364250 -14.850624 70.182854 -16.504110 69.257469 -26.911228 65.532440 -23.754543 66.364250 -14.850624</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T184249_20160331T184354_010617_00FCD8_0DC9.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T184250_20160331T184358_010617_00FCD8">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">453974277</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T184250_20160331T184358_010617_00FCD8</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T153146_20160331T153203_010615_00FCCA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T153146_20160331T153203_010615_00FCCA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T153146_20160331T153203_010615_00FCCA"/>
+<atom:published>2016-05-05T02:40:42.860Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T153146_20160331T153203_010615_00FCCA (DPA)</atom:title>
+<atom:updated>2016-05-05T02:40:42.860Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<gml:beginPosition>2016-03-31T15:31:50.48Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T15:32:04.11Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<gml:timePosition>2016-03-31T17:51:28.26Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10615</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">43</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1474643</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1488272</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>87.544426 -46.796341 87.495186 -65.737457 83.812347 -58.088264 83.832382 -50.387302 87.544426 -46.796341</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T153150_20160331T153204_010615_00FCCA_66A1.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T153146_20160331T153203_010615_00FCCA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">96613833</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T153146_20160331T153203_010615_00FCCA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T153046_20160331T153154_010615_00FCCA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T153046_20160331T153154_010615_00FCCA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T153046_20160331T153154_010615_00FCCA"/>
+<atom:published>2016-05-04T17:37:42.846Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T153046_20160331T153154_010615_00FCCA (DPA)</atom:title>
+<atom:updated>2016-05-04T17:37:42.846Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<gml:beginPosition>2016-03-31T15:30:50.48Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T15:31:50.47Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<gml:timePosition>2016-03-31T17:51:41.60Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10615</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">43</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1414642</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1474637</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>85.454056 5.225861 87.544388 -46.787979 83.832367 -50.383907 82.727707 -20.245247 85.454056 5.225861</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T153050_20160331T153150_010615_00FCCA_2E0F.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T153046_20160331T153154_010615_00FCCA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">423389223</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T153046_20160331T153154_010615_00FCCA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T152946_20160331T153054_010615_00FCCA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T152946_20160331T153054_010615_00FCCA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T152946_20160331T153054_010615_00FCCA"/>
+<atom:published>2016-05-04T20:30:07.872Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T152946_20160331T153054_010615_00FCCA (DPA)</atom:title>
+<atom:updated>2016-05-04T20:30:07.872Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<gml:beginPosition>2016-03-31T15:29:50.48Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T15:30:50.47Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<gml:timePosition>2016-03-31T17:51:56.63Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10615</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">43</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1354641</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1414636</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>82.195335 19.989626 85.453751 5.228335 82.727516 -20.242790 80.319550 -1.390228 82.195335 19.989626</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T152950_20160331T153050_010615_00FCCA_11BE.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T152946_20160331T153054_010615_00FCCA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">423317623</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T152946_20160331T153054_010615_00FCCA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T152746_20160331T152854_010615_00FCCA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T152746_20160331T152854_010615_00FCCA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T152746_20160331T152854_010615_00FCCA"/>
+<atom:published>2016-05-04T15:45:33.849Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T152746_20160331T152854_010615_00FCCA (DPA)</atom:title>
+<atom:updated>2016-05-04T15:45:33.849Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<gml:beginPosition>2016-03-31T15:27:46.17Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T15:28:50.47Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<gml:timePosition>2016-03-31T17:51:42.01Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10615</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">43</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1230332</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1294634</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>74.970917 29.915791 78.739708 26.203268 77.330078 9.514218 73.843582 16.691078 74.970917 29.915791</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T152746_20160331T152850_010615_00FCCA_B74D.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T152746_20160331T152854_010615_00FCCA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">453618701</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T152746_20160331T152854_010615_00FCCA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T152300_20160331T152409_010615_00FCC8</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T152300_20160331T152409_010615_00FCC8" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T152300_20160331T152409_010615_00FCC8"/>
+<atom:published>2016-05-05T01:57:54.858Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T152300_20160331T152409_010615_00FCC8 (DPA)</atom:title>
+<atom:updated>2016-05-05T01:57:54.858Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<gml:beginPosition>2016-03-31T15:23:00.57Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T15:24:10.11Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<gml:timePosition>2016-03-31T17:46:39.44Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10615</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">43</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">944717</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1014255</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>58.003033 37.202778 62.148571 35.938778 61.380157 28.237169 57.278400 30.378139 58.003033 37.202778</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T152300_20160331T152410_010615_00FCC8_8EBA.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T152300_20160331T152409_010615_00FCC8">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">491530244</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T152300_20160331T152409_010615_00FCC8</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T121954_20160331T122047_010613_00FCBC</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T121954_20160331T122047_010613_00FCBC" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T121954_20160331T122047_010613_00FCBC"/>
+<atom:published>2016-05-04T21:55:49.862Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T121954_20160331T122047_010613_00FCBC (DPA)</atom:title>
+<atom:updated>2016-05-04T21:55:49.862Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<gml:beginPosition>2016-03-31T12:19:58.72Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:20:48.04Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<gml:timePosition>2016-03-31T14:37:36.64Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1812176</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1861504</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>69.969635 -89.217529 67.042625 -90.536743 66.192566 -81.352821 69.043556 -78.857384 69.969635 -89.217529</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T121958_20160331T122048_010613_00FCBC_EA31.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T121954_20160331T122047_010613_00FCBC">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">350038371</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T121954_20160331T122047_010613_00FCBC</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T121854_20160331T122002_010613_00FCBC</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T121854_20160331T122002_010613_00FCBC" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T121854_20160331T122002_010613_00FCBC"/>
+<atom:published>2016-05-04T14:33:32.217Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T121854_20160331T122002_010613_00FCBC (DPA)</atom:title>
+<atom:updated>2016-05-04T14:33:32.217Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<gml:beginPosition>2016-03-31T12:18:58.72Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:19:58.71Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<gml:timePosition>2016-03-31T14:38:02.96Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1752180</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1812170</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>73.519516 -87.197670 69.970047 -89.218384 69.043900 -78.857040 72.458969 -74.917435 73.519516 -87.197670</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T121858_20160331T121958_010613_00FCBC_6A24.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T121854_20160331T122002_010613_00FCBC">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">425751031</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T121854_20160331T122002_010613_00FCBC</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T121754_20160331T121902_010613_00FCBC</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T121754_20160331T121902_010613_00FCBC" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T121754_20160331T121902_010613_00FCBC"/>
+<atom:published>2016-05-04T20:19:31.870Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T121754_20160331T121902_010613_00FCBC (DPA)</atom:title>
+<atom:updated>2016-05-04T20:19:31.870Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<gml:beginPosition>2016-03-31T12:17:58.72Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:18:58.71Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<gml:timePosition>2016-03-31T14:37:59.08Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1692177</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1752174</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>77.049026 -84.323486 73.519936 -87.198677 72.459305 -74.916962 75.775108 -69.307610 77.049026 -84.323486</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T121758_20160331T121858_010613_00FCBC_6A7C.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T121754_20160331T121902_010613_00FCBC">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">425698159</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T121754_20160331T121902_010613_00FCBC</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T121654_20160331T121802_010613_00FCBC</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T121654_20160331T121802_010613_00FCBC" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T121654_20160331T121802_010613_00FCBC"/>
+<atom:published>2016-05-04T17:10:44.839Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T121654_20160331T121802_010613_00FCBC (DPA)</atom:title>
+<atom:updated>2016-05-04T17:10:44.839Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<gml:beginPosition>2016-03-31T12:16:54.41Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:17:58.71Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<gml:timePosition>2016-03-31T14:37:50.07Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1627870</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1692171</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>80.792633 -79.370102 77.049530 -84.326256 75.775436 -69.306931 79.133743 -59.993084 80.792633 -79.370102</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T121654_20160331T121758_010613_00FCBC_F846.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T121654_20160331T121802_010613_00FCBC">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">453937241</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T121654_20160331T121802_010613_00FCBC</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T121053_20160331T121150_010613_00FCBA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T121053_20160331T121150_010613_00FCBA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T121053_20160331T121150_010613_00FCBA"/>
+<atom:published>2016-05-05T05:25:09.861Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T121053_20160331T121150_010613_00FCBA (DPA)</atom:title>
+<atom:updated>2016-05-05T05:25:09.861Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<gml:beginPosition>2016-03-31T12:10:57.87Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:11:50.21Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<gml:timePosition>2016-03-31T14:36:59.88Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1271328</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1323669</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>77.376938 77.133224 80.420586 73.058769 78.803535 54.181156 76.075569 61.772865 77.376938 77.133224</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T121057_20160331T121150_010613_00FCBA_7B37.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T121053_20160331T121150_010613_00FCBA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">372103907</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T121053_20160331T121150_010613_00FCBA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T120953_20160331T121101_010613_00FCBA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T120953_20160331T121101_010613_00FCBA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T120953_20160331T121101_010613_00FCBA"/>
+<atom:published>2016-05-05T04:26:22.864Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T120953_20160331T121101_010613_00FCBA (DPA)</atom:title>
+<atom:updated>2016-05-05T04:26:22.864Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<gml:beginPosition>2016-03-31T12:09:57.87Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:10:57.86Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<gml:timePosition>2016-03-31T14:37:50.14Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1211332</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1271322</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>73.849014 80.089890 77.376503 77.131950 76.075241 61.773552 72.769852 67.570320 73.849014 80.089890</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T120957_20160331T121057_010613_00FCBA_91FE.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T120953_20160331T121101_010613_00FCBA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">426503718</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T120953_20160331T121101_010613_00FCBA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+<atom:id>S1A_EW_RAW__0SDH_20160331T120853_20160331T121001_010613_00FCBA</atom:id>
+<atom:link rel="alternate" type="application/atom+xml" href="https://ngeopro.magellium.fr/acs/eoproduct?id=S1A_EW_RAW__0SDH_20160331T120853_20160331T121001_010613_00FCBA" title="URL for retrieving full details of product: S1A_EW_RAW__0SDH_20160331T120853_20160331T121001_010613_00FCBA"/>
+<atom:published>2016-05-04T18:12:12.854Z</atom:published>
+<atom:title>S1A_EW_RAW__0SDH_20160331T120853_20160331T121001_010613_00FCBA (DPA)</atom:title>
+<atom:updated>2016-05-04T18:12:12.854Z</atom:updated>
+<sar:EarthObservation xmlns:eop="http://www.opengis.net/eop/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:rep="http://ngeo.eo.esa.int/ngEO/metadataReport/1.0" xmlns:sar="http://www.opengis.net/sar/2.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EarthObservation.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TimePeriod.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<gml:beginPosition>2016-03-31T12:08:57.87Z</gml:beginPosition>
+<gml:endPosition>2016-03-31T12:09:57.87Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime>
+<gml:TimeInstant gml:id="TimeInstant.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<gml:timePosition>2016-03-31T14:37:13.92Z</gml:timePosition>
+</gml:TimeInstant>
+</om:resultTime>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EarthObservationEquipment.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>Sentinel-1</eop:shortName>
+<eop:serialIdentifier>A</eop:serialIdentifier>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">EW</eop:operationalMode>
+<eop:swathIdentifier>EW</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>10613</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:wrsLongitudeGrid codeSpace="">41</eop:wrsLongitudeGrid>
+<eop:startTimeFromAscendingNode uom="msec">1151329</eop:startTimeFromAscendingNode>
+<eop:completionTimeFromAscendingNode uom="msec">1211326</eop:completionTimeFromAscendingNode>
+<sar:polarisationMode>D</sar:polarisationMode>
+<sar:polarisationChannels>HH, HV</sar:polarisationChannels>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty nilReason="inapplicable" xsi:nil="true"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="Footprint.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MultiSurface.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<gml:Polygon gml:id="Polygon.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<gml:exterior>
+<gml:LinearRing>
+<gml:posList>70.300758 82.176025 73.848595 80.088867 72.769516 67.570793 69.362549 71.641029 70.300758 82.176025</gml:posList>
+</gml:LinearRing>
+</gml:exterior>
+</gml:Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EarthObservationResult.S1A_EW_GRDM_1SDH_20160331T120857_20160331T120957_010613_00FCBA_AB52.SAFE">
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://s1-pdmcdmz-oda-v-20.sentinel1.eo.esa.int/odabroker/rest/ngEO//S1A_EW_RAW__0SDH_20160331T120853_20160331T121001_010613_00FCBA">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+<eop:size uom="Bytes">426349225</eop:size>
+<eop:timeliness>Fast-24h</eop:timeliness>
+</eop:ProductInformation>
+</eop:product>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>S1A_EW_RAW__0SDH_20160331T120853_20160331T121001_010613_00FCBA</eop:identifier>
+<eop:acquisitionType>NOMINAL</eop:acquisitionType>
+<eop:productType>N/A</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:vendorSpecific><eop:SpecificInformation><eop:localAttribute>nativeDatasetId</eop:localAttribute><eop:localValue>S1_SAR_EW</eop:localValue></eop:SpecificInformation></eop:vendorSpecific></eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+</atom:entry>
+
+
+</atom:feed>
+
