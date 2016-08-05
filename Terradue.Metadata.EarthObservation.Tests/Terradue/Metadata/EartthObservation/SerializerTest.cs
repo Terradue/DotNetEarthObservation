@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.IO;
 using Terradue.ServiceModel.Ogc;
 using System.Xml;
+using Terradue.OpenSearch.Result;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -64,6 +65,32 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
 
         }
+
+		[TestCase]
+		public void DeserializeAtom()
+		{
+
+			FileStream s1 = new FileStream("../Samples/S1_SAR_EW.atom", FileMode.Open, FileAccess.Read);
+
+			var atom = AtomFeed.Load(XmlReader.Create(s1));
+
+			Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.RestoreGeoRss(atom);
+
+
+			s1.Close();
+
+
+			FileStream s2 = new FileStream("../Samples/S2MSI1C.atom", FileMode.Open, FileAccess.Read);
+
+			atom = AtomFeed.Load(XmlReader.Create(s2));
+
+			Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.RestoreGeoRss(atom);
+
+
+			s2.Close();
+
+
+		}
 
     }
 }
