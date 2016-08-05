@@ -62,7 +62,7 @@ namespace Terradue.Metadata.EarthObservation {
                 if (eo.featureOfInterest.Eop21Footprint != null) {
                     try {
                         return eo.featureOfInterest.Eop21Footprint.multiExtentOf.MultiSurface.ToGeometry();
-                    } catch (Exception) {
+                    } catch (Exception e) {
                     }
                 }
             }
