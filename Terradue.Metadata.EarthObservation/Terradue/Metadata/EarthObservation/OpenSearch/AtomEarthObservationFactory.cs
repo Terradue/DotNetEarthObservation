@@ -11,6 +11,7 @@ using Terradue.ServiceModel.Ogc.OwsContext;
 using System.Xml.Serialization;
 using Terradue.GeoJson.Geometry;
 using Terradue.ServiceModel.Ogc;
+using Terradue.GeoJson.GeoRss;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class AtomEarthObservationFactory {
@@ -27,7 +28,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                 Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType optEo = (Terradue.ServiceModel.Ogc.Opt21.OptEarthObservationType)eo;
                 var item = CreateAtomItemFromOptEarthObservationType(optEo);
                 AddWMSOffering(optEo, item);
-                AddBox(optEo, item);
+                AddGeoRss(optEo, item);
                 return item;
 
             } else {
@@ -370,15 +371,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
             }
         }
 
-        private static void AddBox(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo, AtomItem item){
+        private static void AddGeoRss(Terradue.ServiceModel.Ogc.Eop21.EarthObservationType eo, AtomItem item){
 
             var geom = MetadataHelpers.FindGeometryFromEarthObservation(eo);
             if (geom != null) {
-
-                NetTopologySuite.IO.WKTReader wktreader = new NetTopologySuite.IO.WKTReader();
-                var igeom = wktreader.Read(geom.ToWkt());
-                item.ElementExtensions.Add("box", "http://www.georss.org/georss", string.Format("{0} {1} {2} {3}", igeom.EnvelopeInternal.MinY, igeom.EnvelopeInternal.MinX, igeom.EnvelopeInternal.MaxY, igeom.EnvelopeInternal.MaxX));
-
+                item.ElementExtensions.Add(geom.ToGeoRss().CreateReader());
             }
 
         }
