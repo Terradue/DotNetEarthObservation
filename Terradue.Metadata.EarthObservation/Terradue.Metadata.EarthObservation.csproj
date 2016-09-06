@@ -113,6 +113,7 @@
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Utils.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\Interferometry\Vector3D.cs" />
     <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\Filters\OpenSearchInterferometryFilter.cs" />
+    <Compile Include="Terradue\Metadata\EarthObservation\OpenSearch\GeoTimeOpenSearchHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
