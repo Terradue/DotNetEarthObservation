@@ -42,7 +42,11 @@ namespace Terradue.Metadata.EarthObservation.Test {
             var newParams = GeoTimeOpenSearchHelper.MergeGeoTimeFilters(parameters, overriders);
 
             Assert.IsNullOrEmpty(newParams["geom"]);
+            Assert.AreEqual("-180,-90,180,90", newParams["bbox"]);
+            Assert.AreEqual("disjoint", newParams["rel"]);
         }
+
+
     }
 }
 
