@@ -29,7 +29,7 @@ namespace Terradue.Metadata.EarthObservation
                             }
                             else if (!string.IsNullOrEmpty(parameters["geom"]))
                             {
-                                string geom = IntersectBboxAndGeomFilters(overriders[key], parameters[key]);
+                                string geom = IntersectBboxAndGeomFilters(overriders[key], parameters["geom"]);
                                 nvc.Set("geom", geom);
                             }
                             else
@@ -40,7 +40,7 @@ namespace Terradue.Metadata.EarthObservation
                         case "geom":
                             if (!string.IsNullOrEmpty(parameters["bbox"]))
                             {
-                                string geom = IntersectBboxAndGeomFilters(parameters[key], overriders[key]);
+                                string geom = IntersectBboxAndGeomFilters(parameters["bbox"], overriders[key]);
                                 nvc.Remove("bbox");
                                 nvc.Set("geom", geom);
                             }
@@ -96,6 +96,8 @@ namespace Terradue.Metadata.EarthObservation
             Polygon poly2 = GetPolygonFromBbox(bbox2);
 
             var inters =poly1.Intersection(poly2);
+            if (inters.IsEmpty)
+                return null;
             NetTopologySuite.IO.WKTWriter wktwriter = new NetTopologySuite.IO.WKTWriter();
             return wktwriter.Write(inters);
         }
@@ -106,6 +108,8 @@ namespace Terradue.Metadata.EarthObservation
             IGeometry geom = GetPolygonFromWkt(wkt);
 
             var inters = poly.Intersection(geom);
+            if (inters.IsEmpty)
+                return null;
             NetTopologySuite.IO.WKTWriter wktwriter = new NetTopologySuite.IO.WKTWriter();
             return wktwriter.Write(inters);
         }
