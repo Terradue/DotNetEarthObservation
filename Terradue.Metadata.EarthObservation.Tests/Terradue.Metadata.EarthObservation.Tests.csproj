@@ -94,9 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
-    <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Geometry.cs" />
     <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Metadata.cs" />
     <Compile Include="Terradue\Metadata\EartthObservation\SerializerTest.cs" />
+    <Compile Include="Terradue\Metadata\EartthObservation\HelperTest.cs" />
+    <Compile Include="Terradue\Metadata\EartthObservation\OpenSearch\Geometry.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
