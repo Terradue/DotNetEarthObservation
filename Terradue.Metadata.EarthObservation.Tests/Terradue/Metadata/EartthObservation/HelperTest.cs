@@ -30,7 +30,19 @@ namespace Terradue.Metadata.EarthObservation.Test {
             Assert.AreEqual("POLYGON ((10 10, 10 -10, 0 -10, 0 10, 10 10))", newParams["geom"]);
         }
 
-       
+
+        [Test()]
+        public void MergeGeoTime2()
+        {
+            NameValueCollection parameters = new NameValueCollection();
+            parameters.Set("bbox", "-10,-20,10,20");
+            NameValueCollection overriders = new NameValueCollection();
+            overriders.Set("geom", "POLYGON((6.372 47.01, 19.028 47.01, 18.896 36.527, 6.46 36.598, 6.372 47.01))");
+
+            var newParams = GeoTimeOpenSearchHelper.MergeGeoTimeFilters(parameters, overriders);
+
+            Assert.IsNullOrEmpty(newParams["geom"]);
+        }
     }
 }
 
