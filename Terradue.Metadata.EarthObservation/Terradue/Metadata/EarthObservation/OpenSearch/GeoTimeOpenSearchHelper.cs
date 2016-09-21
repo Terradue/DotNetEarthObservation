@@ -104,7 +104,7 @@ namespace Terradue.Metadata.EarthObservation
                             }
                             break;
                         default:
-                            parameters.Set(key, overriders[key]);
+                            nvc.Set(key, overriders[key]);
                             break;
                     }
                 }
