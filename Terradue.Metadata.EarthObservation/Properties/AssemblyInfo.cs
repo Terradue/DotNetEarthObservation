@@ -8,7 +8,7 @@ using NuGet4Mono.Extensions;
 @{
     Terradue .Net C# library implementing the Earth Observation Metadata profile of Observations & Measurements
 
-    \xrefitem sw_version "Versions" "Software Package Version" 1.4.13
+    \xrefitem sw_version "Versions" "Software Package Version" 1.4.14
 
     \xrefitem sw_link "Link" "Software Package Link" [DotNetEarthObservation](https://github.com/Terradue/DotNetEarthObservation)
 
@@ -38,8 +38,8 @@ using NuGet4Mono.Extensions;
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
-[assembly: AssemblyVersion("1.4.13.*")]
-[assembly: AssemblyInformationalVersion("1.4.13")]
+[assembly: AssemblyVersion("1.4.14.*")]
+[assembly: AssemblyInformationalVersion("1.4.14")]
 [assembly: AssemblyAuthors("Emmanuel Mathot")]
 [assembly: AssemblyProjectUrl("https://github.com/Terradue/DotNetEarthObservation")]
 [assembly: AssemblyLicenseUrl("https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE")]
