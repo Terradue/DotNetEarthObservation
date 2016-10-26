@@ -7,11 +7,11 @@ using System.Web.UI;
 using System.Xml;
 using System.Xml.Linq;
 using Terradue.ServiceModel.Syndication;
-using Terradue.ServiceModel.Ogc.OwsContext;
 using System.Xml.Serialization;
 using Terradue.GeoJson.Geometry;
 using Terradue.ServiceModel.Ogc;
 using Terradue.GeoJson.GeoRss;
+using Terradue.ServiceModel.Ogc.Owc.AtomEncoding;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch {
     public class AtomEarthObservationFactory {
@@ -363,7 +363,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch {
                     offering.Operations[0] = new OwcOperation();
                     offering.Operations[0].Code = "GetMap";
                     offering.Operations[0].Method = "GET";
-                    offering.Operations[0].Href = new Uri(browse.BrowseInformation.fileName.ServiceReference.href);
+                    offering.Operations[0].RequestUrl = new Uri(browse.BrowseInformation.fileName.ServiceReference.href);
 
                     item.ElementExtensions.Add(offering, new XmlSerializer(typeof(OwcOffering)));
 
