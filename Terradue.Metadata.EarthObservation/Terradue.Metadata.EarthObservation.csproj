@@ -10,6 +10,7 @@
 		<UseMSBuildEngine>False</UseMSBuildEngine>
 		<ProductVersion>8.0.30703</ProductVersion>
 		<SchemaVersion>2.0</SchemaVersion>
+		<ReleaseVersion>1.0</ReleaseVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -78,9 +79,6 @@
 		<Reference Include="Terradue.ServiceModel.Ogc">
 			<HintPath>..\packages\Terradue.ServiceModel.Ogc.1.1.6\lib\net40\Terradue.ServiceModel.Ogc.dll</HintPath>
 		</Reference>
-		<Reference Include="Terradue.OpenSearch">
-			<HintPath>..\packages\Terradue.OpenSearch.1.13.2\lib\net40\Terradue.OpenSearch.dll</HintPath>
-		</Reference>
 		<Reference Include="Microsoft.Web.XmlTransform">
 			<HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
 		</Reference>
@@ -137,5 +135,11 @@
 	<ItemGroup>
 		<None Include="packages.config" />
 		<None Include="Terradue.Metadata.EarthObservation.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\DotNetOpenSearch\Terradue.OpenSearch\Terradue.OpenSearch.csproj">
+	    <Project>{997A44FD-EE4A-490A-855B-88305E0CD269}</Project>
+	    <Name>Terradue.OpenSearch</Name>
+	  </ProjectReference>
 	</ItemGroup>
 </Project>
