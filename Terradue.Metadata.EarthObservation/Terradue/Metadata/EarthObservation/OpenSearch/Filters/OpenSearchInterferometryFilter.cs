@@ -348,7 +348,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
 
             if (!string.IsNullOrEmpty(parameters["spatialCover"]))
             {
-                int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
+                double spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
                 var spatialOverlap = CalculateSpatialOverlap(masterItem, slaveItem, parameters["geom"]);
                 if (spatialOverlap < spatialCover)
                 {

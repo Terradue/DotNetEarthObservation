@@ -245,7 +245,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
             }
             try
             {
-                
+
                 var time = value.Split(',');
                 if (time.Length != 2)
                 {
@@ -314,9 +314,16 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
                 return;
             }
 
+            // Test if at least the 2 items intersects
+            if (!Intersects(masterItem, slaveItem))
+            {
+                log.DebugFormat("No intersection {0} evicted", slaveItem.Identifier);
+                return;
+            }
+
             if (!string.IsNullOrEmpty(parameters["spatialCover"]))
             {
-                int spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
+                double spatialCover = OpenSearchCorrelationFilter.GetSpatialCover(parameters);
                 var spatialOverlap = CalculateSpatialOverlap(masterItem, slaveItem, parameters["geom"]);
                 if (spatialOverlap < spatialCover)
                 {
@@ -327,6 +334,19 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
 
             newitems.Add(slaveItem);
 
+        }
+
+        bool Intersects(IOpenSearchResultItem masterItem, IOpenSearchResultItem slaveItem)
+        {
+            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(masterItem);
+            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(slaveItem);
+
+            NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
+            var masterGeometry = wktReader.Read(masterGeom.ToWkt());
+            var slaveGeometry = wktReader.Read(slaveGeom.ToWkt());
+
+
+            return masterGeometry.Intersects(slaveGeometry);
         }
 
         public static bool RangeFilters(string key, string param, double value)
@@ -516,7 +536,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
 
 
 
-        string SimplifyGeometry(string wkt)
+        string SimplifyGeometry(string wkt, int pow = 0)
         {
             if (wkt.Length < 3000)
                 return wkt;
@@ -527,11 +547,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
 
             if (!geometry.IsValid)
                 geometry = geometry.Buffer(0.001);
-            var newGeom = NetTopologySuite.Simplify.DouglasPeuckerSimplifier.Simplify(geometry, 0.005);
+            var newGeom = NetTopologySuite.Simplify.DouglasPeuckerSimplifier.Simplify(geometry, 0.005 * pow);
 
             NetTopologySuite.IO.WKTWriter wktWriter = new NetTopologySuite.IO.WKTWriter();
 
-            return SimplifyGeometry(wktWriter.Write(newGeom));
+            return SimplifyGeometry(wktWriter.Write(newGeom), ++pow);
 
         }
     }
