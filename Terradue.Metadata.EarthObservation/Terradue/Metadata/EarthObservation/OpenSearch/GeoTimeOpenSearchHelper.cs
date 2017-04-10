@@ -110,7 +110,8 @@ namespace Terradue.Metadata.EarthObservation
                             {
                                 if (parameters["uid"] != overriders[key])
                                 {
-                                    return null;
+                                    nvc.Set("uid", "__null");
+                                    break;
                                 }
                             }
                             nvc.Set("uid", overriders[key]);
