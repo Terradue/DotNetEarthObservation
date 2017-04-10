@@ -69,6 +69,23 @@ namespace Terradue.Metadata.EarthObservation.Test {
             Assert.AreEqual(DateTime.Parse("2015-01-29T18:50:34.085Z"), stop);
 
         }
+
+        [Test()]
+        public void FindEOPFromFedeoTSX()
+        {
+            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/fedeo-tsx.atom", FileMode.Open, FileAccess.Read));
+            SyndicationFeed feed = SyndicationFeed.Load(responseReader);
+
+            AtomFeed afeed = new AtomFeed(feed);
+
+            var eo = Terradue.Metadata.EarthObservation.MetadataHelpers.GetEarthObservationFromIOpenSearchResultItem(afeed.Items.First());
+
+            var identifier = MetadataHelpers.FindIdentifierFromEopMetadata(eo);
+
+            Assert.AreEqual("urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145447199/dims_op_pl_dfd_//TerraSAR-X_SSC", identifier);
+
+            var start = MetadataHelpers.FindStartDateFromPhenomenonTime(eo);
+        }
     }
 }
 

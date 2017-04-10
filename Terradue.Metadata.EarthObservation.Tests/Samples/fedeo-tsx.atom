@@ -1,0 +1,2638 @@
+<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:eo="http://a9.com/-/opensearch/extensions/eo/1.0/" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:media="http://search.yahoo.com/mrss/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:sru="http://a9.com/-/opensearch/extensions/sru/2.0/" xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:wrs="http://www.opengis.net/cat/wrs/1.0">
+<os:totalResults>461</os:totalResults>
+<os:startIndex>1</os:startIndex>
+<os:itemsPerPage>10</os:itemsPerPage>
+<os:Query eo:parentIdentifier="urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC" os:count="10" os:startIndex="1" role="request" sru:recordSchema="om" time:end="2015-04-20T00:00:00Z" time:start="2014-01-01T00:00:00Z"/>
+<author>
+<name>FEDEO Clearinghouse</name>
+</author>
+<generator>FEDEO Clearinghouse</generator>
+<id>http://fedeo.esa.int/opensearch/request</id>
+<title>FEDEO Clearinghouse - Search Response</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC&amp;startDate=2014-01-01T00:00:00Z&amp;endDate=2015-04-20T00:00:00Z&amp;recordSchema=om" rel="self" type="application/atom+xml"/>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC&amp;startDate=2014-01-01T00:00:00Z&amp;endDate=2015-04-20T00:00:00Z&amp;recordSchema=om&amp;startRecord=1" rel="first" type="application/atom+xml"/>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC&amp;startDate=2014-01-01T00:00:00Z&amp;endDate=2015-04-20T00:00:00Z&amp;recordSchema=om&amp;startRecord=11" rel="next" type="application/atom+xml"/>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC&amp;startDate=2014-01-01T00:00:00Z&amp;endDate=2015-04-20T00:00:00Z&amp;recordSchema=om&amp;startRecord=461" rel="last" type="application/atom+xml"/>
+<link href="http://fedeo.esa.int/opensearch/description.xml?parentIdentifier=urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC" rel="search" type="application/opensearchdescription+xml"/>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145447199%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145447199%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-18T12:08:46Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145447199/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145447199/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-05T07:40:02.222Z/2014-07-05T07:40:10.222Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_012</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145447199%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145447199%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145447199%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39127</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>DESCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-05T07:40:02.222Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-05T07:40:10.222Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140705T074002.222_Iceland_C235_O049_D_R_SM012_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN10026" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN10026">
+<gml:beginPosition>2014-07-05T07:40:02.222Z</gml:beginPosition>
+<gml:endPosition>2014-07-05T07:40:10.222Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN10026">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_012</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39127</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">41.0760902712607</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">39.8661931528643</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">42.2502857045365</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN10026">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN10027" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON10092" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>66.2530987214406 -17.39746</pos>
+<pos>65.7597067157801 -17.654419</pos>
+<pos>65.7016509759466 -16.960999</pos>
+<pos>66.1943613234586 -16.691528</pos>
+<pos>66.2530987214406 -17.39746</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN10026">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140705T074002.222_Iceland_C235_O049_D_R_SM012_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145447199/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145447199/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-05T07:40:06.222Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-18T12:08:46.324Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145447199/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>66.2530987214406 -17.39746 65.7597067157801 -17.654419 65.7016509759466 -16.960999 66.1943613234586 -16.691528 66.2530987214406 -17.39746</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864929/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145461607%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145461607%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-18T12:08:46Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145461607/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145461607/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-10T18:39:25.260Z/2014-07-10T18:39:33.260Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_006</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145461607%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145461607%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145461607%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39210</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-10T18:39:25.260Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-10T18:39:33.260Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140710T183925.260_Iceland_C235_O132_A_R_SM006_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN10189" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN10189">
+<gml:beginPosition>2014-07-10T18:39:25.260Z</gml:beginPosition>
+<gml:endPosition>2014-07-10T18:39:33.260Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN10189">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_006</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39210</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">28.7254195439583</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">27.1137204112109</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">30.3754067882664</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN10189">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN1018A" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON101F5" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>63.4934195868783 -19.077637</pos>
+<pos>63.9873993092232 -19.33142</pos>
+<pos>63.9133958015839 -20.017334</pos>
+<pos>63.421186695829 -19.743286</pos>
+<pos>63.4934195868783 -19.077637</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN10189">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140710T183925.260_Iceland_C235_O132_A_R_SM006_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145461607/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145461607/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-10T18:39:29.260Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-18T12:08:46.951Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145461607/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>63.4934195868783 -19.077637 63.9873993092232 -19.33142 63.9133958015839 -20.017334 63.421186695829 -19.743286 63.4934195868783 -19.077637</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439864930/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145475912%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145475912%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-19T15:21:03Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145475912/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145475912/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-14T08:14:57.766Z/2014-07-14T08:15:05.765Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_004</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145475912%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145475912%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145475912%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39264</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>DESCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-14T08:14:57.766Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-14T08:15:05.765Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140714T081457.766_Iceland_C236_O019_D_R_SM004_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN102EC" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN102EC">
+<gml:beginPosition>2014-07-14T08:14:57.766Z</gml:beginPosition>
+<gml:endPosition>2014-07-14T08:15:05.765Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN102EC">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_004</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39264</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">23.9862547324243</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">22.3431191483896</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">25.5934947022311</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN102EC">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN102ED" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON10358" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>64.2842280625035 -22.804932</pos>
+<pos>63.793487315523 -23.096924</pos>
+<pos>63.7213645431205 -22.472168</pos>
+<pos>64.2111190115863 -22.169128</pos>
+<pos>64.2842280625035 -22.804932</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN102EC">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140714T081457.766_Iceland_C236_O019_D_R_SM004_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145475912/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145475912/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-14T08:15:01.765Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-19T15:21:03.430Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145475912/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>64.2842280625035 -22.804932 63.793487315523 -23.096924 63.7213645431205 -22.472168 64.2111190115863 -22.169128 64.2842280625035 -22.804932</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439867285/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491651%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491651%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-25T01:06:35Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491651/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491651/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-20T08:06:20.833Z/2014-07-20T08:06:28.833Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_005</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491651%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491651%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491651%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39355</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>DESCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-20T08:06:20.833Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-20T08:06:28.833Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140720T080620.833_Iceland_C236_O110_D_R_SM005_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN1044F" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN1044F">
+<gml:beginPosition>2014-07-20T08:06:20.833Z</gml:beginPosition>
+<gml:endPosition>2014-07-20T08:06:28.833Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN1044F">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_005</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39355</eop:orbitNumber>
+<eop:orbitDirection>DESCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">26.5199548057822</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">24.758293171488</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">28.1854553620616</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN1044F">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN10450" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON104BB" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>64.3320011360362 -21.175903</pos>
+<pos>63.837337645482 -21.429626</pos>
+<pos>63.7642322801524 -20.775635</pos>
+<pos>64.2552271086257 -20.48523</pos>
+<pos>64.3320011360362 -21.175903</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN1044F">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140720T080620.833_Iceland_C236_O110_D_R_SM005_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491651/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491651/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-20T08:06:24.833Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-25T01:06:35.422Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491651/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>64.3320011360362 -21.175903 63.837337645482 -21.429626 63.7642322801524 -20.775635 64.2552271086257 -20.48523 64.3320011360362 -21.175903</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880508/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491798%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491798%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-25T01:34:09Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491798/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491798/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-20T18:56:42.968Z/2014-07-20T18:56:50.968Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_010</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491798%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491798%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145491798%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39362</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-20T18:56:42.968Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-20T18:56:50.968Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140720T185642.968_Iceland_C236_O117_A_R_SM010_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN105B2" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN105B2">
+<gml:beginPosition>2014-07-20T18:56:42.968Z</gml:beginPosition>
+<gml:endPosition>2014-07-20T18:56:50.968Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN105B2">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_010</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39362</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">37.3558119690666</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">36.0553881734134</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">38.6194856747379</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN105B2">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN105B3" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON1061E" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>63.8219293822702 -21.54779</pos>
+<pos>64.3164999088938 -21.784058</pos>
+<pos>64.256546516672 -22.4292</pos>
+<pos>63.7626683930196 -22.181274</pos>
+<pos>63.8219293822702 -21.54779</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN105B2">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140720T185642.968_Iceland_C236_O117_A_R_SM010_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491798/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491798/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-20T18:56:46.968Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-25T01:34:09.815Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145491798/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>63.8219293822702 -21.54779 64.3164999088938 -21.784058 64.256546516672 -22.4292 63.7626683930196 -22.181274 63.8219293822702 -21.54779</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439880516/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145495022%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145495022%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-26T01:05:59Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145495022/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145495022/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-21T18:39:25.992Z/2014-07-21T18:39:32.478Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_007</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145495022%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145495022%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145495022%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39377</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-21T18:39:25.992Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-21T18:39:32.478Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140721T183925.992_Iceland_C236_O132_A_R_SM007_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN10715" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN10715">
+<gml:beginPosition>2014-07-21T18:39:25.992Z</gml:beginPosition>
+<gml:endPosition>2014-07-21T18:39:32.478Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN10715">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_007</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39377</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">31.0116385152579</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">29.4077298152466</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">32.5361975967973</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN10715">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN10716" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON10781" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>63.527030107014 -18.603882</pos>
+<pos>63.9288137778433 -18.794312</pos>
+<pos>63.8583265508454 -19.470093</pos>
+<pos>63.4568245640188 -19.27301</pos>
+<pos>63.527030107014 -18.603882</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN10715">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140721T183925.992_Iceland_C236_O132_A_R_SM007_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145495022/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145495022/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-21T18:39:29.235Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-26T01:05:59.849Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145495022/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>63.527030107014 -18.603882 63.9288137778433 -18.794312 63.8583265508454 -19.470093 63.4568245640188 -19.27301 63.527030107014 -18.603882</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439885296/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497993%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497993%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-27T21:59:11Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497993/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497993/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-22T18:22:49.295Z/2014-07-22T18:22:57.434Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_005</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497993%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497993%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497993%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39392</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-22T18:22:49.295Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-22T18:22:57.434Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140722T182249.295_Iceland_C236_O147_A_R_SM005_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN10878" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN10878">
+<gml:beginPosition>2014-07-22T18:22:49.295Z</gml:beginPosition>
+<gml:endPosition>2014-07-22T18:22:57.434Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN10878">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_005</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39392</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">26.5137206705883</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">24.7678372716935</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">28.1239728691897</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN10878">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN10879" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON108E4" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>65.7549315299688 -16.592468</pos>
+<pos>66.2516345136747 -16.932007</pos>
+<pos>66.1717728973074 -17.661743</pos>
+<pos>65.6762091897043 -17.309631</pos>
+<pos>65.7549315299688 -16.592468</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN10878">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140722T182249.295_Iceland_C236_O147_A_R_SM005_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497993/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497993/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-22T18:22:53.364Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-27T21:59:11.794Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497993/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>65.7549315299688 -16.592468 66.2516345136747 -16.932007 66.1717728973074 -17.661743 65.6762091897043 -17.309631 65.7549315299688 -16.592468</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888370/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497987%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497987%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-27T22:01:03Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497987/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497987/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-22T18:22:41.295Z/2014-07-22T18:22:49.434Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_005</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497987%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497987%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497987%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39392</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-22T18:22:41.295Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-22T18:22:49.434Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140722T182241.295_Iceland_C236_O147_A_R_SM005_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN109DB" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN109DB">
+<gml:beginPosition>2014-07-22T18:22:41.295Z</gml:beginPosition>
+<gml:endPosition>2014-07-22T18:22:49.434Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN109DB">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_005</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39392</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">26.4119075205934</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">24.8500320943818</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">28.1888764310184</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN109DB">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN109DC" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON10A47" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>65.2655664392347 -16.275574</pos>
+<pos>65.7634843779561 -16.598145</pos>
+<pos>65.6847496129203 -17.31543</pos>
+<pos>65.1882821036316 -16.977173</pos>
+<pos>65.2655664392347 -16.275574</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN109DB">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140722T182241.295_Iceland_C236_O147_A_R_SM005_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497987/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497987/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-22T18:22:45.364Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-27T22:01:03.196Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497987/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>65.2655664392347 -16.275574 65.7634843779561 -16.598145 65.6847496129203 -17.31543 65.1882821036316 -16.977173 65.2655664392347 -16.275574</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888375/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497981%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497981%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-27T22:03:45Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497981/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497981/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-22T18:22:33.435Z/2014-07-22T18:22:41.574Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_005</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497981%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497981%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145497981%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39392</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-22T18:22:33.435Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-22T18:22:41.574Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140722T182233.435_Iceland_C236_O147_A_R_SM005_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN10B3E" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN10B3E">
+<gml:beginPosition>2014-07-22T18:22:33.435Z</gml:beginPosition>
+<gml:endPosition>2014-07-22T18:22:41.574Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN10B3E">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_005</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39392</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">26.5005465153706</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">24.7194079732473</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">28.0573289008921</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN10B3E">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN10B3F" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON10BAA" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>64.7840087806234 -15.976318</pos>
+<pos>65.2827883423947 -16.285645</pos>
+<pos>65.1984566580567 -17.049805</pos>
+<pos>64.7031877233273 -16.706116</pos>
+<pos>64.7840087806234 -15.976318</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN10B3E">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140722T182233.435_Iceland_C236_O147_A_R_SM005_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497981/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497981/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-22T18:22:37.504Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-27T22:03:45.765Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145497981/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>64.7840087806234 -15.976318 65.2827883423947 -16.285645 65.1984566580567 -17.049805 64.7031877233273 -16.706116 64.7840087806234 -15.976318</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439888377/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+<entry>
+<id>http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145505938%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om</id>
+<link href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145505938%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" rel="alternate" title="Atom format" type="application/atom+xml"/>
+<published>2014-07-30T01:05:16Z</published>
+<dc:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145505938/dims_op_pl_dfd_//TerraSAR-X_SSC</dc:identifier>
+<title>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145505938/dims_op_pl_dfd_//TerraSAR-X_SSC</title>
+<updated>2017-03-15T09:23:52Z</updated>
+<dc:date>2014-07-25T19:05:17.620Z/2014-07-25T19:05:25.621Z</dc:date>
+<summary type="html"><![CDATA[
+<table>
+<tr>
+<td valign="top">
+<a href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/2/anonymous/2017-03-15-08-25-57" target="_blank" title="View browse image">
+<img align="left" border="0" height="66" hspace="8" src="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/2/anonymous/2017-03-15-08-25-57" width="66"/>
+</a>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Platform Short Name</b>
+</td>
+<td>TX01</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Serial Identifier</b>
+</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Platform Orbit Type</b>
+</td>
+<td>LEO</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Instrument Short Name</b>
+</td>
+<td>SAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Type</b>
+</td>
+<td>RADAR</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Sensor Operational Mode</b>
+</td>
+<td>SAR_SM_</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Swath Identifier</b>
+</td>
+<td>strip_013</td>
+</tr>
+<tr>
+<td>
+<b>Media Type</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/atom%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145505938%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="Atom format">ATOM</a>
+											| <a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/sru%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145505938%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="SRU format">SRU</a>
+</td>
+</tr>
+<tr>
+<td>
+<b>Metadata</b>
+</td>
+<td>
+<a href="http://fedeo.esa.int/opensearch/request/?httpAccept=application/gml%2Bxml&amp;parentIdentifier=urn%3Aeop%3ADLR%3AEOWEB%3AGeohazard.Supersite.TerraSAR-X_SSC&amp;uid=urn%3Aeop%3ADLR%3AEOWEB%3ATerraSAR-X_SSC%3A%2Fdims_nz_pl_dfd_XXXXB00000000361145505938%2Fdims_op_pl_dfd_%2F%2FTerraSAR-X_SSC&amp;recordSchema=om" title="O&amp;M format">O&amp;M</a>
+</td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table>
+<tr valign="top">
+<td>
+<b>Orbit Number</b>
+</td>
+<td>39438</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Orbit Direction</b>
+</td>
+<td>ASCENDING</td>
+</tr>
+<tr valign="top">
+<td>
+<b>Start Date</b>
+</td>
+<td>2014-07-25T19:05:17.620Z</td>
+</tr>
+<tr valign="top">
+<td>
+<b>End Date</b>
+</td>
+<td>2014-07-25T19:05:25.621Z</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>]]></summary>
+<link href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140725T190517.620_Iceland_C237_O026_A_R_SM013_SSC.tar.gz" rel="enclosure" title="Download" type="application/x-binary"/>
+<sar:EarthObservation xmlns:sar="http://www.opengis.net/sar/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:atm="http://www.opengis.net/atm/2.0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gmlov="http://www.opengis.net/gml" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="IDN10CA1" xsi:schemaLocation="http://www.opengis.net/sar/2.0 https://svn.opengeospatial.org/ogc-projects/cite/scripts/wcseo/1.0/tags/r1/resources/omeo/sar.xsd">
+<om:phenomenonTime>
+<gml:TimePeriod gml:id="TPN10CA1">
+<gml:beginPosition>2014-07-25T19:05:17.620Z</gml:beginPosition>
+<gml:endPosition>2014-07-25T19:05:25.621Z</gml:endPosition>
+</gml:TimePeriod>
+</om:phenomenonTime>
+<om:resultTime/>
+<om:procedure>
+<eop:EarthObservationEquipment gml:id="EOEN10CA1">
+<eop:platform>
+<eop:Platform>
+<eop:shortName>TX01</eop:shortName>
+<eop:serialIdentifier>1</eop:serialIdentifier>
+<eop:orbitType>LEO</eop:orbitType>
+</eop:Platform>
+</eop:platform>
+<eop:instrument>
+<eop:Instrument>
+<eop:shortName>SAR</eop:shortName>
+</eop:Instrument>
+</eop:instrument>
+<eop:sensor>
+<eop:Sensor>
+<eop:sensorType>RADAR</eop:sensorType>
+<eop:operationalMode codeSpace="urn:eop:PHR:sensorMode">SAR_SM_</eop:operationalMode>
+<eop:swathIdentifier>strip_013</eop:swathIdentifier>
+</eop:Sensor>
+</eop:sensor>
+<eop:acquisitionParameters>
+<sar:Acquisition>
+<eop:orbitNumber>39438</eop:orbitNumber>
+<eop:orbitDirection>ASCENDING</eop:orbitDirection>
+<eop:orbitDuration uom="ms">94.8502994</eop:orbitDuration>
+<eop:incidenceAngle uom="deg">42.8883989631127</eop:incidenceAngle>
+<sar:polarisationMode>S</sar:polarisationMode>
+<sar:polarisationChannels>HH</sar:polarisationChannels>
+<sar:antennaLookDirection>RIGHT</sar:antennaLookDirection>
+<sar:minimumIncidenceAngle uom="deg">41.7568071999039</sar:minimumIncidenceAngle>
+<sar:maximumIncidenceAngle uom="deg">43.9870774299762</sar:maximumIncidenceAngle>
+<sar:dopplerFrequency uom="deg">0.0</sar:dopplerFrequency>
+</sar:Acquisition>
+</eop:acquisitionParameters>
+</eop:EarthObservationEquipment>
+</om:procedure>
+<om:observedProperty xlink:href="#phenom1"/>
+<om:featureOfInterest>
+<eop:Footprint gml:id="FPN10CA1">
+<eop:multiExtentOf>
+<gml:MultiSurface gml:id="MULSFN10CA2" srsName="EPSG:4326">
+<gml:surfaceMembers>
+<Polygon xmlns="http://www.opengis.net/gml/3.2" gml:id="PON10D0D" srsName="urn:ogc:def:crs:EPSG:6.15:4326">
+<exterior>
+<LinearRing>
+<pos>63.7522729123489 -22.15271</pos>
+<pos>64.2481587907393 -22.360962</pos>
+<pos>64.1952983557622 -23.004211</pos>
+<pos>63.6999019273336 -22.784668</pos>
+<pos>63.7522729123489 -22.15271</pos>
+</LinearRing>
+</exterior>
+</Polygon>
+</gml:surfaceMembers>
+</gml:MultiSurface>
+</eop:multiExtentOf>
+</eop:Footprint>
+</om:featureOfInterest>
+<om:result>
+<eop:EarthObservationResult gml:id="EORN10CA1">
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>QUICKLOOK</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/1/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:browse>
+<eop:BrowseInformation>
+<eop:type>THUMBNAIL</eop:type>
+<eop:subType>QL</eop:subType>
+<eop:referenceSystemIdentifier codeSpace="EPSG">epsg:4326</eop:referenceSystemIdentifier>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/2/anonymous/2017-03-15-08-25-57">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:BrowseInformation>
+</eop:browse>
+<eop:product>
+<eop:ProductInformation>
+<eop:fileName>
+<ows:ServiceReference xlink:href="https://supersites.eoc.dlr.de/browse/geohazards/Iceland/TSX_20140725T190517.620_Iceland_C237_O026_A_R_SM013_SSC.tar.gz">
+<ows:RequestMessage/>
+</ows:ServiceReference>
+</eop:fileName>
+</eop:ProductInformation>
+</eop:product>
+<eop:parameter>
+<eop:ParameterInformation>
+<eop:unitOfMeasure uom="c"/>
+<eop:phenomenon>
+<swe:Phenomenon xmlns:ns1="http://www.opengis.net/gml" ns1:id="phenom1">
+<name xmlns="http://www.opengis.net/gml">xyzdef</name>
+</swe:Phenomenon>
+</eop:phenomenon>
+</eop:ParameterInformation>
+</eop:parameter>
+</eop:EarthObservationResult>
+</om:result>
+<eop:metaDataProperty>
+<eop:EarthObservationMetaData>
+<eop:identifier>urn:eop:DLR:EOWEB:TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145505938/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:identifier>
+<eop:doi>TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145505938/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:doi>
+<eop:parentIdentifier>urn:eop:DLR:EOWEB:Geohazard.Supersite.TerraSAR-X_SSC</eop:parentIdentifier>
+<eop:acquisitionType>OTHER</eop:acquisitionType>
+<eop:productType>Geohazard.Supersite.TerraSAR-X_SSC</eop:productType>
+<eop:status>ARCHIVED</eop:status>
+<eop:downlinkedTo>
+<eop:DownlinkInformation>
+<eop:acquisitionStation codeSpace="urn:eop:PHR:stationCode">NSG</eop:acquisitionStation>
+<eop:acquisitionDate>2014-07-25T19:05:21.621Z</eop:acquisitionDate>
+</eop:DownlinkInformation>
+</eop:downlinkedTo>
+<eop:archivedIn>
+<eop:ArchivingInformation>
+<eop:archivingCenter codeSpace="urn:eop:PHR:stationCode">DLR</eop:archivingCenter>
+<eop:archivingDate>2014-07-30T01:05:16.519Z</eop:archivingDate>
+<eop:archivingIdentifier codeSpace="urn:eop:PHR:stationCode">TerraSAR-X_SSC:/dims_nz_pl_dfd_XXXXB00000000361145505938/dims_op_pl_dfd_//TerraSAR-X_SSC</eop:archivingIdentifier>
+</eop:ArchivingInformation>
+</eop:archivedIn>
+<eop:processing>
+<eop:ProcessingInformation/>
+</eop:processing>
+</eop:EarthObservationMetaData>
+</eop:metaDataProperty>
+</sar:EarthObservation>
+<link href="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/2/anonymous/2017-03-15-08-25-57" rel="icon" type="image/jpeg"/>
+<georss:polygon>63.7522729123489 -22.15271 64.2481587907393 -22.360962 64.1952983557622 -23.004211 63.6999019273336 -22.784668 63.7522729123489 -22.15271</georss:polygon>
+<media:group>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/1/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">QUICKLOOK</media:category>
+</media:content>
+<media:content medium="image" type="image/jpeg" url="https://geoservice.dlr.de/hma/browse/?dims_op_pl_eoweb1_XXXXB00000000363439894107/2/anonymous/2017-03-15-08-25-57">
+<media:category scheme="http://www.opengis.net/spec/EOMPOM/1.0">THUMBNAIL</media:category>
+</media:content>
+</media:group>
+</entry>
+</feed>
