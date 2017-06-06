@@ -87,7 +87,8 @@ namespace Terradue.Metadata.EarthObservation
                                 if (overrideDate > paramDate)
                                     nvc.Set(key, overriders[key]);
                             }
-                            else {
+                            else
+                            {
                                 nvc.Set("start", overriders[key]);
                             }
                             break;
@@ -99,9 +100,21 @@ namespace Terradue.Metadata.EarthObservation
                                 if (overrideDate < paramDate)
                                     nvc.Set(key, overriders[key]);
                             }
-                            else {
+                            else
+                            {
                                 nvc.Set("stop", overriders[key]);
                             }
+                            break;
+                        case "uid":
+                            if (!string.IsNullOrEmpty(parameters["uid"]))
+                            {
+                                if (parameters["uid"] != overriders[key])
+                                {
+                                    nvc.Set("uid", "__null");
+                                    break;
+                                }
+                            }
+                            nvc.Set("uid", overriders[key]);
                             break;
                         default:
                             nvc.Set(key, overriders[key]);

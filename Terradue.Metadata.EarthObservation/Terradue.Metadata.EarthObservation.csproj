@@ -58,14 +58,8 @@
 		<Reference Include="Terradue.ServiceModel.Syndication">
 		  <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.2\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
 		</Reference>
-		<Reference Include="Terradue.OpenSearch">
-		  <HintPath>..\packages\Terradue.OpenSearch.1.14.0\lib\net40\Terradue.OpenSearch.dll</HintPath>
-		</Reference>
 		<Reference Include="NuGet.Core">
 		  <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
-		</Reference>
-		<Reference Include="log4net">
-		  <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
 		</Reference>
 		<Reference Include="Newtonsoft.Json">
 		  <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -108,6 +102,12 @@
 		</Reference>
 		<Reference Include="Terradue.ServiceModel.Ogc.OwsContext">
 		  <HintPath>..\packages\Terradue.ServiceModel.Ogc.OwsContext.1.1.2\lib\net45\Terradue.ServiceModel.Ogc.OwsContext.dll</HintPath>
+		</Reference>
+		<Reference Include="log4net">
+		  <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+		</Reference>
+		<Reference Include="Terradue.OpenSearch">
+		  <HintPath>..\packages\Terradue.OpenSearch.1.14.9\lib\net45\Terradue.OpenSearch.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
