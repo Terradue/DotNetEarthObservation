@@ -10,6 +10,8 @@ using System.Linq;
 using Terradue.Metadata.EarthObservation.OpenSearch;
 using Terradue.GeoJson.Geometry;
 using System.Collections.Specialized;
+using System.Text;
+using System.Reflection;
 
 namespace Terradue.Metadata.EarthObservation.Test {
 
@@ -44,6 +46,13 @@ namespace Terradue.Metadata.EarthObservation.Test {
             Assert.IsNullOrEmpty(newParams["geom"]);
             Assert.AreEqual("-180,-90,180,90", newParams["bbox"]);
             Assert.AreEqual("disjoint", newParams["rel"]);
+        }
+
+
+        [Test()]
+        public void Encoding()
+        {
+            Assembly.Load("I18N, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756");
         }
 
 

@@ -10,6 +10,9 @@ using System.Configuration;
 namespace Terradue.Metadata.EarthObservation.Spatial {
     public class SpatialHelper {
 
+        private static log4net.ILog log = log4net.LogManager.GetLogger
+            (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 
         NetTopologySuite.Geometries.GeometryCollection landMask;
 
@@ -23,7 +26,21 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
                 landMaskPath = "/usr/local/lib/ne_110m_land/ne_110m_land.shp";
             else
                 landMaskPath = landMaskConfig.Value;
-            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader(landMaskPath, gfactory);
+
+            log.DebugFormat("Opening land mask at {0}", landMaskPath);
+
+            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader;
+
+            try
+            {
+                landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader(landMaskPath, gfactory);
+            }
+            catch(Exception e)
+            {
+                log.ErrorFormat("Error loading land mask at {0} : {1}", landMaskPath, e.Message);
+                log.Debug(e.StackTrace);
+                throw e;
+            }
 
             List<GeoAPI.Geometries.IGeometry> geoms = new List<GeoAPI.Geometries.IGeometry>();
 

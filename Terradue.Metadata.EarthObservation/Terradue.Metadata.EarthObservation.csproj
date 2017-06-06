@@ -59,9 +59,6 @@
 		<Reference Include="Terradue.ServiceModel.Syndication">
 		  <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.2\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
 		</Reference>
-		<Reference Include="Terradue.OpenSearch">
-		  <HintPath>..\packages\Terradue.OpenSearch.1.14.0\lib\net40\Terradue.OpenSearch.dll</HintPath>
-		</Reference>
 		<Reference Include="NuGet.Core">
 		  <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
 		</Reference>
@@ -109,6 +106,9 @@
 		</Reference>
 		<Reference Include="Terradue.ServiceModel.Ogc.OwsContext">
 		  <HintPath>..\packages\Terradue.ServiceModel.Ogc.OwsContext.1.1.2\lib\net45\Terradue.ServiceModel.Ogc.OwsContext.dll</HintPath>
+		</Reference>
+		<Reference Include="Terradue.OpenSearch">
+		  <HintPath>..\..\..\..\system\GeoSquare\packages\Terradue.OpenSearch.1.14.8\lib\net45\Terradue.OpenSearch.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
