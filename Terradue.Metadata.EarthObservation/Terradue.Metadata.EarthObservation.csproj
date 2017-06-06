@@ -11,7 +11,6 @@
 		<ProductVersion>8.0.30703</ProductVersion>
 		<SchemaVersion>2.0</SchemaVersion>
 		<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-		<ReleaseVersion>1.0</ReleaseVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -62,9 +61,6 @@
 		<Reference Include="NuGet.Core">
 		  <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
 		</Reference>
-		<Reference Include="log4net">
-		  <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
-		</Reference>
 		<Reference Include="Newtonsoft.Json">
 		  <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
 		</Reference>
@@ -107,8 +103,11 @@
 		<Reference Include="Terradue.ServiceModel.Ogc.OwsContext">
 		  <HintPath>..\packages\Terradue.ServiceModel.Ogc.OwsContext.1.1.2\lib\net45\Terradue.ServiceModel.Ogc.OwsContext.dll</HintPath>
 		</Reference>
+		<Reference Include="log4net">
+		  <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+		</Reference>
 		<Reference Include="Terradue.OpenSearch">
-		  <HintPath>..\..\..\..\system\GeoSquare\packages\Terradue.OpenSearch.1.14.8\lib\net45\Terradue.OpenSearch.dll</HintPath>
+		  <HintPath>..\packages\Terradue.OpenSearch.1.14.9\lib\net45\Terradue.OpenSearch.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
