@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using GeoAPI.Geometries;
 using NetTopologySuite.Geometries;
 
-namespace Terradue.Metadata.EarthObservation
+namespace Terradue.Metadata.EarthObservation.Helpers
 {
     public static class GeoTimeOpenSearchHelper
     {

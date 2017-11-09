@@ -1,19 +1,10 @@
-﻿using System;
-using NUnit.Framework;
-using System.Xml;
-using System.IO;
-using Terradue.ServiceModel.Syndication;
-using Terradue.OpenSearch.Result;
-using System.Xml.Serialization;
-using Terradue.OpenSearch.Schema;
-using System.Linq;
-using Terradue.Metadata.EarthObservation.OpenSearch;
-using Terradue.GeoJson.Geometry;
+﻿using NUnit.Framework;
 using System.Collections.Specialized;
-using System.Text;
 using System.Reflection;
+using Terradue.Metadata.EarthObservation.Helpers;
 
-namespace Terradue.Metadata.EarthObservation.Test {
+namespace Terradue.Metadata.EarthObservation.Test
+{
 
     [TestFixture()]
     public class HelperTests {

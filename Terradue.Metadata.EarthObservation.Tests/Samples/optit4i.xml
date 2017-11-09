@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text">Urban TEP catalogue entry</title>
+    <subtitle type="text"/>
+    <generator>Urban TEP IT4I Processing Center</generator>
+    <entry>
+        <id>20111_SvitavyTS_LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif</id>
+        <title type="text">20111_SvitavyTS_LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif</title>
+        <author>
+            <name>IT4Innovations</name>
+        </author>
+        <publisher xmlns="http://purl.org/dc/elements/1.1/">ESA Urban TEP</publisher>
+        <published>2017-10-04T13:56:56.000+02:00</published>
+        <updated>2017-10-04T13:56:56.000+02:00</updated>
+        <link href="https://utep.it4i.cz/results/svat_va/20111" rel="alternate" type="text/html"/>
+        <link href="https://utep.it4i.cz/results/svat_va/20111/Output/LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif" length="377373" rel="enclosure" title="LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif" type="image/tiff"/>
+        <where xmlns="http://www.georss.org/georss">
+            <MultiSurface xmlns="http://www.opengis.net/gml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <surfaceMembers>
+                    <Polygon>
+                        <exterior>
+                            <LinearRing>
+                                <posList count="5" srsDimension="2">49.745 16.447 49.745 16.487 49.77 16.487 49.77 16.447 49.745 16.447</posList>
+                            </LinearRing>
+                        </exterior>
+                    </Polygon>
+                </surfaceMembers>
+            </MultiSurface>
+        </where>
+        <date xmlns="http://purl.org/dc/elements/1.1/">2015-01-01T01:00:00.000+01:00/2015-02-01T01:00:00.000+01:00</date>
+        <box xmlns="http://www.georss.org/georss">49.745 16.447 49.77 16.487</box>
+        <offering code="http://www.opengis.net/spec/owc-atom/1.0/req/png" xmlns="http://www.opengis.net/owc/1.0">
+            <content href="https://utep.it4i.cz/results/svat_va/20111/Output/LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5_QL_RGB_1_11_8.png" type="image/png"/>
+        </offering>
+        <opt:EarthObservation gml:id="x0" xmlns:eop="http://www.opengis.net/eop/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:om="http://www.opengis.net/om/2.0" xmlns:opt="http://www.opengis.net/opt/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/opt/2.0 omeo/1.0.0/opt.xsd">
+            <om:phenomenonTime>
+                <gml:TimePeriod gml:id="x1">
+                    <gml:beginPosition>2015-01-01T01:00:00.000+01:00</gml:beginPosition>
+                    <gml:endPosition>2015-02-01T01:00:00.000+01:00</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="x1b">
+                    <gml:timePosition>2017-10-04T13:56:56.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:procedure/>
+            <om:observedProperty nilReason="inapplicable"/>
+            <om:featureOfInterest>
+                <eop:Footprint gml:id="x3">
+                    <eop:multiExtentOf>
+                        <gml:MultiSurface gml:id="x4">
+                            <gml:surfaceMembers>
+                                <gml:Polygon gml:id="x5">
+                                    <gml:exterior>
+                                        <gml:LinearRing>
+                                            <gml:posList count="5" srsDimension="2">49.745 16.447 49.745 16.487 49.77 16.487 49.77 16.447 49.745 16.447</gml:posList>
+                                        </gml:LinearRing>
+                                    </gml:exterior>
+                                </gml:Polygon>
+                            </gml:surfaceMembers>
+                        </gml:MultiSurface>
+                    </eop:multiExtentOf>
+                </eop:Footprint>
+            </om:featureOfInterest>
+            <om:result>
+                <opt:EarthObservationResult gml:id="eor_2">
+                    <eop:product>
+                        <eop:ProductInformation>
+                            <eop:fileName>
+                                <ows:ServiceReference ows:type="simple" xlink:href="https://utep.it4i.cz/results/svat_va/20111/Output/LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif" xlink:title="LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif">
+                                    <ows:Identifier>LandsatDerivates_5-7-8_2015_2015_25_1716258.isrv5.tif</ows:Identifier>
+                                    <ows:Format>image/tiff</ows:Format>
+                                    <ows:RequestMessage/>
+                                </ows:ServiceReference>
+                            </eop:fileName>
+                            <eop:size uom="Bytes">377373</eop:size>
+                        </eop:ProductInformation>
+                    </eop:product>
+                </opt:EarthObservationResult>
+            </om:result>
+            <eop:metaDataProperty>
+                <eop:EarthObservationMetaData>
+                    <eop:identifier>20111</eop:identifier>
+                    <eop:parentIdentifier>https://utep.it4i.cz/results/svat_va/20111</eop:parentIdentifier>
+                    <eop:acquisitionType>NOMINAL</eop:acquisitionType>
+                    <eop:productType>TimeScan Landsat 2015</eop:productType>
+                    <eop:status>ACQUIRED</eop:status>
+                    <eop:processing>
+                        <eop:ProcessingInformation>
+                            <eop:method>TimeScan Landsat 2015 Processing</eop:method>
+                            <eop:nativeProductFormat>NetCDF4</eop:nativeProductFormat>
+                            <eop:processingCenter>IT4Innovations</eop:processingCenter>
+                            <eop:processingDate>2017-10-04T13:56:56.000+02:00</eop:processingDate>
+                            <eop:processingLevel>Production</eop:processingLevel>
+                            <eop:processorName>TimeScan Service</eop:processorName>
+                            <eop:processorVersion>1.0</eop:processorVersion>
+                        </eop:ProcessingInformation>
+                    </eop:processing>
+                </eop:EarthObservationMetaData>
+            </eop:metaDataProperty>
+        </opt:EarthObservation>
+    </entry>
+</feed>

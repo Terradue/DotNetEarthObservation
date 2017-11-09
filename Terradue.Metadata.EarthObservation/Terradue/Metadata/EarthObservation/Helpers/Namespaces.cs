@@ -26,8 +26,8 @@ limb-looking and systematic/synthesized EO products. In addition, this document 
 
 */
 
-namespace Terradue.Metadata.EarthObservation {
-    public class EONamespaces {
+namespace Terradue.Metadata.EarthObservation.Helpers {
+    public class EarthObservationNamespaces {
 
         public static NameValueCollection TypeNamespaces {
             get {
