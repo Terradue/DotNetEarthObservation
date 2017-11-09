@@ -133,7 +133,6 @@
     <None Include="Samples\S1-20120407T205500910-20120407T211433040_A_T-XG0B.atom" />
     <None Include="Samples\rdf2.xml" />
     <None Include="Samples\rdf3.xml" />
-    <None Include="Resources\ne_110m_land\.DS_Store" />
     <None Include="Resources\ne_110m_land\ne_110m_land.dbf" />
     <None Include="Resources\ne_110m_land\ne_110m_land.prj" />
     <None Include="Resources\ne_110m_land\ne_110m_land.shp" />
