@@ -2,6 +2,11 @@
 using System.Collections.Specialized;
 using System.Reflection;
 using Terradue.Metadata.EarthObservation.Helpers;
+using System.IO;
+using Terradue.Metadata.EarthObservation.OpenSearch;
+using Terradue.OpenSearch.Result;
+using Terradue.ServiceModel.Ogc;
+using System.Xml;
 
 namespace Terradue.Metadata.EarthObservation.Test
 {
@@ -46,7 +51,15 @@ namespace Terradue.Metadata.EarthObservation.Test
             Assembly.Load("I18N, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756");
         }
 
+        [Test()]
+        public void CreateAtomItemFromEopProfile()
+        {
+            FileInfo s1 = new FileInfo("../Samples/S1-20120407T205500910-20120407T211433040_A_T-XG0B.atom");
 
+            Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
+
+            AtomItem item =  AtomEarthObservationFactory.CreateEarthObservationAtomItem(sarEo);
+        }
     }
 }
 

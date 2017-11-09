@@ -1069,7 +1069,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Extensions
 
         public static XmlReader CreateDcDateXmlReader(this ServiceModel.Ogc.Om20.OM_ObservationType om)
         {
-            XElement xelement = new XElement(XName.Get(OgcHelpers.DC, "date"));
+            XElement xelement = new XElement(XName.Get("date", OgcHelpers.DC));
             var date = om.FindBeginPosition();
             if (date.Ticks == 0)
             {
