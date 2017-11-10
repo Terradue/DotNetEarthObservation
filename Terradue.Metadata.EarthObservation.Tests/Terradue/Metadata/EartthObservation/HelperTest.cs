@@ -68,6 +68,24 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             feed.SerializeToStream(s1out);
         }
+
+        [Test()]
+        public void CreateAtomItemFromEopProfileBrowse()
+        {
+            FileInfo s1 = new FileInfo("../Samples/S1EOPwbrowse.xml");
+
+            Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
+
+            AtomItem item = AtomEarthObservationFactory.CreateEarthObservationAtomItem(sarEo);
+
+            AtomFeed feed = new AtomFeed();
+
+            feed.Items = new AtomItem[1] { item };
+
+            FileStream s1out = new FileStream("../out/S1EOPwbrowse.atom", FileMode.Create, FileAccess.Write);
+
+            feed.SerializeToStream(s1out);
+        }
     }
 }
 

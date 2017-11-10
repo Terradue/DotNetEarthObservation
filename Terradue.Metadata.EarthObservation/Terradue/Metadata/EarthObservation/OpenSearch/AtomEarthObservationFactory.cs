@@ -40,7 +40,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
                 item.Summary = new Terradue.ServiceModel.Syndication.TextSyndicationContent(
                     Formatter.GetHtmlSummaryForOgcObservationsAndMeasurements(eop),
-                    Terradue.ServiceModel.Syndication.TextSyndicationContentKind.Html);
+                    Terradue.ServiceModel.Syndication.TextSyndicationContentKind.XHtml);
 
                 item.ElementExtensions.Add(eop.CreateDcDateXmlReader());
 
@@ -90,7 +90,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
                 item.Summary = new Terradue.ServiceModel.Syndication.TextSyndicationContent(
                     Formatter.GetHtmlSummaryForOgcObservationsAndMeasurements(eop),
-                    Terradue.ServiceModel.Syndication.TextSyndicationContentKind.Html);
+                    Terradue.ServiceModel.Syndication.TextSyndicationContentKind.XHtml);
 
                 item.ElementExtensions.Add(eop.CreateDcDateXmlReader());
 

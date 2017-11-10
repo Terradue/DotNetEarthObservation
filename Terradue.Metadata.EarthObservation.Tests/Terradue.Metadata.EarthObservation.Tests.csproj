@@ -148,6 +148,7 @@
     <None Include="Samples\fedeo-tsx.atom" />
     <None Include="Samples\optit4i.xml" />
     <None Include="Samples\S1EOP.xml" />
+    <None Include="Samples\S1EOPwbrowse.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />

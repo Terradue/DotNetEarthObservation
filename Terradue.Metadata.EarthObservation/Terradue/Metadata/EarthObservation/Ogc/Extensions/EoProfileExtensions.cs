@@ -1121,7 +1121,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Extensions
                 {
                     try
                     {
-                        var uri = new Uri(b.BrowseInformation.referenceSystemIdentifier.Value);
+                        var uri = new Uri(b.BrowseInformation.fileName.ServiceReference.href);
                         return true;
                     }
                     catch {
@@ -1130,7 +1130,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Extensions
                 });
 
                 if (browse != null)
-                    return new Uri(browse.BrowseInformation.referenceSystemIdentifier.Value);
+                    return new Uri(browse.BrowseInformation.fileName.ServiceReference.href);
             }
 
             return null;
