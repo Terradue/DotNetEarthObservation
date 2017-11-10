@@ -105,14 +105,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Terradue.ServiceModel.Ogc">
-      <HintPath>..\packages\Terradue.ServiceModel.Ogc.2.0.6521\lib\net45\Terradue.ServiceModel.Ogc.dll</HintPath>
-    </Reference>
     <Reference Include="Terradue.OpenSearch">
       <HintPath>..\packages\Terradue.OpenSearch.1.15.5\lib\net45\Terradue.OpenSearch.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.6.3\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Terradue.ServiceModel.Ogc">
+      <HintPath>..\packages\Terradue.ServiceModel.Ogc.2.1.0-build20171109T180843\lib\net45\Terradue.ServiceModel.Ogc.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +147,7 @@
     <None Include="Samples\spatial.xml" />
     <None Include="Samples\fedeo-tsx.atom" />
     <None Include="Samples\optit4i.xml" />
+    <None Include="Samples\S1EOP.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
@@ -154,6 +155,7 @@
     <Folder Include="Terradue\Metadata\" />
     <Folder Include="Terradue\Metadata\EartthObservation\" />
     <Folder Include="Terradue\Metadata\EartthObservation\OpenSearch\" />
+    <Folder Include="out\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Terradue.Metadata.EarthObservation\Terradue.Metadata.EarthObservation.csproj">

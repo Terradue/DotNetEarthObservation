@@ -54,11 +54,19 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void CreateAtomItemFromEopProfile()
         {
-            FileInfo s1 = new FileInfo("../Samples/S1-20120407T205500910-20120407T211433040_A_T-XG0B.atom");
+            FileInfo s1 = new FileInfo("../Samples/S1EOP.xml");
 
             Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
 
             AtomItem item =  AtomEarthObservationFactory.CreateEarthObservationAtomItem(sarEo);
+
+            AtomFeed feed = new AtomFeed();
+
+            feed.Items = new AtomItem[1] { item };
+
+            FileStream s1out = new FileStream("../out/S1EOP.atom", FileMode.Create, FileAccess.Write);
+
+            feed.SerializeToStream(s1out);
         }
     }
 }

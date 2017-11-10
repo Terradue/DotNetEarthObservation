@@ -97,9 +97,6 @@
 		<Reference Include="Newtonsoft.Json">
 		  <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
 		</Reference>
-		<Reference Include="Terradue.ServiceModel.Ogc">
-		  <HintPath>..\packages\Terradue.ServiceModel.Ogc.2.0.6521\lib\net45\Terradue.ServiceModel.Ogc.dll</HintPath>
-		</Reference>
 		<Reference Include="Terradue.OpenSearch">
 		  <HintPath>..\packages\Terradue.OpenSearch.1.15.5\lib\net45\Terradue.OpenSearch.dll</HintPath>
 		</Reference>
@@ -108,6 +105,9 @@
 		</Reference>
 		<Reference Include="Mono.Options">
 		  <HintPath>..\packages\Mono.Options.5.3.0.1\lib\net4-client\Mono.Options.dll</HintPath>
+		</Reference>
+		<Reference Include="Terradue.ServiceModel.Ogc">
+		  <HintPath>..\packages\Terradue.ServiceModel.Ogc.2.1.0-build20171109T180843\lib\net45\Terradue.ServiceModel.Ogc.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>

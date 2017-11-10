@@ -7,6 +7,7 @@ using Terradue.GeoJson.GeoRss;
 using Terradue.ServiceModel.Ogc.Owc.AtomEncoding;
 using Terradue.Metadata.EarthObservation.Helpers;
 using Terradue.Metadata.EarthObservation.Ogc.Extensions;
+using System.Linq;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch
 {
@@ -45,7 +46,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
                 item.ElementExtensions.Add("identifier", OgcHelpers.DC, eop.FindIdentifier());
 
-                item.ElementExtensions.Add(eop.CreaterReader());
+                item.ElementExtensions.Add(eop.CreateReader());
 
                 AddEnclosure(eop, ref item);
 
@@ -95,7 +96,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
                 item.ElementExtensions.Add("identifier", OgcHelpers.DC, eop.FindIdentifier());
 
-                item.ElementExtensions.Add(eop.CreaterReader());
+                item.ElementExtensions.Add(eop.CreateReader());
 
                 AddEnclosure(eop, ref item);
 
@@ -115,14 +116,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
         private static void AddEnclosure(ServiceModel.Ogc.Eop21.EarthObservationType eo, ref AtomItem item)
         {
-            if (eo.result != null && eo.result.Eop21EarthObservationResult.product != null)
+            if (eo.result != null && eo.result.Eop21EarthObservationResult.product != null && eo.result.Eop21EarthObservationResult.product.Count() > 0)
             {
-                foreach (var pr in eo.result.Eop21EarthObservationResult.product)
-                {
-                    var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
-                    link.Title = pr.ProductInformation.fileName.ServiceReference.title;
-                    item.Links.Add(link);
-                }
+                var pr = eo.result.Eop21EarthObservationResult.product[0];
+                var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
+                link.Title = pr.ProductInformation.fileName.ServiceReference.title;
+                item.Links.Add(link);
             }
         }
 
@@ -157,14 +156,12 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
         private static void AddEnclosure(ServiceModel.Ogc.Eop20.EarthObservationType eo, ref AtomItem item)
         {
-            if (eo.result != null && eo.result.Eop20EarthObservationResult.product != null)
+            if (eo.result != null && eo.result.Eop20EarthObservationResult.product != null && eo.result.Eop20EarthObservationResult.product.Count() > 0)
             {
-                foreach (var pr in eo.result.Eop20EarthObservationResult.product)
-                {
-                    var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text));
-                    link.Title = pr.ProductInformation.fileName.ServiceReference.title;
-                    item.Links.Add(link);
-                }
+                var pr = eo.result.Eop20EarthObservationResult.product[0];
+                var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text));
+                link.Title = pr.ProductInformation.fileName.ServiceReference.title;
+                item.Links.Add(link);
             }
         }
 
