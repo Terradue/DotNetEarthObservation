@@ -50,6 +50,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
                 AddEnclosure(eop, ref item);
 
+                var browse = eop.FindBrowseUrl();
+                if (browse != null)
+                    item.Links.Add(new SyndicationLink(browse, "icon", "Browse", "Browse Image", 0));
+
                 AddWMSOffering(eop, ref item);
 
                 AddGeoRss(eop, ref item);
@@ -99,6 +103,10 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
                 item.ElementExtensions.Add(eop.CreateReader());
 
                 AddEnclosure(eop, ref item);
+
+                var browse = eop.FindBrowseUrl();
+                if (browse != null)
+                    item.Links.Add(new SyndicationLink(browse, "icon", "Browse", "image", 0));
 
                 AddWMSOffering(eop, ref item);
 
