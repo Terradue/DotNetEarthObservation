@@ -268,6 +268,21 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Extensions
 
         }
 
+        public static string FindInstrumentShortName(this IOpenSearchResultItem item)
+        {
+
+            var eo = item.GetEarthObservationProfile();
+
+            if (eo != null)
+            {
+
+                return eo.FindInstrumentShortName();
+            }
+
+            return null;
+
+        }
+
         public static string FindOperationalMode(this IOpenSearchResultItem item) {
 
             var eo = item.GetEarthObservationProfile();

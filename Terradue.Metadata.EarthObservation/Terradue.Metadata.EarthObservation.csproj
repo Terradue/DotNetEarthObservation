@@ -150,4 +150,10 @@
 		<None Include="packages.config" />
 		<None Include="Terradue.Metadata.EarthObservation.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\DotNetOgcModel\Terradue.ServiceModel.Ogc\Terradue.ServiceModel.Ogc.csproj">
+	    <Project>{4A78C588-01FE-439F-8961-AE083A5EE6CA}</Project>
+	    <Name>Terradue.ServiceModel.Ogc</Name>
+	  </ProjectReference>
+	</ItemGroup>
 </Project>
