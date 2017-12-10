@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.Metadata.EarthObservation.Tests", "Terradue.Metadata.EarthObservation.Tests\Terradue.Metadata.EarthObservation.Tests.csproj", "{A6315FCD-A2D5-4D8C-8854-C480D3F31C9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terradue.OpenSearch", "..\DotNetOpenSearch\Terradue.OpenSearch\Terradue.OpenSearch.csproj", "{997A44FD-EE4A-490A-855B-88305E0CD269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{E084B86A-8B40-414E-95FA-760F3C6BFDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E084B86A-8B40-414E-95FA-760F3C6BFDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E084B86A-8B40-414E-95FA-760F3C6BFDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997A44FD-EE4A-490A-855B-88305E0CD269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997A44FD-EE4A-490A-855B-88305E0CD269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997A44FD-EE4A-490A-855B-88305E0CD269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997A44FD-EE4A-490A-855B-88305E0CD269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
