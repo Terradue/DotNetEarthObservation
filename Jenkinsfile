@@ -9,7 +9,7 @@ pipeline {
     stage('Init') {
       steps {
         sh 'rm -rf packges */bin build'
-        sh 'mkdir -p build'
+        sh 'mkdir -p build Terradue.Metadata.EarthObservation.Tests/out'
         sh 'nuget restore'
         sh 'ls -la'
       }
