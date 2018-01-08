@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace Terradue.Metadata.EarthObservation.Extra {
+namespace Terradue.Metadata.EarthObservation.Model {
 
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlRootAttribute("geolocationGrid", Namespace="http://www.terradue.com/model/eop", IsNullable=false)]
