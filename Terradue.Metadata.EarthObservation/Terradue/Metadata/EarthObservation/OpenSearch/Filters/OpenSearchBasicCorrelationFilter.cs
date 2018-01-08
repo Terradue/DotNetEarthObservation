@@ -17,8 +17,9 @@ using Terradue.GeoJson.Geometry;
 using System.Threading.Tasks;
 using System.Threading;
 using Terradue.ServiceModel.Ogc;
+using Terradue.Metadata.EarthObservation.OpenSearch.Extensions;
 
-namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
+namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters.Correlation
 {
     public class OpenSearchBasicCorrelationFilter : OpenSearchCorrelationFilter
     {
@@ -202,7 +203,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         protected virtual NameValueCollection GetMasterParametersForSlaveFocusedSearch(IOpenSearchResultCollection osr, IOpenSearchResultItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity)
         {
 
-            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometry(item);
+            GeometryObject geometry = item.FindGeometry();
 
             NameValueCollection nvc = new NameValueCollection();
             NameValueCollection revOsParams = OpenSearchFactory.ReverseTemplateOpenSearchParameters(masterEntity.GetOpenSearchParameters(osr.ContentType));
@@ -338,8 +339,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
 
         bool Intersects(IOpenSearchResultItem masterItem, IOpenSearchResultItem slaveItem)
         {
-            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(masterItem);
-            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(slaveItem);
+            var masterGeom = masterItem.FindGeometry();
+            var slaveGeom = slaveItem.FindGeometry();
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var masterGeometry = wktReader.Read(masterGeom.ToWkt());
@@ -445,8 +446,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         {
 
             return new DateTime[] {
-                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(item),
-                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindEndDateFromOpenSearchResultItem(item)
+                item.FindStartDate(),
+                item.FindEndDate()
             };
         }
 
@@ -490,7 +491,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         {
 
             if (osr.Count > 0)
-                return EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(osr.Items.First()).Subtract(EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem((osr.Items.Last())));
+                return osr.Items.First().FindStartDate().Subtract(osr.Items.Last().FindStartDate());
 
             return new TimeSpan(0);
 
@@ -508,8 +509,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         public double CalculateSpatialOverlap(IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null)
         {
 
-            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(master);
-            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(slave);
+            var masterGeom = master.FindGeometry();
+            var slaveGeom = slave.FindGeometry();
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var masterGeometry = wktReader.Read(masterGeom.ToWkt());

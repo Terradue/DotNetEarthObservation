@@ -6,8 +6,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Terradue.GeoJson.Geometry;
 using System.Configuration;
+using Terradue.Metadata.EarthObservation.OpenSearch.Extensions;
 
-namespace Terradue.Metadata.EarthObservation.Spatial {
+namespace Terradue.Metadata.EarthObservation.Helpers {
     public class SpatialHelper {
 
         private static log4net.ILog log = log4net.LogManager.GetLogger
@@ -53,7 +54,7 @@ namespace Terradue.Metadata.EarthObservation.Spatial {
 
         public double CalculateLandCover(IOpenSearchResultItem item) {
 
-            var itemGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(item);
+            var itemGeom = item.FindGeometry();
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var itemGeometry = wktReader.Read(itemGeom.ToWkt());

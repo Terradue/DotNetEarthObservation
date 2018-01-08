@@ -9,7 +9,7 @@ pipeline {
     stage('Init') {
       steps {
         sh 'rm -rf packges */bin build'
-        sh 'mkdir -p build'
+        sh 'mkdir -p build Terradue.Metadata.EarthObservation.Tests/out'
         sh 'nuget restore'
         sh 'ls -la'
       }
@@ -24,7 +24,7 @@ pipeline {
       steps {
         parallel(
           "Package": {
-            sh "nuget4mono -g ${env.BRANCH_NAME} -p Terradue.Metadata.EarthObservation/packages.config Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll Terradue.Metadata.EarthObservation/Resources/**/*,content/Resources"
+            sh "nuget4mono -g origin/${env.BRANCH_NAME} -p Terradue.Metadata.EarthObservation/packages.config Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll Terradue.Metadata.EarthObservation/Resources/**/*,content/Resources"
             sh 'cat *.nuspec'
             sh 'nuget pack -OutputDirectory build'
             sh "echo ${params.NUGET_PUBLISH}"

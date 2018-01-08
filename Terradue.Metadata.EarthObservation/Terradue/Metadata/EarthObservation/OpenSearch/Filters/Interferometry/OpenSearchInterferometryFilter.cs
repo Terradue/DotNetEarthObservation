@@ -17,8 +17,9 @@ using Terradue.GeoJson.Geometry;
 using System.Threading.Tasks;
 using System.Threading;
 using Terradue.ServiceModel.Ogc;
+using Terradue.Metadata.EarthObservation.OpenSearch.Extensions;
 
-namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
+namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters.Correlation.Interferometry
 {
     public abstract class OpenSearchInterferometryFilter : OpenSearchCorrelationFilter
     {
@@ -207,21 +208,21 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         protected virtual NameValueCollection GetMasterParametersForSlaveFocusedSearch(IOpenSearchResultCollection osr, IOpenSearchResultItem item, NameValueCollection searchParameters, IOpenSearchable masterEntity)
         {
 
-            var element = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
-            if (element == null)
+            var eop = item.GetEarthObservationProfile();
+            if (eop == null)
                 throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce focus search for slaves");
 
             string platformShortName = "";
             string track = "";
             string swath = "";
 
-            if (element is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)
+            if (eop is Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)
             {
                 try
                 {
-                    platformShortName = element.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName;
-                    track = element.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-                    swath = element.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text;
+                    platformShortName = eop.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName;
+                    track = eop.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                    swath = eop.procedure.Eop21EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text;
                 }
                 catch (Exception e)
                 {
@@ -229,13 +230,13 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
                 }
 
             }
-            else if (element is Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType)
+            else if (eop is Terradue.ServiceModel.Ogc.Sar20.SarEarthObservationType)
             {
                 try
                 {
-                    platformShortName = element.procedure.Eop20EarthObservationEquipment.platform[0].Platform.shortName;
-                    track = element.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
-                    swath = element.procedure.Eop20EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text;
+                    platformShortName = eop.procedure.Eop20EarthObservationEquipment.platform[0].Platform.shortName;
+                    track = eop.procedure.Eop20EarthObservationEquipment.acquisitionParameters.Acquisition.wrsLongitudeGrid.Value;
+                    swath = eop.procedure.Eop20EarthObservationEquipment.sensor.Sensor.swathIdentifier.Text;
                 }
                 catch (Exception e)
                 {
@@ -246,7 +247,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
             else
                 throw new InvalidOperationException("EarthObservation element found in master product to produce focus search for slaves is not SAR");
 
-            GeometryObject geometry = EarthObservationOpenSearchResultHelpers.FindGeometry(item);
+            GeometryObject geometry = item.FindGeometry();
 
             if (string.IsNullOrEmpty(platformShortName) || string.IsNullOrEmpty(track) || string.IsNullOrEmpty(swath) || geometry == null)
                 throw new InvalidOperationException(string.Format("Master SAR dataset [id:{0}] does not have all the attributes to filter slaves for interferometry", item.Id));
@@ -478,8 +479,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         {
 
             return new DateTime[] {
-                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(item),
-                Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.FindEndDateFromOpenSearchResultItem(item)
+                item.FindStartDate(),
+                item.FindEndDate()
             };
         }
 
@@ -499,7 +500,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
             // - The ANX time period of the master product (i.e. the eop:startTimeFromAscendingNode 
             //   and eop:completionTimeFromAscendingNode attributes from the EO Product model 
             //   that must be overlapped
-            var om = MetadataHelpers.GetEarthObservationFromSyndicationElementExtensionCollection(item.ElementExtensions);
+            var om = item.GetEarthObservationProfile();
             if (om == null)
                 throw new InvalidOperationException("No EarthObservation SAR element found in master product to produce slave interferometry");
 
@@ -556,8 +557,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
             foreach (IOpenSearchResultItem item in osr.Items.ToArray())
             {
 
-                if (prev != null && EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(prev).Subtract(EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(item)) > maxTimeGap)
-                    maxTimeGap = EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(prev).Subtract(EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(item));
+                if (prev != null && prev.FindStartDate().Subtract(item.FindStartDate()) > maxTimeGap)
+                    maxTimeGap = prev.FindStartDate().Subtract(item.FindStartDate());
 
 
                 prev = item;
@@ -571,7 +572,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         {
 
             if (osr.Count > 0)
-                return EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem(osr.Items.First()).Subtract(EarthObservationOpenSearchResultHelpers.FindStartDateFromOpenSearchResultItem((osr.Items.Last())));
+                return osr.Items.First().FindStartDate().Subtract(osr.Items.Last().FindStartDate());
 
             return new TimeSpan(0);
 
@@ -590,8 +591,8 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters
         public double CalculateSpatialOverlap(IOpenSearchResultItem master, IOpenSearchResultItem slave, string bbox = null)
         {
 
-            var masterGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(master);
-            var slaveGeom = EarthObservationOpenSearchResultHelpers.FindGeometry(slave);
+            var masterGeom = master.FindGeometry();
+            var slaveGeom = slave.FindGeometry();
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
             var masterGeometry = wktReader.Read(masterGeom.ToWkt());

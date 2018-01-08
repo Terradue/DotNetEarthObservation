@@ -74,18 +74,12 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
 			var atom = AtomFeed.Load(XmlReader.Create(s1));
 
-			Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.RestoreGeoRss(atom);
-
-
 			s1.Close();
 
 
 			FileStream s2 = new FileStream("../Samples/S2MSI1C.atom", FileMode.Open, FileAccess.Read);
 
 			atom = AtomFeed.Load(XmlReader.Create(s2));
-
-			Terradue.Metadata.EarthObservation.OpenSearch.EarthObservationOpenSearchResultHelpers.RestoreGeoRss(atom);
-
 
 			s2.Close();
 
