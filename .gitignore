@@ -13,3 +13,4 @@ Terradue.Metadata.EarthObservation.Tests/bin/
 /build
 /Terradue.Metadata.EarthObservation.Tests/out/S1EOPwbrowse.atom
 /Terradue.Metadata.EarthObservation.Tests/out/S1EOP.atom
+/Terradue.Metadata.EarthObservation.Tests/out/S1EOP.xml

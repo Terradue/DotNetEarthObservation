@@ -16,76 +16,18 @@ namespace Terradue.Metadata.EarthObservation.Helpers
             // Put HtmlTextWriter in using block because it needs to call Dispose.
             using (System.Web.UI.HtmlTextWriter writer = new HtmlTextWriter(stringWriter))
             {
-                // div
-                writer.RenderBeginTag(HtmlTextWriterTag.Div);
                 //table
-                writer.AddAttribute(HtmlTextWriterAttribute.Width, "100%");
-                writer.AddAttribute(HtmlTextWriterAttribute.Style, "table-layout:fixed; width: 100 %;");
-                writer.AddAttribute(HtmlTextWriterAttribute.Border, "1");
-                writer.AddAttribute("frame", "void");
-                writer.AddAttribute(HtmlTextWriterAttribute.Rules, "rows");
                 writer.RenderBeginTag(HtmlTextWriterTag.Table);
-
-                //find thhumbnail
-                string imageSrc = "";
-                var browse = om.FindBrowseUrl();
-                if (browse != null)
-                    imageSrc = browse.ToString();
-
-                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
-                // if QL add column
-                if (!string.IsNullOrEmpty(imageSrc))
-                {
-                    writer.AddAttribute(HtmlTextWriterAttribute.Width, "20%");
-                    writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                    writer.RenderEndTag();
-                }
-                writer.AddAttribute(HtmlTextWriterAttribute.Width, "25%");
-                writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.RenderEndTag();
-                writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
-                writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.RenderEndTag();
-                writer.RenderEndTag();
-               
-                // first raw for identifier name
-                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
-                if (!string.IsNullOrEmpty(imageSrc))
-                    writer.AddAttribute(HtmlTextWriterAttribute.Colspan, "3");
-                writer.AddAttribute(HtmlTextWriterAttribute.Style, "font-size:smaller");
-                writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                writer.RenderBeginTag(HtmlTextWriterTag.Strong);
-                writer.Write("Id: " + om.FindIdentifier());
-                writer.RenderEndTag();
-                writer.RenderEndTag();
-                writer.RenderEndTag();
-                // end identifier raw
+             
 
                 // second raw for platform
                 writer.RenderBeginTag(HtmlTextWriterTag.Tr);
-                // if QL add column
-                if (!string.IsNullOrEmpty(imageSrc))
-                {
-                    writer.AddAttribute(HtmlTextWriterAttribute.Rowspan, "10");
-                    writer.AddAttribute(HtmlTextWriterAttribute.Style, "padding:5px");
-                    writer.RenderBeginTag(HtmlTextWriterTag.Td);
-                    writer.AddAttribute(HtmlTextWriterAttribute.Href, imageSrc);
-                    writer.AddAttribute(HtmlTextWriterAttribute.Target, "_blank");
-                    writer.RenderBeginTag(HtmlTextWriterTag.A);
-                    writer.AddAttribute(HtmlTextWriterAttribute.Src, imageSrc);
-                    writer.AddAttribute(HtmlTextWriterAttribute.Style, "width: 100%; max-height: 100%;");
-                    writer.RenderBeginTag(HtmlTextWriterTag.Img);
-                    writer.RenderEndTag();
-                    writer.RenderEndTag();
-                    writer.RenderEndTag();
-                    //end image column
-                }
+
 
                 // platform column
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 writer.Write("Platform");
                 writer.RenderEndTag();
-                writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                 writer.Write(om.FindPlatformShortName());
@@ -102,7 +44,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 writer.Write("Sensor");
                 writer.RenderEndTag();
-                writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                 writer.Write(om.FindInstrumentShortName());
@@ -121,7 +62,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.Write("Time");
                     writer.RenderEndTag();
-                    writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                     writer.Write(date.ToUniversalTime().ToString("O"));
@@ -138,7 +78,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.Write("Product");
                     writer.RenderEndTag();
-                    writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                     writer.Write(pt);
@@ -155,7 +94,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.Write("Mode");
                     writer.RenderEndTag();
-                    writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                     writer.Write(mode);
@@ -172,7 +110,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.Write("Orbit");
                     writer.RenderEndTag();
-                    writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                     writer.Write(orbit);
@@ -195,7 +132,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.Write("Track");
                     writer.RenderEndTag();
-                    writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                     writer.Write(track);
@@ -212,7 +148,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.Write("Swath");
                     writer.RenderEndTag();
-                    writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                     writer.RenderBeginTag(HtmlTextWriterTag.Td);
                     writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                     writer.Write(swath);
@@ -231,7 +166,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
                         writer.RenderBeginTag(HtmlTextWriterTag.Td);
                         writer.Write("Cloud cov");
                         writer.RenderEndTag();
-                        writer.AddAttribute(HtmlTextWriterAttribute.Align, "right");
                         writer.RenderBeginTag(HtmlTextWriterTag.Td);
                         writer.RenderBeginTag(HtmlTextWriterTag.Strong);
                         writer.Write(cc);
@@ -244,9 +178,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers
 
 
                 // end table
-                writer.RenderEndTag();
-
-                // end div
                 writer.RenderEndTag();
 
 
