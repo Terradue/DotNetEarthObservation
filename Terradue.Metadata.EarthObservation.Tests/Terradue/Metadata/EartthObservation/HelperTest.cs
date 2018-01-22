@@ -7,6 +7,7 @@ using Terradue.Metadata.EarthObservation.OpenSearch;
 using Terradue.OpenSearch.Result;
 using Terradue.ServiceModel.Ogc;
 using System.Xml;
+using Terradue.Metadata.EarthObservation.Ogc.Extensions;
 
 namespace Terradue.Metadata.EarthObservation.Test
 {
@@ -68,6 +69,18 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             feed.SerializeToStream(s1out);
         }
+        
+        
+        [Test()]
+        public void GetTrackFromEopProfileExtensions()
+        {
+            FileInfo s1 = new FileInfo("../Samples/S1AEOP.xml");
+
+            Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
+
+            Assert.AreEqual(EoProfileExtensions.FindTrack(sarEo),"147");
+        }
+        
 
         [Test()]
         public void CreateAtomItemFromEopProfileBrowse()
