@@ -22,14 +22,7 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
             try
             {
 
-                item = new AtomItem(String.Format("{0} {1} {2} {3} {4} {5}",
-                                                  eop.FindPlatformShortName(),
-                                                  eop.FindProductType(),
-                                                  eop.FindOperationalMode(),
-                                                  eop.FindProcessingLevel(),
-                                                  eop.FindTrack(),
-                                                  eop.FindRelevantDate().ToString("R")
-                                                 ),
+                item = new AtomItem(Formatter.GetAtomTitleForOgcObservationsAndMeasurements(eop),
                                     "",
                                     null,
                                     eop.FindIdentifier(),
