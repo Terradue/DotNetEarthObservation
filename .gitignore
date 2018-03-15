@@ -11,7 +11,5 @@ Terradue.Metadata.EarthObservation.Tests/obj/
 Terradue.Metadata.EarthObservation.Tests/bin/
 /Terradue.Metadata.EarthObservation.nuspec
 /build
-/Terradue.Metadata.EarthObservation.Tests/out/S1EOPwbrowse.atom
-/Terradue.Metadata.EarthObservation.Tests/out/S1EOP.atom
-/Terradue.Metadata.EarthObservation.Tests/out/S1EOP.xml
+Terradue.Metadata.EarthObservation.Tests/out/*
 .idea
