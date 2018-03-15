@@ -11,7 +11,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
 
     public static class Formatter {
 
-        
         /// <summary>
         /// Generates Html Summary from an Observation Type object
         /// </summary>
@@ -26,12 +25,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
                 //table
                 writer.RenderBeginTag(HtmlTextWriterTag.Table);
 
-                var title = GetAtomTitleForOgcObservationsAndMeasurements(om);
-                AddTableRow(writer, "Title", title);
-                
-                var identifier = om.FindIdentifier();
-                AddTableRow(writer, "Identifier", identifier);
-
                 var platformShortName = om.FindPlatformShortName();
                 AddTableRow(writer, "Platform", platformShortName);
 
@@ -42,16 +35,20 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
                 AddTableRow(writer, "Product Type", productType);
 
                 var startTime = om.FindBeginPosition();
-                AddTableRow(writer, "Start Time", startTime);
-
                 var endTime = om.FindEndPosition();
-                AddTableRow(writer, "End Time", endTime);
+                if (startTime.Ticks != 0 && endTime.Ticks != 0) {
+                    AddTableRow(writer, "Start Time", startTime);
+                    AddTableRow(writer, "End Time", endTime);
+                } else {
+                    var relevantDate = om.FindRelevantDate();
+                    AddTableRow(writer, "Date", relevantDate);
+                }
 
                 var orbitNumber = om.FindOrbitNumber();
                 var orbitDirection = om.FindOrbitDirection();
                 var orbitValues = new List<string>();
-                if(!string.IsNullOrEmpty(orbitNumber)) orbitValues.Add(orbitNumber);
-                if(!string.IsNullOrEmpty(orbitDirection)) orbitValues.Add(orbitDirection);
+                if (!string.IsNullOrEmpty(orbitNumber)) orbitValues.Add(orbitNumber);
+                if (!string.IsNullOrEmpty(orbitDirection)) orbitValues.Add(orbitDirection);
                 var orbitString = string.Join(" ", orbitValues);
                 AddTableRow(writer, "Orbit", orbitString);
 
@@ -78,7 +75,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
         }
 
 
-
         /// <summary>
         ///  Generates an atom tile from an Observation Type object
         /// </summary>
@@ -94,8 +90,6 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
             infoList.Add(om.FindRelevantDate().ToString("R"));
             return String.Join(" ", infoList.Where(s => !string.IsNullOrEmpty(s)));
         }
-
-
 
 
         private static void AddTableRow(HtmlTextWriter writer, string propertyName, string stringValue) {
