@@ -22,20 +22,17 @@ pipeline {
     }
     stage('Package') {
       steps {
-        parallel(
-          "Package": {
             sh "nuget4mono -g origin/${env.BRANCH_NAME} -p Terradue.Metadata.EarthObservation/packages.config Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll Terradue.Metadata.EarthObservation/Resources/**/*,content/Resources"
             sh 'cat *.nuspec'
             sh 'nuget pack -OutputDirectory build'
             sh "echo ${params.NUGET_PUBLISH}"
-            
-          },
-          "Test": {
+            }
+       }
+    stage('Test') {
+      steps {
             sh 'nunit-console4 *.Tests/bin/*.Tests.dll -xml build/TestResult.xml'
           }
-        )
       }
-    }
     stage('Publish') {
       when {
         expression {
