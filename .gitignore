@@ -13,3 +13,4 @@ Terradue.Metadata.EarthObservation.Tests/bin/
 /build
 Terradue.Metadata.EarthObservation.Tests/out/*
 .idea
+/.vs
