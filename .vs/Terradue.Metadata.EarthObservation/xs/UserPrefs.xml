@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{A6315FCD-A2D5-4D8C-8854-C480D3F31C9A}|Unit Tests">
+  <MonoDevelop.Ide.ItemProperties.Terradue.Metadata.EarthObservation.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Terradue.Metadata.EarthObservation.Tests/Terradue/Metadata/EartthObservation/OpenSearch/Metadata.cs">
+    <Files>
+      <File FileName="Terradue.Metadata.EarthObservation.Tests/Terradue/Metadata/EartthObservation/OpenSearch/Metadata.cs" Line="1" Column="1" />
+      <File FileName="Terradue.Metadata.EarthObservation/Terradue/Metadata/EarthObservation/Helpers/GeoTimeOpenSearchHelper.cs" Line="18" Column="25" />
+      <File FileName="Terradue.Metadata.EarthObservation/Terradue/Metadata/EarthObservation/OpenSearch/Helpers/OpenSearchParametersHelper.cs" Line="24" Column="39" />
+      <File FileName="Terradue.Metadata.EarthObservation/Terradue/Metadata/EarthObservation/OpenSearch/Extensions/EarthObservationOpenSearchResultExtensions.cs" Line="224" Column="32" />
+      <File FileName="Terradue.Metadata.EarthObservation/Terradue/Metadata/EarthObservation/Ogc/Extensions/EoProfileExtensions.cs" Line="565" Column="54" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Terradue.Metadata.EarthObservation" expanded="True">
+            <Node name="Terradue.Metadata.EarthObservation" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Packages" expanded="True" />
+            </Node>
+            <Node name="Terradue.Metadata.EarthObservation.Tests" expanded="True">
+              <Node name="Terradue" expanded="True">
+                <Node name="Metadata" expanded="True">
+                  <Node name="EartthObservation" expanded="True">
+                    <Node name="OpenSearch" expanded="True">
+                      <Node name="Metadata.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/emathot/Workspace/Terradue/components/sugar/DotNetEarthObservation/Terradue.Metadata.EarthObservation/Terradue/Metadata/EarthObservation/OpenSearch/AtomEarthObservationFactory.cs" relfile="Terradue.Metadata.EarthObservation/Terradue/Metadata/EarthObservation/OpenSearch/AtomEarthObservationFactory.cs" line="167" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
