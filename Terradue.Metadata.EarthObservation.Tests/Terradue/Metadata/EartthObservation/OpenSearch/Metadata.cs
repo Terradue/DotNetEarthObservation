@@ -39,6 +39,8 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             Assert.AreEqual(DateTime.Parse("2015-06-20T01:06:07Z"), stop);
 
+			Assert.AreEqual(9.94, om.FindCloudCoverPercentage());
+
             OpenSearchDescription osd = new OpenSearchDescription();
             osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search")};
 
@@ -68,6 +70,8 @@ namespace Terradue.Metadata.EarthObservation.Test
             var stop = om.FindEndPosition();
 
             Assert.AreEqual(DateTime.Parse("2015-02-01T01:00:00.000+01:00"), stop);
+
+			Assert.AreEqual(-1, om.FindCloudCoverPercentage());
 
 			OpenSearchDescription osd = new OpenSearchDescription();
 			osd.Url = new OpenSearchDescriptionUrl[] { new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search") };
