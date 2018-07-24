@@ -634,7 +634,7 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Extensions
             }
         }
 
-        public static string FindFrame(this ServiceModel.Ogc.Eop20.EarthObservationType eo)
+		public static string FindFrame(this ServiceModel.Ogc.Eop20.EarthObservationType eo)
         {
             try
             {

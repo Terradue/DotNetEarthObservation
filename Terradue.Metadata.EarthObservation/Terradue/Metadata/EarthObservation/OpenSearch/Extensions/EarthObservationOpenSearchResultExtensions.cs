@@ -15,342 +15,404 @@ using Terradue.OpenSearch.Schema;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch.Extensions
 {
-    public static class EarthObservationOpenSearchResultExtensions {
+	public static class EarthObservationOpenSearchResultExtensions
+	{
 
 
 
-        public static ServiceModel.Ogc.Om20.OM_ObservationType GetEarthObservationProfile(this IOpenSearchResultItem item)
-        {
-            return item.ElementExtensions.GetEarthObservationProfile();
-        }
+		public static ServiceModel.Ogc.Om20.OM_ObservationType GetEarthObservationProfile(this IOpenSearchResultItem item)
+		{
+			return item.ElementExtensions.GetEarthObservationProfile();
+		}
 
-        public static GeometryObject FindGeometry(this IOpenSearchResultItem item){
+		public static GeometryObject FindGeometry(this IOpenSearchResultItem item)
+		{
 
-            var geom = FindGeoTimeGeometry(item);
-            if (geom != null)
-                return geom;
-            return item.FindEarthObservationProfileGeometry();
+			var geom = FindGeoTimeGeometry(item);
+			if (geom != null)
+				return geom;
+			return item.FindEarthObservationProfileGeometry();
+
+		}
+
+		public static GeometryObject FindGeoTimeGeometry(this IOpenSearchResultItem item)
+		{
+
+			GeometryObject savegeom = null;
+
+			if (item.ElementExtensions != null && item.ElementExtensions.Count > 0)
+			{
+
+				foreach (var ext in item.ElementExtensions)
+				{
+
+					XmlReader xr = ext.GetReader();
+
+					switch (xr.NamespaceURI)
+					{
+						// 1) search for georss
+						case "http://www.georss.org/georss":
+							savegeom = GeoJson.GeoRss.GeoRssHelper.Deserialize(xr).ToGeometry();
+							if (xr.LocalName != "box" || xr.LocalName != "point")
+							{
+								return savegeom;
+							}
+							break;
+						// 2) search for georss10
+						case "http://www.georss.org/georss/10":
+							savegeom = GeoJson.GeoRss10.GeoRss10Helper.Deserialize(xr).ToGeometry();
+							if (xr.LocalName != "box" || xr.LocalName != "point")
+							{
+								return savegeom;
+							}
+							break;
+						// 3) search for dct:spatial
+						case "http://purl.org/dc/terms/":
+							if (xr.LocalName == "spatial")
+							{
+								savegeom = WktExtensions.WktToGeometry(xr.ReadElementContentAsString());
+							}
+							if (!(savegeom is Point))
+							{
+								return savegeom;
+							}
+							break;
+						default:
+							continue;
+					}
+
+				}
+
+			}
+
+			return savegeom;
 
-        }
+		}
 
-        public static GeometryObject FindGeoTimeGeometry(this IOpenSearchResultItem item) {
+		public static GeometryObject FindEarthObservationProfileGeometry(this IOpenSearchResultItem item)
+		{
 
-            GeometryObject savegeom = null;
+			var eop = item.GetEarthObservationProfile();
 
-            if (item.ElementExtensions != null && item.ElementExtensions.Count > 0) {
+			if (eop != null)
+				return eop.FindGeometry();
 
-                foreach (var ext in item.ElementExtensions) {
+			return null;
+		}
 
-                    XmlReader xr = ext.GetReader();
+		public static string FindIdentifier(this IOpenSearchResultItem item)
+		{
 
-                    switch (xr.NamespaceURI) {
-                    // 1) search for georss
-                        case "http://www.georss.org/georss":
-                            savegeom = GeoJson.GeoRss.GeoRssHelper.Deserialize(xr).ToGeometry();
-                            if (xr.LocalName != "box" || xr.LocalName != "point") {
-                                return savegeom;
-                            }
-                            break;
-                    // 2) search for georss10
-                        case "http://www.georss.org/georss/10":
-                            savegeom = GeoJson.GeoRss10.GeoRss10Helper.Deserialize(xr).ToGeometry();
-                            if (xr.LocalName != "box" || xr.LocalName != "point") {
-                                return savegeom;
-                            }
-                            break;
-                    // 3) search for dct:spatial
-                        case "http://purl.org/dc/terms/":
-                            if (xr.LocalName == "spatial") {
-                                savegeom = WktExtensions.WktToGeometry(xr.ReadElementContentAsString());
-                            }
-                            if (!(savegeom is Point)) {
-                                return savegeom;
-                            }
-                            break;
-                        default:
-                            continue;
-                    }
+			var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
+			if (elements.Count > 0)
+				return elements[0];
 
-                }
+			var eo = item.GetEarthObservationProfile();
 
-            }
+			if (eo != null)
+				return eo.FindIdentifier();
 
-            return savegeom;
+			return null;
 
-        }
+		}
 
-        public static GeometryObject FindEarthObservationProfileGeometry(this IOpenSearchResultItem item) {
+		public static DateTime FindStartDate(this IOpenSearchResultItem item)
+		{
 
-            var eop = item.GetEarthObservationProfile();
+			var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
+			if (elements.Count > 0)
+			{
+				if (elements[0].Contains('/'))
+				{
+					return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
+				}
+				else
+					return DateTime.Parse(elements[0]).ToUniversalTime();
+			}
 
-            if (eop != null)
-                return eop.FindGeometry();
-            
-            return null;
-        }
+			elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
+			if (elements.Count > 0)
+			{
+				if (elements[0].Contains('/'))
+				{
+					return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
+				}
+				else
+					return DateTime.Parse(elements[0]).ToUniversalTime();
+			}
 
-        public static string FindIdentifier(this IOpenSearchResultItem item) {
+			var eo = item.GetEarthObservationProfile();
 
-            var elements = item.ElementExtensions.ReadElementExtensions<string>("identifier", "http://purl.org/dc/elements/1.1/");
-            if (elements.Count > 0)
-                return elements[0];
+			if (eo != null)
+			{
+				return eo.FindBeginPosition();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return DateTime.MinValue;
 
-            if (eo != null)
-                return eo.FindIdentifier();
+		}
 
-            return null;
+		public static DateTime FindEndDate(this IOpenSearchResultItem item)
+		{
 
-        }
+			var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
+			if (elements.Count > 0)
+			{
+				if (elements[0].Contains('/'))
+					return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
+			}
 
-        public static DateTime FindStartDate(this IOpenSearchResultItem item) {
+			elements = item.ElementExtensions.ReadElementExtensions<string>("dtend", "http://www.w3.org/2002/12/cal/ical#");
+			if (elements.Count > 0)
+				return DateTime.Parse(elements[0]).ToUniversalTime();
 
-            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/')) {
-                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
-                } else
-                    return DateTime.Parse(elements[0]).ToUniversalTime();
-            }
+			elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
+			if (elements.Count > 0)
+			{
+				if (elements[0].Contains('/'))
+					return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
+			}
 
-            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/')) {
-                    return DateTime.Parse(elements[0].Split('/').First()).ToUniversalTime();
-                } else
-                    return DateTime.Parse(elements[0]).ToUniversalTime();
-            }
+			var eo = item.GetEarthObservationProfile();
 
-            var eo = item.GetEarthObservationProfile();
+			if (eo != null)
+			{
+				return eo.FindEndPosition();
+			}
 
-            if (eo != null) {
-                return eo.FindBeginPosition();
-            }
+			return DateTime.MaxValue;
 
-            return DateTime.MinValue;
+		}
 
-        }
 
-        public static DateTime FindEndDate(this IOpenSearchResultItem item) {
 
-            var elements = item.ElementExtensions.ReadElementExtensions<string>("date", "http://purl.org/dc/elements/1.1/");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/'))
-                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
-            }
+		public static string FindProductType(this IOpenSearchResultItem item)
+		{
 
-            elements = item.ElementExtensions.ReadElementExtensions<string>("dtend", "http://www.w3.org/2002/12/cal/ical#");
-            if (elements.Count > 0)
-                return DateTime.Parse(elements[0]).ToUniversalTime();
+			var eo = item.GetEarthObservationProfile();
 
-            elements = item.ElementExtensions.ReadElementExtensions<string>("date", "");
-            if (elements.Count > 0) {
-                if (elements[0].Contains('/'))
-                    return DateTime.Parse(elements[0].Split('/').Last()).ToUniversalTime();
-            }
+			if (eo != null)
+			{
+				return eo.FindProductType();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null)
-            {
-                return eo.FindEndPosition();
-            }
+		}
 
-            return DateTime.MaxValue;
+		public static string FindParentIdentifier(this IOpenSearchResultItem item)
+		{
 
-        }
+			var eo = item.GetEarthObservationProfile();
 
+			if (eo != null)
+			{
+				return eo.FindParentIdentifier();
+			}
 
+			return null;
 
-        public static string FindProductType(this IOpenSearchResultItem item) {
+		}
 
-            var eo = item.GetEarthObservationProfile();
+		public static string FindOrbitNumber(this IOpenSearchResultItem item)
+		{
 
-            if (eo != null) {
-                return eo.FindProductType();
-            }
+			var eo = item.GetEarthObservationProfile();
 
-            return null;
+			if (eo != null)
+			{
 
-        }
+				return eo.FindOrbitNumber();
+			}
 
-        public static string FindParentIdentifier(this IOpenSearchResultItem item) {
+			return null;
 
-            var eo = item.GetEarthObservationProfile();
+		}
 
-            if (eo != null) {
-                return eo.FindParentIdentifier();
-            }
 
-            return null;
 
-        }
+		public static string FindOrbitDirection(this IOpenSearchResultItem item)
+		{
 
-        public static string FindOrbitNumber(this IOpenSearchResultItem item) {
+			var eo = item.GetEarthObservationProfile();
 
-            var eo = item.GetEarthObservationProfile();
+			if (eo != null)
+			{
 
-            if (eo != null) {
+				return eo.FindOrbitDirection();
+			}
 
-                return eo.FindOrbitNumber();
-            }
+			return null;
 
-            return null;
+		}
 
-        }
+		public static string FindTrack(this IOpenSearchResultItem item)
+		{
 
-       
+			var eo = item.GetEarthObservationProfile();
 
-        public static string FindOrbitDirection(this IOpenSearchResultItem item) {
+			if (eo != null)
+			{
 
-            var eo = item.GetEarthObservationProfile();
+				return eo.FindTrack();
+			}
 
-            if (eo != null) {
+			return null;
 
-                return eo.FindOrbitDirection();
-            }
+		}
 
-            return null;
 
-        }
+		public static string FindFrame(this IOpenSearchResultItem item)
+		{
 
-        public static string FindTrack(this IOpenSearchResultItem item) {
+			var eo = item.GetEarthObservationProfile();
 
-            var eo = item.GetEarthObservationProfile();
+			if (eo != null)
+			{
 
-            if (eo != null) {
+				return eo.FindFrame();
+			}
 
-                return eo.FindTrack();
-            }
+			return null;
 
-            return null;
+		}
 
-        }
+		public static double FindCloudCoverPercentage(this IOpenSearchResultItem item)
+		{
 
+			var eo = item.GetEarthObservationProfile();
 
-        public static string FindFrame(this IOpenSearchResultItem item) {
+			if (eo != null)
+			{
+				return eo.FindCloudCoverPercentage();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return 0;
 
-            if (eo != null) {
+		}
 
-                return eo.FindFrame();
-            }
+		public static string FindSwathIdentifier(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
+			if (eo != null)
+			{
 
-        public static string FindSwathIdentifier(this IOpenSearchResultItem item) {
+				return eo.FindSwathIdentifier();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null) {
+		}
 
-                return eo.FindSwathIdentifier();
-            }
+		public static string FindPlatformShortName(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
+			if (eo != null)
+			{
 
-        public static string FindPlatformShortName(this IOpenSearchResultItem item) {
+				return eo.FindPlatformShortName();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null) {
+		}
 
-                return eo.FindPlatformShortName();
-            }
+		public static string FindInstrumentShortName(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
+			if (eo != null)
+			{
 
-        public static string FindInstrumentShortName(this IOpenSearchResultItem item)
-        {
+				return eo.FindInstrumentShortName();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null)
-            {
+		}
 
-                return eo.FindInstrumentShortName();
-            }
+		public static string FindOperationalMode(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
+			if (eo != null)
+			{
 
-        public static string FindOperationalMode(this IOpenSearchResultItem item) {
+				return eo.FindOperationalMode();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null) {
+		}
 
-                return eo.FindOperationalMode();
-            }
+		public static string FindPolarisationChannels(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
+			if (eo != null)
+			{
 
-        public static string FindPolarisationChannels(this IOpenSearchResultItem item) {
+				return eo.FindPolarisationChannels();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null) {
+		}
 
-                return eo.FindPolarisationChannels();
-            }
+		public static string FindWrsLongitudeGrid(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
+			if (eo != null)
+			{
 
-        public static string FindWrsLongitudeGrid(this IOpenSearchResultItem item) {
+				return eo.FindWrsLongitudeGrid();
+			}
 
-            var eo = item.GetEarthObservationProfile();
+			return null;
 
-            if (eo != null) {
+		}
 
-                return eo.FindWrsLongitudeGrid();
-            }
+		public static string FindWrsLatitudeGrid(this IOpenSearchResultItem item)
+		{
 
-            return null;
+			var eo = item.GetEarthObservationProfile();
 
-        }
-       
-        public static string FindWrsLatitudeGrid(this IOpenSearchResultItem item)
-        {
+			if (eo != null)
+			{
 
-            var eo = item.GetEarthObservationProfile();
+				return eo.FindWrsLatitudeGrid();
+			}
 
-            if (eo != null) {
+			return null;
 
-                return eo.FindWrsLatitudeGrid();
-            }
+		}
 
-            return null;
+		public static string FindProcessingLevel(this IOpenSearchResultItem item)
+		{
 
-        }
+			var eo = item.GetEarthObservationProfile();
 
-        public static string FindProcessingLevel(this IOpenSearchResultItem item) {
+			if (eo != null)
+			{
 
-            var eo = item.GetEarthObservationProfile();
+				return eo.FindProcessingLevel();
+			}
 
-            if (eo != null) {
+			return null;
 
-                return eo.FindProcessingLevel();
-            }
+		}
 
-            return null;
 
-        }
-
-
-    }
+	}
 
 }
 
