@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'rm -rf packges */bin build'
         sh 'mkdir -p build Terradue.Metadata.EarthObservation.Tests/out'
-        sh 'nuget restore'
+        sh 'nuget restore -MSBuildVersion 14'
         sh 'ls -la'
       }
     }
@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Package') {
       steps {
-            sh "nuget4mono -g origin/${env.BRANCH_NAME} -p Terradue.Metadata.EarthObservation/packages.config Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll Terradue.Metadata.EarthObservation/Resources/**/*,content/Resources"
+            sh "nuget4mono -g origin/${env.BRANCH_NAME} -p ${workspace}/Terradue.Metadata.EarthObservation/packages.config ${workspace}/Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll ${workspace}/Terradue.Metadata.EarthObservation/Resources/**/*,content/Resources"
             sh 'cat *.nuspec'
             sh 'nuget pack -OutputDirectory build'
             sh "echo ${params.NUGET_PUBLISH}"
