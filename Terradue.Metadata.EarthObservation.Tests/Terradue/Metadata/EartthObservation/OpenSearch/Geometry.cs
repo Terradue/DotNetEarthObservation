@@ -81,6 +81,23 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
 		}
 
+        [Test()]
+        public void FindGeometryFromWB()
+        {
+
+            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/mwa.atom", FileMode.Open, FileAccess.Read));
+            SyndicationFeed feed = SyndicationFeed.Load(responseReader);
+
+            AtomFeed afeed = new AtomFeed(feed);
+
+            var geometry = afeed.Items.First().FindGeometry();
+
+            Assert.That(geometry is Polygon);
+
+            Assert.That(((Polygon)geometry).Coordinates[0].Count() > 5);
+
+        }
+
     }
 }
 
