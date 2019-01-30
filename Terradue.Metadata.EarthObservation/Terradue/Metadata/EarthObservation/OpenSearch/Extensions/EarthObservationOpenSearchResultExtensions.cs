@@ -52,17 +52,19 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Extensions
 					{
 						// 1) search for georss
 						case "http://www.georss.org/georss":
-							savegeom = GeoJson.GeoRss.GeoRssHelper.Deserialize(xr).ToGeometry();
-							if (xr.LocalName != "box" || xr.LocalName != "point")
-							{
+                            var georss = GeoJson.GeoRss.GeoRssHelper.Deserialize(xr);
+                            savegeom = georss.ToGeometry();
+                            if (!(georss is GeoRssBox || georss is GeoRssPoint))
+                            {
 								return savegeom;
 							}
 							break;
 						// 2) search for georss10
 						case "http://www.georss.org/georss/10":
-							savegeom = GeoJson.GeoRss10.GeoRss10Helper.Deserialize(xr).ToGeometry();
-							if (xr.LocalName != "box" || xr.LocalName != "point")
-							{
+                            var georss10 = GeoJson.GeoRss10.GeoRss10Helper.Deserialize(xr);
+                            savegeom = georss10.ToGeometry();
+                            if (!(georss10 is GeoRssBox || georss10 is GeoRssPoint))
+                            {
 								return savegeom;
 							}
 							break;

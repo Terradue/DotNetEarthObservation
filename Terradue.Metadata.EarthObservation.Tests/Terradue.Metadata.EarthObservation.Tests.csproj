@@ -158,6 +158,7 @@
     <None Include="Samples\S1EOP.xml" />
     <None Include="Samples\S1EOPwbrowse.xml" />
     <None Include="Samples\S1AEOP.xml" />
+    <None Include="Samples\mwa.atom" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Samples\" />
