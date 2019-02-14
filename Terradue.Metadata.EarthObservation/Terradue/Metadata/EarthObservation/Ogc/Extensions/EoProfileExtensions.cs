@@ -1067,6 +1067,51 @@ namespace Terradue.Metadata.EarthObservation.Ogc.Extensions
             }
         }
 
+        public static double FindSensorResolution(this ServiceModel.Ogc.Om20.OM_ObservationType eo)
+        {
+
+            if (eo != null)
+            {
+
+                if (eo is ServiceModel.Ogc.Eop21.EarthObservationType)
+                {
+                    return ((ServiceModel.Ogc.Eop21.EarthObservationType)eo).FindSensorResolution();
+                }
+
+                if (eo is ServiceModel.Ogc.Eop20.EarthObservationType)
+                {
+                    return ((ServiceModel.Ogc.Eop20.EarthObservationType)eo).FindSensorResolution();
+                }
+            }
+
+            return -1;
+
+        }
+
+        public static double FindSensorResolution(this ServiceModel.Ogc.Eop21.EarthObservationType eo)
+        {
+            try
+            {
+                return eo.procedure.Eop21EarthObservationEquipment.sensor.Sensor.resolution.Value;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public static double FindSensorResolution(this ServiceModel.Ogc.Eop20.EarthObservationType eo)
+        {
+            try
+            {
+                return eo.procedure.Eop20EarthObservationEquipment.sensor.Sensor.resolution.Value;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public static XmlReader CreateDcDateXmlReader(this ServiceModel.Ogc.Om20.OM_ObservationType om)
         {
             XElement xelement = new XElement(XName.Get("date", OgcHelpers.DC));

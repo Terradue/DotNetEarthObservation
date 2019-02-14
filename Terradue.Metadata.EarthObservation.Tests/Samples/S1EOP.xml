@@ -22,6 +22,7 @@
           <eop:sensor>
             <eop:Sensor>
               <eop:sensorType>RADAR</eop:sensorType>
+              <eop:resolution>3</eop:resolution>
               <eop:operationalMode codeSpace="urn:eop:SEN1:sensorMode">IW_DP</eop:operationalMode>
             </eop:Sensor>
           </eop:sensor>

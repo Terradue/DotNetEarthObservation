@@ -413,8 +413,21 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Extensions
 
 		}
 
+        public static double FindSensorResolution(this IOpenSearchResultItem item)
+        {
 
-	}
+            var eo = item.GetEarthObservationProfile();
+
+            if (eo != null)
+            {
+
+                return eo.FindSensorResolution();
+            }
+
+            return -1;
+
+        }
+    }
 
 }
 

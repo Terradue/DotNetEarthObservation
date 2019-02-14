@@ -8,16 +8,19 @@ using Terradue.OpenSearch.Result;
 using Terradue.ServiceModel.Ogc;
 using System.Xml;
 using Terradue.Metadata.EarthObservation.Ogc.Extensions;
+using Terradue.Metadata.EarthObservation.OpenSearch.Extensions;
 
 namespace Terradue.Metadata.EarthObservation.Test
 {
 
     [TestFixture()]
-    public class HelperTests {
+    public class HelperTests
+    {
 
 
         [Test()]
-        public void MergeGeoTime() {
+        public void MergeGeoTime()
+        {
 
             NameValueCollection parameters = new NameValueCollection();
             parameters.Set("bbox", "-10,-20,10,20");
@@ -59,7 +62,9 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
 
-            AtomItem item =  AtomEarthObservationFactory.CreateEarthObservationAtomItem(sarEo);
+            AtomItem item = AtomEarthObservationFactory.CreateEarthObservationAtomItem(sarEo);
+
+            Assert.AreEqual(3, item.FindSensorResolution());
 
             AtomFeed feed = new AtomFeed();
 
@@ -69,8 +74,8 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             feed.SerializeToStream(s1out);
         }
-        
-        
+
+
         [Test()]
         public void GetTrackFromEopProfileExtensions()
         {
@@ -78,9 +83,9 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
 
-            Assert.AreEqual(EoProfileExtensions.FindTrack(sarEo),"147");
+            Assert.AreEqual(EoProfileExtensions.FindTrack(sarEo), "147");
         }
-        
+
 
         [Test()]
         public void CreateAtomItemFromEopProfileBrowse()
