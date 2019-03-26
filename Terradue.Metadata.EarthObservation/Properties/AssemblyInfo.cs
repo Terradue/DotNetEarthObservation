@@ -38,8 +38,8 @@ using NuGet4Mono.Extensions;
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
-[assembly: AssemblyVersion("1.5.8.*")]
-[assembly: AssemblyInformationalVersion("1.5.8")]
+[assembly: AssemblyVersion("1.5.9.*")]
+[assembly: AssemblyInformationalVersion("1.5.9")]
 [assembly: AssemblyAuthors("Emmanuel Mathot")]
 [assembly: AssemblyProjectUrl("https://github.com/Terradue/DotNetEarthObservation")]
 [assembly: AssemblyLicenseUrl("https://github.com/Terradue/DotNetEarthObservation/blob/master/LICENSE")]
