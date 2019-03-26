@@ -61,6 +61,12 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
                 var swath = om.FindSwathIdentifier();
                 AddTableRow(writer, "Swath", swath);
 
+                var polarisationChannels = om.FindPolarisationChannels();
+                if (!String.IsNullOrEmpty(polarisationChannels)) AddTableRow(writer, "Polarisation channels", polarisationChannels);
+
+                var identifier = om.FindIdentifier();
+                if (!String.IsNullOrEmpty(identifier)) AddTableRow(writer, "Identifier", identifier);
+
                 if (om.IsOpticalDataset()) {
                     var cc = om.FindCloudCoverPercentage();
                     if (cc > 1) {
