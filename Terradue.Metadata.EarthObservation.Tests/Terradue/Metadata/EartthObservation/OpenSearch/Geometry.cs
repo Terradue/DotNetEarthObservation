@@ -21,7 +21,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
         [Test()]
         public void FindFromEOMetadata() {
 
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/search_s2.xml", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/search_s2.xml", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);
@@ -31,7 +31,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
             Assert.That(geometry is Polygon);
 
             OpenSearchDescription osd = new OpenSearchDescription();
-            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms}", "search")};
+            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms}", "search", osd.ExtraNamespace)};
 
             string template = OpenSearchParametersHelper.EntrySelfLinkTemplate(afeed.Items.First(), osd, "application/atom+xml");
 
@@ -40,7 +40,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
         [Test()]
         public void FindFromSpatial() {
 
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/spatial.xml", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir+ "/Samples/spatial.xml", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);
@@ -55,7 +55,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
 		public void FindGeometryFromS2()
 		{
 
-			XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/S2scihub.atom", FileMode.Open, FileAccess.Read));
+			XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/S2scihub.atom", FileMode.Open, FileAccess.Read));
 			SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
 			AtomFeed afeed = new AtomFeed(feed);
@@ -70,7 +70,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
 		public void FindGeometryFromS1()
 		{
 
-			XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/S1scihub.atom", FileMode.Open, FileAccess.Read));
+			XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/S1scihub.atom", FileMode.Open, FileAccess.Read));
 			SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
 			AtomFeed afeed = new AtomFeed(feed);
@@ -85,7 +85,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
         public void FindGeometryFromWB()
         {
 
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/mwa.atom", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/mwa.atom", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);

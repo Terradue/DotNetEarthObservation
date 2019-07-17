@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Web.UI;
 using Terradue.Metadata.EarthObservation.Ogc.Extensions;
 
 
@@ -17,13 +16,11 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
         /// <param name="om"></param>
         /// <returns></returns>
         public static string GetHtmlSummaryForOgcObservationsAndMeasurements(ServiceModel.Ogc.Om20.OM_ObservationType om) {
-            // Initialize StringWriter instance.
-            StringWriter stringWriter = new StringWriter();
 
             // Put HtmlTextWriter in using block because it needs to call Dispose.
-            using (HtmlTextWriter writer = new HtmlTextWriter(stringWriter)) {
+            using ( StringWriter writer = new StringWriter()) {
                 //table
-                writer.RenderBeginTag(HtmlTextWriterTag.Table);
+                writer.Write("<table>");
 
                 var platformShortName = om.FindPlatformShortName();
                 AddTableRow(writer, "Platform", platformShortName);
@@ -37,11 +34,11 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
                 var startTime = om.FindBeginPosition();
                 var endTime = om.FindEndPosition();
                 if (startTime.Ticks != 0 && endTime.Ticks != 0) {
-                    AddTableRow(writer, "Start Time", startTime);
-                    AddTableRow(writer, "End Time", endTime);
+                    AddTableRow(writer, "Start Time", startTime.ToUniversalTime().ToString("O"));
+                    AddTableRow(writer, "End Time", endTime.ToUniversalTime().ToString("O"));
                 } else {
                     var relevantDate = om.FindRelevantDate();
-                    AddTableRow(writer, "Date", relevantDate);
+                    AddTableRow(writer, "Date", relevantDate.ToUniversalTime().ToString("O"));
                 }
 
                 var orbitNumber = om.FindOrbitNumber();
@@ -74,10 +71,10 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
                     }
                 }
                 // end table
-                writer.RenderEndTag();
-            }
+                writer.Write("</table>");
 
-            return stringWriter.ToString();
+                return writer.ToString();
+            }
         }
 
 
@@ -98,35 +95,13 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
         }
 
 
-        private static void AddTableRow(HtmlTextWriter writer, string propertyName, string stringValue) {
+        private static void AddTableRow(TextWriter writer, string propertyName, string stringValue) {
             if (string.IsNullOrEmpty(stringValue)) return;
-            writer.RenderBeginTag(HtmlTextWriterTag.Tr);
-            writer.RenderBeginTag(HtmlTextWriterTag.Td);
+            writer.Write("<tr><td>");
             writer.Write(propertyName);
-            writer.RenderEndTag();
-            writer.RenderBeginTag(HtmlTextWriterTag.Td);
-            writer.RenderBeginTag(HtmlTextWriterTag.Strong);
+            writer.Write("</td><td><b>");
             writer.Write(stringValue);
-            writer.RenderEndTag();
-            writer.RenderEndTag();
-            // end row
-            writer.RenderEndTag();
-        }
-
-
-        private static void AddTableRow(HtmlTextWriter writer, string propertyName, DateTime dateTimeValue) {
-            if (dateTimeValue.Ticks == 0) return;
-            writer.RenderBeginTag(HtmlTextWriterTag.Tr);
-            writer.RenderBeginTag(HtmlTextWriterTag.Td);
-            writer.Write(propertyName);
-            writer.RenderEndTag();
-            writer.RenderBeginTag(HtmlTextWriterTag.Td);
-            writer.RenderBeginTag(HtmlTextWriterTag.Strong);
-            writer.Write(dateTimeValue.ToUniversalTime().ToString("O"));
-            writer.RenderEndTag();
-            writer.RenderEndTag();
-            // end row
-            writer.RenderEndTag();
+            writer.Write("</b></td></tr>");
         }
 
     }

@@ -5,32 +5,33 @@ pipeline {
     choice(name: 'DOTNET_CONFIG', choices: "Debug\nRelease", description: 'Debug will produce symbols in the assmbly to be able to debug it at runtime. This is the recommended option for feature, hotfix testing or release candidate.<br/><strong>For publishing a release from master branch, please choose Release.</strong>', )
    }
   agent { node { label 'centos7-mono4' } }
+  environment {
+        EO_LANDMASK_DIRPATH = 'Terradue.Metadata.EarthObservation.Tests/Resources/ne_110m_land/ne_110m_land.shp'
+    }
   stages {
     stage('Init') {
       steps {
         sh 'rm -rf packges */bin build'
         sh 'mkdir -p build Terradue.Metadata.EarthObservation.Tests/out'
-        sh 'nuget restore -MSBuildVersion 14'
         sh 'ls -la'
       }
     }
     stage('Build') {
       steps {
         echo "The library will be build in ${params.DOTNET_CONFIG}"
-        sh "xbuild /p:Configuration=${params.DOTNET_CONFIG}"
+        sh "msbuild /t:build /p:Configuration=${params.DOTNET_CONFIG} /restore:True"
       }
     }
     stage('Package') {
       steps {
-            sh "nuget4mono -g origin/${env.BRANCH_NAME} -p ${workspace}/Terradue.Metadata.EarthObservation/packages.config ${workspace}/Terradue.Metadata.EarthObservation/bin/Terradue.Metadata.EarthObservation.dll ${workspace}/Terradue.Metadata.EarthObservation/Resources/**/*,content/Resources"
-            sh 'cat *.nuspec'
-            sh 'nuget pack -OutputDirectory build'
-            sh "echo ${params.NUGET_PUBLISH}"
-            }
+        sh "msbuild /t:pack /p:Configuration=${params.DOTNET_CONFIG}"
+        sh 'cat */obj/*/*.nuspec'
        }
+    }
     stage('Test') {
       steps {
-            sh 'nunit-console4 *.Tests/bin/*.Tests.dll -xml build/TestResult.xml'
+
+            sh 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Tests/bin/*/net45/*.Tests.dll'
           }
       }
     stage('Publish') {
@@ -47,7 +48,7 @@ pipeline {
   }
   post { 
     always { 
-       nunit(testResultsPattern: 'build/TestResult.xml')
+       nunit(testResultsPattern: 'TestResult.xml')
     }
   }
 }
