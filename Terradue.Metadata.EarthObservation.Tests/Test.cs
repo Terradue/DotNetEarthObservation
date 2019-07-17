@@ -19,12 +19,12 @@ namespace Terradue.Metadata.EarthObservation.Test {
         [Test()]
         public void TestCase() {
 
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/search_s2.xml", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/search_s2.xml", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(OpenSearchDescription));
-            XmlReader xmlReader = XmlReader.Create(new FileStream("../Samples/S2_OSDD.xml", FileMode.Open, FileAccess.Read));
+            XmlReader xmlReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/S2_OSDD.xml", FileMode.Open, FileAccess.Read));
             OpenSearchDescription osd = (OpenSearchDescription)xmlSerializer.Deserialize(xmlReader);
 
             var self = Terradue.Metadata.EarthObservation.OpenSearch.Helpers.OpenSearchParametersHelper.EntrySelfLinkTemplate(afeed.Items.Cast<AtomItem>().First(), osd, "application/atom+xml");

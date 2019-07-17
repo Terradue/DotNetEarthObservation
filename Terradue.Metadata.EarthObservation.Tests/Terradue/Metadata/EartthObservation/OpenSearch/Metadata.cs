@@ -20,7 +20,7 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void FindFromEOMetadata() {
 
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/search_s2.xml", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/search_s2.xml", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);
@@ -42,7 +42,7 @@ namespace Terradue.Metadata.EarthObservation.Test
 			Assert.AreEqual(9.94, om.FindCloudCoverPercentage());
 
             OpenSearchDescription osd = new OpenSearchDescription();
-            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search")};
+            osd.Url = new OpenSearchDescriptionUrl[]{new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search", osd.ExtraNamespace)};
 
             string template = OpenSearchParametersHelper.EntrySelfLinkTemplate(afeed.Items.First(), osd, "application/atom+xml");
 
@@ -52,7 +52,7 @@ namespace Terradue.Metadata.EarthObservation.Test
 		public void FindFromIT4IEOMetadata()
 		{
 
-			XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/optit4i.xml", FileMode.Open, FileAccess.Read));
+			XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/optit4i.xml", FileMode.Open, FileAccess.Read));
 			SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
 			AtomFeed afeed = new AtomFeed(feed);
@@ -74,7 +74,7 @@ namespace Terradue.Metadata.EarthObservation.Test
 			Assert.AreEqual(-1, om.FindCloudCoverPercentage());
 
 			OpenSearchDescription osd = new OpenSearchDescription();
-			osd.Url = new OpenSearchDescriptionUrl[] { new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search") };
+			osd.Url = new OpenSearchDescriptionUrl[] { new OpenSearchDescriptionUrl("application/atom+xml", "http://localhost/search?q={searchTerms?}&start={time:start?}&stop={time:end?}&bbox={geo:box?}&grp={eop:productGroupId?}&id={geo:uid?}", "search", osd.ExtraNamespace) };
 
             string template = OpenSearchParametersHelper.EntrySelfLinkTemplate(afeed.Items.First(), osd, "application/atom+xml");
 
@@ -83,7 +83,7 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void FindFromAtomWithGeoRss() {
 
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/atom.xml", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/atom.xml", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);
@@ -107,7 +107,7 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void FindEOPFromFedeoTSX()
         {
-            XmlReader responseReader = XmlReader.Create(new FileStream("../Samples/fedeo-tsx.atom", FileMode.Open, FileAccess.Read));
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/fedeo-tsx.atom", FileMode.Open, FileAccess.Read));
             SyndicationFeed feed = SyndicationFeed.Load(responseReader);
 
             AtomFeed afeed = new AtomFeed(feed);
