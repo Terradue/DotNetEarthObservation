@@ -43,7 +43,7 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             var newParams = GeoTimeOpenSearchHelper.MergeGeoTimeFilters(parameters, overriders);
 
-            Assert.IsNullOrEmpty(newParams["geom"]);
+            Assert.IsNull(newParams["geom"]);
             Assert.AreEqual("-180,-90,180,90", newParams["bbox"]);
             Assert.AreEqual("disjoint", newParams["rel"]);
         }
@@ -58,7 +58,7 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void CreateAtomItemFromEopProfile()
         {
-            FileInfo s1 = new FileInfo("../Samples/S1EOP.xml");
+            FileInfo s1 = new FileInfo(Util.TestBaseDir + "/Samples/S1EOP.xml");
 
             Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
 
@@ -70,7 +70,7 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             feed.Items = new AtomItem[1] { item };
 
-            FileStream s1out = new FileStream("../out/S1EOP.atom", FileMode.Create, FileAccess.Write);
+            FileStream s1out = new FileStream(Util.TestBaseDir + "/out/S1EOP.atom", FileMode.Create, FileAccess.Write);
 
             feed.SerializeToStream(s1out);
         }
@@ -79,7 +79,7 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void GetTrackFromEopProfileExtensions()
         {
-            FileInfo s1 = new FileInfo("../Samples/S1AEOP.xml");
+            FileInfo s1 = new FileInfo(Util.TestBaseDir + "/Samples/S1AEOP.xml");
 
             Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
 
@@ -90,7 +90,7 @@ namespace Terradue.Metadata.EarthObservation.Test
         [Test()]
         public void CreateAtomItemFromEopProfileBrowse()
         {
-            FileInfo s1 = new FileInfo("../Samples/S1EOPwbrowse.xml");
+            FileInfo s1 = new FileInfo(Util.TestBaseDir + "/Samples/S1EOPwbrowse.xml");
 
             Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType sarEo = (Terradue.ServiceModel.Ogc.Sar21.SarEarthObservationType)OgcHelpers.DeserializeEarthObservation(XmlReader.Create(s1.OpenRead()));
 
@@ -100,7 +100,7 @@ namespace Terradue.Metadata.EarthObservation.Test
 
             feed.Items = new AtomItem[1] { item };
 
-            FileStream s1out = new FileStream("../out/S1EOPwbrowse.atom", FileMode.Create, FileAccess.Write);
+            FileStream s1out = new FileStream(Util.TestBaseDir + "/out/S1EOPwbrowse.atom", FileMode.Create, FileAccess.Write);
 
             feed.SerializeToStream(s1out);
         }

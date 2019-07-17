@@ -20,13 +20,12 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
         public SpatialHelper (){
 
             NetTopologySuite.Geometries.GeometryFactory gfactory = new NetTopologySuite.Geometries.GeometryFactory();
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var landMaskConfig = config.AppSettings.Settings["eo.landMask"];
+            var landMaskConfig = System.Environment.GetEnvironmentVariable("EO_LANDMASK_DIRPATH");
             string landMaskPath = null;
-            if (landMaskConfig == null)
+            if (string.IsNullOrEmpty(landMaskConfig))
                 landMaskPath = "/usr/local/lib/ne_110m_land/ne_110m_land.shp";
             else
-                landMaskPath = landMaskConfig.Value;
+                landMaskPath = landMaskConfig;
 
             log.DebugFormat("Opening land mask at {0}", landMaskPath);
 
