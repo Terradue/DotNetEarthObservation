@@ -6,7 +6,7 @@ pipeline {
    }
   agent { node { label 'centos7-mono4' } }
   environment {
-        EO_LANDMASK_DIRPATH = '../../../Resources/ne_110m_land/ne_110m_land.shp'
+        EO_LANDMASK_DIRPATH = 'Terradue.Metadata.EarthObservation.Tests/Resources/ne_110m_land/ne_110m_land.shp'
     }
   stages {
     stage('Init') {
