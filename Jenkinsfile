@@ -5,6 +5,9 @@ pipeline {
     choice(name: 'DOTNET_CONFIG', choices: "Debug\nRelease", description: 'Debug will produce symbols in the assmbly to be able to debug it at runtime. This is the recommended option for feature, hotfix testing or release candidate.<br/><strong>For publishing a release from master branch, please choose Release.</strong>', )
    }
   agent { node { label 'centos7-mono4' } }
+  environment {
+        EO_LANDMASK_DIRPATH = '../../../Resources/ne_110m_land/ne_110m_land.shp'
+    }
   stages {
     stage('Init') {
       steps {
@@ -27,6 +30,7 @@ pipeline {
     }
     stage('Test') {
       steps {
+
             sh 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Tests/bin/*/*/*.Tests.dll'
           }
       }
