@@ -40,4 +40,20 @@
     <PackageReference Include="ProjNet" Version="1.2.0"/>
     <PackageReference Include="Terradue.ServiceModel.Ogc.OwsContext" Version="1.2.0"/>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\ne_110m_land\ne_110m_land.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ne_110m_land\ne_110m_land.prj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ne_110m_land\ne_110m_land.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ne_110m_land\ne_110m_land.shx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  
 </Project>

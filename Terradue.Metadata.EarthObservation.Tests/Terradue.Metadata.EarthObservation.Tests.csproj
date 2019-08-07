@@ -29,4 +29,18 @@
     <PackageReference Include="Terradue.ServiceModel.Ogc" Version="2.1.3"/>
     <PackageReference Include="Terradue.GeoJson" Version="1.10.0"/>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\ne_110m_land\ne_110m_land.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ne_110m_land\ne_110m_land.prj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ne_110m_land\ne_110m_land.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ne_110m_land\ne_110m_land.shx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
