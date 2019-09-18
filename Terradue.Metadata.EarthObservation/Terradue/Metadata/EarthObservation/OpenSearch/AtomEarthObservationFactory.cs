@@ -117,7 +117,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
         private static void AddEnclosure(ServiceModel.Ogc.Eop21.EarthObservationType eo, ref AtomItem item)
         {
-            if (eo.result != null && eo.result.Eop21EarthObservationResult.product != null && eo.result.Eop21EarthObservationResult.product.Count() > 0)
+            if (eo.result != null && eo.result.Eop21EarthObservationResult.product != null &&
+                eo.result.Eop21EarthObservationResult.product.Count() > 0 &&
+                eo.result.Eop21EarthObservationResult.product.First().ProductInformation != null &&
+                eo.result.Eop21EarthObservationResult.product.First().ProductInformation.referenceSystemIdentifier != null
+                )
             {
                 var pr = eo.result.Eop21EarthObservationResult.product[0];
                 var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text[0]));
@@ -157,7 +161,11 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch
 
         private static void AddEnclosure(ServiceModel.Ogc.Eop20.EarthObservationType eo, ref AtomItem item)
         {
-            if (eo.result != null && eo.result.Eop20EarthObservationResult.product != null && eo.result.Eop20EarthObservationResult.product.Count() > 0)
+            if (eo.result != null && eo.result.Eop20EarthObservationResult.product != null &&
+                eo.result.Eop20EarthObservationResult.product.Count() > 0 &&
+                eo.result.Eop20EarthObservationResult.product.First().ProductInformation != null &&
+                eo.result.Eop20EarthObservationResult.product.First().ProductInformation.referenceSystemIdentifier != null
+                )
             {
                 var pr = eo.result.Eop20EarthObservationResult.product[0];
                 var link = SyndicationLink.CreateMediaEnclosureLink(new Uri(pr.ProductInformation.fileName.ServiceReference.href), "application/octet-stream", long.Parse(pr.ProductInformation.size.Text));
