@@ -6,7 +6,7 @@
         <AssemblyName>Terradue.Metadata.EarthObservation</AssemblyName>
         <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
         <RuntimeIdentifiers>win;linux-x64</RuntimeIdentifiers>
-        <Title>DotNetOgcModel</Title>
+        <Title>DotNetEarthObservation</Title>
         <Description>.Net C# library implementing the Earth Observation Metadata profile of Observations and Measurements</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <Version>1.6.2</Version>
