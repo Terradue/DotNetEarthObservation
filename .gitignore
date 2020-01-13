@@ -2,9 +2,9 @@
 
 /Terradue.Metadata.EarthObservation/Terradue.Metadata.EarthObservation.userprefs
 
-/Terradue.Metadata.EarthObservation/bin/
-
-/Terradue.Metadata.EarthObservation/obj/
+*/bin/
+*/obj/
+*/packages/
 
 /packages/
 Terradue.Metadata.EarthObservation.Tests/obj/
@@ -14,3 +14,4 @@ Terradue.Metadata.EarthObservation.Tests/bin/
 Terradue.Metadata.EarthObservation.Tests/out/*
 .idea
 .vs
+

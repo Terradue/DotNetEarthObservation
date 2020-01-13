@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:DIAS="http://tas/DIAS" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/" xmlns:eo="http://a9.com/-/spec/opensearch/extensions/eo/1.0/" xmlns:geo="http://a9.com/-/spec/opensearch/extensions/geo/1.0/" xmlns:georss="http://www.georss.org/georss" xmlns:media="http://search.yahoo.com/mrss/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:referrer="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Referrer/1.0" xmlns:sru="http://a9.com/-/opensearch/extensions/sru/2.0/" xmlns:time="http://a9.com/-/spec/opensearch/extensions/time/1.0/">
+    <generator>DIAS CWS OpenSearch Service</generator>
+    <title>DIAS CWS OpenSearch Service - Search Results</title>
+    <author>
+        <name>DIAS CWS</name>
+        <email>gseo@thalesaleniaspace.com</email>
+    </author>
+    <id>https://catalog-browse.default.mundiwebservices.com/acdc/catalog/proxy/search/Sentinel3/opensearch</id>
+    <updated>2019-12-18T10:52:58Z</updated>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://catalog-browse.default.mundiwebservices.com/acdc/catalog/proxy/search/Sentinel3/opensearch/description.xml" />
+    <link rel="self" type="application/atom+xml" title="self" href="https://catalog-browse.default.mundiwebservices.com/acdc/catalog/proxy/search/Sentinel3/opensearch?uid=S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003" />
+    <link rel="first" type="application/atom+xml" title="first" href="https://catalog-browse.default.mundiwebservices.com/acdc/catalog/proxy/search/Sentinel3/opensearch?uid=S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003&amp;startIndex=1" />
+    <link rel="last" type="application/atom+xml" title="last" href="https://catalog-browse.default.mundiwebservices.com/acdc/catalog/proxy/search/Sentinel3/opensearch?uid=S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003&amp;startIndex=1" />
+    <os:totalResults>1</os:totalResults>
+    <os:startIndex>1</os:startIndex>
+    <os:itemsPerPage>1</os:itemsPerPage>
+    <os:Query role="request" os:count="50" os:startIndex="1" geo:uid="S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003" />
+    <entry>
+        <id>S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003</id>
+        <dc:identifier>S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003</dc:identifier>
+        <summary type="text">name: S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003</summary>
+        <category>imagery</category>
+        <eo:parentIdentifier>S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003</eo:parentIdentifier>
+        <DIAS:metadataFormat>NATIVE</DIAS:metadataFormat>
+        <DIAS:imageFileFormat>NETCDF</DIAS:imageFileFormat>
+        <DIAS:orderID>UNKNOWN</DIAS:orderID>
+        <DIAS:sceneIndex>1</DIAS:sceneIndex>
+        <link rel="search" type="application/atom+xml" href="https://catalog-browse.default.mundiwebservices.com/acdc/catalog/proxy/search/Sentinel3/opensearch?uid=S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003" />
+        <dc:date>2018-05-11T09:18:27Z</dc:date>
+        <title>S3B_SR_1_SRA____20180511T091828_20180511T095748_20180605T152354_2360_003_078______LN3_O_NT_003</title>
+        <eo:resolution>500.0</eo:resolution>
+        <eo:sensorType>ALTIMETRIC</eo:sensorType>
+        <eo:sensorMode>EO</eo:sensorMode>
+        <eo:instrument>SRAL</eo:instrument>
+        <eo:orbitDirection>DESCENDING</eo:orbitDirection>
+        <eo:productType>SR_1_SRA___</eo:productType>
+        <eo:processingLevel>L1_</eo:processingLevel>
+        <eo:archivingCenter>DIAS_</eo:archivingCenter>
+        <eo:acquisitionStation>ESAS3</eo:acquisitionStation>
+        <eo:processingCenter>ESAS3</eo:processingCenter>
+        <eo:processingDate>2019-03-20T12:33:16Z</eo:processingDate>
+        <georss:where>
+		<gml:MultiSurface xmlns:gml="http://www.opengis.net/gml" srsName="EPSG:4326" srsDimension="2">
+                    <gml:surfaceMember>
+                        <gml:Polygon srsDimension="2">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList>-159.151 -50.3502 -159.148 -50.3497 -159.908 -48.6082 -160.626 -46.8628 -161.306 -45.1139 -161.954 -43.3617 -162.573 -41.6065 -163.166 -39.8486 -163.735 -38.0883 -164.284 -36.3256 -164.815 -34.5608 -165.328 -32.7941 -165.827 -31.0255 -166.313 -29.2552 -166.786 -27.4834 -167.248 -25.7101 -167.701 -23.9354 -168.144 -22.1595 -168.58 -20.3824 -169.009 -18.6043 -169.432 -16.8252 -169.849 -15.0452 -170.262 -13.2644 -170.67 -11.4829 -171.075 -9.70083 -171.477 -7.91819 -171.877 -6.13509 -172.275 -4.35161 -172.672 -2.56784 -173.068 -0.783863 -173.463 1.00025 -173.859 2.78441 -174.256 4.56853 -174.654 6.35255 -175.055 8.13636 -175.457 9.9199 -175.863 11.7031 -176.272 13.4858 -176.685 15.268 -177.103 17.0495 -177.527 18.8304 -177.957 20.6104 -178.394 22.3896 -178.84 24.1677 -179.294 25.9448 -179.758 27.7206 -180.0 28.624711999999935 -180.0 28.616840000000025 -179.76 27.7202 -179.296 25.9444 -178.842 24.1673 -178.396 22.3892 -177.959 20.61 -177.529 18.83 -177.105 17.0491 -176.687 15.2676 -176.274 13.4854 -175.864 11.7027 -175.459 9.9195 -175.056 8.13597 -174.656 6.35215 -174.258 4.56814 -173.861 2.78401 -173.465 0.999854 -173.069 -0.784257 -172.673 -2.56824 -172.277 -4.35201 -171.879 -6.13548 -171.479 -7.91858 -171.077 -9.70123 -170.672 -11.4833 -170.264 -13.2648 -169.851 -15.0456 -169.434 -16.8256 -169.011 -18.6047 -168.582 -20.3828 -168.146 -22.1599 -167.702 -23.9358 -167.25 -25.7105 -166.788 -27.4838 -166.315 -29.2556 -165.829 -31.0259 -165.331 -32.7945 -164.817 -34.5613 -164.287 -36.3261 -163.738 -38.0887 -163.168 -39.8491 -162.575 -41.6069 -161.957 -43.3621 -161.309 -45.1143 -160.628 -46.8633 -159.911 -48.6087 -159.151 -50.3502</gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </gml:surfaceMember>
+                    <gml:surfaceMember>
+                        <gml:Polygon srsDimension="2">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList>180.0 28.616840000000025 180.0 28.62471199999994 179.767 29.4952 179.279 31.2683 178.778 33.0398 178.261 34.8097 177.728 36.5777 177.175 38.3437 176.601 40.1075 176.004 41.8689 175.38 43.6277 174.726 45.3836 174.039 47.1363 173.314 48.8856 172.545 50.6309 171.727 52.3719 170.853 54.1079 169.913 55.8384 168.899 57.5624 167.796 59.2791 166.591 60.9872 165.263 62.6852 163.79 64.3712 162.142 66.0429 160.282 67.6971 158.161 69.3297 155.718 70.9354 152.871 72.5067 149.515 74.0338 145.509 75.5027 140.676 76.894 134.794 78.1805 127.618 79.3241 118.934 80.2745 108.691 80.9705 97.1862 81.3507 97.1848 81.3489 108.688 80.9688 118.929 80.2729 127.612 79.3226 134.788 78.1791 140.67 76.8928 145.503 75.5016 149.509 74.0328 152.866 72.5058 155.713 70.9345 158.157 69.3289 160.277 67.6964 162.138 66.0422 163.786 64.3706 165.259 62.6846 166.587 60.9866 167.793 59.2785 168.896 57.5618 169.91 55.8378 170.85 54.1074 171.724 52.3714 172.542 50.6304 173.311 48.8851 174.036 47.1359 174.724 45.3831 175.378 43.6272 176.002 41.8684 176.599 40.107 177.173 38.3432 177.725 36.5772 178.259 34.8092 178.776 33.0394 179.277 31.2679 179.765 29.4948 180.0 28.616840000000025</gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </gml:surfaceMember>
+                </gml:MultiSurface>
+        </georss:where>
+        <eo:productQualityStatus>NOTVERIFIED</eo:productQualityStatus>
+        <DIAS:generalQuality>PASSED</DIAS:generalQuality>
+        <dc:creator>dhus</dc:creator>
+        <DIAS:productConfidentialityLevel>NOT_PROTECTED</DIAS:productConfidentialityLevel>
+        <DIAS:equivalentNumberofScene>1</DIAS:equivalentNumberofScene>
+        <eo:platform>Sentinel3</eo:platform>
+        <dct:audience>All</dct:audience>
+        <DIAS:archiveInstanceReference>ACDC_</DIAS:archiveInstanceReference>
+        <DIAS:productDatapackSize>2.5711084E7</DIAS:productDatapackSize>
+        <published>2019-03-20T12:35:20Z</published>
+        <updated>2019-03-20T12:35:20Z</updated>
+        <dc:format>SAFE</dc:format>
+        <dc:rights>Copernicus Sentinel data 2018 </dc:rights>
+        <eo:acquisitionType>SIMPLE</eo:acquisitionType>
+        <DIAS:processingBaseline>1.0</DIAS:processingBaseline>
+        <DIAS:cycleNumber>3</DIAS:cycleNumber>
+        <DIAS:pduDuration>2360</DIAS:pduDuration>
+        <DIAS:passNumber>444</DIAS:passNumber>
+        <DIAS:passDirection>DESCENDING</DIAS:passDirection>
+        <DIAS:relativeOrbitDirection>DESCENDING</DIAS:relativeOrbitDirection>
+        <DIAS:relativeOrbitNumber>78</DIAS:relativeOrbitNumber>
+        <DIAS:relativePassNumber>156</DIAS:relativePassNumber>
+        <DIAS:relativePassDirection>DESCENDING</DIAS:relativePassDirection>
+        <DIAS:landPercentage>5.0</DIAS:landPercentage>
+        <DIAS:closedSeaPercentage>0.0</DIAS:closedSeaPercentage>
+        <DIAS:continentalIcePercentage>0.0</DIAS:continentalIcePercentage>
+        <DIAS:openSeaPercentage>94.0</DIAS:openSeaPercentage>
+        <DIAS:lrmPercentage>100.0</DIAS:lrmPercentage>
+        <DIAS:sarPercentage>0.0</DIAS:sarPercentage>
+        <DIAS:manualQualityCheckStatus>NOT_CHECKED</DIAS:manualQualityCheckStatus>
+        <DIAS:manualQualityCheckStatusComment>NOT_CHECKED</DIAS:manualQualityCheckStatusComment>
+        <DIAS:referenceProductOnly>true</DIAS:referenceProductOnly>
+        <DIAS:sensingStartDate>2018-05-11T09:18:27Z</DIAS:sensingStartDate>
+        <DIAS:sensingStopDate>2018-05-11T09:57:48Z</DIAS:sensingStopDate>
+        <DIAS:watcherRecordValidity>true</DIAS:watcherRecordValidity>
+        <DIAS:productDeliveryFormat>zip</DIAS:productDeliveryFormat>
+        <DIAS:checksum>44C0B380782ACF4ADECA9E4F595AC926</DIAS:checksum>
+    </entry>
+</feed>
