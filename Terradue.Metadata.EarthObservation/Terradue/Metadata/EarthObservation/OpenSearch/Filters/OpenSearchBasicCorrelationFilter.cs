@@ -543,7 +543,6 @@ namespace Terradue.Metadata.EarthObservation.OpenSearch.Filters.Correlation
                 return wkt;
 
             NetTopologySuite.IO.WKTReader wktReader = new NetTopologySuite.IO.WKTReader();
-            wktReader.RepairRings = true;
             var geometry = wktReader.Read(wkt);
 
             if (!geometry.IsValid)
