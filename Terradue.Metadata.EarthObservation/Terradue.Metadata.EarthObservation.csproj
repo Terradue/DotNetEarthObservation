@@ -13,8 +13,8 @@
     <Version>1.6.5</Version>
     <Authors>Emmanuel Mathot</Authors>
     <Company>Terradue</Company>
-    <RepositoryUrl>https://github.com/Terradue/DotNetOgcOmGml</RepositoryUrl>
-    <PackageTags>OGC;Terradue;Gml</PackageTags>
+    <RepositoryUrl>https://github.com/Terradue/DotNetEarthObservation</RepositoryUrl>
+    <PackageTags>OGC;Terradue;Earth</PackageTags>
     <PackageOutputPath>$(SolutionDir)\build</PackageOutputPath>
     <NoWarn>$(NoWarn);NU1605</NoWarn>
   </PropertyGroup>
