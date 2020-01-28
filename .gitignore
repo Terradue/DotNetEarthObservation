@@ -14,3 +14,4 @@ Terradue.Metadata.EarthObservation.Tests/bin/
 Terradue.Metadata.EarthObservation.Tests/out/*
 .idea
 .vs
+TestResult.xml
