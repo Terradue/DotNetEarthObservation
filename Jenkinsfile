@@ -31,7 +31,7 @@ pipeline {
     stage('Test') {
       steps {
 
-            sh 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Tests/bin/*/net45/*.Tests.dll'
+            sh 'mono packages/nunit.consolerunner/3.10.0/tools/nunit3-console.exe *.Tests/bin/*/net4*/*.Tests.dll'
           }
       }
     stage('Publish') {
