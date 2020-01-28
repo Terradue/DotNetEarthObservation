@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Text.RegularExpressions;
-using GeoAPI.Geometries;
 using NetTopologySuite.Geometries;
 
 namespace Terradue.Metadata.EarthObservation.Helpers
@@ -133,7 +132,7 @@ namespace Terradue.Metadata.EarthObservation.Helpers
             Polygon poly1 = GetPolygonFromBbox(bbox1);
             Polygon poly2 = GetPolygonFromBbox(bbox2);
 
-            IGeometry merge = null;
+            Geometry merge = null;
             if (string.IsNullOrEmpty(bbox1rel) || bbox1rel == "intersects" || bbox1rel == "contains")
             {
                 if (string.IsNullOrEmpty(bbox2rel) || bbox2rel == "intersects")
@@ -167,9 +166,9 @@ namespace Terradue.Metadata.EarthObservation.Helpers
         static string MergeBboxAndGeomFilters(string bbox, string wkt, string bboxrel, string wktrel)
         {
             Polygon poly = GetPolygonFromBbox(bbox);
-            IGeometry geom = GetPolygonFromWkt(wkt);
+            Geometry geom = GetPolygonFromWkt(wkt);
 
-            IGeometry merge = null;
+            Geometry merge = null;
             if (string.IsNullOrEmpty(bboxrel) || bboxrel == "intersects" || bboxrel == "contains")
             {
                 if (string.IsNullOrEmpty(wktrel) || wktrel == "intersects")
@@ -202,10 +201,10 @@ namespace Terradue.Metadata.EarthObservation.Helpers
 
         static string MergeGeomFilters(string wkt1, string wkt2, string wkt1rel, string wkt2rel)
         {
-            IGeometry geom1 = GetPolygonFromWkt(wkt1);
-            IGeometry geom2 = GetPolygonFromWkt(wkt2);
+            Geometry geom1 = GetPolygonFromWkt(wkt1);
+            Geometry geom2 = GetPolygonFromWkt(wkt2);
 
-            IGeometry merge = null;
+            Geometry merge = null;
             if (string.IsNullOrEmpty(wkt1rel) || wkt1rel == "intersects" || wkt1rel == "contains")
             {
                 if (string.IsNullOrEmpty(wkt2rel) || wkt2rel == "intersects")
@@ -263,7 +262,7 @@ namespace Terradue.Metadata.EarthObservation.Helpers
             }
         }
 
-        static IGeometry GetPolygonFromWkt(string wkt)
+        static Geometry GetPolygonFromWkt(string wkt)
         {
             NetTopologySuite.IO.WKTReader reader = new NetTopologySuite.IO.WKTReader();
             return reader.Read(wkt);
@@ -271,7 +270,7 @@ namespace Terradue.Metadata.EarthObservation.Helpers
 
         public static Coordinate GetCoordinate(string x, string y, string z = null)
         {
-            return new Coordinate(double.Parse(x),
+            return new CoordinateZ(double.Parse(x),
                            double.Parse(y),
                            string.IsNullOrEmpty(z) ? 0 : double.Parse(z));
         }

@@ -1,7 +1,4 @@
 using System;
-using ProjNet.CoordinateSystems;
-using ProjNet.CoordinateSystems.Transformations;
-using GeoAPI.CoordinateSystems.Transformations;
 
 namespace Terradue.Metadata.EarthObservation {
 

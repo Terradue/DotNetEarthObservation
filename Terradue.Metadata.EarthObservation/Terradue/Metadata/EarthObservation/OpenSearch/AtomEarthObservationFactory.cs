@@ -3,11 +3,11 @@ using Terradue.OpenSearch.Result;
 using Terradue.ServiceModel.Syndication;
 using System.Xml.Serialization;
 using Terradue.ServiceModel.Ogc;
-using Terradue.GeoJson.GeoRss;
 using Terradue.ServiceModel.Ogc.Owc.AtomEncoding;
 using Terradue.Metadata.EarthObservation.Helpers;
 using Terradue.Metadata.EarthObservation.Ogc.Extensions;
 using System.Linq;
+using Terradue.ServiceModel.Ogc.GeoRss.GeoRss;
 
 namespace Terradue.Metadata.EarthObservation.OpenSearch
 {

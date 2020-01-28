@@ -7,9 +7,13 @@ using System.Collections.Generic;
 using Terradue.GeoJson.Geometry;
 using System.Configuration;
 using Terradue.Metadata.EarthObservation.OpenSearch.Extensions;
+using NetTopologySuite.Geometries;
+using System.Text;
 
-namespace Terradue.Metadata.EarthObservation.Helpers {
-    public class SpatialHelper {
+namespace Terradue.Metadata.EarthObservation.Helpers
+{
+    public class SpatialHelper
+    {
 
         private static log4net.ILog log = log4net.LogManager.GetLogger
             (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -17,7 +21,8 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
 
         NetTopologySuite.Geometries.GeometryCollection landMask;
 
-        public SpatialHelper (){
+        public SpatialHelper()
+        {
 
             NetTopologySuite.Geometries.GeometryFactory gfactory = new NetTopologySuite.Geometries.GeometryFactory();
             var landMaskConfig = System.Environment.GetEnvironmentVariable("EO_LANDMASK_DIRPATH");
@@ -29,29 +34,28 @@ namespace Terradue.Metadata.EarthObservation.Helpers {
 
             log.DebugFormat("Opening land mask at {0}", landMaskPath);
 
-            NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader;
+            List<Geometry> geoms = new List<Geometry>();
 
             try
             {
-                landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader(landMaskPath, gfactory);
+                NetTopologySuite.IO.ShapefileDataReader landMaskShapeFileDataReader = new NetTopologySuite.IO.ShapefileDataReader(landMaskPath, gfactory, Encoding.Default);
+                while (landMaskShapeFileDataReader.Read())
+                {
+                    geoms.Add(landMaskShapeFileDataReader.Geometry);
+                }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 log.ErrorFormat("Error loading land mask at {0} : {1}", landMaskPath, e.Message);
                 log.Debug(e.StackTrace);
                 throw e;
             }
 
-            List<GeoAPI.Geometries.IGeometry> geoms = new List<GeoAPI.Geometries.IGeometry>();
-
-            while (landMaskShapeFileDataReader.Read()) {
-                geoms.Add(landMaskShapeFileDataReader.Geometry);
-            }
-
             landMask = new NetTopologySuite.Geometries.GeometryCollection(geoms.ToArray());
         }
 
-        public double CalculateLandCover(IOpenSearchResultItem item) {
+        public double CalculateLandCover(IOpenSearchResultItem item)
+        {
 
             var itemGeom = item.FindGeometry();
 
