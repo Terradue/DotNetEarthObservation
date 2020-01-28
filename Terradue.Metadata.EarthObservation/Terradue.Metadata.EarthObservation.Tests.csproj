@@ -10,11 +10,12 @@
         <IsPackable>false</IsPackable>
         <RestorePackagesPath>$(SolutionDir)\packages</RestorePackagesPath>
         <AssetTargetFallback>$(AssetTargetFallback);portable-net45+net45;</AssetTargetFallback>
-        <NoWarn>$(NoWarn);NU1605</NoWarn>
+        <NoWarn>$(NoWarn);NU1605;NU1701</NoWarn>
     </PropertyGroup>
     <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
         <Reference Include="System"/>
         <Reference Include="System.Xml"/>
+        <Reference Include="System.Web.Ui"/>
         <Reference Include="System.Runtime.Serialization"/>
         <Reference Include="System.Core"/>
     </ItemGroup>

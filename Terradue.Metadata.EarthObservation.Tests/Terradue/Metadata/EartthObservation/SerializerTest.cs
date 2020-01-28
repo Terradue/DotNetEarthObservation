@@ -5,13 +5,16 @@ using Terradue.ServiceModel.Ogc;
 using System.Xml;
 using Terradue.OpenSearch.Result;
 
-namespace Terradue.Metadata.EarthObservation.Test {
+namespace Terradue.Metadata.EarthObservation.Test
+{
 
     [TestFixture]
-    public class SerializerTest {
+    public class SerializerTest
+    {
 
         [TestCase]
-        public void DeserializeSar(){
+        public void DeserializeSar()
+        {
 
             FileInfo s1 = new FileInfo(Util.TestBaseDir + "/Samples/S1-20120407T205500910-20120407T211433040_A_T-XG0B.atom");
 
@@ -19,7 +22,7 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
             Assert.AreEqual("S1A", sarEo.procedure.Eop21EarthObservationEquipment.platform.Platform.shortName);
 
-			Assert.AreEqual(Terradue.ServiceModel.Ogc.Eop21.OrbitDirectionValueType.DESCENDING, ((Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType)sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition).orbitDirection);
+            Assert.AreEqual(Terradue.ServiceModel.Ogc.Eop21.OrbitDirectionValueType.DESCENDING, ((Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType)sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition).orbitDirection);
 
             Assert.AreEqual("S", ((Terradue.ServiceModel.Ogc.Sar21.SarAcquisitionType)sarEo.procedure.Eop21EarthObservationEquipment.acquisitionParameters.Acquisition).polarisationMode);
 
@@ -28,7 +31,8 @@ namespace Terradue.Metadata.EarthObservation.Test {
         }
 
         [TestCase]
-        public void DeserializeOpt(){
+        public void DeserializeOpt()
+        {
 
             FileInfo s2 = new FileInfo(Util.TestBaseDir + "/Samples/opt21.xml");
 
@@ -41,7 +45,8 @@ namespace Terradue.Metadata.EarthObservation.Test {
         }
 
         [TestCase]
-        public void DeserializeEOS2(){
+        public void DeserializeEOS2()
+        {
 
             FileInfo s2 = new FileInfo(Util.TestBaseDir + "/Samples/eos2.xml");
 
@@ -54,7 +59,8 @@ namespace Terradue.Metadata.EarthObservation.Test {
         }
 
         [TestCase]
-        public void DeserializeEOS2T(){
+        public void DeserializeEOS2T()
+        {
 
             FileInfo s2 = new FileInfo(Util.TestBaseDir + "/Samples/S2MSI1CT.xml");
 
@@ -66,25 +72,24 @@ namespace Terradue.Metadata.EarthObservation.Test {
 
         }
 
-		[TestCase]
-		public void DeserializeAtom()
-		{
+        [TestCase]
+        public void DeserializeAtom()
+        {
 
-			FileStream s1 = new FileStream(Util.TestBaseDir + "/Samples/S1_SAR_EW.atom", FileMode.Open, FileAccess.Read);
+            FileStream s1 = new FileStream(Util.TestBaseDir + "/Samples/S1_SAR_EW.atom", FileMode.Open, FileAccess.Read);
 
-			var atom = AtomFeed.Load(XmlReader.Create(s1));
+            var atom = AtomFeed.Load(XmlReader.Create(s1));
 
-			s1.Close();
-
-
-			FileStream s2 = new FileStream(Util.TestBaseDir + "/Samples/S2MSI1C.atom", FileMode.Open, FileAccess.Read);
-
-			atom = AtomFeed.Load(XmlReader.Create(s2));
-
-			s2.Close();
+            s1.Close();
 
 
-		}
+            FileStream s2 = new FileStream(Util.TestBaseDir + "/Samples/S2MSI1C.atom", FileMode.Open, FileAccess.Read);
+
+            atom = AtomFeed.Load(XmlReader.Create(s2));
+
+            s2.Close();
+
+        }
 
     }
 }

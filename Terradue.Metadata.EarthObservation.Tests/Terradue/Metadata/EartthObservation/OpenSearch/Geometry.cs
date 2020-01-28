@@ -121,6 +121,26 @@ namespace Terradue.Metadata.EarthObservation.Test
 
         }
 
+
+        [Test()]
+        public void FindFromNewMundi()
+        {
+
+            XmlReader responseReader = XmlReader.Create(new FileStream(Util.TestBaseDir + "/Samples/gml_new_record_example.xml", FileMode.Open, FileAccess.Read));
+            SyndicationFeed feed = SyndicationFeed.Load(responseReader);
+
+            AtomFeed afeed = new AtomFeed(feed);
+
+            foreach (var item in afeed.Items)
+            {
+
+                var geometry = item.FindGeometry();
+
+                Assert.That(geometry is MultiPolygon);
+            }
+
+        }
+
     }
 }
 
