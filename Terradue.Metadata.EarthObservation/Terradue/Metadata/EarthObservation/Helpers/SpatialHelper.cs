@@ -65,7 +65,11 @@ namespace Terradue.Metadata.EarthObservation.Helpers
             if (itemGeometry.Area <= 0)
                 return 0;
 
-            var intersectionGeometryArea = landMask.Geometries.Sum(g => itemGeometry.Intersection(g).Area);
+            var intersectionGeometryArea = landMask.Geometries.Sum(land => {
+                if ( land.Intersects(itemGeometry)  )
+                    return itemGeometry.Intersection(land).Area;
+                return 0;
+            });
 
             return (intersectionGeometryArea / itemGeometry.Area) * 100;
 
