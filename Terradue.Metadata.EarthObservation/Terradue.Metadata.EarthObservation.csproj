@@ -31,7 +31,7 @@
     <Content Include="$(SolutionDir)\LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Terradue.OpenSearch" Version="1.17.3"/>
+    <PackageReference Include="Terradue.OpenSearch" Version="1.17.4"/>
     <PackageReference Include="Terradue.ServiceModel.Syndication" Version="1.1.1"/>
     <PackageReference Include="Terradue.ServiceModel.Ogc" Version="2.2.0"/>
     <PackageReference Include="Terradue.GeoJson" Version="1.12.0"/>
